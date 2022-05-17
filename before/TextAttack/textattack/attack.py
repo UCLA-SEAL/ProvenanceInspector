@@ -23,6 +23,7 @@ from textattack.models.wrappers import ModelWrapper
 from textattack.search_methods import SearchMethod
 from textattack.shared import AttackedText, utils
 from textattack.transformations import CompositeTransformation, Transformation
+from textattack.loggers import ProvenanceLogger
 
 
 class Attack:

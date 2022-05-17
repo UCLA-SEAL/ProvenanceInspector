@@ -7,6 +7,7 @@ Transformation Abstract Class
 from abc import ABC, abstractmethod
 
 from textattack.shared.utils import default_class_repr
+from textattack.shared.utils import text_word_diff
 
 
 class Transformation(ABC):
@@ -16,6 +17,7 @@ class Transformation(ABC):
     def __call__(
         self,
         current_text,
+        provenance_logger,
         pre_transformation_constraints=[],
         indices_to_modify=None,
         shifted_idxs=False,
@@ -50,6 +52,8 @@ class Transformation(ABC):
         transformed_texts = self._get_transformations(current_text, indices_to_modify)
         for text in transformed_texts:
             text.attack_attrs["last_transformation"] = self
+            modified_inds = text_word_diff(current_text, text, indices_to_modify)
+            provenance_logger.log_transformation(self, current_text, text, self, modified_inds)
         return transformed_texts
 
     @abstractmethod

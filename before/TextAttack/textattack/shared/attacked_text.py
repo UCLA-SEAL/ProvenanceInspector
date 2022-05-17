@@ -42,7 +42,7 @@ class AttackedText:
 
     SPLIT_TOKEN = "<SPLIT>"
 
-    def __init__(self, logger, text_input, attack_attrs=None):
+    def __init__(self, text_input, attack_attrs=None):
         # Read in ``text_input`` as a string or OrderedDict.
         if isinstance(text_input, str):
             self._text_input = OrderedDict([("text", text_input)])

@@ -1,24 +1,24 @@
 import numpy as np
-from textattack.shared import AttackedText
+from textattack.shared.attacked_text import AttackedText
 
 def text_word_diff(src_text, transformed_text, indices_to_modify):
     src_idx_modified = src_text.attack_attrs["modified_indices"]
     transformed_idx_modified = transformed_text.attack_attrs["modified_indices"]
 
     indices_unchanged = []
-    for i in range(len(src_text)):
+    for i in range(len(src_text.words)):
         if i not in indices_to_modify:
             indices_unchanged.append(i)
     
     if len(indices_unchanged) == 0:
         return (indices_to_modify, np.arange(len(transformed_text.words)))
 
-    unchanged_sequence = src_text.words[indices_unchanged]
+    unchanged_sequence = np.array(src_text.words)[indices_unchanged]
     
     idx = 0
     modified_inds = []
     for i in range(len(transformed_text.words)):
-        if unchanged_sequence[idx] == transformed_text.words[i]:
+        if idx < len(unchanged_sequence) and unchanged_sequence[idx] == transformed_text.words[i]:
             idx += 1
         else:
             modified_inds.append(i)

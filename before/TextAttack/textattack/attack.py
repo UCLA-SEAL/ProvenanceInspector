@@ -158,6 +158,8 @@ class Attack:
 
         self.search_method.filter_transformations = self.filter_transformations
 
+        self.provenance_logger = ProvenanceLogger(filename='./results/transformations.csv')
+
     def clear_cache(self, recursive=True):
         self.constraints_cache.clear()
         if self.use_transformation_cache:
@@ -246,6 +248,7 @@ class Attack:
         """
         transformed_texts = self.transformation(
             current_text,
+            self.provenance_logger,
             pre_transformation_constraints=self.pre_transformation_constraints,
             **kwargs,
         )

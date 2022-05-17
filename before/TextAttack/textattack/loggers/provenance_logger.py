@@ -37,7 +37,7 @@ class ProvenanceLogger(Logger):
         self._flushed = False
 
     def flush(self):
-        self.df.to_csv(self.filename, quoting=csv.QUOTE_NONNUMERIC, index=False)
+        self.df.to_csv(self.filename, mode='a', quoting=csv.QUOTE_NONNUMERIC, index=False, header=False)
         self._flushed = True
 
     def close(self):

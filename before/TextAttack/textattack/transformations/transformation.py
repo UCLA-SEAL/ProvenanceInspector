@@ -53,7 +53,8 @@ class Transformation(ABC):
         for text in transformed_texts:
             text.attack_attrs["last_transformation"] = self
             modified_inds = text_word_diff(current_text, text, indices_to_modify)
-            provenance_logger.log_transformation(self, current_text, text, self, modified_inds)
+            provenance_logger.log_transformation(current_text, text, self, modified_inds)
+        provenance_logger.flush()
         return transformed_texts
 
     @abstractmethod

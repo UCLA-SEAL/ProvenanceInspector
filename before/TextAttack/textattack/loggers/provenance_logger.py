@@ -8,6 +8,7 @@ import csv
 import pandas as pd
 
 from textattack.shared import AttackedText, logger
+import json
 
 from .logger import Logger
 
@@ -26,12 +27,13 @@ class ProvenanceLogger(Logger):
         transformation_meta = transformation.__dict__
         from_inds, to_inds = modified_inds_tuple
         row = {
+            "hash_key": str(hash(transformation)) + str(hash(transformed_text)),
             "transformation_type": transformation_type,
-            "transformation_meta": transformation_meta,
-            "original_text": original_text,
-            "transformed_text": transformed_text,
-            "from_modified_indices": from_inds,
-            "to_modified_indices": to_inds
+            "transformation_meta": str(transformation_meta),
+            "original_text": original_text.printable_text(),
+            "transformed_text": transformed_text.printable_text(),
+            "from_modified_indices": list(from_inds),
+            "to_modified_indices": list(to_inds)
         }
         self.df = self.df.append(row, ignore_index=True)
         self._flushed = False

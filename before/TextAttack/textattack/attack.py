@@ -23,7 +23,6 @@ from textattack.models.wrappers import ModelWrapper
 from textattack.search_methods import SearchMethod
 from textattack.shared import AttackedText, utils
 from textattack.transformations import CompositeTransformation, Transformation
-from textattack.loggers import ProvenanceLogger
 
 
 class Attack:
@@ -158,7 +157,6 @@ class Attack:
 
         self.search_method.filter_transformations = self.filter_transformations
 
-        self.provenance_logger = ProvenanceLogger(filename='./results/transformations.csv')
 
     def clear_cache(self, recursive=True):
         self.constraints_cache.clear()
@@ -248,7 +246,6 @@ class Attack:
         """
         transformed_texts = self.transformation(
             current_text,
-            self.provenance_logger,
             pre_transformation_constraints=self.pre_transformation_constraints,
             **kwargs,
         )

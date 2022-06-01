@@ -7,17 +7,17 @@ Transformation Abstract Class
 from abc import ABC, abstractmethod
 
 from textattack.shared.utils import default_class_repr
-from textattack.shared.utils import text_word_diff
+from textattack.loggers import ProvenanceLogger
 
 
 class Transformation(ABC):
     """An abstract class for transforming a sequence of text to produce a
     potential adversarial example."""
+    provenance_logger = ProvenanceLogger(filename='./results/transformations.csv')
 
     def __call__(
         self,
         current_text,
-        provenance_logger,
         pre_transformation_constraints=[],
         indices_to_modify=None,
         shifted_idxs=False,
@@ -52,9 +52,9 @@ class Transformation(ABC):
         transformed_texts = self._get_transformations(current_text, indices_to_modify)
         for text in transformed_texts:
             text.attack_attrs["last_transformation"] = self
-            modified_inds = text_word_diff(current_text, text, indices_to_modify)
-            provenance_logger.log_transformation(current_text, text, self, modified_inds)
-        provenance_logger.flush()
+            
+        self.provenance_logger.log_transformations(current_text, transformed_texts, self, indices_to_modify)
+        self.provenance_logger.flush()
         return transformed_texts
 
     @abstractmethod

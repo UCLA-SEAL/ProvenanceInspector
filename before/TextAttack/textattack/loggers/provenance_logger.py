@@ -37,7 +37,7 @@ class ProvenanceLogger(Logger):
         before_text_hash = hash(current_text)
         after_text_hash = hash(transformed_text)
 
-        if 'last_transformation' in current_text.attack_attrs or before_text_hash not in self.to_original_df.index:
+        if ("src" in current_text.attack_attrs and current_text.attack_attrs["src"]) or before_text_hash not in self.to_original_df.index:
             original_text_hash = before_text_hash
             original_text = current_text.printable_text()
         else:

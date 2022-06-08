@@ -1,9 +1,36 @@
 import numpy as np
 from textattack.shared.attacked_text import AttackedText
+import difflib
+from textattack.shared import utils
+
+color_method = "ansi"
+color_prev = "blue"
+color_after = "red"
+
+def color_text_pair(from_text, to_text, from_modified_indices, to_modified_indices):
+    # make lists of colored words
+    words_1 = [from_text.words[i] for i in from_modified_indices]
+    colored_words_1 = [utils.color_text(w, color_prev, color_method) for w in words_1]
+    words_2 = [to_text.words[i] for i in to_modified_indices]
+    colored_words_2 = [utils.color_text(w, color_after, color_method) for w in words_2]
+
+    t1 = from_text.replace_words_at_indices(
+        from_modified_indices, words_1
+    )
+    t2 = to_text.replace_words_at_indices(
+        to_modified_indices, words_2
+    )
+
+    key_color = ("bold", "underline")
+
+    p1 = t1.printable_text(key_color=key_color, key_color_method=color_method)
+    p2 = t2.printable_text(key_color=key_color, key_color_method=color_method)
+    return p1, p2
+
 
 def text_word_diff(src_text, transformed_text, indices_to_modify):
-    src_idx_modified = src_text.attack_attrs["modified_indices"]
-    transformed_idx_modified = transformed_text.attack_attrs["modified_indices"]
+    #src_idx_modified = src_text.attack_attrs["modified_indices"]
+    #transformed_idx_modified = transformed_text.attack_attrs["modified_indices"]
 
     indices_unchanged = []
     for i in range(len(src_text.words)):
@@ -23,7 +50,9 @@ def text_word_diff(src_text, transformed_text, indices_to_modify):
         else:
             modified_inds.append(i)
 
-    return (indices_to_modify, np.array(modified_inds))
+    seq = difflib.SequenceMatcher(None, src_text.words, transformed_text.words)
+
+    return indices_to_modify, np.array(modified_inds),  seq.get_opcodes()
     '''
     lcs = lcs(src_text.words, transformed_text.words) # list of common subseuqence words    
 

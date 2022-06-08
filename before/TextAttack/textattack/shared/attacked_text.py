@@ -17,11 +17,12 @@ import torch
 import textattack
 
 from .utils import device, words_from_text
+from .le_text import LeText
 
 flair.device = device
 
 
-class AttackedText:
+class AttackedText(LeText):
 
     """A helper class that represents a string that can be attacked.
 

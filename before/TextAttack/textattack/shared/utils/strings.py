@@ -4,6 +4,7 @@ import jieba
 import pycld2 as cld2
 
 from .importing import LazyLoader
+from ..le_token import LeToken
 
 
 def has_letter(word):

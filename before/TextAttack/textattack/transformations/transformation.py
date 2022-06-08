@@ -1,3 +1,4 @@
+
 """
 Transformation Abstract Class
 ============================================
@@ -13,7 +14,7 @@ from textattack.loggers import ProvenanceLogger
 class Transformation(ABC):
     """An abstract class for transforming a sequence of text to produce a
     potential adversarial example."""
-    provenance_logger = ProvenanceLogger(dirname='./results/')
+    provenance_logger = ProvenanceLogger(dirname='../results/')
 
     def __call__(
         self,

@@ -5,7 +5,6 @@ Misc Loggers: Loggers track, visualize, and export attack results.
 """
 
 from .csv_logger import CSVLogger
-from .provenance_logger import ProvenanceLogger
 from .file_logger import FileLogger
 from .logger import Logger
 from .visdom_logger import VisdomLogger

@@ -1,6 +1,8 @@
 import numpy as np
 import nltk
 import difflib
+from .utils.text import diff_text
+import itertools
 
 class LeText:
     """
@@ -20,11 +22,15 @@ class LeText:
        le_attrs (dict): Dictionary of various attributes stored while 
             transforming the underlying text. 
     """
+    id_iter = itertools.count()
+    sent_tokenizer = nltk.tokenize.punkt.PunktSentenceTokenizer()
 
     def __init__(self, text_input, granularity="word", le_attrs=None):
+        self._id = None
+
         # Read in ``text_input`` as a string .
         if isinstance(text_input, str):
-            self._text_input = {"text": text_input}
+            self._text= text_input
         else:
             raise TypeError(
                 f"Invalid text_input type {type(text_input)} (required str)"
@@ -50,9 +56,6 @@ class LeText:
             self.le_attrs = le_attrs
         else:
             raise TypeError(f"Invalid type for le_attrs: {type(le_attrs)}")
-
-        # parsers
-        self.sent_tokenizer = nltk.tokenize.punkt.PunktSentenceTokenizer()
 
         # Lineage Attributes
         self.le_attrs.setdefault("granularity", self.granularity)
@@ -129,6 +132,13 @@ class LeText:
         return list(self._text_input.keys())
 
     @property
+    def id(self):
+        if not self._id:
+            self._id = next(LeText.id_iter)
+
+        return self._id
+
+    @property
     def chars(self):
         if not self._chars:
             self._chars = list(self.text)
@@ -190,7 +200,11 @@ class LeText:
 
         Multiply inputs are joined with a line break.
         """
-        return "\n".join(self._text_input.values())
+        return self._text
+
+    def __str__(self):
+        return self.text
 
     def __repr__(self):
-        return f'<LeText "{self.text}">'
+        class_name = self.__class__.__name__
+        return f'<{class_name} "{self.text}": le_attrs={self.le_attrs}>'

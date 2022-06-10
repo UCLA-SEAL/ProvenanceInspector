@@ -7,14 +7,15 @@ A helper class that represents a string that can be attacked.
 """
 
 from collections import OrderedDict
+from lib2to3.pgen2 import token
 import math
 
 import flair
 from flair.data import Sentence
 import numpy as np
+from textattack.shared.le_record import LeRecord
 import torch
 
-import textattack
 
 from .utils import device, words_from_text
 from .le_text import LeText
@@ -22,11 +23,13 @@ from .le_token import LeToken
 import sys
 import inspect
 
+import textattack
+
 flair.device = device
 
 
 
-class AttackedText(LeText):
+class AttackedText(LeRecord):
 
     """A helper class that represents a string that can be attacked.
 
@@ -45,9 +48,9 @@ class AttackedText(LeText):
            during the course of an attack.
     """
 
-    SPLIT_TOKEN = "<SPLIT>"
-
     def __init__(self, text_input, attack_attrs=None):
+        super().__init__(text_input)
+
         # Read in ``text_input`` as a string or OrderedDict.
         if isinstance(text_input, str):
             self._text_input = OrderedDict([("text", text_input)])
@@ -62,8 +65,7 @@ class AttackedText(LeText):
         self._words_per_input = None
         self._pos_tags = None
         self._ner_tags = None
-        self._tokens = None
-        self._token_word_inds = None
+
         # Format text inputs.
         self._text_input = OrderedDict([(k, v) for k, v in self._text_input.items()])
         if attack_attrs is None:
@@ -420,9 +422,6 @@ class AttackedText(LeText):
         ].copy()
         new_i = 0
 
-        new_tokens = []
-        new_token_inds = []
-
         # Create the new attacked text by swapping out words from the original
         # text with a sequence of 0+ words in the new text.
         for i, (input_word, adv_word_seq) in enumerate(zip(self.words, new_words)):
@@ -434,19 +433,6 @@ class AttackedText(LeText):
             adv_num_words = len(adv_words)
             num_words_diff = adv_num_words - len(words_from_text(input_word))
 
-            cur_word_token_id = self.token_word_inds[i]
-            if i >= 1:
-                prev_word_token_id = self.token_word_inds[i-1]
-                new_tokens += self.tokens[prev_word_token_id + 1: cur_word_token_id]
-            
-            cur_input_token = self.tokens[cur_word_token_id]
-
-            if num_words_diff < 0:
-                operation = 'del'
-            elif num_words_diff > 0:
-                operation = 'insert'
-            else:
-                operation = 'replace'
             # Track indices on insertions and deletions.
             if num_words_diff != 0:
                 # Re-calculated modified indices. If words are inserted or deleted,
@@ -466,7 +452,6 @@ class AttackedText(LeText):
                 if num_words_diff == -1:
                     # Word deletion at i
                     new_idx_map[new_idx_map == i] = -1
-                    cur_input_token.get_le_attr('ops', default=[]).append('del')
                 new_idx_map[new_idx_map > i] += num_words_diff
 
                 if num_words_diff > 0 and input_word != adv_words[0]:
@@ -489,37 +474,23 @@ class AttackedText(LeText):
                     # If the first word was deleted, take a subsequent space.
                     if original_text[0] == " ":
                         original_text = original_text[1:]
-                        self.tokens[cur_word_token_id + 1] = self.tokens[cur_word_token_id + 1][1:]
                 else:
                     # If a word other than the first was deleted, take a preceding space.
                     if perturbed_text[-1] == " ":
                         perturbed_text = perturbed_text[:-1]
-                        self.tokens[cur_word_token_id - 1] = self.tokens[cur_word_token_id - 1][:-1]
             # Add substitute word(s) to new sentence.
             perturbed_text += adv_word_seq
-            for adv_word in adv_word_seq:
-                if cur_input_token.text != adv_word:
-                    new_input_token = LeText(adv_word, le_attrs={'is_word': True, 'ops': [operation]})
-                else:
-                    new_input_token = cur_input_token
-
-                new_token_inds.append(len(new_tokens))
-                new_tokens.append(new_input_token)
 
         perturbed_text += original_text  # Add all of the ending punctuation. -- rest of unprocessed text
-        last_word_token_id = self.token_word_inds[-1]
-        new_tokens += self.tokens[last_word_token_id + 1:]
+
         # Reform perturbed_text into an OrderedDict.
         perturbed_input_texts = perturbed_text.split(AttackedText.SPLIT_TOKEN)
         perturbed_input = OrderedDict(
             zip(self._text_input.keys(), perturbed_input_texts)
         )
 
-        new_attack_attrs["src"] = False
-
         new_text = AttackedText(perturbed_input, attack_attrs=new_attack_attrs)
-        new_text._tokens = new_tokens
-        new_text._token_word_inds = new_token_inds
+
         return new_text
 
     def words_diff_ratio(self, x):
@@ -599,35 +570,6 @@ class AttackedText(LeText):
             self._words = words_from_text(self.text)
         return self._words
 
-
-    @property
-    def token_word_inds(self):
-        if not self._token_word_inds:
-            self.tokens
-
-        return self._token_word_inds
-
-    @property
-    def tokens(self):
-        if not self._tokens:
-            self._tokens = []
-            self._token_word_inds = []
-            cur_text = AttackedText.SPLIT_TOKEN.join(self._text_input.values())
-            for word in self.words:
-                word_start = cur_text.index(word)
-                word_end = word_start + len(word)
-                self._tokens.append(LeToken(cur_text[:word_start], le_attrs={'is_word': False})) # non-word token
-                
-                self._token_word_inds.append(len(self._tokens))
-                self._tokens.append(LeToken(word, le_attrs={'is_word': True})) # word token
-                
-                cur_text = cur_text[word_end:] # unprocessed text
-
-            if cur_text:
-                self._tokens.append(LeToken(cur_text, le_attrs={'is_word': False}))
-            self.attack_attrs["src"] = True
-
-        return self._tokens
  
     @property
     def text(self):

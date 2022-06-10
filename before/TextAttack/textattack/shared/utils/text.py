@@ -1,7 +1,8 @@
+from lib2to3.pgen2 import token
 import numpy as np
-from textattack.shared.attacked_text import AttackedText
 import difflib
 from textattack.shared import utils
+import nltk
 
 color_method = "ansi"
 color_prev = "blue"
@@ -26,6 +27,47 @@ def color_text_pair(from_text, to_text, from_modified_indices, to_modified_indic
     p1 = t1.printable_text(key_color=key_color, key_color_method=color_method)
     p2 = t2.printable_text(key_color=key_color, key_color_method=color_method)
     return p1, p2
+
+
+def diff_text(a, b, granularity="word", tokenizer=None): 
+    """
+    Intakes two text documents and optionally parses then for a desired
+    granularity in ['paragraph', 'sentence', 'word', 'character'].
+
+    Returns a the optionally parsed documents as well as a list of 
+    difflib.SequenceMatcher.opcodes where tags reflect the type of 
+    opertion and the indices reflect the desired granularities.
+
+    opcode tags
+      - 'replace' | a[i1:i2] should be replaced by b[j1:j2].
+      - 'delete'  | a[i1:i2] should be deleted. 
+      - 'insert'  | b[j1:j2] should be inserted at a[i1:i1]. 
+      - 'equal'   | a[i1:i2] == b[j1:j2] (the sub-sequences are equal).
+    """
+
+    if tokenizer:
+        parsed_a = tokenizer(a)
+        parsed_b = tokenizer(b)
+    else:
+        # parse texts to desired granularity
+        if granularity == "paragraph":
+            parsed_a = a.split('\n')
+            parsed_b = b.split('\n')
+        elif granularity == "sentence":
+            sent_tokenizer = nltk.tokenize.punkt.PunktSentenceTokenizer()
+            parsed_a = sent_tokenizer.tokenize(a)
+            parsed_b = sent_tokenizer.tokenize(b)
+        elif granularity == "word":
+            parsed_a = a.split()
+            parsed_b = b.split()
+        elif granularity == "character":
+            # no change necessary, difflib is character-level by default
+            parsed_a = a
+            parsed_b = b
+
+    seq = difflib.SequenceMatcher(None, parsed_a, parsed_b)
+
+    return parsed_a, parsed_b, seq.get_opcodes()
 
 
 def text_word_diff(src_text, transformed_text, indices_to_modify):
@@ -127,7 +169,7 @@ def lcs(X, Y):
     lcs = lcs[::-1]
     return lcs
 
-def is_subseq(s: AttackedText, t: AttackedText) -> bool:
+def is_subseq(s, t) -> bool:
     LEFT_BOUND, RIGHT_BOUND = len(s), len(t)
 
     def rec_is_subseq(left_index, right_index):

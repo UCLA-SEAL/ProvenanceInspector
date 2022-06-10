@@ -1,3 +1,12 @@
+# results_dir
+before/TextAttack/*.swp
+before/TextAttack/checkpoints/
+before/TextAttack/examples/augmentation/augment.csv
+before/TextAttack/examples/augmentation/examples.csv
+before/le_results_sst2/
+before/results/*
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

@@ -7,29 +7,21 @@ A helper class that represents a string that can be attacked.
 """
 
 from collections import OrderedDict
-from lib2to3.pgen2 import token
 import math
 
 import flair
 from flair.data import Sentence
 import numpy as np
-from textattack.shared.le_record import LeRecord
 import torch
 
+import textattack
 
 from .utils import device, words_from_text
-from .le_text import LeText
-from .le_token import LeToken
-import sys
-import inspect
-
-import textattack
 
 flair.device = device
 
 
-
-class AttackedText(LeRecord):
+class AttackedText:
 
     """A helper class that represents a string that can be attacked.
 
@@ -48,9 +40,9 @@ class AttackedText(LeRecord):
            during the course of an attack.
     """
 
-    def __init__(self, text_input, attack_attrs=None):
-        super().__init__(text_input)
+    SPLIT_TOKEN = "<SPLIT>"
 
+    def __init__(self, text_input, attack_attrs=None):
         # Read in ``text_input`` as a string or OrderedDict.
         if isinstance(text_input, str):
             self._text_input = OrderedDict([("text", text_input)])
@@ -65,7 +57,6 @@ class AttackedText(LeRecord):
         self._words_per_input = None
         self._pos_tags = None
         self._ner_tags = None
-
         # Format text inputs.
         self._text_input = OrderedDict([(k, v) for k, v in self._text_input.items()])
         if attack_attrs is None:
@@ -147,7 +138,8 @@ class AttackedText(LeRecord):
         """
         if not self._pos_tags:
             sentence = Sentence(
-                self.text, use_tokenizer=textattack.shared.utils.words_from_text
+                self.text,
+                use_tokenizer=textattack.shared.utils.TextAttackFlairTokenizer(),
             )
             textattack.shared.utils.flair_tag(sentence)
             self._pos_tags = sentence
@@ -177,7 +169,8 @@ class AttackedText(LeRecord):
         """
         if not self._ner_tags:
             sentence = Sentence(
-                self.text, use_tokenizer=textattack.shared.utils.words_from_text
+                self.text,
+                use_tokenizer=textattack.shared.utils.TextAttackFlairTokenizer(),
             )
             textattack.shared.utils.flair_tag(sentence, model_name)
             self._ner_tags = sentence
@@ -358,9 +351,6 @@ class AttackedText(LeRecord):
             raise TypeError(
                 f"replace_word_at_index requires ``str`` new_word, got {type(new_word)}"
             )
-        #caller_frame = sys._getframe(1)
-        #module = inspect.getmodule(caller_frame).__name__
-        #print("Caller is in module {module}".format(module=module))
         return self.replace_words_at_indices([index], [new_word])
 
     def delete_word_at_index(self, index):
@@ -421,18 +411,16 @@ class AttackedText(LeRecord):
             "original_index_map"
         ].copy()
         new_i = 0
-
         # Create the new attacked text by swapping out words from the original
         # text with a sequence of 0+ words in the new text.
         for i, (input_word, adv_word_seq) in enumerate(zip(self.words, new_words)):
             word_start = original_text.index(input_word)
             word_end = word_start + len(input_word)
-            perturbed_text += original_text[:word_start] # processed text / move cursor to word_start
-            original_text = original_text[word_end:] # unprocessed text
+            perturbed_text += original_text[:word_start]
+            original_text = original_text[word_end:]
             adv_words = words_from_text(adv_word_seq)
             adv_num_words = len(adv_words)
             num_words_diff = adv_num_words - len(words_from_text(input_word))
-
             # Track indices on insertions and deletions.
             if num_words_diff != 0:
                 # Re-calculated modified indices. If words are inserted or deleted,
@@ -450,7 +438,7 @@ class AttackedText(LeRecord):
                 # original_modification_idx = i
                 new_idx_map = new_attack_attrs["original_index_map"].copy()
                 if num_words_diff == -1:
-                    # Word deletion at i
+                    # Word deletion
                     new_idx_map[new_idx_map == i] = -1
                 new_idx_map[new_idx_map > i] += num_words_diff
 
@@ -459,7 +447,7 @@ class AttackedText(LeRecord):
                     new_idx_map[new_idx_map == i] += num_words_diff
 
                 new_attack_attrs["original_index_map"] = new_idx_map
-            # Move pointer and save indices of new modified words. --> insertion
+            # Move pointer and save indices of new modified words.
             for j in range(i, i + adv_num_words):
                 if input_word != adv_word_seq:
                     new_attack_attrs["modified_indices"].add(new_i)
@@ -480,18 +468,17 @@ class AttackedText(LeRecord):
                         perturbed_text = perturbed_text[:-1]
             # Add substitute word(s) to new sentence.
             perturbed_text += adv_word_seq
+        perturbed_text += original_text  # Add all of the ending punctuation.
 
-        perturbed_text += original_text  # Add all of the ending punctuation. -- rest of unprocessed text
+        # Add pointer to self so chain of replacements can be reconstructed.
+        new_attack_attrs["prev_attacked_text"] = self
 
         # Reform perturbed_text into an OrderedDict.
         perturbed_input_texts = perturbed_text.split(AttackedText.SPLIT_TOKEN)
         perturbed_input = OrderedDict(
             zip(self._text_input.keys(), perturbed_input_texts)
         )
-
-        new_text = AttackedText(perturbed_input, attack_attrs=new_attack_attrs)
-
-        return new_text
+        return AttackedText(perturbed_input, attack_attrs=new_attack_attrs)
 
     def words_diff_ratio(self, x):
         """Get the ratio of words difference between current text and `x`.
@@ -570,7 +557,6 @@ class AttackedText(LeRecord):
             self._words = words_from_text(self.text)
         return self._words
 
- 
     @property
     def text(self):
         """Represents full text input.

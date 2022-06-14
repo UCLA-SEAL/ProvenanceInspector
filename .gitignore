@@ -5,7 +5,12 @@ before/TextAttack/examples/augmentation/augment.csv
 before/TextAttack/examples/augmentation/examples.csv
 before/le_results_sst2/
 before/results/*
-
+after/TextAttack/*.swp
+after/TextAttack/checkpoints/
+after/TextAttack/examples/augmentation/augment.csv
+after/TextAttack/examples/augmentation/examples.csv
+after/le_results_sst2/
+after/results/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

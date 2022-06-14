@@ -1,20 +1,16 @@
-from lib2to3.pgen2 import token
+import re
 import string
 
+import flair
 import jieba
 import pycld2 as cld2
 
 from .importing import LazyLoader
-from ..le_token import LeToken
 
 
 def has_letter(word):
     """Returns true if `word` contains at least one character in [A-Za-z]."""
-    # TODO implement w regex
-    for c in word:
-        if c.isalpha():
-            return True
-    return False
+    return re.search("[A-Za-z]+", word) is not None
 
 
 def is_one_word(word):
@@ -34,54 +30,8 @@ def add_indent(s_, numSpaces):
 
 
 def words_from_text(s, words_to_ignore=[]):
-    homos = set(
-        [
-            "˗",
-            "৭",
-            "Ȣ",
-            "𝟕",
-            "б",
-            "Ƽ",
-            "Ꮞ",
-            "Ʒ",
-            "ᒿ",
-            "l",
-            "O",
-            "`",
-            "ɑ",
-            "Ь",
-            "ϲ",
-            "ԁ",
-            "е",
-            "𝚏",
-            "ɡ",
-            "հ",
-            "і",
-            "ϳ",
-            "𝒌",
-            "ⅼ",
-            "ｍ",
-            "ո",
-            "о",
-            "р",
-            "ԛ",
-            "ⲅ",
-            "ѕ",
-            "𝚝",
-            "ս",
-            "ѵ",
-            "ԝ",
-            "×",
-            "у",
-            "ᴢ",
-        ]
-    )
     """Lowercases a string, removes all non-alphanumeric characters, and splits
     into words."""
-    # TODO implement w regex
-    words = []
-    word = ""
-
     try:
         isReliable, textBytesFound, details = cld2.detect(s)
         if details[0][0] == "Chinese" or details[0][0] == "ChineseT":
@@ -92,44 +42,25 @@ def words_from_text(s, words_to_ignore=[]):
     except Exception:
         s = " ".join(s.split())
 
-    for c in s:
-        if c.isalnum() or c in homos:
-            word += c
-        elif c in "'-_*@" and len(word) > 0:
-            # Allow apostrophes, hyphens, underscores, asterisks and at signs as long as they don't begin the
-            # word.
-            word += c
-        elif word:
-            if word not in words_to_ignore:
-                words.append(word)
-            word = ""
-    if len(word) and (word not in words_to_ignore):
-        words.append(word)
+    homos = """˗৭Ȣ𝟕бƼᏎƷᒿlO`ɑЬϲԁе𝚏ɡհіϳ𝒌ⅼｍոорԛⲅѕ𝚝սѵԝ×уᴢ"""
+    exceptions = """'-_*@"""
+    filter_pattern = homos + """'\\-_\\*@"""
+    # TODO: consider whether one should add "." to `exceptions` (and "\." to `filter_pattern`)
+    # example "My email address is xxx@yyy.com"
+    filter_pattern = f"[\\w{filter_pattern}]+"
+    words = []
+    for word in s.split():
+        # Allow apostrophes, hyphens, underscores, asterisks and at signs as long as they don't begin the word.
+        word = word.lstrip(exceptions)
+        filt = [w.lstrip(exceptions) for w in re.findall(filter_pattern, word)]
+        words.extend(filt)
+    words = list(filter(lambda w: w not in words_to_ignore + [""], words))
     return words
 
-def tokens_from_text(s, words_to_ignore=[]):
-    """
-    split text into list of tokens <LeToken>, where their are both words and non-words tokens.
-    """
-    words = words_from_text(s, words_to_ignore=words_to_ignore)
-    tokens = []
 
-    cur_text = s
-    for word in words:
-        word_start = cur_text.index(word)
-        word_end = word_start + len(word)
-
-        if cur_text[:word_start]:
-            tokens.append(LeToken(cur_text[:word_start], le_attrs={'is_word': False})) # non-word token
-        
-        tokens.append(LeToken(word, le_attrs={'is_word': True})) # word token
-        
-        cur_text = cur_text[word_end:] # unprocessed text
-
-    if cur_text:
-        tokens.append(LeToken(cur_text, le_attrs={'is_word': False}))
-
-    return tokens
+class TextAttackFlairTokenizer(flair.data.Tokenizer):
+    def tokenize(self, text: str):
+        return words_from_text(text)
 
 
 def default_class_repr(self):
@@ -146,6 +77,19 @@ def default_class_repr(self):
     else:
         extra_str = ""
     return f"{self.__class__.__name__}{extra_str}"
+
+
+class ReprMixin(object):
+    """Mixin for enhanced __repr__ and __str__."""
+
+    def __repr__(self):
+        return default_class_repr(self)
+
+    __str__ = __repr__
+
+    def extra_repr_keys(self):
+        """extra fields to be included in the representation of a class."""
+        return []
 
 
 LABEL_COLORS = [
@@ -208,9 +152,17 @@ class ANSI_ESCAPE_CODES:
     HEADER = "\033[95m"
     OKBLUE = "\033[94m"
     OKGREEN = "\033[92m"
-    WARNING = "\033[93m"
+
     GRAY = "\033[37m"
     PURPLE = "\033[35m"
+    YELLOW = "\033[93m"
+    ORANGE = "\033[38:5:208m"
+    PINK = "\033[95m"
+    CYAN = "\033[96m"
+    GRAY = "\033[38:5:240m"
+    BROWN = "\033[38:5:52m"
+
+    WARNING = "\033[93m"
     FAIL = "\033[91m"
     BOLD = "\033[1m"
     UNDERLINE = "\033[4m"
@@ -239,8 +191,18 @@ def color_text(text, color=None, method=None):
             color = ANSI_ESCAPE_CODES.OKBLUE
         elif color == "purple":
             color = ANSI_ESCAPE_CODES.PURPLE
+        elif color == "yellow":
+            color = ANSI_ESCAPE_CODES.YELLOW
+        elif color == "orange":
+            color = ANSI_ESCAPE_CODES.ORANGE
+        elif color == "pink":
+            color = ANSI_ESCAPE_CODES.PINK
+        elif color == "cyan":
+            color = ANSI_ESCAPE_CODES.CYAN
         elif color == "gray":
             color = ANSI_ESCAPE_CODES.GRAY
+        elif color == "brown":
+            color = ANSI_ESCAPE_CODES.BROWN
         elif color == "bold":
             color = ANSI_ESCAPE_CODES.BOLD
         elif color == "underline":
@@ -265,7 +227,7 @@ def flair_tag(sentence, tag_type="upos-fast"):
         from flair.models import SequenceTagger
 
         _flair_pos_tagger = SequenceTagger.load(tag_type)
-    _flair_pos_tagger.predict(sentence)
+    _flair_pos_tagger.predict(sentence, force_token_predictions=True)
 
 
 def zip_flair_result(pred, tag_type="upos-fast"):
@@ -284,7 +246,7 @@ def zip_flair_result(pred, tag_type="upos-fast"):
         if "pos" in tag_type:
             pos_list.append(token.annotation_layers["pos"][0]._value)
         elif tag_type == "ner":
-            pos_list.append(token.get_tag("ner"))
+            pos_list.append(token.get_label("ner"))
 
     return word_list, pos_list
 

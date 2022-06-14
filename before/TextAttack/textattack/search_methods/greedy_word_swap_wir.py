@@ -31,8 +31,9 @@ class GreedyWordSwapWIR(SearchMethod):
         model_wrapper: model wrapper used for gradient-based ranking
     """
 
-    def __init__(self, wir_method="unk"):
+    def __init__(self, wir_method="unk", unk_token="[UNK]"):
         self.wir_method = wir_method
+        self.unk_token = unk_token
 
     def _get_index_order(self, initial_text):
         """Returns word indices of ``initial_text`` in descending order of
@@ -41,7 +42,8 @@ class GreedyWordSwapWIR(SearchMethod):
 
         if self.wir_method == "unk":
             leave_one_texts = [
-                initial_text.replace_word_at_index(i, "[UNK]") for i in range(len_text)
+                initial_text.replace_word_at_index(i, self.unk_token)
+                for i in range(len_text)
             ]
             leave_one_results, search_over = self.get_goal_results(leave_one_texts)
             index_scores = np.array([result.score for result in leave_one_results])
@@ -49,7 +51,8 @@ class GreedyWordSwapWIR(SearchMethod):
         elif self.wir_method == "weighted-saliency":
             # first, compute word saliency
             leave_one_texts = [
-                initial_text.replace_word_at_index(i, "[UNK]") for i in range(len_text)
+                initial_text.replace_word_at_index(i, self.unk_token)
+                for i in range(len_text)
             ]
             leave_one_results, search_over = self.get_goal_results(leave_one_texts)
             saliency_scores = np.array([result.score for result in leave_one_results])
@@ -70,13 +73,21 @@ class GreedyWordSwapWIR(SearchMethod):
                     # no valid synonym substitutions for this word
                     delta_ps.append(0.0)
                     continue
-                swap_results, _ = self.get_goal_results(transformed_text_candidates)
+                swap_results, search_over = self.get_goal_results(
+                    transformed_text_candidates
+                )
                 score_change = [result.score for result in swap_results]
                 if not score_change:
                     delta_ps.append(0.0)
                     continue
                 max_score_change = np.max(score_change)
                 delta_ps.append(max_score_change)
+
+                # Exit Loop when search_over is True - but we need to make sure delta_ps
+                # is the same size as softmax_saliency_scores
+                if search_over:
+                    delta_ps = delta_ps + [0.0] * (len_text - len(delta_ps))
+                    break
 
             index_scores = softmax_saliency_scores * np.array(delta_ps)
 

@@ -1,5 +1,3 @@
-from matplotlib.pyplot import text
-import numpy as np
 from .le_text import LeText
 
 class LeToken(LeText):

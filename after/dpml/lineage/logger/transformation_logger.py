@@ -4,7 +4,6 @@ Attack Logs to CSV
 """
 
 import csv
-from numpy import indices
 
 import pandas as pd
 import itertools

@@ -13,13 +13,11 @@ import math
 import flair
 from flair.data import Sentence
 import numpy as np
-from textattack.shared.le_record import LeRecord
+from lineage import LeRecord
 import torch
 
 
 from .utils import device, words_from_text
-from .le_text import LeText
-from .le_token import LeToken
 import sys
 import inspect
 

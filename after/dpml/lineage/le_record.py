@@ -10,9 +10,8 @@ import itertools
 
 import textattack
 from .utils.text import diff_text
-from .utils import device, tokens_from_text
-from .transformation_logger import TransformationLogger
-from .text_logger import TextLogger
+from .utils import tokens_from_text
+from .logger import TransformationLogger, TextLogger
 
 
 class LeRecord:

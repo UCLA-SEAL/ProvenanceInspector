@@ -1,4 +1,3 @@
-from lib2to3.pgen2 import token
 import numpy as np
 import difflib
 from textattack.shared import utils

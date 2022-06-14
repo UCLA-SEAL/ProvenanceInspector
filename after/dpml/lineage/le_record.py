@@ -8,8 +8,7 @@ import copy
 import difflib
 import itertools
 
-import textattack
-from .utils.text import diff_text
+from .utils.text import diff_text, color_text
 from .utils import tokens_from_text
 from .logger import TransformationLogger, TextLogger
 
@@ -125,7 +124,7 @@ class LeRecord:
 
     def generate_new_record(self, output_text: str):
         # find changes between self.text and output_text
-        old_tokens, new_tokens, changes = diff_text(self.text, output_text, tokenizer=tokens_from_text)
+        _, new_tokens, changes = diff_text(self.text, output_text, tokenizer=tokens_from_text)
 
         for (tag, i1, i2, j1, j2) in changes:
             if tag == 'equal' and (j2 - j1) == (i2 - i1):
@@ -215,7 +214,7 @@ class LeRecord:
             if key_color_method:
 
                 def ck(k):
-                    return textattack.shared.utils.color_text(
+                    return color_text(
                         k, key_color, key_color_method
                     )
 

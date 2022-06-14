@@ -3,6 +3,78 @@ import difflib
 from textattack.shared import utils
 import nltk
 
+
+class ANSI_ESCAPE_CODES:
+    """Escape codes for printing color to the terminal."""
+
+    HEADER = "\033[95m"
+    OKBLUE = "\033[94m"
+    OKGREEN = "\033[92m"
+
+    GRAY = "\033[37m"
+    PURPLE = "\033[35m"
+    YELLOW = "\033[93m"
+    ORANGE = "\033[38:5:208m"
+    PINK = "\033[95m"
+    CYAN = "\033[96m"
+    GRAY = "\033[38:5:240m"
+    BROWN = "\033[38:5:52m"
+
+    WARNING = "\033[93m"
+    FAIL = "\033[91m"
+    BOLD = "\033[1m"
+    UNDERLINE = "\033[4m"
+    """ This color stops the current color sequence. """
+    STOP = "\033[0m"
+
+
+def color_text(text, color=None, method=None):
+    if not (isinstance(color, str) or isinstance(color, tuple)):
+        raise TypeError(f"Cannot color text with provided color of type {type(color)}")
+    if isinstance(color, tuple):
+        if len(color) > 1:
+            text = color_text(text, color[1:], method)
+        color = color[0]
+
+    if method is None:
+        return text
+    if method == "html":
+        return f"<font color = {color}>{text}</font>"
+    elif method == "ansi":
+        if color == "green":
+            color = ANSI_ESCAPE_CODES.OKGREEN
+        elif color == "red":
+            color = ANSI_ESCAPE_CODES.FAIL
+        elif color == "blue":
+            color = ANSI_ESCAPE_CODES.OKBLUE
+        elif color == "purple":
+            color = ANSI_ESCAPE_CODES.PURPLE
+        elif color == "yellow":
+            color = ANSI_ESCAPE_CODES.YELLOW
+        elif color == "orange":
+            color = ANSI_ESCAPE_CODES.ORANGE
+        elif color == "pink":
+            color = ANSI_ESCAPE_CODES.PINK
+        elif color == "cyan":
+            color = ANSI_ESCAPE_CODES.CYAN
+        elif color == "gray":
+            color = ANSI_ESCAPE_CODES.GRAY
+        elif color == "brown":
+            color = ANSI_ESCAPE_CODES.BROWN
+        elif color == "bold":
+            color = ANSI_ESCAPE_CODES.BOLD
+        elif color == "underline":
+            color = ANSI_ESCAPE_CODES.UNDERLINE
+        elif color == "warning":
+            color = ANSI_ESCAPE_CODES.WARNING
+        else:
+            raise ValueError(f"unknown text color {color}")
+
+        return color + text + ANSI_ESCAPE_CODES.STOP
+    elif method == "file":
+        return "[[" + text + "]]"
+
+
 color_method = "ansi"
 color_prev = "blue"
 color_after = "red"

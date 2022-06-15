@@ -1,2 +1,2 @@
-from .strings import *
 from .text import *
+from .strings import *

@@ -1,6 +1,5 @@
 import numpy as np
 import difflib
-from textattack.shared import utils
 import nltk
 
 
@@ -82,9 +81,9 @@ color_after = "red"
 def color_text_pair(from_text, to_text, from_modified_indices, to_modified_indices):
     # make lists of colored words
     words_1 = [from_text.words[i] for i in from_modified_indices]
-    colored_words_1 = [utils.color_text(w, color_prev, color_method) for w in words_1]
+    colored_words_1 = [color_text(w, color_prev, color_method) for w in words_1]
     words_2 = [to_text.words[i] for i in to_modified_indices]
-    colored_words_2 = [utils.color_text(w, color_after, color_method) for w in words_2]
+    colored_words_2 = [color_text(w, color_after, color_method) for w in words_2]
 
     t1 = from_text.replace_words_at_indices(
         from_modified_indices, words_1

@@ -12,6 +12,10 @@ after/TextAttack/examples/augmentation/examples.csv
 after/le_results_sst2/
 after/results/*
 
+# editor
+../../.vscode/
+.vscode/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

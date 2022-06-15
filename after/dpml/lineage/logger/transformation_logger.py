@@ -27,10 +27,10 @@ class TransformationLogger:
     def init_df(self):
         self.transformation_df = pd.DataFrame(columns=["transformation_id", "transformation_type",
             "prev_text", "after_text", "from_modified_indices",
-            "to_modified_indices", "changes"])
+            "to_modified_indices"])
         
 
-    def log_transformation(self, current_text_id, transformed_text_id, transformation_type, modified_inds, changes):
+    def log_transformation(self, current_text_id, transformed_text_id, transformation_type, modified_inds):
         trans_id = next(TransformationLogger.id_iter)
 
         from_mod_inds, to_mod_inds = modified_inds
@@ -45,7 +45,6 @@ class TransformationLogger:
             "after_text": transformed_text_id,
             "from_modified_indices": from_mod_inds,
             "to_modified_indices": to_mod_inds,
-            "changes": changes
         }
         
         self.transformation_df = self.transformation_df.append(row, ignore_index=True)

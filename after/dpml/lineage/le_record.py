@@ -1,15 +1,13 @@
 from lib2to3.pgen2 import token
 from typing import List
+from lineage.le_text import LeText
 import numpy as np
 import nltk
 from collections import OrderedDict
-import copy
 
 import difflib
 import itertools
 
-from .utils.text import diff_text, color_text
-from .utils import tokens_from_text
 from .logger import TransformationLogger, TextLogger
 
 
@@ -58,8 +56,7 @@ class LeRecord:
         else:
             raise TypeError(f"Invalid type for le_attrs: {type(le_attrs)}")
 
-        self._tokens = None
-        self._token_word_inds = None
+        self._le_text = None
 
         self.le_attrs.setdefault("transformation_history", [])
         self.le_attrs.setdefault("previous", None)
@@ -102,8 +99,8 @@ class LeRecord:
         transformed_texts = transformation._get_transformations(self, indices_to_modify)
 
         for output_text in transformed_texts:
-            new_tokens, changes = self.generate_new_record(output_text.text)
-            output_text._tokens = new_tokens
+            new_text = self.generate_new_record(output_text.text)
+            output_text._le_text = new_text
 
             transformation_type = transformation.__class__.__name__
             
@@ -115,7 +112,7 @@ class LeRecord:
 
             modified_inds = (indices_to_modify, output_text.attack_attrs["newly_modified_indices"])
 
-            LeRecord.transform_logger.log_transformation(self.id, output_text.id, transformation_type, modified_inds, changes)
+            LeRecord.transform_logger.log_transformation(self.id, output_text.id, transformation_type, modified_inds)
 
         LeRecord.text_logger.flush()
         LeRecord.transform_logger.flush()
@@ -123,25 +120,8 @@ class LeRecord:
 
 
     def generate_new_record(self, output_text: str):
-        # find changes between self.text and output_text
-        _, new_tokens, changes = diff_text(self.text, output_text, tokenizer=tokens_from_text)
-
-        for (tag, i1, i2, j1, j2) in changes:
-            if tag == 'equal' and (j2 - j1) == (i2 - i1):
-                for offset in range(0, j2 - j1):
-                    new_tokens[j1 + offset].le_attrs = copy.deepcopy(self.tokens[i1 + offset].le_attrs)
-            elif tag == 'replace' and (j2 - j1) == (i2 - i1):
-                for offset in range(0, j2 - j1):
-                    new_tokens[j1 + offset].le_attrs = copy.deepcopy(self.tokens[i1 + offset].le_attrs)
-                    new_tokens[j1 + offset].le_attrs['ops'].append('replace')
-            elif tag == 'insert':
-                for j in range(j1, j2):
-                    new_tokens[j].le_attrs['ops'] = ['insert']
-            elif tag == 'delete':
-                for i in range(i1, i2):
-                    self.tokens[i].le_attrs['ops'].append('delete')
-    
-        return new_tokens, changes
+        #print(self.le_text)
+        return self.le_text.generate_new_text(output_text)
 
 
     @property
@@ -174,61 +154,20 @@ class LeRecord:
         """
         return "\n".join(self._text_input.values())
 
+    @property
+    def le_text(self):
+        cur_text = LeText.SPLIT_TOKEN.join(self._text_input.values())
+        if self._le_text is None:
+            self._le_text = LeText(cur_text, le_attrs={'src': True})
+
+        return self._le_text
+
 
     @property
     def words(self):
         if not self._words:
             self._words = list(map(lambda i: self.tokens[i], self.token_word_inds))
         return self._words
-
-
-    @property
-    def token_word_inds(self):
-        if self.tokens and not self._token_word_inds:
-            self._token_word_inds =  [ i for i in range(len(self.tokens)) if self.tokens[i].le_attrs['is_word']]
-
-        return self._token_word_inds
-
-    @property
-    def tokens(self):
-        if not self._tokens:
-            cur_text = LeRecord.SPLIT_TOKEN.join(self._text_input.values())
-
-            self._tokens = tokens_from_text(cur_text)
-            self._token_word_inds = [ i for i in range(len(self._tokens)) if self._tokens[i].le_attrs['is_word']]
-
-            self.attack_attrs["src"] = True
-
-        return self._tokens
-
-    def printable_tokens(self, key_color="bold", key_color_method=None):
-
-        token_strings = list(map(str, self.tokens))
-
-        # For single-sequence inputs, don't show a prefix.
-        if len(self._text_input) == 1:
-            return "".join(token_strings)
-        # For multiple-sequence inputs, show a prefix and a colon. Optionally,
-        # color the key.
-        else:
-            if key_color_method:
-
-                def ck(k):
-                    return color_text(
-                        k, key_color, key_color_method
-                    )
-
-            else:
-
-                def ck(k):
-                    return k
-
-            text_values = "".join(token_strings).split(LeRecord.SPLIT_TOKEN)
-
-            return f"ID: {self.id}" + "\n".join(
-                f"{ck(key.capitalize())}: {value}"
-                for key, value in zip(self._text_input.keys(), text_values)
-            )
 
     def __str__(self):
         return self.text

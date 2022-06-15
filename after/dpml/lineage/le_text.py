@@ -1,8 +1,38 @@
 import numpy as np
 import nltk
 import difflib
-from .utils.text import diff_text
 import itertools
+import copy
+
+
+from .utils.text import diff_text, color_text
+from .utils import words_from_text
+
+
+def tokens_from_text(s, words_to_ignore=[]):
+    """
+    split text into list of tokens <LeToken>, where their are both words and non-words tokens.
+    """
+    words = words_from_text(s, words_to_ignore=words_to_ignore)
+    tokens = []
+
+    cur_text = s
+    for word in words:
+        word_start = cur_text.index(word)
+        word_end = word_start + len(word)
+
+        if cur_text[:word_start]:
+            tokens.append(LeText(cur_text[:word_start], le_attrs={'is_word': False, "ops": []})) # non-word token
+        
+        tokens.append(LeText(word, le_attrs={'is_word': True, "ops": []})) # word token
+        
+        cur_text = cur_text[word_end:] # unprocessed text
+
+    if cur_text:
+        tokens.append(LeText(cur_text, le_attrs={'is_word': False, "ops": []}))
+
+    return tokens
+
 
 class LeText:
     """
@@ -24,6 +54,7 @@ class LeText:
     """
     id_iter = itertools.count()
     sent_tokenizer = nltk.tokenize.punkt.PunktSentenceTokenizer()
+    SPLIT_TOKEN = "<SPLIT>"
 
     def __init__(self, text_input, granularity="word", le_attrs=None):
         self._id = None
@@ -47,6 +78,9 @@ class LeText:
         # Process input lazily.
         self._chars = None
         self._words = None
+        self._tokens = None
+        self._token_word_inds = None
+
         self._sents = None
         self._paras = None
         # Format text inputs.
@@ -112,6 +146,31 @@ class LeText:
         
         return output_LeText
 
+
+    def generate_new_text(self, output_text: str, new_le_attrs=None):
+        # find changes between self.text and output_text
+        _, new_tokens, changes = diff_text(self.text, output_text, tokenizer=tokens_from_text)
+
+        for (tag, i1, i2, j1, j2) in changes:
+            if tag == 'equal' and (j2 - j1) == (i2 - i1):
+                for offset in range(0, j2 - j1):
+                    new_tokens[j1 + offset].le_attrs = copy.deepcopy(self.tokens[i1 + offset].le_attrs)
+            elif tag == 'replace' and (j2 - j1) == (i2 - i1):
+                for offset in range(0, j2 - j1):
+                    new_tokens[j1 + offset].le_attrs = copy.deepcopy(self.tokens[i1 + offset].le_attrs)
+                    new_tokens[j1 + offset].le_attrs['ops'].append('replace')
+            elif tag == 'insert':
+                for j in range(j1, j2):
+                    new_tokens[j].le_attrs['ops'] = ['insert']
+            elif tag == 'delete':
+                for i in range(i1, i2):
+                    self.tokens[i].le_attrs['ops'].append('delete')
+
+        new_text = LeText(output_text, le_attrs=new_le_attrs)
+        new_text._tokens = new_tokens
+    
+        return new_text
+
     def parse_text(self):
         if self.granularity == "paragraph":
             parsed_text = self.text.split('\n')
@@ -161,6 +220,21 @@ class LeText:
         if not self._paras:
             self._paras = self.text.split("\n")
         return self._paras
+
+    @property
+    def tokens(self):
+        if not self._tokens:
+            self._tokens = tokens_from_text(self.text)
+            self._token_word_inds = [ i for i in range(len(self._tokens)) if self._tokens[i].le_attrs['is_word']]
+
+        return self._tokens
+
+    @property
+    def token_word_inds(self):
+        if self.tokens and not self._token_word_inds:
+            self._token_word_inds =  [ i for i in range(len(self.tokens)) if self.tokens[i].le_attrs['is_word']]
+
+        return self._token_word_inds
 
     @property
     def num_chars(self):

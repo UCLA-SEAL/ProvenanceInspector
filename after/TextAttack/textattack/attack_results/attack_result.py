@@ -52,9 +52,7 @@ class AttackResult(ABC):
         text_list = [self.original_result.attacked_text.printable_text(
             key_color=("bold", "underline"), key_color_method=color_method
             ),
-            self.original_result.attacked_text.printable_tokens(
-            key_color=("bold", "underline"), key_color_method=color_method
-        )]
+        ]
         
         return "\n\n".join(text_list)
 
@@ -65,10 +63,8 @@ class AttackResult(ABC):
         """
         text_list = [self.perturbed_result.attacked_text.printable_text(
             key_color=("bold", "underline"), key_color_method=color_method
-            ),
-            self.perturbed_result.attacked_text.printable_tokens(
-            key_color=("bold", "underline"), key_color_method=color_method
-        )]
+            )
+        ]
 
         return "\n\n".join(text_list)
 
@@ -77,7 +73,6 @@ class AttackResult(ABC):
         representation."""
         lines = [self.goal_function_result_str(color_method=color_method)]
         lines.extend(self.diff_color(color_method))
-        lines.extend(self.token_results(color_method))
         lines.extend([str(self.original_result.attacked_text), str(self.perturbed_result.attacked_text)])
         return lines
 
@@ -89,20 +84,6 @@ class AttackResult(ABC):
         orig_colored = self.original_result.get_colored_output(color_method)
         pert_colored = self.perturbed_result.get_colored_output(color_method)
         return orig_colored + " --> " + pert_colored
-
-    def token_results(self, color_method=None):
-        t1 = self.original_result.attacked_text
-        t2 = self.perturbed_result.attacked_text
-
-        if color_method is None:
-            return t1.printable_tokens(), t2.printable_tokens()
-
-        key_color = ("bold", "underline")
-
-        return (
-            t1.printable_tokens(key_color=key_color, key_color_method=color_method),
-            t2.printable_tokens(key_color=key_color, key_color_method=color_method),
-        )
 
 
     def diff_color(self, color_method=None):

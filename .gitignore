@@ -11,6 +11,7 @@ after/TextAttack/examples/augmentation/augment.csv
 after/TextAttack/examples/augmentation/examples.csv
 after/le_results_sst2/
 after/results/*
+after/dpml.zip
 
 # editor
 ../../.vscode/

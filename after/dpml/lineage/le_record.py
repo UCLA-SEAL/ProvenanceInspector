@@ -1,6 +1,7 @@
 from lib2to3.pgen2 import token
-from typing import List
+from typing import List, Text
 from lineage.le_text import LeText
+from lineage.logger import transformation_logger
 import numpy as np
 import nltk
 from collections import OrderedDict
@@ -32,8 +33,8 @@ class LeRecord:
     id_iter = itertools.count()
     sent_tokenizer = nltk.tokenize.punkt.PunktSentenceTokenizer()
     SPLIT_TOKEN = "<SPLIT>"
-    transform_logger = TransformationLogger(dirname='../results/')
-    text_logger = TextLogger(dirname='../results/')
+    transform_logger = None
+    text_logger = None
 
     def __init__(self, text_input, le_attrs=None):
         self._id = None
@@ -55,6 +56,11 @@ class LeRecord:
             self.le_attrs = le_attrs
         else:
             raise TypeError(f"Invalid type for le_attrs: {type(le_attrs)}")
+
+        if not LeRecord.transform_logger:
+            LeRecord.transform_logger = TransformationLogger(dirname='../results/')
+        if not LeRecord.text_logger:
+            LeRecord.text_logger = TextLogger(dirname='../results/')
 
         self._le_text = None
 

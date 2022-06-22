@@ -4,6 +4,7 @@ from lineage.utils import add_branch_prefix
 
 class TransformationProvenance(LazyCloneableProvenance):
     def __init__(self, history=None, store_type='Set'):
+        self.store_type = store_type
         if history:
             self.history = history
         else:
@@ -13,19 +14,19 @@ class TransformationProvenance(LazyCloneableProvenance):
                 raise ValueError(f"{store_type} is not supported for TransformationProvenance creation")
 
     def _cloneProvenance(self):
-        return TransformationProvenance(self, history=self.history.copy())
+        return TransformationProvenance(history=self.history.copy(), store_type=self.store_type)
         
     def add_provenance(self, transformation):
         transformation_order = len(self.history)
         #transformation_info = dir(transformation)
-        transformation_info = {}
+        transformation_info = {"class": transformation.__class__.__name__}
         sig = signature(transformation.__init__)
         for arg_name in sig.parameters.keys():
             if arg_name not in {'self', 'args', 'kwargs'}:
                 transformation_info[arg_name] = getattr(transformation, arg_name)
 
         new_provenance = self._cloneProvenance()
-        new_provenance.history.add((transformation_order, transformation_info))
+        new_provenance.history.add((transformation_order, str(transformation_info)))
         return new_provenance
 
     def _merge(self, others):

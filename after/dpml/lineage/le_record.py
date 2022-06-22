@@ -1,9 +1,5 @@
 from lib2to3.pgen2 import token
 from typing import List, Text
-from lineage.le_text import LeText
-from lineage.logger import transformation_logger
-from lineage.provenance.feature_provenance import FeatureProvenance
-from lineage.provenance.transformation_provenance import TransformationProvenance
 import numpy as np
 import nltk
 from collections import OrderedDict
@@ -11,6 +7,7 @@ from collections import OrderedDict
 import difflib
 import itertools
 
+from lineage.le_text import LeText
 from .logger import TransformationLogger, TextLogger
 from .provenance import ProvenanceFactory
 
@@ -67,8 +64,8 @@ class LeRecord:
 
         self._le_text = None
 
-        self.le_attrs.setdefault("transformation_provenance", TransformationProvenance())
-        self.le_attrs.setdefault("feature_provenance", FeatureProvenance("edit_seq"))
+        self.le_attrs.setdefault("transformation_provenance", ProvenanceFactory.get_provenance('transformation'))
+        self.le_attrs.setdefault("feature_provenance", ProvenanceFactory.get_provenance('feature', feature_name="edit_seq"))
 
 
     def __eq__(self, other):

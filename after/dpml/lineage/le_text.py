@@ -7,9 +7,6 @@ import copy
 
 from .utils.text import diff_text, color_text
 from .utils import words_from_text
-
-from lineage.provenance.feature_provenance import FeatureProvenance
-from lineage.provenance.transformation_provenance import TransformationProvenance
 from .provenance import ProvenanceFactory
 
 def tokens_from_text(s, words_to_ignore=[]):
@@ -96,8 +93,8 @@ class LeText:
 
         # Lineage Attributes
         self.le_attrs.setdefault("granularity", self.granularity)
-        self.le_attrs.setdefault("transformation_provenance", TransformationProvenance())
-        self.le_attrs.setdefault("feature_provenance", FeatureProvenance("edit_seq"))
+        self.le_attrs.setdefault("transformation_provenance",  ProvenanceFactory.get_provenance('transformation'))
+        self.le_attrs.setdefault("feature_provenance", ProvenanceFactory.get_provenance('feature', feature_name="edit_seq"))
 
     def __eq__(self, other):
         """Compares two LeText instances, making sure that they also share
@@ -144,9 +141,9 @@ class LeText:
 
     def generate_new_text(self, output_text: str, new_le_attrs=None):
         # find changes between self.text and output_text
-        _, new_tokens, changes = diff_text(self.text, output_text, tokenizer=tokens_from_text)
+        _, new_tokens, changes = diff_text(self.text, output_text, tokenizer=words_from_text)
 
-        new_edit_seq = FeatureProvenance("edit_seq")
+        new_edit_seq = ProvenanceFactory.get_provenance('feature', feature_name="edit_seq")
 
         for (tag, i1, i2, j1, j2) in changes:
             if tag == 'equal' and (j2 - j1) == (i2 - i1):
@@ -220,6 +217,16 @@ class LeText:
     @property
     def tokens(self):
         if not self._tokens:
+            # self._tokens = tokens_from_text(self.text)
+            self._tokens = words_from_text(self.text)
+            #self._token_word_inds = [ i for i in range(len(self._tokens)) if self._tokens[i].le_attrs['is_word']]
+
+        return self._tokens
+
+    """
+    @property
+    def tokens(self):
+        if not self._tokens:
             self._tokens = tokens_from_text(self.text)
             self._token_word_inds = [ i for i in range(len(self._tokens)) if self._tokens[i].le_attrs['is_word']]
 
@@ -231,6 +238,7 @@ class LeText:
             self._token_word_inds =  [ i for i in range(len(self.tokens)) if self.tokens[i].le_attrs['is_word']]
 
         return self._token_word_inds
+    """
 
     @property
     def num_chars(self):

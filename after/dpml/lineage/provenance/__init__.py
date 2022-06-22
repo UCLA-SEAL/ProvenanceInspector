@@ -1,4 +1,4 @@
 from .lazy_cloneable_provenance import LazyCloneableProvenance
 from .feature_provenance import FeatureProvenance
 from .transformation_provenance import TransformationProvenance
-from .provenance import ProvenanceFactory
+from .provenance_factory import ProvenanceFactory

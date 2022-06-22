@@ -280,6 +280,12 @@ class LeText:
         """
         return self._text
 
+    def __getattr__(self, attr):
+        if attr in self.le_attrs:
+            return self.le_attrs[attr]
+        else:
+            return self.__getattribute__(attr)
+
     def __str__(self):
         return self.text
 

@@ -6,6 +6,7 @@ from .le_token import LeToken
 from .infer_trace import InferQuery
 
 from . import (
+    provenance,
     utils,
     logger,
 )

@@ -8,6 +8,9 @@ import copy
 from .utils.text import diff_text, color_text
 from .utils import words_from_text
 
+from lineage.provenance.feature_provenance import FeatureProvenance
+from lineage.provenance.transformation_provenance import TransformationProvenance
+from .provenance import ProvenanceFactory
 
 def tokens_from_text(s, words_to_ignore=[]):
     """
@@ -22,14 +25,14 @@ def tokens_from_text(s, words_to_ignore=[]):
         word_end = word_start + len(word)
 
         if cur_text[:word_start]:
-            tokens.append(LeText(cur_text[:word_start], le_attrs={'is_word': False, "ops": []})) # non-word token
+            tokens.append(LeText(cur_text[:word_start], le_attrs={'is_word': False})) # non-word token
         
-        tokens.append(LeText(word, le_attrs={'is_word': True, "ops": []})) # word token
+        tokens.append(LeText(word, le_attrs={'is_word': True})) # word token
         
         cur_text = cur_text[word_end:] # unprocessed text
 
     if cur_text:
-        tokens.append(LeText(cur_text, le_attrs={'is_word': False, "ops": []}))
+        tokens.append(LeText(cur_text, le_attrs={'is_word': False}))
 
     return tokens
 
@@ -93,34 +96,24 @@ class LeText:
 
         # Lineage Attributes
         self.le_attrs.setdefault("granularity", self.granularity)
+        self.le_attrs.setdefault("transformation_provenance", TransformationProvenance())
+        self.le_attrs.setdefault("feature_provenance", FeatureProvenance("edit_seq"))
 
     def __eq__(self, other):
         """Compares two LeText instances, making sure that they also share
         the same lineage attributes.
-
-        Since some elements stored in ``self.le_attrs`` may be numpy
-        arrays, we have to take special care when comparing them.
         """
-        if not (self.text == other.text):
+        if self.text != other.text:
             return False
-        if len(self.le_attrs) != len(other.le_attrs):
+        if self.le_attrs != other.le_attrs:
             return False
-        for key in self.le_attrs:
-            if key not in other.le_attrs:
-                return False
-            elif isinstance(self.le_attrs[key], np.ndarray):
-                if not (self.le_attrs[key].shape == other.le_attrs[key].shape):
-                    return False
-                elif not (self.le_attrs[key] == other.le_attrs[key]).all():
-                    return False
-            else:
-                if not self.le_attrs[key] == other.le_attrs[key]:
-                    return False
+            
         return True
 
     def __hash__(self):
         return hash(self.text)
 
+    '''
     def apply(self, fn, granularity="word"):
         """
         Applies fn(self.text), tracking the transformation info and output as
@@ -145,27 +138,30 @@ class LeText:
                                le_attrs=new_le_attrs)
         
         return output_LeText
+    '''
+    
 
 
     def generate_new_text(self, output_text: str, new_le_attrs=None):
         # find changes between self.text and output_text
         _, new_tokens, changes = diff_text(self.text, output_text, tokenizer=tokens_from_text)
 
+        new_edit_seq = FeatureProvenance("edit_seq")
+
         for (tag, i1, i2, j1, j2) in changes:
             if tag == 'equal' and (j2 - j1) == (i2 - i1):
-                for offset in range(0, j2 - j1):
-                    new_tokens[j1 + offset].le_attrs = copy.deepcopy(self.tokens[i1 + offset].le_attrs)
+                continue
             elif tag == 'replace' and (j2 - j1) == (i2 - i1):
-                for offset in range(0, j2 - j1):
-                    new_tokens[j1 + offset].le_attrs = copy.deepcopy(self.tokens[i1 + offset].le_attrs)
-                    new_tokens[j1 + offset].le_attrs['ops'].append('replace')
+                feature_tag = f"replace: [{i1},{i2}]-[{j1},{j2}]"
+                new_edit_seq = self.le_attrs["feature_provenance"].add_provenance((j1, j2), feature_tag)
             elif tag == 'insert':
-                for j in range(j1, j2):
-                    new_tokens[j].le_attrs['ops'] = ['insert']
+                feature_tag = f"insert: [{i1},{i2}]-[{j1},{j2}]"
+                new_edit_seq = self.le_attrs["feature_provenance"].add_provenance((j1, j2), feature_tag)
             elif tag == 'delete':
-                for i in range(i1, i2):
-                    self.tokens[i].le_attrs['ops'].append('delete')
+                feature_tag = f"delete: [{i1},{i2}]"
+                self.le_attrs["feature_provenance"] = self.le_attrs["feature_provenance"].add_provenance((j1, j2), feature_tag)
 
+        new_le_attrs.update({"feature_provenance": new_edit_seq})
         new_text = LeText(output_text, le_attrs=new_le_attrs)
         new_text._tokens = new_tokens
     

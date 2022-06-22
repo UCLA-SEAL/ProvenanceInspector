@@ -2,6 +2,8 @@ from lib2to3.pgen2 import token
 from typing import List, Text
 from lineage.le_text import LeText
 from lineage.logger import transformation_logger
+from lineage.provenance.feature_provenance import FeatureProvenance
+from lineage.provenance.transformation_provenance import TransformationProvenance
 import numpy as np
 import nltk
 from collections import OrderedDict
@@ -10,6 +12,7 @@ import difflib
 import itertools
 
 from .logger import TransformationLogger, TextLogger
+from .provenance import ProvenanceFactory
 
 
 class LeRecord:
@@ -64,32 +67,19 @@ class LeRecord:
 
         self._le_text = None
 
-        self.le_attrs.setdefault("transformation_history", [])
-        self.le_attrs.setdefault("previous", None)
+        self.le_attrs.setdefault("transformation_provenance", TransformationProvenance())
+        self.le_attrs.setdefault("feature_provenance", FeatureProvenance("edit_seq"))
 
 
     def __eq__(self, other):
-        """Compares two LeText instances, making sure that they also share
+        """Compares two LeRecord instances, making sure that they also share
         the same lineage attributes.
-
-        Since some elements stored in ``self.le_attrs`` may be numpy
-        arrays, we have to take special care when comparing them.
         """
-        if not (self.text == other.text):
+        if self.text != other.text:
             return False
-        if len(self.le_attrs) != len(other.le_attrs):
+        if self.le_attrs != other.le_attrs:
             return False
-        for key in self.le_attrs:
-            if key not in other.le_attrs:
-                return False
-            elif isinstance(self.le_attrs[key], np.ndarray):
-                if not (self.le_attrs[key].shape == other.le_attrs[key].shape):
-                    return False
-                elif not (self.le_attrs[key] == other.le_attrs[key]).all():
-                    return False
-            else:
-                if not self.le_attrs[key] == other.le_attrs[key]:
-                    return False
+            
         return True
 
     def __hash__(self):
@@ -105,15 +95,15 @@ class LeRecord:
         transformed_texts = transformation._get_transformations(self, indices_to_modify)
 
         for output_text in transformed_texts:
-            new_text = self.generate_new_record(output_text.text)
-            output_text._le_text = new_text
 
             transformation_type = transformation.__class__.__name__
             
             new_le_attrs = {
-                "transformation_history": self.le_attrs["transformation_history"] + [f"<{transformation_type}: {indices_to_modify}>"],
-                "previous": self 
+                "transformation_provenance": self.le_attrs["transformation_provenance"].add_provenance(transformation),
             }
+
+            new_text = self.generate_new_record(output_text.text, new_le_attrs=new_le_attrs)
+            output_text._le_text = new_text
             output_text.le_attrs = new_le_attrs
 
             modified_inds = (indices_to_modify, output_text.attack_attrs["newly_modified_indices"])
@@ -125,9 +115,9 @@ class LeRecord:
         return transformed_texts
 
 
-    def generate_new_record(self, output_text: str):
+    def generate_new_record(self, output_text: str, new_le_attrs=None):
         #print(self.le_text)
-        return self.le_text.generate_new_text(output_text)
+        return self.le_text.generate_new_text(output_text, new_le_attrs=new_le_attrs)
 
 
     @property

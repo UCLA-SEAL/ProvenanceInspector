@@ -3,10 +3,11 @@ import nltk
 import difflib
 import itertools
 import copy
-
+from collections import OrderedDict
 
 from .utils.text import diff_text, color_text
 from .utils import words_from_text
+from .logger import TextLogger
 from .provenance import ProvenanceFactory
 
 def tokens_from_text(s, words_to_ignore=[]):
@@ -55,13 +56,16 @@ class LeText:
     id_iter = itertools.count()
     sent_tokenizer = nltk.tokenize.punkt.PunktSentenceTokenizer()
     SPLIT_TOKEN = "<SPLIT>"
+    text_logger = None
 
     def __init__(self, text_input, granularity="word", le_attrs=None):
         self._id = None
 
         # Read in ``text_input`` as a string .
         if isinstance(text_input, str):
-            self._text= text_input
+            self._text_input = OrderedDict([("text", text_input)])
+        elif isinstance(text_input, OrderedDict):
+            self._text_input = text_input
         else:
             raise TypeError(
                 f"Invalid text_input type {type(text_input)} (required str)"
@@ -90,6 +94,9 @@ class LeText:
             self.le_attrs = le_attrs
         else:
             raise TypeError(f"Invalid type for le_attrs: {type(le_attrs)}")
+
+        if not LeText.text_logger:
+            LeText.text_logger = TextLogger(dirname='../results/')
 
         # Lineage Attributes
         self.le_attrs.setdefault("granularity", self.granularity)
@@ -136,12 +143,27 @@ class LeText:
         
         return output_LeText
     '''
-    
 
-
-    def generate_new_text(self, output_text: str, new_le_attrs=None):
+    def generate_new_text(self, new_le_text, new_le_attrs=None, granularity=None):
         # find changes between self.text and output_text
-        _, new_tokens, changes = diff_text(self.text, output_text, tokenizer=words_from_text)
+        # granularity=self.text.granularity
+        if granularity is None:
+            _, new_tokens, changes = diff_text(self.text, new_le_text, tokenizer=words_from_text)
+        else:
+            _, new_tokens, changes = diff_text(self.text, new_le_text, granularity=granularity)
+        '''
+        parsed_a, parsed_b, changes = diff_text(text1.text, 
+                                                text2, 
+                                                granularity=text1.granularity)
+        text_attrs = {
+            "granularity": text1.granularity,
+            "changes": changes,
+            "transformation": self.fn,
+            "previous": text1
+        }
+
+        text2 = LeText(text2, text1.granularity, text_attrs)
+        '''
 
         new_edit_seq = ProvenanceFactory.get_provenance('feature', feature_name="edit_seq")
 
@@ -159,7 +181,7 @@ class LeText:
                 self.le_attrs["feature_provenance"] = self.le_attrs["feature_provenance"].add_provenance((j1, j2), feature_tag)
 
         new_le_attrs.update({"feature_provenance": new_edit_seq})
-        new_text = LeText(output_text, le_attrs=new_le_attrs)
+        new_text = LeText(new_le_text._text_input, le_attrs=new_le_attrs)
         new_text._tokens = new_tokens
     
         return new_text
@@ -187,6 +209,7 @@ class LeText:
     def id(self):
         if not self._id:
             self._id = next(LeText.id_iter)
+            LeText.text_logger.log_text(self._id, self.printable_text(), self.le_attrs)
 
         return self._id
 
@@ -222,6 +245,14 @@ class LeText:
             #self._token_word_inds = [ i for i in range(len(self._tokens)) if self._tokens[i].le_attrs['is_word']]
 
         return self._tokens
+
+    @property
+    def text(self):
+        """Represents full text input.
+
+        Multiply inputs are joined with a line break.
+        """
+        return "\n".join(self._text_input.values())
 
     """
     @property
@@ -272,19 +303,35 @@ class LeText:
         elif self.granularity == "character":
             return self.num_chars
 
-    @property
-    def text(self):
-        """Represents full text input.
 
-        Multiply inputs are joined with a line break.
+    def printable_text(self):
+        """Represents full text input. Adds field descriptions.
+
+        For example, entailment inputs look like:
+            ```
+            premise: ...
+            hypothesis: ...
+            ```
         """
-        return self._text
+        # For single-sequence inputs, don't show a prefix.
+        if len(self._text_input) == 1:
+            return next(iter(self._text_input.values()))
+        # For multiple-sequence inputs, show a prefix and a colon. Optionally,
+        # color the key.
+        else:
+            return "\n".join(
+                f"{key.capitalize()}: {value}"
+                for key, value in self._text_input.items()
+            )
 
     def __getattr__(self, attr):
         if attr in self.le_attrs:
             return self.le_attrs[attr]
         else:
-            return self.__getattribute__(attr)
+            try:
+                return self.__getattribute__(attr)
+            except:
+                return self.text.__getattribute__(attr)
 
     def __str__(self):
         return self.text

@@ -1,5 +1,5 @@
 """
-Attack Logs to CSV
+Text Logs to CSV
 ========================
 """
 

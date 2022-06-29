@@ -1,5 +1,5 @@
 """
-Attack Logs to CSV
+Transformation Logs to CSV
 ========================
 """
 
@@ -26,14 +26,20 @@ class TransformationLogger:
 
     def init_df(self):
         self.transformation_df = pd.DataFrame(columns=["transformation_id", "transformation_type",
-            "prev_text", "after_text", "from_modified_indices",
-            "to_modified_indices"])
+            "prev_text", "after_text", "prev_target", "after_target"])
+        # "from_modified_indices", "to_modified_indices"])
         
 
-    def log_transformation(self, current_text_id, transformed_text_id, transformation_type, modified_inds):
+    def log_transformation(self, current_record, transformed_record, transformation_type):
         trans_id = next(TransformationLogger.id_iter)
 
-        from_mod_inds, to_mod_inds = modified_inds
+        current_text_id = current_record.text_id
+        transformed_text_id = transformed_record.text_id
+
+        current_text_tgt_id = current_record.target_id
+        transformed_text_tgt_id = transformed_record.target_id
+
+        # from_mod_inds, to_mod_inds = modified_inds
         # precarious color editing
         # current_text, transformed_text = color_text_pair(current_text, transformed_text, list(from_inds), list(to_inds))
         
@@ -43,8 +49,10 @@ class TransformationLogger:
             "transformation_type": transformation_type,
             "prev_text": current_text_id,
             "after_text": transformed_text_id,
-            "from_modified_indices": from_mod_inds,
-            "to_modified_indices": to_mod_inds,
+            "prev_target": current_text_tgt_id,
+            "after_target": transformed_text_tgt_id,
+            #"from_modified_indices": from_mod_inds,
+            #"to_modified_indices": to_mod_inds,
         }
         
         self.transformation_df = self.transformation_df.append(row, ignore_index=True)

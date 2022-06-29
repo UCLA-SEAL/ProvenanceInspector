@@ -4,6 +4,7 @@ import inspect
 from .le_record import LeRecord
 from .le_text import LeText
 from .le_target import LeTarget
+from .config import *
 
 
 '''
@@ -81,16 +82,16 @@ class LeContext:
 
             output_record = LeRecord(new_le_text, le_target=new_le_target, le_attrs=new_le_attrs)
 
-
-            LeRecord.transform_logger.log_transformation(le_record, output_record, transformation_type)
+            if USE_LOG:
+                LeRecord.transform_logger.log_transformation(le_record, output_record, transformation_type)
 
             new_records.append(output_record)
 
-
-        LeText.text_logger.flush()
-        if LeTarget.label_logger:
-            LeTarget.label_logger.flush()
-        LeRecord.transform_logger.flush()
+        if USE_LOG:
+            LeText.text_logger.flush()
+            if LeTarget.label_logger:
+                LeTarget.label_logger.flush()
+            LeRecord.transform_logger.flush()
         
         return new_records
 

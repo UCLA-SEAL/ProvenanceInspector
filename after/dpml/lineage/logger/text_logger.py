@@ -19,24 +19,25 @@ class TextLogger:
         self.path = osp.join(dirname, 'text.csv')
         open(self.path, "w").close()
         self._flushed = True
-        self.init_df()
+        self.init_store()
 
-    def init_df(self):
-        self.text_df = pd.DataFrame(columns = ["text_id", "text"])
+    def init_store(self):
+        self.storage = []
 
     def log_text(self, text_id, text, le_attrs):
         row = {
             "text_id": text_id,
             "text": text
         }
-        self.text_df = self.text_df.append(row, ignore_index=True)
+        self.storage.append(row)
         self._flushed = False
     
 
     def flush(self):
-        self.text_df.to_csv(self.path, mode='a', quoting=csv.QUOTE_NONNUMERIC, header=False, index=False)
+        df = pd.DataFrame(self.storage)
+        df.to_csv(self.path, mode='a', quoting=csv.QUOTE_NONNUMERIC, header=False, index=False)
         self._flushed = True
-        self.init_df()
+        self.init_store()
 
     def close(self):
         # self.fout.close()

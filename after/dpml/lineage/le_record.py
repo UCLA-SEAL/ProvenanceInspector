@@ -68,11 +68,10 @@ class LeRecord:
         """Compares two LeRecord instances, making sure that they also share
         the same lineage attributes.
         """
-        if self.text != other.text:
+        if self.text != other.text and self.target != other.target:
             return False
         if self.le_attrs != other.le_attrs:
             return False
-            
         return True
 
     def __hash__(self):

@@ -27,7 +27,7 @@ def get_class_that_defined_method(meth):
 '''
 
 
-class LeContext:
+class LeBatch:
 
     def __init__(self, original_batch):
         self.original_batch = original_batch
@@ -94,13 +94,3 @@ class LeContext:
             LeRecord.transform_logger.flush()
         
         return new_records
-
-
-    def __enter__(self):
-        return self
-
-    def __exit__(self, exc_type, exc_value, exc_tb):
-        if isinstance(exc_value, Exception):
-            print(f"An exception occurred in your with block: {exc_type}")
-            print(f"Exception message: {exc_value}")
-            print(f"Traceback info: {exc_tb}")

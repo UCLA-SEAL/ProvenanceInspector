@@ -21,12 +21,13 @@ class TransformationLogger:
         self.path = osp.join(dirname, 'transformation.csv')
         open(self.path, "w").close()
         self._flushed = True
-        self.init_df()
+        self.init_store()
         
 
-    def init_df(self):
-        self.transformation_df = pd.DataFrame(columns=["transformation_id", "transformation_type",
-            "prev_text", "after_text", "prev_target", "after_target"])
+    def init_store(self):
+        self.storage = []
+        # self.transformation_df = pd.DataFrame(columns=["transformation_id", "transformation_type",
+        #     "prev_text", "after_text", "prev_target", "after_target"])
         # "from_modified_indices", "to_modified_indices"])
         
 
@@ -54,15 +55,15 @@ class TransformationLogger:
             #"from_modified_indices": from_mod_inds,
             #"to_modified_indices": to_mod_inds,
         }
-        
-        self.transformation_df = self.transformation_df.append(row, ignore_index=True)
+        self.storage.append(row)
         self._flushed = False
     
 
     def flush(self):
-        self.transformation_df.to_csv(self.path, mode='a', quoting=csv.QUOTE_NONNUMERIC, header=False, index=False)
+        df = pd.DataFrame(self.storage)
+        df.to_csv(self.path, mode='a', quoting=csv.QUOTE_NONNUMERIC, header=False, index=False)
         self._flushed = True
-        self.init_df()
+        self.init_store()
 
     def close(self):
         # self.fout.close()

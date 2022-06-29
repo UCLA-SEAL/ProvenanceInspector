@@ -1,5 +1,6 @@
 """Welcome to the API references for Data Provenance for ML!
 """
+from .config import *
 from .le_record import LeRecord
 from .le_text import LeText
 from .le_target import LeTarget

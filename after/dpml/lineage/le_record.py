@@ -1,17 +1,12 @@
-from lib2to3.pgen2 import token
-from typing import List, Text
 from lineage.le_target import LeTarget
-import numpy as np
 import nltk
 from collections import OrderedDict
 
-import difflib
-import itertools
-
 from lineage.le_text import LeText
-from .logger import TransformationLogger, TextLogger, LabelLogger
+from .logger import TransformationLogger
 from .provenance import ProvenanceFactory
 
+from .config import *
 
 class LeRecord:
     """
@@ -61,7 +56,7 @@ class LeRecord:
         else:
             raise TypeError(f"Invalid type for le_attrs: {type(le_attrs)}")
 
-        if not LeRecord.transform_logger:
+        if USE_LOG and not LeRecord.transform_logger:
             LeRecord.transform_logger = TransformationLogger(dirname='../results/')
 
         self.le_attrs.setdefault("transformation_provenance", ProvenanceFactory.get_provenance('transformation'))
@@ -106,12 +101,14 @@ class LeRecord:
 
             output_record._le_target = new_target
 
-            LeRecord.transform_logger.log_transformation(self, output_record, transformation_type)
+            if USE_LOG:
+                LeRecord.transform_logger.log_transformation(self, output_record, transformation_type)
 
-        LeText.text_logger.flush()
-        if LeTarget.label_logger:
-            LeTarget.label_logger.flush()
-        LeRecord.transform_logger.flush()
+        if USE_LOG:
+            LeText.text_logger.flush()
+            if LeTarget.label_logger:
+                LeTarget.label_logger.flush()
+            LeRecord.transform_logger.flush()
         return transformed_texts
 
 

@@ -1,14 +1,12 @@
-import numpy as np
 import nltk
-import difflib
 import itertools
-import copy
 from collections import OrderedDict
 
 from .utils.text import diff_text, color_text
 from .utils import words_from_text
 from .logger import TextLogger
 from .provenance import ProvenanceFactory
+from .config import *
 
 def tokens_from_text(s, words_to_ignore=[]):
     """
@@ -95,7 +93,7 @@ class LeText:
         else:
             raise TypeError(f"Invalid type for le_attrs: {type(le_attrs)}")
 
-        if not LeText.text_logger:
+        if USE_LOG and not LeText.text_logger:
             LeText.text_logger = TextLogger(dirname='../results/')
 
         # Lineage Attributes
@@ -209,7 +207,8 @@ class LeText:
     def id(self):
         if not self._id:
             self._id = next(LeText.id_iter)
-            LeText.text_logger.log_text(self._id, self.printable_text(), self.le_attrs)
+            if USE_LOG:
+                LeText.text_logger.log_text(self._id, self.printable_text(), self.le_attrs)
 
         return self._id
 

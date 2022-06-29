@@ -1,5 +1,5 @@
-from .provenance import ProvenanceFactory
 from .logger import LabelLogger
+from .config import *
 
 class LeTarget:
     """
@@ -44,7 +44,7 @@ class LeTarget:
         else:
             raise TypeError(f"Non-dict provided for le_attrs: {type(le_attrs)}.")
 
-        if not LeTarget.label_logger:
+        if USE_LOG and not LeTarget.label_logger:
             LeTarget.label_logger = LabelLogger(dirname='../results/')
 
     def __eq__(self, other):
@@ -107,7 +107,7 @@ class LeTarget:
 
     @property
     def id(self):
-        if not self._id:
+        if USE_LOG and not self._id:
             self._id = LeTarget.label_logger.log_label(self.target)
 
         return self._id

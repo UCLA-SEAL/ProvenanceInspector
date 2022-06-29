@@ -8,8 +8,8 @@ class InferQuery:
 
         transformation_log = pd.read_csv('../results/transformation.csv', 
             index_col=0, names = ["transformation_id","transformation_type",
-            "prev_text", "after_text", "from_modified_indices",
-            "to_modified_indices", "changes"])
+            "prev_text", "after_text", "prev_target", "after_target",
+            "from_modified_indices", "to_modified_indices", "changes"])
 
         self.edge_to_transformation = transformation_log.set_index(['prev_text', 'after_text'])
 
@@ -34,10 +34,11 @@ class InferQuery:
         trace_w_transformatiosn = []
         for i in range(len(trace) - 1):
             row=self.edge_to_transformation.loc[trace[i][0], trace[i+1][0]]
-            from_to = row[["from_modified_indices", "to_modified_indices"]].values
+            #from_to = row[["from_modified_indices", "to_modified_indices"]].values
             trans_name = row["transformation_type"]
 
-            trace_w_transformatiosn += [trace[i], f"{trans_name}: {from_to[0]}-->{from_to[1]}"]
+            #trace_w_transformatiosn += [trace[i], f"{trans_name}: {from_to[0]}-->{from_to[1]}"]
+            trace_w_transformatiosn += [trace[i], f"{trans_name}"]
 
         trace_w_transformatiosn.append(trace[-1])
         return trace_w_transformatiosn

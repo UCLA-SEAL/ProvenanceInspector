@@ -5,6 +5,7 @@ Label Logs to CSV
 
 import csv
 from typing import Iterable
+import numpy as np
 
 import pandas as pd
 
@@ -18,33 +19,40 @@ class LabelLogger:
     def __init__(self, dirname='../results/'):
         #logger.info(f"Logging transformation and text pairs to CSVs under directory {dirname}")
         self.path = osp.join(dirname, 'label.csv')
+        open(self.path, "w").close()
         self._flushed = True
         self.init_df()
 
     def init_df(self):
-        if osp.exists(self.path):
-            self.id2label = pd.read_csv(self.path, header=None, index_col=0, squeeze=True, dtype=object)
-        else:
-            self.id2label = pd.Series(dtype=object)
+        self.id_counter = 0
+        self.label2id = {}
+        self.new_rows = {}
 
     def log_label(self, label):
         if isinstance(label, Iterable):
             label=tuple(label)
+        
+        label=str(label)
 
-        try:
-            label_id = pd.Index(self.id2label).get_loc(label)
-        except:
-            label_id = len(self.id2label)
+        if label in self.label2id:
+            label_id = self.label2id[label]
+        else:
+            label_id = self.id_counter
+            if len(label) < 25:
+                self.label2id[label] = label_id
             
-            self.id2label =pd.concat([self.id2label, pd.Series({label_id: label}, dtype=object)], ignore_index=True)
-            self._flushed = False
+            self.new_rows[label_id] = label
+            self.id_counter+=1
+        
+        self._flushed = False
 
         return label_id
 
 
     def flush(self):
-        if len(self.id2label) > 0:
-            self.id2label.to_csv(self.path, mode='w', quoting=csv.QUOTE_NONNUMERIC, header=False, index=False)
+        if len(self.new_rows) > 0:
+            pd.Series(self.new_rows, dtype=object).to_csv(self.path, mode='a', quoting=csv.QUOTE_NONNUMERIC, header=False, index=False)
+            self.new_rows = {}
         self._flushed = True
 
     def close(self):

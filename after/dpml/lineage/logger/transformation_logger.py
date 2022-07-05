@@ -43,7 +43,34 @@ class TransformationLogger:
         # from_mod_inds, to_mod_inds = modified_inds
         # precarious color editing
         # current_text, transformed_text = color_text_pair(current_text, transformed_text, list(from_inds), list(to_inds))
-        
+
+        edit_tags = (transformed_record.feature_provenance - current_record.feature_provenance).get_tags()
+
+        from_mod_inds = set()
+        to_mod_inds = set()
+
+        for tag in edit_tags:
+            parts = tag.split(': ')
+            op = parts[0]
+            tag = parts[1]
+            if op == 'replace':
+                spans = tag[1:-1].split(']-[')
+                from_span = tuple(map(int, spans[0].split(',')))
+                to_span = tuple(map(int, spans[1].split(',')))
+                for i in range(*to_span):
+                    to_mod_inds.add(i)
+            elif op == 'insert':
+                spans = tag[1:-1].split(']-[')
+                from_span = tuple(map(int, spans[0].split(',')))
+                to_span = tuple(map(int, spans[1].split(',')))
+                for i in range(*to_span):
+                    to_mod_inds.add(i)
+            elif op == 'delete':
+                from_span = tag[1:-1].split(',')
+                from_mod_inds.add(from_span)
+
+            for i in range(*from_span):
+                from_mod_inds.add(i)
 
         row = {
             "transformation_id": trans_id,
@@ -52,8 +79,9 @@ class TransformationLogger:
             "after_text": transformed_text_id,
             "prev_target": current_text_tgt_id,
             "after_target": transformed_text_tgt_id,
-            #"from_modified_indices": from_mod_inds,
-            #"to_modified_indices": to_mod_inds,
+            "from_modified_indices": from_mod_inds,
+            "to_modified_indices": to_mod_inds,
+            "changes": edit_tags
         }
         self.storage.append(row)
         self._flushed = False

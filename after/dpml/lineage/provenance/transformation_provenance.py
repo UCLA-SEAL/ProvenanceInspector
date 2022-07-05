@@ -39,6 +39,10 @@ class TransformationProvenance(LazyCloneableProvenance):
 
         return self 
 
+    def _sub(self, other):
+        self.history -= other.history
+        return self
+
 
     def __eq__(self, other):
         if self.history != other.history:

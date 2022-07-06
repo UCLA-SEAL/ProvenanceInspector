@@ -4,6 +4,7 @@ from lineage.utils import add_branch_prefix
 
 class TransformationProvenance(LazyCloneableProvenance):
     def __init__(self, history=None, store_type='Set'):
+        super().__init__()
         self.store_type = store_type
         if history:
             self.history = history
@@ -38,6 +39,11 @@ class TransformationProvenance(LazyCloneableProvenance):
         self.history = cur_hist
 
         return self 
+
+    def _sub(self, other):
+        new_provenance = self._cloneProvenance()
+        new_provenance.history = self.history - other.history
+        return new_provenance
 
 
     def __eq__(self, other):

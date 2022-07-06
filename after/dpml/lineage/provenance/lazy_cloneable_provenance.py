@@ -15,6 +15,10 @@ class LazyCloneableProvenance(ABC):
         raise NotImplementedError()
 
     @abstractmethod
+    def _sub(self):
+        raise NotImplementedError()
+
+    @abstractmethod
     def add_provenance(self):
         raise NotImplementedError()
 
@@ -25,6 +29,14 @@ class LazyCloneableProvenance(ABC):
         base._merge(others)
 
         return base
+
+    def __add__(self, other):
+        return self.merge(other)
+
+    def __sub__(self, other):
+        base = self if self.safeToMerge else self._cloneProvenance()
+        return base._sub(other)
+
 
     # merge assuming the input is non-lazy
     @abstractmethod

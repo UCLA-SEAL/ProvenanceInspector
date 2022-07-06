@@ -1,1 +1,1 @@
-USE_LOG = False
+USE_LOG = True

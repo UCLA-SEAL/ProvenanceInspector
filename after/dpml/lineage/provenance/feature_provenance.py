@@ -5,6 +5,7 @@ from lineage.utils import add_branch_prefix
 
 class FeatureProvenance(LazyCloneableProvenance):
     def __init__(self, feature_name, history=None, store_type='Set'):
+        super().__init__()
         self.name = feature_name
         self.store_type = store_type
 
@@ -20,6 +21,11 @@ class FeatureProvenance(LazyCloneableProvenance):
 
     def _cloneProvenance(self):
         return FeatureProvenance(self.name, history=self.history.copy(), store_type=self.store_type)
+
+        
+    def get_tags(self):
+        return [record[2] for record in self.history]
+
         
     def add_provenance(self, feature_span, feature_tag):
         feature_order = len(self.history)
@@ -38,6 +44,11 @@ class FeatureProvenance(LazyCloneableProvenance):
         self.history = cur_hist
 
         return self 
+
+    def _sub(self, other):
+        new_provenance = self._cloneProvenance()
+        new_provenance.history = self.history - other.history
+        return new_provenance
 
     def __eq__(self, other):
         if self.name != other.name:

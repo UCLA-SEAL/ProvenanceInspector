@@ -1,12 +1,13 @@
 
 import pandas as pd
+import os.path as osp
 
 class InferQuery:
-    def __init__(self):
-        self.out_df = pd.read_csv('../results/log.csv')[
+    def __init__(self, dir_pth = '../results/'):
+        self.out_df = pd.read_csv(osp.join(dir_pth, 'log.csv'))[
             ['original_text', 'perturbed_text', 'result_type']]
 
-        transformation_log = pd.read_csv('../results/transformation.csv', 
+        transformation_log = pd.read_csv(osp.join(dir_pth, 'transformation.csv'), 
             index_col=0, names = ["transformation_id","transformation",
             "prev_text", "after_text", "prev_target", "after_target",
             "from_modified_indices", "to_modified_indices", "changes"])
@@ -17,9 +18,9 @@ class InferQuery:
         self.forward_edges_df = edges_df.set_index('prev_text')
         self.backward_edges_df = edges_df.set_index('after_text')
 
-        self.id_to_text = pd.read_csv('../results/text.csv', index_col="text_id", 
+        self.id_to_text = pd.read_csv(osp.join(dir_pth, 'text.csv'), index_col="text_id", 
             names = ["text_id", "text"])
-        self.text_to_id = pd.read_csv('../results/text.csv', index_col="text", 
+        self.text_to_id = pd.read_csv(osp.join(dir_pth, 'text.csv'), index_col="text", 
             names = ["text_id", "text"])
 
 

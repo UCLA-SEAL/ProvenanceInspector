@@ -22,7 +22,7 @@ class FeatureProvenance(LazyCloneableProvenance):
     def _cloneProvenance(self):
         return FeatureProvenance(self.name, history=self.history.copy(), store_type=self.store_type)
 
-
+        
     def get_tags(self):
         return [record[2] for record in self.history]
 

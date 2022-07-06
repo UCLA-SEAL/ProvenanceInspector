@@ -57,18 +57,13 @@ class TransformationLogger:
             parts = tag.split(': ')
             op = parts[0]
             tag = parts[1]
-            if op == 'replace':
+            if op == 'replace' or op == 'insert':
                 spans = tag[1:-1].split(']-[')
                 from_span = tuple(map(int, spans[0].split(',')))
                 to_span = tuple(map(int, spans[1].split(',')))
                 for i in range(*to_span):
                     to_mod_inds.add(i)
-            elif op == 'insert':
-                spans = tag[1:-1].split(']-[')
-                from_span = tuple(map(int, spans[0].split(',')))
-                to_span = tuple(map(int, spans[1].split(',')))
-                for i in range(*to_span):
-                    to_mod_inds.add(i)
+            
             elif op == 'delete':
                 from_span = tag[1:-1].split(',')
                 from_mod_inds.add(from_span)

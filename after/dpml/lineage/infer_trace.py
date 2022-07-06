@@ -23,11 +23,42 @@ class InferQuery:
             names = ["text_id", "text"])
 
 
-    #def get_trace_of_output(self, result_txt: str):
-    #    transformation_info = [{}]
-    #    history = (transformed_record.transformation_provenance - current_record.transformation_provenance).history
-    #    for trans in history:
-    #        transformation_info[trans[0]] = (trans[1])
+    def get_transfromation_history(self, result_record):
+        
+        history = result_record.transformation_provenance.history
+        transformation_info = [{}] * len(history)
+        for trans in history:
+            transformation_info[trans[0]] = (trans[1])
+
+        feature_history = result_record.feature_provenance.history
+
+        trace = [""] * len(feature_history)
+
+        for i,record in enumerate(feature_history):
+            tag = record[2]
+            parts = tag.split(': ')
+            op = parts[0]
+            tag = parts[1]
+            if op == 'replace' or op == 'insert':
+                spans = tag[1:-1].split(']-[')
+                from_span = tuple(map(int, spans[0].split(',')))
+                to_span = tuple(map(int, spans[1].split(',')))
+                
+            elif op == 'delete':
+                from_span = tag[1:-1].split(',')
+                to_span= tuple()
+
+            from_inds = list(range(*from_span))
+
+            if len(to_span) > 0:
+                to_inds = list(range(*to_span))
+            else:
+                to_inds = []
+
+            trace[record[0]] = f"{transformation_info[i]}:\n\t{op} {from_inds}-->{to_inds}"
+
+        return trace
+
 
     def get_trace_of_output(self, result_text: str):
         cur_text_id = self.text_to_id.loc[result_text]['text_id']
@@ -38,16 +69,16 @@ class InferQuery:
         trace.append((cur_text_id, self.id_to_text.loc[cur_text_id]['text']))
 
         trace = trace[::-1]
-        trace_w_transformatiosn = []
+        trace_w_transformation = []
         for i in range(len(trace) - 1):
             row=self.edge_to_transformation.loc[trace[i][0], trace[i+1][0]]
             from_to = row[["from_modified_indices", "to_modified_indices"]].values
             trans_type = row["transformation"]
 
-            trace_w_transformatiosn += [trace[i], f"{trans_type}: {from_to[0]}-->{from_to[1]}"]
+            trace_w_transformation += [trace[i], f"{trans_type}: {from_to[0]}-->{from_to[1]}"]
 
-        trace_w_transformatiosn.append(trace[-1])
-        return trace_w_transformatiosn
+        trace_w_transformation.append(trace[-1])
+        return trace_w_transformation
 
 
     def get_trace_of_output_idx(self, result_idx: int):

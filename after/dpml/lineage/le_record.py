@@ -61,6 +61,7 @@ class LeRecord:
 
         self.le_attrs.setdefault("transformation_provenance", ProvenanceFactory.get_provenance('transformation'))
         self.le_attrs.setdefault("feature_provenance", ProvenanceFactory.get_provenance('feature', feature_name="edit_seq"))
+        self.le_attrs.setdefault("prev", None)
     
 
 
@@ -92,6 +93,7 @@ class LeRecord:
             
             new_le_attrs = {
                 "transformation_provenance": self.le_attrs["transformation_provenance"].add_provenance(transformation),
+                "prev": self
             }
 
             new_text, new_target = self.generate_new_record(output_record.le_text, new_le_attrs=new_le_attrs)

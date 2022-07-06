@@ -74,6 +74,7 @@ class LeBatch:
 
             new_le_attrs = {
                 "transformation_provenance": le_record.le_attrs["transformation_provenance"].add_provenance(transformation),
+                "prev": le_record
             }
 
 

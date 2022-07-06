@@ -24,6 +24,13 @@ class InferQuery:
 
 
     def get_transfromation_history(self, result_record):
+
+        text_trace = [result_record.text]
+        cur_record = result_record
+        while cur_record.prev:
+            cur_record = cur_record.prev
+            text_trace.append(cur_record)
+        text_trace = text_trace[::-1]
         
         history = result_record.transformation_provenance.history
         transformation_info = [{}] * len(history)
@@ -56,8 +63,13 @@ class InferQuery:
                 to_inds = []
 
             trace[record[0]] = f"{transformation_info[i]}:\n\t{op} {from_inds}-->{to_inds}"
+        
+        all_trace = []
+        for i in range(len(trace)):
+            all_trace += [text_trace[i], trace[i]]
+        all_trace += [text_trace[-1]]
 
-        return trace
+        return all_trace
 
 
     def get_trace_of_output(self, result_text: str):

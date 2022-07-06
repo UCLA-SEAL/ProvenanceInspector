@@ -5,7 +5,8 @@ import os.path as osp
 class InferQuery:
     def __init__(self, dir_pth = '../results/'):
         self.out_df = pd.read_csv(osp.join(dir_pth, 'log.csv'))[
-            ['original_text', 'perturbed_text', 'result_type']]
+            ['original_text', 'perturbed_text', 'original_output','perturbed_output',
+            'result_type']]
 
         transformation_log = pd.read_csv(osp.join(dir_pth, 'transformation.csv'), 
             index_col=0, names = ["transformation_id","transformation",
@@ -75,13 +76,15 @@ class InferQuery:
         return all_trace
 
 
-    def get_trace_of_output(self, result_text: str):
+    def get_trace_of_output(self, result_text: str, from_label, to_label):
         cur_text_id = self.text_to_id.loc[result_text]['text_id']
+        cur_label = to_label
         trace = []
         while cur_text_id in self.backward_edges_df.index:
-            trace.append((cur_text_id, self.id_to_text.loc[cur_text_id]['text']))
+            trace.append((cur_text_id, self.id_to_text.loc[cur_text_id]['text'], cur_label))
+            cur_label = from_label
             cur_text_id = self.backward_edges_df.loc[cur_text_id]['prev_text']
-        trace.append((cur_text_id, self.id_to_text.loc[cur_text_id]['text']))
+        trace.append((cur_text_id, self.id_to_text.loc[cur_text_id]['text'], from_label))
 
         trace = trace[::-1]
         trace_w_transformation = []
@@ -114,8 +117,10 @@ class InferQuery:
 
 
     def get_trace_of_output_idx(self, result_idx: int):
-        query_output = self.out_df.loc[result_idx]['perturbed_text']
-        return self.get_trace_of_output(query_output)
+        output_text = self.out_df.loc[result_idx]['perturbed_text']
+        from_label = self.out_df.loc[result_idx]['original_output']
+        to_label = self.out_df.loc[result_idx]['perturbed_output']
+        return self.get_trace_of_output(output_text, from_label, to_label)
 
 
     def get_traces_of_all_outputs(self):
@@ -123,5 +128,5 @@ class InferQuery:
         for i in range(self.out_df.shape[0]):
             row = self.out_df.iloc[i]
             if row['result_type'] != 'Skipped':
-                all_traces.append(self.get_trace_of_output(row['perturbed_text']))
+                all_traces.append(self.get_trace_of_output_idx(i))
         return all_traces

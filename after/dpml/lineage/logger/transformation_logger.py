@@ -65,8 +65,7 @@ class TransformationLogger:
                     to_mod_inds.add(i)
             
             elif op == 'delete':
-                from_span = tag[1:-1].split(',')
-                from_mod_inds.add(from_span)
+                from_span = tuple(map(int, tag[1:-1].split(',')))
 
             for i in range(*from_span):
                 from_mod_inds.add(i)

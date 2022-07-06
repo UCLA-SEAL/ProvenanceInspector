@@ -9,13 +9,16 @@ after/TextAttack/*.swp
 after/TextAttack/checkpoints/
 after/TextAttack/examples/augmentation/augment.csv
 after/TextAttack/examples/augmentation/examples.csv
-after/le_results_sst2/
-after/results/*
+
+# checkpoints
 after/checkpoints/
 after/dpml.zip
 
-results/**
-!**/.gitkeep
+# results
+results*/**
+after/results*/*
+!after/le_results_sst2/
+a**/.gitkeep
 
 # editor
 ../../.vscode/

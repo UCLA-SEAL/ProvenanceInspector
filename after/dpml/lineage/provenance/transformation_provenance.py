@@ -21,10 +21,18 @@ class TransformationProvenance(LazyCloneableProvenance):
         transformation_order = len(self.history)
         #transformation_info = dir(transformation)
         transformation_info = {"class": transformation.__class__.__name__}
-        sig = signature(transformation.__init__)
-        for arg_name in sig.parameters.keys():
-            if arg_name not in {'self', 'args', 'kwargs'}:
-                transformation_info[arg_name] = getattr(transformation, arg_name)
+        #sig = signature(transformation.__init__)
+        #for arg_name in sig.parameters.keys():
+        #    if arg_name not in {'self', 'args', 'kwargs'}:
+        #        transformation_info[arg_name] = getattr(transformation, arg_name)
+
+        for name in vars(transformation):
+            if name.startswith("__"):
+                continue
+            attr = getattr(transformation, name)
+            if callable(attr):
+                continue
+            transformation_info[name] = attr
 
         new_provenance = self._cloneProvenance()
         new_provenance.history.add((transformation_order, str(transformation_info)))

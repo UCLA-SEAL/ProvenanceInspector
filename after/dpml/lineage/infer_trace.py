@@ -39,7 +39,8 @@ class InferQuery:
 
         feature_history = result_record.feature_provenance.history
 
-        trace = [""] * len(feature_history)
+        trace = [()] * len(feature_history)
+        edit_trace = [()] * len(feature_history)
 
         for i,record in enumerate(feature_history):
             tag = record[2]
@@ -52,7 +53,7 @@ class InferQuery:
                 to_span = tuple(map(int, spans[1].split(',')))
                 
             elif op == 'delete':
-                from_span = tag[1:-1].split(',')
+                from_span = tuple(map(int, tag[1:-1].split(',')))
                 to_span= tuple()
 
             from_inds = list(range(*from_span))
@@ -62,11 +63,12 @@ class InferQuery:
             else:
                 to_inds = []
 
-            trace[record[0]] = f"{transformation_info[i]}:\n\t{op} {from_inds}-->{to_inds}"
+            trace[record[0]] = (transformation_info[i], from_inds, to_inds)
+            edit_trace[record[0]] = (op, from_span, to_span)
         
         all_trace = []
         for i in range(len(trace)):
-            all_trace += [text_trace[i], trace[i]]
+            all_trace += [text_trace[i], trace[i], edit_trace[i]]
         all_trace += [text_trace[-1]]
 
         return all_trace
@@ -84,10 +86,27 @@ class InferQuery:
         trace_w_transformation = []
         for i in range(len(trace) - 1):
             row=self.edge_to_transformation.loc[trace[i][0], trace[i+1][0]]
+            edits = row["changes"][1:-1].split(', ')
+            actual_edits = []
+            for edit in edits:
+                parts = edit[1:-1].split(': ')
+                op = parts[0]
+                tag = parts[1]
+                if op == 'replace' or op == 'insert':
+                    spans = tag[1:-1].split(']-[')
+                    from_span = tuple(map(int, spans[0].split(',')))
+                    to_span = tuple(map(int, spans[1].split(',')))
+                    
+                elif op == 'delete':
+                    from_span = tuple(map(int, tag[1:-1].split(',')))
+                    to_span= tuple()
+                actual_edits.append((op, from_span, to_span))
+            
+
             from_to = row[["from_modified_indices", "to_modified_indices"]].values
             trans_type = row["transformation"]
 
-            trace_w_transformation += [trace[i], f"{trans_type}: {from_to[0]}-->{from_to[1]}"]
+            trace_w_transformation += [trace[i], (trans_type, from_to[0], from_to[1]), actual_edits]
 
         trace_w_transformation.append(trace[-1])
         return trace_w_transformation

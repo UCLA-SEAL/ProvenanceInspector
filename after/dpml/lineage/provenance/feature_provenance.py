@@ -46,8 +46,9 @@ class FeatureProvenance(LazyCloneableProvenance):
         return self 
 
     def _sub(self, other):
-        self.history -= other.history
-        return self
+        new_provenance = self._cloneProvenance()
+        new_provenance.history = self.history - other.history
+        return new_provenance
 
     def __eq__(self, other):
         if self.name != other.name:

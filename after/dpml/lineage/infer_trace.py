@@ -7,7 +7,7 @@ class InferQuery:
             ['original_text', 'perturbed_text', 'result_type']]
 
         transformation_log = pd.read_csv('../results/transformation.csv', 
-            index_col=0, names = ["transformation_id","transformation_type",
+            index_col=0, names = ["transformation_id","transformation",
             "prev_text", "after_text", "prev_target", "after_target",
             "from_modified_indices", "to_modified_indices", "changes"])
 
@@ -22,6 +22,13 @@ class InferQuery:
         self.text_to_id = pd.read_csv('../results/text.csv', index_col="text", 
             names = ["text_id", "text"])
 
+
+    #def get_trace_of_output(self, result_txt: str):
+    #    transformation_info = [{}]
+    #    history = (transformed_record.transformation_provenance - current_record.transformation_provenance).history
+    #    for trans in history:
+    #        transformation_info[trans[0]] = (trans[1])
+
     def get_trace_of_output(self, result_text: str):
         cur_text_id = self.text_to_id.loc[result_text]['text_id']
         trace = []
@@ -34,11 +41,10 @@ class InferQuery:
         trace_w_transformatiosn = []
         for i in range(len(trace) - 1):
             row=self.edge_to_transformation.loc[trace[i][0], trace[i+1][0]]
-            #from_to = row[["from_modified_indices", "to_modified_indices"]].values
-            trans_name = row["transformation_type"]
+            from_to = row[["from_modified_indices", "to_modified_indices"]].values
+            trans_type = row["transformation"]
 
-            #trace_w_transformatiosn += [trace[i], f"{trans_name}: {from_to[0]}-->{from_to[1]}"]
-            trace_w_transformatiosn += [trace[i], f"{trans_name}"]
+            trace_w_transformatiosn += [trace[i], f"{trans_type}: {from_to[0]}-->{from_to[1]}"]
 
         trace_w_transformatiosn.append(trace[-1])
         return trace_w_transformatiosn

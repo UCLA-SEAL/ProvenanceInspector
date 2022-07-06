@@ -101,7 +101,7 @@ class LeRecord:
             output_record._le_target = new_target
 
             if USE_LOG:
-                LeRecord.transform_logger.log_transformation(self, output_record, transformation_type)
+                LeRecord.transform_logger.log_transformation(self, output_record)
 
         if USE_LOG:
             LeText.text_logger.flush()

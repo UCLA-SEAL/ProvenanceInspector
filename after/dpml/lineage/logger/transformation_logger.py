@@ -31,7 +31,7 @@ class TransformationLogger:
         # "from_modified_indices", "to_modified_indices"])
         
 
-    def log_transformation(self, current_record, transformed_record, transformation_type):
+    def log_transformation(self, current_record, transformed_record):
         trans_id = next(TransformationLogger.id_iter)
 
         current_text_id = current_record.text_id
@@ -45,6 +45,10 @@ class TransformationLogger:
         # current_text, transformed_text = color_text_pair(current_text, transformed_text, list(from_inds), list(to_inds))
 
         edit_tags = (transformed_record.feature_provenance - current_record.feature_provenance).get_tags()
+
+        history = (transformed_record.transformation_provenance - current_record.transformation_provenance).history
+        trans = list(history)[0]
+        transformation_info = trans[1]
 
         from_mod_inds = set()
         to_mod_inds = set()
@@ -74,7 +78,7 @@ class TransformationLogger:
 
         row = {
             "transformation_id": trans_id,
-            "transformation_type": transformation_type,
+            "transformation": transformation_info,
             "prev_text": current_text_id,
             "after_text": transformed_text_id,
             "prev_target": current_text_tgt_id,

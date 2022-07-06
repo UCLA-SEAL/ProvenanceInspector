@@ -83,7 +83,7 @@ class LeBatch:
             output_record = LeRecord(new_le_text, le_target=new_le_target, le_attrs=new_le_attrs)
 
             if USE_LOG:
-                LeRecord.transform_logger.log_transformation(le_record, output_record, transformation_type)
+                LeRecord.transform_logger.log_transformation(le_record, output_record)
 
             new_records.append(output_record)
 

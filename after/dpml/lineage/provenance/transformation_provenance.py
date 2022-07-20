@@ -66,10 +66,10 @@ class TransformationProvenance(LazyCloneableProvenance):
             "class_name":  class_name,
             "trans_fn_name": transformation._transform_func,
             # serialization for callables, exclude them for now
-            "init_args": exclude_unserializable(transformation._init_args),
-            "init_kwargs": exclude_unserializable(transformation._init_kwargs),
-            "transform_args": exclude_unserializable(transformation._transform_args),
-            "transform_kwargs": exclude_unserializable(transformation._transform_kwargs)
+            "init_args": json.dumps(exclude_unserializable(transformation._init_args)),
+            "init_kwargs": json.dumps(exclude_unserializable(transformation._init_kwargs)),
+            "transform_args": json.dumps(exclude_unserializable(transformation._transform_args)),
+            "transform_kwargs": json.dumps(exclude_unserializable(transformation._transform_kwargs))
         }
 
         new_provenance = self._cloneProvenance()

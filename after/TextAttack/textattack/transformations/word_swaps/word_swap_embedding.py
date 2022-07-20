@@ -11,8 +11,6 @@ from textattack.shared import AbstractWordEmbedding, WordEmbedding
 
 from .word_swap import WordSwap
 
-from lineage.transformation import *
-
 
 class WordSwapEmbedding(WordSwap):
     """Transforms an input by replacing its words with synonyms in the word

@@ -8,7 +8,6 @@ import random
 import string
 
 from textattack.transformations import Transformation
-from lineage.transformation import *
 
 
 class WordSwap(Transformation):

@@ -65,9 +65,13 @@ class LeBatch:
                                                   self.new_texts,
                                                   self.new_targets):
 
+            transformation = transform_callable
+            if hasattr(transformation, '__self__'):
+                transformation = transformation.__self__
+
 
             new_le_attrs = {
-                "transformation_provenance": le_record.le_attrs["transformation_provenance"].add_provenance(transform_callable),
+                "transformation_provenance": le_record.le_attrs["transformation_provenance"].add_provenance(transformation),
                 "prev": le_record
             }
 

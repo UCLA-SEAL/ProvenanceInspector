@@ -8,6 +8,7 @@ import random
 import string
 
 from textattack.transformations import Transformation
+from lineage.transformation import *
 
 
 class WordSwap(Transformation):
@@ -37,6 +38,7 @@ class WordSwap(Transformation):
         alphabet that could be lowercase or uppercase."""
         return random.choice(self.letters_to_insert)
 
+    @mark_transformation_method
     def _get_transformations(self, current_text, indices_to_modify):
         words = current_text.words
         transformed_texts = []

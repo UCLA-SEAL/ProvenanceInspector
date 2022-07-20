@@ -8,6 +8,7 @@ Transformation Abstract Class
 from abc import ABC, abstractmethod
 
 from textattack.shared.utils import default_class_repr
+from lineage.transformation import *
 from functools import partial
 
 class Transformation(ABC):

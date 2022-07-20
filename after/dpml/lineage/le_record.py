@@ -88,8 +88,6 @@ class LeRecord:
         transformed_texts = transformation._get_transformations(self, indices_to_modify)
 
         for output_record in transformed_texts:
-
-            transformation_type = transformation.__class__.__name__
             
             new_le_attrs = {
                 "transformation_provenance": self.le_attrs["transformation_provenance"].add_provenance(transformation),

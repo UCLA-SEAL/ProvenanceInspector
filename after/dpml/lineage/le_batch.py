@@ -59,12 +59,6 @@ class LeBatch:
         self.new_texts = new_texts
         self.new_targets = new_targets
 
-        transformation = transform_callable
-        if hasattr(transform_callable, '__self__'):
-            transformation = transformation.__self__
-
-        transformation_type = transformation.__class__.__name__
-
         new_records = []
         
         for le_record, text2, target2 in zip(self.le_records,
@@ -73,7 +67,7 @@ class LeBatch:
 
 
             new_le_attrs = {
-                "transformation_provenance": le_record.le_attrs["transformation_provenance"].add_provenance(transformation),
+                "transformation_provenance": le_record.le_attrs["transformation_provenance"].add_provenance(transform_callable),
                 "prev": le_record
             }
 

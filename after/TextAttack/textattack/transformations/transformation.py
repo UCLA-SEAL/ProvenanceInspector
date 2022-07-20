@@ -11,6 +11,7 @@ from textattack.shared.utils import default_class_repr
 from lineage.transformation import *
 from functools import partial
 
+@mark_abstract_transformation_class(transform='_get_transformations')
 class Transformation(ABC):
     """An abstract class for transforming a sequence of text to produce a
     potential adversarial example."""

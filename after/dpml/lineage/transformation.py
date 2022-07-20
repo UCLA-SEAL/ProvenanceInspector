@@ -12,10 +12,12 @@ def mark_transformation_class(transform_class=None, transform_func=None):
         orig_init = original_transform_class.__init__
 
         def __init__(self, *args, **kws):
-            setattr(self, transform_func, mark_transformation_method(getattr(self, transform_func)))
+            
+            if transform_func:
+                setattr(self, transform_func, mark_transformation_method(getattr(self, transform_func)))
 
             orig_init(self, *args, **kws) # Call the original __init__
-
+            
             self._init_args = args
             self._init_kwargs = kws
 
@@ -53,7 +55,7 @@ def mark_transformation_method(transform_method=None, *, stochastic=False):
         @functools.wraps(trans_func)
         def wrapped_function(*args, **kwargs):
 
-            if len(args) > 0 and callable(args[0]):
+            if len(args) > 0 and hasattr(args[0], trans_func.__name__):
                 original_transform_obj = args[0]
                 transform_args = args[1:]
             else:

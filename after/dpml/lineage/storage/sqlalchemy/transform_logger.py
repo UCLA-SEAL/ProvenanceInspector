@@ -29,7 +29,6 @@ class TransformLogger:
         self.engine = create_engine(connection_string, future=True)
         if not database_exists(self.engine.url):
             print("creating database tables from models...")
-            print(self.engine)
             Base.metadata.create_all(self.engine)
         else:
             print("connected to existing database.")
@@ -75,6 +74,7 @@ class TransformLogger:
                     trans_fn_name = tp["trans_fn_name"],
                     is_stochastic = tp["fn_is_stochastic"],
                 )
+                
                 transform_applied = create_and_return(
                     session, TransformApplied,
                     transformation_id = transform.id,

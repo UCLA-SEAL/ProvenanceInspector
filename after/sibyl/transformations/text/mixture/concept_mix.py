@@ -7,9 +7,6 @@ import pandas as pd
 import itertools
 import nltk
 
-from lineage.transformation import *
-
-@mark_transformation_class 
 class ConceptMix(AbstractBatchTransformation):
 
     uses_dataset = True
@@ -65,7 +62,6 @@ class ConceptMix(AbstractBatchTransformation):
                         text_max_length = self.text_max_length,
                         device = self.device)
         
-    @mark_transformation_method
     def __call__(self, batch, target_pairs=[], target_prob=1, num_classes=2):
         """
         Parameters

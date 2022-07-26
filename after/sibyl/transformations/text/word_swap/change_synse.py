@@ -13,9 +13,6 @@ try:
 except LookupError:
     nltk.download('stopwords')
 
-from lineage.transformation import *
-
-@mark_transformation_class 
 class ChangeSynse(AbstractTransformation):
     """
     Replaces a specified number of random words a string
@@ -72,7 +69,6 @@ class ChangeSynse(AbstractTransformation):
             Entailment(input_idx=[1,1], tran_type='INV'),
         ]
     
-    @mark_transformation_method
     def __call__(self, in_text):
         """Replaces words with synses
 
@@ -111,7 +107,6 @@ class ChangeSynse(AbstractTransformation):
     def get_tran_types(self, task_name=None, tran_type=None, label_type=None):
         pass
 
-    @mark_transformation_method
     def transform_Xy(self, X, y):
 
         # transform X

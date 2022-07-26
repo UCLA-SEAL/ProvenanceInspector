@@ -2,9 +2,6 @@ from ..abstract_transformation import *
 from ..tasks import *
 from emoji_translate import Translator, emoji_lis
 
-from lineage.transformation import *
-
-@mark_transformation_class 
 class Demojify(AbstractTransformation):
     def __init__(self, exact_match_only=False, randomize=False, return_metadata=False):
         """
@@ -42,7 +39,6 @@ class Demojify(AbstractTransformation):
         self.randomize = randomize
         self.emo = Translator(self.exact_match_only, self.randomize)
 
-    @mark_transformation_method
     def __call__(self, in_text):
         """
         Parameters
@@ -63,7 +59,6 @@ class Demojify(AbstractTransformation):
         df = self._get_task_configs(init_configs, task_name, tran_type, label_type)
         return df
 
-    @mark_transformation_method
     def transform_Xy(self, X, y):
 
         # transform X
@@ -96,7 +91,6 @@ class Demojify(AbstractTransformation):
             return X_out, y_out, metadata
         return X_out, y_out
 
-@mark_transformation_class 
 class RemoveEmoji(Demojify):
     def __init__(self, polarity=[-1, 1], return_metadata=False):
         """
@@ -134,7 +128,6 @@ class RemoveEmoji(Demojify):
             Entailment(input_idx=[1,1], tran_type='INV'),
         ]
 
-    @mark_transformation_method
     def __call__(self, in_text):
         """
         Parameters
@@ -165,7 +158,6 @@ class RemoveEmoji(Demojify):
                 string = string[:i] + '' + string[i + 1:].lstrip()
         return string.rstrip()
 
-    @mark_transformation_method
     def transform_Xy(self, X, y):
 
         # transform X
@@ -202,7 +194,6 @@ class RemoveEmoji(Demojify):
             return X_out, y_out, metadata
         return X_out, y_out
 
-@mark_transformation_class 
 class RemovePositiveEmoji(RemoveEmoji):
     def __init__(self, polarity=[0.05, 1], return_metadata=False):
         super().__init__(polarity=polarity, return_metadata=False)   
@@ -219,7 +210,6 @@ class RemovePositiveEmoji(RemoveEmoji):
             Entailment(input_idx=[1,1], tran_type='INV'),
         ]
 
-    @mark_transformation_method
     def __call__(self, in_text):
         out_text = self.remove_emoji_by_polarity(in_text, self.polarity)
         return out_text
@@ -229,7 +219,6 @@ class RemovePositiveEmoji(RemoveEmoji):
         df = self._get_task_configs(init_configs, task_name, tran_type, label_type)
         return df
 
-    @mark_transformation_method
     def transform_Xy(self, X, y):
 
         # transform X
@@ -261,7 +250,6 @@ class RemovePositiveEmoji(RemoveEmoji):
             return X_out, y_out, metadata
         return X_out, y_out
 
-@mark_transformation_class 
 class RemoveNegativeEmoji(RemoveEmoji):
     def __init__(self, polarity=[-1, -0.05], return_metadata=False):
         super().__init__(polarity=polarity, return_metadata=False)
@@ -278,7 +266,6 @@ class RemoveNegativeEmoji(RemoveEmoji):
             Entailment(input_idx=[1,1], tran_type='INV'),
         ]
 
-    @mark_transformation_method
     def __call__(self, in_text):
         out_text = self.remove_emoji_by_polarity(in_text, self.polarity)
         return out_text
@@ -288,7 +275,6 @@ class RemoveNegativeEmoji(RemoveEmoji):
         df = self._get_task_configs(init_configs, task_name, tran_type, label_type)
         return df
 
-    @mark_transformation_method
     def transform_Xy(self, X, y):
 
         # transform X
@@ -320,7 +306,6 @@ class RemoveNegativeEmoji(RemoveEmoji):
             return X_out, y_out, metadata
         return X_out, y_out
 
-@mark_transformation_class 
 class RemoveNeutralEmoji(RemoveEmoji):
     def __init__(self, polarity=[-0.05, 0.05], return_metadata=False):
         super().__init__(polarity=polarity, return_metadata=False) 
@@ -337,7 +322,6 @@ class RemoveNeutralEmoji(RemoveEmoji):
             Entailment(input_idx=[1,1], tran_type='INV'),
         ]
 
-    @mark_transformation_method
     def __call__(self, in_text):
         out_text = self.remove_emoji_by_polarity(in_text, self.polarity)
         return out_text
@@ -347,7 +331,6 @@ class RemoveNeutralEmoji(RemoveEmoji):
         df = self._get_task_configs(init_configs, task_name, tran_type, label_type)
         return df
 
-    @mark_transformation_method
     def transform_Xy(self, X, y):
 
         # transform X

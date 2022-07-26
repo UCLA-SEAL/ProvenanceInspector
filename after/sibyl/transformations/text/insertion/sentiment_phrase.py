@@ -3,9 +3,6 @@ from ..tasks import *
 from ..data.phrases import POSITIVE_PHRASES, NEGATIVE_PHRASES
 import numpy as np
 
-from lineage.transformation import *
-
-@mark_transformation_class 
 class InsertSentimentPhrase(AbstractTransformation):
     """
     Appends a sentiment-laden phrase to a string based on 
@@ -44,7 +41,6 @@ class InsertSentimentPhrase(AbstractTransformation):
             Entailment(input_idx=[1,1], tran_type='INV'),
         ]
     
-    @mark_transformation_method
     def __call__(self, in_text):
         """
         Appends a sentiment-laden phrase to a string.
@@ -61,7 +57,6 @@ class InsertSentimentPhrase(AbstractTransformation):
         df = self._get_task_configs(init_configs, task_name, tran_type, label_type)
         return df
 
-    @mark_transformation_method
     def transform_Xy(self, X, y):
 
         # transform X
@@ -107,7 +102,6 @@ class InsertSentimentPhrase(AbstractTransformation):
             return X_out, y_out, metadata
         return X_out, y_out
 
-@mark_transformation_class 
 class InsertPositivePhrase(InsertSentimentPhrase):
     """
     Appends a sentiment-laden phrase to a string based on 
@@ -129,7 +123,6 @@ class InsertPositivePhrase(InsertSentimentPhrase):
             Entailment(input_idx=[1,1], tran_type='INV'),
         ]
 
-    @mark_transformation_method
     def __call__(self, in_text):
         phrase = self.np_random.choice(POSITIVE_PHRASES)
         out_text = in_text + " " + phrase
@@ -140,7 +133,6 @@ class InsertPositivePhrase(InsertSentimentPhrase):
         df = self._get_task_configs(init_configs, task_name, tran_type, label_type)
         return df
 
-    @mark_transformation_method
     def transform_Xy(self, X, y):
 
         # transform X
@@ -189,7 +181,6 @@ class InsertPositivePhrase(InsertSentimentPhrase):
             return X_out, y_out, metadata
         return X_out, y_out
 
-@mark_transformation_class 
 class InsertNegativePhrase(InsertSentimentPhrase):
     """
     Appends a sentiment-laden phrase to a string based on 
@@ -211,7 +202,6 @@ class InsertNegativePhrase(InsertSentimentPhrase):
             Entailment(input_idx=[1,1], tran_type='INV'),
         ]
 
-    @mark_transformation_method
     def __call__(self, in_text):
         phrase = self.np_random.choice(NEGATIVE_PHRASES)
         out_text = in_text + " " + phrase
@@ -222,7 +212,6 @@ class InsertNegativePhrase(InsertSentimentPhrase):
         df = self._get_task_configs(init_configs, task_name, tran_type, label_type)
         return df
 
-    @mark_transformation_method
     def transform_Xy(self, X, y):
 
         # transform X

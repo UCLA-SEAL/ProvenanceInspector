@@ -3,9 +3,6 @@ from ..tasks import *
 import numpy as np
 import string
 
-from lineage.transformation import *
-
-@mark_transformation_class 
 class RandomCharSwap(AbstractTransformation):
     """
     Swaps random consecutive chars
@@ -35,7 +32,6 @@ class RandomCharSwap(AbstractTransformation):
             Entailment(input_idx=[1,1], tran_type='INV'),
         ]
         
-    @mark_transformation_method
     def __call__(self, in_text, n=1):
         """
         Parameters
@@ -61,7 +57,6 @@ class RandomCharSwap(AbstractTransformation):
         df = self._get_task_configs(init_configs, task_name, tran_type, label_type)
         return df
 
-    @mark_transformation_method
     def transform_Xy(self, X, y):
 
         # transform X

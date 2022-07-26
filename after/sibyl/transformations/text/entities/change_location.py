@@ -4,9 +4,6 @@ from ..data.locations import NAMED_ENTITIES
 import numpy as np
 import en_core_web_sm
 
-from lineage.transformation import *
-
-@mark_transformation_class 
 class ChangeLocation(AbstractTransformation):
     """
     Transforms an input by replacing names of recognized 
@@ -37,7 +34,6 @@ class ChangeLocation(AbstractTransformation):
             Entailment(input_idx=[1,1], tran_type='SIB'),
         ]
     
-    @mark_transformation_method
     def __call__(self, in_text):
         doc = self.nlp(in_text)
         out_text = in_text
@@ -63,7 +59,6 @@ class ChangeLocation(AbstractTransformation):
         df = self._get_task_configs(init_configs, task_name, tran_type, label_type)
         return df
         
-    @mark_transformation_method
     def transform_Xy(self, X, y):
 
         # transform X

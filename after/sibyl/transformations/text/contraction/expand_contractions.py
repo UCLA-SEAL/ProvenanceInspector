@@ -2,9 +2,6 @@ from ..abstract_transformation import *
 from ..tasks import *
 import re
 
-from lineage.transformation import *
-
-@mark_transformation_class 
 class ExpandContractions(AbstractTransformation):
     """
     Expands all known contractions in a string input or 
@@ -96,7 +93,6 @@ class ExpandContractions(AbstractTransformation):
         }
         self.contraction_map = {**small, **big}
         
-    @mark_transformation_method
     def __call__(self, in_text):
         """
         Expands contractions in strings (if any)
@@ -122,7 +118,6 @@ class ExpandContractions(AbstractTransformation):
         df = self._get_task_configs(init_configs, task_name, tran_type, label_type)
         return df
         
-    @mark_transformation_method
     def transform_Xy(self, X, y):
 
         # transform X

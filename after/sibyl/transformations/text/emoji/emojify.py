@@ -2,9 +2,6 @@ from ..abstract_transformation import *
 from ..tasks import *
 from emoji_translate import Translator
 
-from lineage.transformation import *
-
-@mark_transformation_class 
 class Emojify(AbstractTransformation):
     def __init__(self, exact_match_only=False, randomize=False, return_metadata=False):
         """
@@ -42,7 +39,6 @@ class Emojify(AbstractTransformation):
         self.randomize = randomize
         self.emo = Translator(self.exact_match_only, self.randomize)
 
-    @mark_transformation_method
     def __call__(self, in_text):
         out_text = self.emo.emojify(in_text)
         return out_text
@@ -52,7 +48,6 @@ class Emojify(AbstractTransformation):
         df = self._get_task_configs(init_configs, task_name, tran_type, label_type)
         return df
 
-    @mark_transformation_method
     def transform_Xy(self, X, y):
 
         # transform X
@@ -85,7 +80,6 @@ class Emojify(AbstractTransformation):
             return X_out, y_out, metadata
         return X_out, y_out
 
-@mark_transformation_class 
 class AddEmoji(Emojify):
     def __init__(self, num=1, polarity=[-1, 1], return_metadata=False):
         """
@@ -128,7 +122,6 @@ class AddEmoji(Emojify):
             Entailment(input_idx=[1,1], tran_type='INV'),
         ]
 
-    @mark_transformation_method
     def __call__(self, in_text):
         """
         Parameters
@@ -153,8 +146,7 @@ class AddEmoji(Emojify):
         emojis = self.np_random.permutation(emojis)[:num]
         return emojis
 
-    @mark_transformation_method
-    def transform_Xy(self, X, y):
+def transform_Xy(self, X, y):
 
         # transform X
         if isinstance(X, str):
@@ -190,7 +182,6 @@ class AddEmoji(Emojify):
             return X_out, y_out, metadata
         return X_out, y_out
 
-@mark_transformation_class 
 class AddPositiveEmoji(AddEmoji):
     def __init__(self, num=1, polarity=[0.05, 1], return_metadata=False):
         super().__init__(self, return_metadata=False) 
@@ -209,7 +200,6 @@ class AddPositiveEmoji(AddEmoji):
             Entailment(input_idx=[1,1], tran_type='INV'),
         ]
 
-    @mark_transformation_method
     def __call__(self, in_text):
         """
         Parameters
@@ -230,7 +220,6 @@ class AddPositiveEmoji(AddEmoji):
         df = self._get_task_configs(init_configs, task_name, tran_type, label_type)
         return df
 
-    @mark_transformation_method
     def transform_Xy(self, X, y):
 
         # transform X
@@ -263,7 +252,6 @@ class AddPositiveEmoji(AddEmoji):
         return X_out, y_out
 
 
-@mark_transformation_class 
 class AddNegativeEmoji(AddEmoji):
     def __init__(self, num=1, polarity=[-1, -0.05], return_metadata=False):
         super().__init__(self, return_metadata=False) 
@@ -282,7 +270,6 @@ class AddNegativeEmoji(AddEmoji):
             Entailment(input_idx=[1,1], tran_type='INV'),
         ]
 
-    @mark_transformation_method
     def __call__(self, in_text):
         """
         Parameters
@@ -303,7 +290,6 @@ class AddNegativeEmoji(AddEmoji):
         df = self._get_task_configs(init_configs, task_name, tran_type, label_type)
         return df
 
-    @mark_transformation_method
     def transform_Xy(self, X, y):
 
         # transform X
@@ -335,7 +321,6 @@ class AddNegativeEmoji(AddEmoji):
             return X_out, y_out, metadata
         return X_out, y_out
 
-@mark_transformation_class 
 class AddNeutralEmoji(AddEmoji):
     def __init__(self, num=1, polarity=[-0.05, 0.05], return_metadata=False):
         super().__init__(self, return_metadata=False) 
@@ -354,7 +339,6 @@ class AddNeutralEmoji(AddEmoji):
             Entailment(input_idx=[1,1], tran_type='INV'),
         ]
 
-    @mark_transformation_method
     def __call__(self, in_text):
         """
         Parameters
@@ -375,7 +359,6 @@ class AddNeutralEmoji(AddEmoji):
         df = self._get_task_configs(init_configs, task_name, tran_type, label_type)
         return df
 
-    @mark_transformation_method
     def transform_Xy(self, X, y):
 
         # transform X

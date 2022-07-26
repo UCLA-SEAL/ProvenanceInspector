@@ -5,7 +5,7 @@ import pandas as pd
 
 from lineage.transformation import *
 
-@mark_transformation_class 
+@mark_abstract_transformation_class(transform="transform_batch")  
 class AbstractBatchTransformation(ABC):
     """
     An abstract class for transformations to be applied 
@@ -20,7 +20,6 @@ class AbstractBatchTransformation(ABC):
         self.np_random = np.random.default_rng(SIBYL_SEED)
     
     @abstractmethod
-    @mark_transformation_method  
     def __call__(self, batch):
         """
         Apply the transformation to a batch of (X, y) 
@@ -33,7 +32,6 @@ class AbstractBatchTransformation(ABC):
         """
         pass
 
-    @mark_transformation_method  
     def transform_batch(self, batch):
         batch, _ = self.__call__(batch)
         return batch

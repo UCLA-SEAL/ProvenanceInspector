@@ -1,9 +1,6 @@
 from ..abstract_transformation import *
 from ..tasks import *
 
-from lineage.transformation import *
-
-@mark_transformation_class 
 class WordDeletion(AbstractTransformation):
     """
     Deletes words from random indices in the string input
@@ -38,7 +35,6 @@ class WordDeletion(AbstractTransformation):
             Entailment(input_idx=[1,1], tran_type='INV'),
         ]
     
-    @mark_transformation_method
     def __call__(self, in_text):
         """
         Parameters
@@ -76,7 +72,6 @@ class WordDeletion(AbstractTransformation):
         df = self._get_task_configs(init_configs, task_name, tran_type, label_type)
         return df
 
-    @mark_transformation_method
     def transform_Xy(self, X, y):
 
         # transform X

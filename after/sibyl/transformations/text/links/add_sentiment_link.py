@@ -4,9 +4,6 @@ import pandas as pd
 import numpy as np
 import os
 
-from lineage.transformation import *
-
-@mark_transformation_class 
 class AddSentimentLink(AbstractTransformation):
     """
     Appends a given / constructed URL to a string input.
@@ -60,7 +57,6 @@ class AddSentimentLink(AbstractTransformation):
             Entailment(input_idx=[1,1], tran_type='INV'),
         ]
     
-    @mark_transformation_method
     def __call__(self, in_text):
         if self.default_url:
             if 'positive' in self.sentiment:
@@ -78,7 +74,6 @@ class AddSentimentLink(AbstractTransformation):
         df = self._get_task_configs(init_configs, task_name, tran_type, label_type)
         return df
 
-    @mark_transformation_method
     def transform_Xy(self, X, y):
 
         # transform X
@@ -130,7 +125,6 @@ class AddSentimentLink(AbstractTransformation):
             return X_out, y_out, metadata
         return X_out, y_out
 
-@mark_transformation_class 
 class AddPositiveLink(AddSentimentLink):
     def __init__(self, return_metadata=False):
         super().__init__(url=None, sentiment='positive', return_metadata=False)
@@ -147,7 +141,6 @@ class AddPositiveLink(AddSentimentLink):
             Entailment(input_idx=[1,1], tran_type='INV'),
         ]
 
-    @mark_transformation_method
     def __call__(self, in_text):
         if self.default_url:
             word = self.np_random.choice(self.pos_words)
@@ -162,7 +155,6 @@ class AddPositiveLink(AddSentimentLink):
         df = self._get_task_configs(init_configs, task_name, tran_type, label_type)
         return df
 
-    @mark_transformation_method
     def transform_Xy(self, X, y):
 
         # transform X
@@ -211,7 +203,6 @@ class AddPositiveLink(AddSentimentLink):
             return X_out, y_out, metadata
         return X_out, y_out
 
-@mark_transformation_class 
 class AddNegativeLink(AddSentimentLink):
     def __init__(self, return_metadata=False):
         super().__init__(url=None, sentiment='negative', return_metadata=False)
@@ -228,7 +219,6 @@ class AddNegativeLink(AddSentimentLink):
             Entailment(input_idx=[1,1], tran_type='INV'),
         ]
 
-    @mark_transformation_method
     def __call__(self, in_text):
         if self.default_url:
             word = self.np_random.choice(self.neg_words)
@@ -243,7 +233,6 @@ class AddNegativeLink(AddSentimentLink):
         df = self._get_task_configs(init_configs, task_name, tran_type, label_type)
         return df
 
-    @mark_transformation_method
     def transform_Xy(self, X, y):
 
         # transform X

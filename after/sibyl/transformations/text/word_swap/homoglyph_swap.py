@@ -2,9 +2,6 @@ from ..abstract_transformation import *
 from ..tasks import *
 import numpy as np
 
-from lineage.transformation import *
-
-@mark_transformation_class 
 class HomoglyphSwap(AbstractTransformation):
     """
     Transforms an input by replacing its words with 
@@ -82,7 +79,6 @@ class HomoglyphSwap(AbstractTransformation):
             "z": "ᴢ",
         }
     
-    @mark_transformation_method
     def __call__(self, in_text):
         """
         Returns a list containing all possible words with 1 character
@@ -112,7 +108,6 @@ class HomoglyphSwap(AbstractTransformation):
         df = self._get_task_configs(init_configs, task_name, tran_type, label_type)
         return df
 
-    @mark_transformation_method
     def transform_Xy(self, X, y):
 
         # transform X

@@ -6,9 +6,6 @@ import spacy
 import en_core_web_sm
 import numpy as np
 
-from lineage.transformation import *
-
-@mark_transformation_class 
 class RemoveNegation(AbstractTransformation):
     """
     Defines a transformation that removes a negation
@@ -43,7 +40,6 @@ class RemoveNegation(AbstractTransformation):
             Entailment(input_idx=[1,1], tran_type='INV'),
         ]
     
-    @mark_transformation_method
     def __call__(self, in_text):
         # This removes all negations in the doc. I should maybe add an option to remove just some.
         doc = self.nlp(in_text)
@@ -112,7 +108,6 @@ class RemoveNegation(AbstractTransformation):
         df = self._get_task_configs(init_configs, task_name, tran_type, label_type)
         return df
         
-    @mark_transformation_method
     def transform_Xy(self, X, y):
 
         # transform X

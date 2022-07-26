@@ -35,9 +35,6 @@ torch.backends.cudnn.deterministic = True
 
 np_random = np.random.default_rng(seed=SIBYL_SEED)
 
-from lineage.transformation import *
-
-@mark_transformation_class 
 class Concept2Sentence(AbstractTransformation):
     """
     Accepts an input, extracts salient keywords, and 
@@ -92,7 +89,6 @@ class Concept2Sentence(AbstractTransformation):
         if self.antonymize:
             self.antonymizer = ChangeAntonym()
     
-    @mark_transformation_method
     def __call__(self, in_text, in_target=None, n=None, threshold=None):
         concepts = self.extract_concepts(in_text, in_target, n, threshold)
         if concepts:
@@ -147,7 +143,6 @@ class Concept2Sentence(AbstractTransformation):
         df = self._get_task_configs(init_configs, task_name, tran_type, label_type)
         return df
 
-    @mark_transformation_method
     def transform_Xy(self, X, y):
 
         orig_return_concepts_state = self.return_concepts

@@ -2,9 +2,6 @@ from ..abstract_transformation import *
 from ..tasks import *
 import numpy as np
 
-from lineage.transformation import *
-
-@mark_transformation_class 
 class RandomSwapQwerty(AbstractTransformation):
     """
     Substitues random chars
@@ -69,7 +66,6 @@ class RandomSwapQwerty(AbstractTransformation):
             "m": ["n", "j", "k"],
         }
     
-    @mark_transformation_method
     def __call__(self, in_text, n=1):
         """
         Parameters
@@ -96,7 +92,6 @@ class RandomSwapQwerty(AbstractTransformation):
         df = self._get_task_configs(init_configs, task_name, tran_type, label_type)
         return df
 
-    @mark_transformation_method
     def transform_Xy(self, X, y):
 
         # transform X

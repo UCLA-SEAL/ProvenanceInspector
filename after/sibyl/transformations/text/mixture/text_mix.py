@@ -11,9 +11,6 @@ try:
 except LookupError:
     nltk.download('punkt')
 
-from lineage.transformation import *
-
-@mark_transformation_class 
 class TextMix(AbstractBatchTransformation):
     """
     Concatenates two texts together and interpolates 
@@ -45,7 +42,6 @@ class TextMix(AbstractBatchTransformation):
             # Entailment(input_idx=[1,1], tran_type='SIB'),
         ]
         
-    @mark_transformation_method
     def __call__(self, batch, target_pairs=[], target_prob=0, num_classes=2):
         """
         Parameters
@@ -165,7 +161,6 @@ class TextMix(AbstractBatchTransformation):
         return df
 
 
-@mark_transformation_class 
 class SentMix(AbstractBatchTransformation):
     """
     Concatenates two texts together and then mixes the
@@ -197,7 +192,6 @@ class SentMix(AbstractBatchTransformation):
             # Entailment(input_idx=[1,1], tran_type='SIB'),
         ]
         
-    @mark_transformation_method
     def __call__(self, batch, target_pairs=[], target_prob=0, num_classes=2):
         """
         Parameters
@@ -253,7 +247,6 @@ class SentMix(AbstractBatchTransformation):
         df = self._get_task_configs(init_configs, task_name, tran_type, label_type)
         return df
 
-@mark_transformation_class 
 class WordMix(AbstractBatchTransformation):
     """
     Concatenates two texts together and then mixes the
@@ -285,7 +278,6 @@ class WordMix(AbstractBatchTransformation):
             # Entailment(input_idx=[1,1], tran_type='SIB'),
         ]
         
-    @mark_transformation_method
     def __call__(self, batch, target_pairs=[], target_prob=0, num_classes=2):
         """
         Parameters

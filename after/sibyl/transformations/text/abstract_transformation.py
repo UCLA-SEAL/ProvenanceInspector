@@ -6,7 +6,7 @@ import pandas as pd
 
 from lineage.transformation import *
 
-@mark_transformation_class 
+@mark_abstract_transformation_class(transform="transform_batch") 
 class AbstractTransformation(ABC):
     """
     An abstract class for transformations to be applied 
@@ -22,7 +22,6 @@ class AbstractTransformation(ABC):
         self.task_config = None
     
     @abstractmethod
-    @mark_transformation_method
     def __call__(self, in_text):
         """
         Apply the transformation to a string input
@@ -34,8 +33,7 @@ class AbstractTransformation(ABC):
         """
         pass
 
-    @abstractmethod 
-    @mark_transformation_method  
+    @abstractmethod   
     def transform_Xy(self, X, y):
         """
         Apply the transformation to a string input 
@@ -65,7 +63,6 @@ class AbstractTransformation(ABC):
                                                                self.task_config['input_idx'],
                                                                self.task_config['task_name']))
 
-    @mark_transformation_method
     def transform_batch(self, batch):
         new_text, new_labels = [], []
         for X, y in zip(*batch):

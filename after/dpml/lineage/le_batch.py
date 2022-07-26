@@ -4,8 +4,6 @@ import inspect
 from .le_record import LeRecord
 from .le_text import LeText
 from .le_target import LeTarget
-from .config import *
-
 
 '''
 def get_class_that_defined_method(meth):
@@ -25,7 +23,6 @@ def get_class_that_defined_method(meth):
     return getattr(meth, '__objclass__', None)  # handle special descriptor objects
 
 '''
-
 
 class LeBatch:
 
@@ -81,15 +78,12 @@ class LeBatch:
 
             output_record = LeRecord(new_le_text, le_target=new_le_target, le_attrs=new_le_attrs)
 
-            if USE_LOG:
-                LeRecord.transform_logger.log_transformation(le_record, output_record)
+            if LeRecord.cfg.use_log:
+                LeRecord.transform_logger.log(le_record, output_record)
 
             new_records.append(output_record)
 
-        if USE_LOG:
-            LeText.text_logger.flush()
-            if LeTarget.label_logger:
-                LeTarget.label_logger.flush()
+        if LeRecord.cfg.use_log:
             LeRecord.transform_logger.flush()
         
         return new_records

@@ -4,9 +4,7 @@ from collections import OrderedDict
 
 from .utils.text import diff_text, color_text
 from .utils import words_from_text
-from .logger import TextLogger
 from .provenance import ProvenanceFactory
-from .config import *
 
 def tokens_from_text(s, words_to_ignore=[]):
     """
@@ -54,7 +52,6 @@ class LeText:
     id_iter = itertools.count()
     sent_tokenizer = nltk.tokenize.punkt.PunktSentenceTokenizer()
     SPLIT_TOKEN = "<SPLIT>"
-    text_logger = None
 
     def __init__(self, text_input, granularity="word", le_attrs=None):
         self._id = None
@@ -92,9 +89,6 @@ class LeText:
             self.le_attrs = le_attrs
         else:
             raise TypeError(f"Invalid type for le_attrs: {type(le_attrs)}")
-
-        if USE_LOG and not LeText.text_logger:
-            LeText.text_logger = TextLogger(dirname='../results/')
 
         # Lineage Attributes
         self.le_attrs.setdefault("granularity", self.granularity)
@@ -207,8 +201,6 @@ class LeText:
     def id(self):
         if not self._id:
             self._id = next(LeText.id_iter)
-            if USE_LOG:
-                LeText.text_logger.log_text(self._id, self.printable_text(), self.le_attrs)
 
         return self._id
 

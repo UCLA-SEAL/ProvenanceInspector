@@ -1,5 +1,4 @@
-from .logger import LabelLogger
-from .config import *
+
 
 class LeTarget:
     """
@@ -28,8 +27,6 @@ class LeTarget:
         - determine how to do diff-ing for other data types
     """
 
-    label_logger = None
-
     def __init__(self, target, le_attrs=None):
         self._id = None
 
@@ -43,9 +40,6 @@ class LeTarget:
             self.le_attrs = le_attrs
         else:
             raise TypeError(f"Non-dict provided for le_attrs: {type(le_attrs)}.")
-
-        if USE_LOG and not LeTarget.label_logger:
-            LeTarget.label_logger = LabelLogger(dirname='../results/')
 
     def __eq__(self, other):
         """Compares two LeTarget instances, making sure that they also share
@@ -107,9 +101,6 @@ class LeTarget:
 
     @property
     def id(self):
-        if USE_LOG and not self._id:
-            self._id = LeTarget.label_logger.log_label(self.target)
-
         return self._id
 
     def __getattr__(self, attr):

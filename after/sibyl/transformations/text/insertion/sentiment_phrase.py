@@ -9,7 +9,7 @@ class InsertSentimentPhrase(AbstractTransformation):
     a pre-defined list of phrases.  
     """
 
-    def __init__(self, sentiment='positive', return_metadata=False):
+    def __init__(self, sentiment='positive', task_name=None, return_metadata=False):
         """
         Initializes the transformation and provides an
         opporunity to supply a configuration if needed
@@ -24,7 +24,7 @@ class InsertSentimentPhrase(AbstractTransformation):
             whether a transform was successfully
             applied or not
         """
-        super().__init__() 
+        super().__init__(task_name) 
         self.sentiment = sentiment
         if self.sentiment.lower() not in ['positive', 'negative']:
             raise ValueError("Sentiment must be 'positive' or 'negative'.")
@@ -40,6 +40,7 @@ class InsertSentimentPhrase(AbstractTransformation):
             Entailment(input_idx=[0,1], tran_type='INV'),
             Entailment(input_idx=[1,1], tran_type='INV'),
         ]
+        self.task_config = self.match_task(task_name)
     
     def __call__(self, in_text):
         """
@@ -108,8 +109,8 @@ class InsertPositivePhrase(InsertSentimentPhrase):
     a pre-defined list of phrases.  
     """
 
-    def __init__(self, return_metadata=False):
-        super().__init__(sentiment = 'positive', return_metadata=False)
+    def __init__(self, task_name=None, return_metadata=False):
+        super().__init__(sentiment = 'positive', task_name=task_name, return_metadata=False)
         self.return_metadata = return_metadata
         self.task_configs = [
             SentimentAnalysis(tran_type='SIB'),
@@ -122,6 +123,7 @@ class InsertPositivePhrase(InsertSentimentPhrase):
             Entailment(input_idx=[0,1], tran_type='INV'),
             Entailment(input_idx=[1,1], tran_type='INV'),
         ]
+        self.task_config = self.match_task(task_name)
 
     def __call__(self, in_text):
         phrase = self.np_random.choice(POSITIVE_PHRASES)
@@ -187,8 +189,8 @@ class InsertNegativePhrase(InsertSentimentPhrase):
     a pre-defined list of phrases.  
     """
 
-    def __init__(self, return_metadata=False):
-        super().__init__(sentiment = 'negative', return_metadata=False)
+    def __init__(self, task_name=None, return_metadata=False):
+        super().__init__(sentiment = 'negative', task_name=task_name, return_metadata=False)
         self.return_metadata = return_metadata
         self.task_configs = [
             SentimentAnalysis(tran_type='SIB'),
@@ -201,6 +203,7 @@ class InsertNegativePhrase(InsertSentimentPhrase):
             Entailment(input_idx=[0,1], tran_type='INV'),
             Entailment(input_idx=[1,1], tran_type='INV'),
         ]
+        self.task_config = self.match_task(task_name)
 
     def __call__(self, in_text):
         phrase = self.np_random.choice(NEGATIVE_PHRASES)

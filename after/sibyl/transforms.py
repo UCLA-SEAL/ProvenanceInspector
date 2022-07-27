@@ -88,9 +88,9 @@ def init_transforms(task_name=None, tran_type=None, label_type=None, return_meta
     else:
         for tran in TRANSFORMATIONS:
             if hasattr(tran, 'uses_dataset'):
-                t = tran(return_metadata=return_metadata, dataset=dataset)
+                t = tran(task_name=task_name, return_metadata=return_metadata, dataset=dataset)
             else:
-                t = tran(return_metadata=return_metadata)
+                t = tran(task_name=task_name, return_metadata=return_metadata)
             df = t.get_task_configs()
             df['transformation'] = t.__class__.__name__
             df['tran_fn'] = t
@@ -107,18 +107,18 @@ def init_transforms(task_name=None, tran_type=None, label_type=None, return_meta
         df = df[label_df]
     df.reset_index(drop=True, inplace=True)
 
-    # set task_configs
-    new_tran_fns = []
-    for index, row in df.iterrows():
-        task_config = {
-                'task_name' : row['task_name'],
-                'input_idx' : row['input_idx'],
-                'tran_type' : row['tran_type'],
-                'label_type': row['label_type']
-            }
-        row['tran_fn'].task_config = task_config
-        new_tran_fns.append(row['tran_fn'])
-    df['tran_fn'] = new_tran_fns    
+    # # set task_configs
+    # new_tran_fns = []
+    # for index, row in df.iterrows():
+    #     task_config = {
+    #             'task_name' : row['task_name'],
+    #             'input_idx' : row['input_idx'],
+    #             'tran_type' : row['tran_type'],
+    #             'label_type': row['label_type']
+    #         }
+    #     row['tran_fn'].task_config = task_config
+    #     new_tran_fns.append(row['tran_fn'])
+    # df['tran_fn'] = new_tran_fns    
     return df
 
 def transform_test_suites(

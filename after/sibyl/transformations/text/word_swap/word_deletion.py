@@ -6,7 +6,7 @@ class WordDeletion(AbstractTransformation):
     Deletes words from random indices in the string input
     """
 
-    def __init__(self, p=0.25, return_metadata=False):
+    def __init__(self, p=0.25, task_name=None, return_metadata=False):
         """
         Initializes the transformation and provides an
         opporunity to supply a configuration if needed
@@ -20,7 +20,7 @@ class WordDeletion(AbstractTransformation):
             whether a transform was successfully
             applied or not
         """
-        super().__init__() 
+        super().__init__(task_name) 
         self.p = p
         self.return_metadata = return_metadata
         self.task_configs = [
@@ -34,6 +34,7 @@ class WordDeletion(AbstractTransformation):
             Entailment(input_idx=[0,1], tran_type='INV'),
             Entailment(input_idx=[1,1], tran_type='INV'),
         ]
+        self.task_config = self.match_task(task_name)
     
     def __call__(self, in_text):
         """

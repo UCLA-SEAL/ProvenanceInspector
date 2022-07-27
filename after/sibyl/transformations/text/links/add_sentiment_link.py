@@ -12,7 +12,7 @@ class AddSentimentLink(AbstractTransformation):
     in routing structure. 
     """
 
-    def __init__(self, url=None, sentiment='positive', return_metadata=False):
+    def __init__(self, url=None, sentiment='positive', task_name=None, return_metadata=False):
         """
         Initializes the transformation and provides an
         opporunity to supply a configuration if needed
@@ -28,7 +28,7 @@ class AddSentimentLink(AbstractTransformation):
             whether a transform was successfully
             applied or not
         """
-        super().__init__() 
+        super().__init__(task_name) 
         self.url = url
         if self.url is None:
             self.url = 'https://www.dictionary.com/browse/'
@@ -56,6 +56,7 @@ class AddSentimentLink(AbstractTransformation):
             Entailment(input_idx=[0,1], tran_type='INV'),
             Entailment(input_idx=[1,1], tran_type='INV'),
         ]
+        self.task_config = self.match_task(task_name)
     
     def __call__(self, in_text):
         if self.default_url:
@@ -126,8 +127,8 @@ class AddSentimentLink(AbstractTransformation):
         return X_out, y_out
 
 class AddPositiveLink(AddSentimentLink):
-    def __init__(self, return_metadata=False):
-        super().__init__(url=None, sentiment='positive', return_metadata=False)
+    def __init__(self, task_name=None,  return_metadata=False):
+        super().__init__(url=None, sentiment='positive', task_name=task_name, return_metadata=False)
         self.return_metadata = return_metadata
         self.task_configs = [
             SentimentAnalysis(tran_type='SIB'),
@@ -140,6 +141,7 @@ class AddPositiveLink(AddSentimentLink):
             Entailment(input_idx=[0,1], tran_type='INV'),
             Entailment(input_idx=[1,1], tran_type='INV'),
         ]
+        self.task_config = self.match_task(task_name)
 
     def __call__(self, in_text):
         if self.default_url:
@@ -204,8 +206,8 @@ class AddPositiveLink(AddSentimentLink):
         return X_out, y_out
 
 class AddNegativeLink(AddSentimentLink):
-    def __init__(self, return_metadata=False):
-        super().__init__(url=None, sentiment='negative', return_metadata=False)
+    def __init__(self, task_name=None,  return_metadata=False):
+        super().__init__(url=None, sentiment='negative', task_name=task_name, return_metadata=False)
         self.return_metadata = return_metadata
         self.task_configs = [
             SentimentAnalysis(tran_type='SIB'),
@@ -218,6 +220,7 @@ class AddNegativeLink(AddSentimentLink):
             Entailment(input_idx=[0,1], tran_type='INV'),
             Entailment(input_idx=[1,1], tran_type='INV'),
         ]
+        self.task_config = self.match_task(task_name)
 
     def __call__(self, in_text):
         if self.default_url:

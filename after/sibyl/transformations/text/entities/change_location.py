@@ -10,7 +10,7 @@ class ChangeLocation(AbstractTransformation):
     location entity.
     """
 
-    def __init__(self, return_metadata=False):
+    def __init__(self, task_name=None, return_metadata=False):
         """
         Parameters
         ----------
@@ -19,7 +19,7 @@ class ChangeLocation(AbstractTransformation):
             whether a transform was successfully
             applied or not
         """
-        super().__init__() 
+        super().__init__(task_name) 
         self.nlp = en_core_web_sm.load()
         self.return_metadata = return_metadata
         self.task_configs = [
@@ -33,6 +33,7 @@ class ChangeLocation(AbstractTransformation):
             Entailment(input_idx=[0,1], tran_type='SIB'),
             Entailment(input_idx=[1,1], tran_type='SIB'),
         ]
+        self.task_config = self.match_task(task_name)
     
     def __call__(self, in_text):
         doc = self.nlp(in_text)

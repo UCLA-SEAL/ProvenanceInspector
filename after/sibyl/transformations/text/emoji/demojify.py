@@ -3,7 +3,7 @@ from ..tasks import *
 from emoji_translate import Translator, emoji_lis
 
 class Demojify(AbstractTransformation):
-    def __init__(self, exact_match_only=False, randomize=False, return_metadata=False):
+    def __init__(self, exact_match_only=False, randomize=False, task_name=None, return_metadata=False):
         """
         Initializes the transformation and provides an
         opporunity to supply a configuration if needed
@@ -22,7 +22,7 @@ class Demojify(AbstractTransformation):
             whether a transform was successfully
             applied or not
         """
-        super().__init__() 
+        super().__init__(task_name) 
         self.return_metadata = return_metadata
         self.task_configs = [
             SentimentAnalysis(),
@@ -35,6 +35,7 @@ class Demojify(AbstractTransformation):
             Entailment(input_idx=[0,1], tran_type='INV'),
             Entailment(input_idx=[1,1], tran_type='INV'),
         ]
+        self.task_config = self.match_task(task_name)
         self.exact_match_only = exact_match_only
         self.randomize = randomize
         self.emo = Translator(self.exact_match_only, self.randomize)
@@ -92,7 +93,7 @@ class Demojify(AbstractTransformation):
         return X_out, y_out
 
 class RemoveEmoji(Demojify):
-    def __init__(self, polarity=[-1, 1], return_metadata=False):
+    def __init__(self, polarity=[-1, 1], task_name=None, return_metadata=False):
         """
         Initializes the transformation and provides an
         opporunity to supply a configuration if needed
@@ -107,7 +108,7 @@ class RemoveEmoji(Demojify):
             - negative ==> [-1, -0.05] 
             - neutral ==> [-0.05, 0.05]
         """
-        super().__init__(self, return_metadata=False) 
+        super().__init__(self, task_name=None, return_metadata=False) 
         self.polarity = polarity
         if self.polarity[0] <= -0.05:
             self.sentiment = 'negative'
@@ -127,6 +128,7 @@ class RemoveEmoji(Demojify):
             Entailment(input_idx=[0,1], tran_type='INV'),
             Entailment(input_idx=[1,1], tran_type='INV'),
         ]
+        self.task_config = self.match_task(task_name)
 
     def __call__(self, in_text):
         """
@@ -195,8 +197,8 @@ class RemoveEmoji(Demojify):
         return X_out, y_out
 
 class RemovePositiveEmoji(RemoveEmoji):
-    def __init__(self, polarity=[0.05, 1], return_metadata=False):
-        super().__init__(polarity=polarity, return_metadata=False)   
+    def __init__(self, polarity=[0.05, 1], task_name=None, return_metadata=False):
+        super().__init__(polarity=polarity, task_name=None, return_metadata=False)   
         self.return_metadata = return_metadata
         self.task_configs = [
             SentimentAnalysis(tran_type='SIB'),
@@ -209,6 +211,7 @@ class RemovePositiveEmoji(RemoveEmoji):
             Entailment(input_idx=[0,1], tran_type='INV'),
             Entailment(input_idx=[1,1], tran_type='INV'),
         ]
+        self.task_config = self.match_task(task_name)
 
     def __call__(self, in_text):
         out_text = self.remove_emoji_by_polarity(in_text, self.polarity)
@@ -251,8 +254,8 @@ class RemovePositiveEmoji(RemoveEmoji):
         return X_out, y_out
 
 class RemoveNegativeEmoji(RemoveEmoji):
-    def __init__(self, polarity=[-1, -0.05], return_metadata=False):
-        super().__init__(polarity=polarity, return_metadata=False)
+    def __init__(self, polarity=[-1, -0.05], task_name=None, return_metadata=False):
+        super().__init__(polarity=polarity, task_name=None, return_metadata=False)
         self.return_metadata = return_metadata
         self.task_configs = [
             SentimentAnalysis(tran_type='SIB'),
@@ -265,6 +268,7 @@ class RemoveNegativeEmoji(RemoveEmoji):
             Entailment(input_idx=[0,1], tran_type='INV'),
             Entailment(input_idx=[1,1], tran_type='INV'),
         ]
+        self.task_config = self.match_task(task_name)
 
     def __call__(self, in_text):
         out_text = self.remove_emoji_by_polarity(in_text, self.polarity)
@@ -307,8 +311,8 @@ class RemoveNegativeEmoji(RemoveEmoji):
         return X_out, y_out
 
 class RemoveNeutralEmoji(RemoveEmoji):
-    def __init__(self, polarity=[-0.05, 0.05], return_metadata=False):
-        super().__init__(polarity=polarity, return_metadata=False) 
+    def __init__(self, polarity=[-0.05, 0.05], task_name=None, return_metadata=False):
+        super().__init__(polarity=polarity, task_name=None, return_metadata=False) 
         self.return_metadata = return_metadata
         self.task_configs = [
             SentimentAnalysis(),
@@ -321,6 +325,7 @@ class RemoveNeutralEmoji(RemoveEmoji):
             Entailment(input_idx=[0,1], tran_type='INV'),
             Entailment(input_idx=[1,1], tran_type='INV'),
         ]
+        self.task_config = self.match_task(task_name)
 
     def __call__(self, in_text):
         out_text = self.remove_emoji_by_polarity(in_text, self.polarity)

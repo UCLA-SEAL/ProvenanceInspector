@@ -27,15 +27,21 @@ class TransformLogger:
     with hydra.initialize(version_base=None, config_path="../../config"):
         cfg = hydra.compose(config_name="config", overrides=["storage=csv"])
         path = os.path.abspath(os.path.join(cfg.storage['path'], cfg.storage['filename']))
+        replay_only = cfg.replay_only
 
-    def __init__(self, path=path, flush_after_count=100):
+    def __init__(self, path=path, replay_only=replay_only):
         self.path = path
-        self.flush_after_count = flush_after_count
+        self.replay_only = replay_only
         self.init_storage()
 
     def init_storage(self):
-        self.storage = []
+        if self.replay_only:
+            self._original = []
+            self._transform_prov = []
+        else:
+            self._storage = []
         self._flushed = True
+
 
     def log(self, input_record, output_record):
         # transformation provenance
@@ -44,7 +50,7 @@ class TransformLogger:
         history = t_diff.history
         tp = json.loads(list(history)[0][1])
 
-        self.storage.append({
+        self._storage.append({
             "input_text": input_record.text,
             "input_target": input_record.target,
             "output_text": output_record.text,
@@ -60,14 +66,53 @@ class TransformLogger:
             "diff": f_diff.get_tags(),
             "diff_granularity": input_record.le_text.granularity
         })
-
         self._flushed = False
-        if len(self.storage) > self.flush_after_count:
-            self.flush()
+
+    def log_original(self, text, target):
+        self._original.append((text, target))
+        self._flushed = False
+
+    def log_originals(self, texts, targets):
+        self._original.extend(zip(texts, targets))
+        self._flushed = False
+
+    def log_transform_prov(self, transform_prov):
+        self._transform_prov.append(transform_prov)
+        self._flushed = False
+
+    def log_transform_provs(self, transform_provs):
+        self._transform_prov.extend(transform_provs)
+        self._flushed = False
+
+    def _flush_with_replay(self):
+        out = []
+        for (text, target), t_prov in zip(self._original, self._transform_prov):
+            out.append({
+                'original_text': text,
+                'original_target': target,
+                'transformation_provenance': t_prov
+            })
+        df = pd.DataFrame(out)
+        df.to_csv(self.path, mode='a', quoting=csv.QUOTE_NONNUMERIC, header=False, index=False)
+
+    # def _flush_with_replay(self):
+    #     out = []
+    #     for original, t_prov in zip(self._original, self._transform_prov):
+    #         for tp in t_prov:
+    #             tp = json.loads(tp)
+    #             out.append(original | tp) 
+    #     df = pd.DataFrame(out)
+    #     df.to_csv(self.path, mode='a', quoting=csv.QUOTE_NONNUMERIC, header=False, index=False)
+                    
+    def _flush_without_replay(self):
+        df = pd.DataFrame(self._storage)
+        df.to_csv(self.path, mode='a', quoting=csv.QUOTE_NONNUMERIC, header=False, index=False)
 
     def flush(self):
-        df = pd.DataFrame(self.storage)
-        df.to_csv(self.path, mode='a', quoting=csv.QUOTE_NONNUMERIC, header=False, index=False)
+        if self.replay_only:
+            self._flush_with_replay()
+        else:
+            self._flush_without_replay()
         self.init_storage()
 
 if __name__ == '__main__':
@@ -95,8 +140,9 @@ if __name__ == '__main__':
     batch = (text, target)
 
     transform = MyTransformTester(chars_to_append="?")
-    for i in range(1,3):
-        batch = LeBatch(batch).apply(transform.transform_batch, char_multiplier=i)
+    with LeBatch(original_batch=batch) as le_batch:
+        for i in range(1,5):
+            batch = le_batch.apply(batch, transform.transform_batch, char_multiplier=i)
 
     logger = TransformLogger()
     df = pd.read_csv(logger.path, header=None)

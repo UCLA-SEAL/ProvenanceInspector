@@ -102,11 +102,12 @@ class LeRecord:
 
             output_record._le_target = new_target
 
-            if LeRecord.cfg.use_log:
+            if LeRecord.cfg.use_log and not LeRecord.cfg.replay_only:
                 LeRecord.transform_logger.log(self, output_record)
 
-        if LeRecord.cfg.use_log:
+        if LeRecord.cfg.use_log and not LeRecord.cfg.replay_only:
             LeRecord.transform_logger.flush()
+
         return transformed_texts
 
 
@@ -183,10 +184,11 @@ class LeRecord:
         else:
             return self.__getattribute__(attr)
 
+
     def __str__(self):
         return self.text
+
 
     def __repr__(self):
         class_name = self.__class__.__name__
         return f'<{class_name}:\n\t text="{self.text}",\n\t target="{self.target}",\n\t le_attrs={self.le_attrs}>'
-        

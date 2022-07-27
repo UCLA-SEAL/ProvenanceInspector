@@ -1,5 +1,6 @@
 defaults:
   - _self_
-  - storage: csv
+  - storage: sqlite
 
 use_log: True
+replay_only: True

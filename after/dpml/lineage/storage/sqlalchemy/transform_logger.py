@@ -24,30 +24,85 @@ class TransformLogger:
     with hydra.initialize(version_base=None, config_path="../../config"):
         cfg = hydra.compose(config_name="config")
         connection_string = build_url_from_cfg(cfg)
+        replay_only = cfg.replay_only
 
-    def __init__(self, connection_string=connection_string, flush_after_count=100):
+    def __init__(self, connection_string=connection_string, replay_only=replay_only):
         self.engine = create_engine(connection_string, future=True)
         if not database_exists(self.engine.url):
             print("creating database tables from models...")
             Base.metadata.create_all(self.engine)
         else:
             print("connected to existing database.")
-        self.flush_after_count = flush_after_count
+        self.replay_only = replay_only
         self.init_storage()
 
     def init_storage(self):
-        self.storage = []
+        if self.replay_only:
+            self._original = []
+            self._transform_prov = []
+        else:
+            self._storage = []
         self._flushed = True
 
     def log(self, input_record, output_record):
-        self.storage.append((input_record, output_record))
+        self._storage.append((input_record, output_record))
         self._flushed = False
-        if len(self.storage) > self.flush_after_count:
-            self.flush()
 
-    def flush(self):
+    def log_original(self, text, target):
+        self._original.append((text, target))
+        self._flushed = False
+
+    def log_originals(self, texts, targets):
+        self._original.extend(zip(texts, targets))
+        self._flushed = False
+
+    def log_transform_prov(self, transform_prov):
+        self._transform_prov.append(transform_prov)
+        self._flushed = False
+
+    def log_transform_provs(self, transform_provs):
+        self._transform_prov.extend(transform_provs)
+        self._flushed = False
+
+    def _flush_with_replay(self):
         with Session(self.engine) as session:
-            for in_rec, out_rec in self.storage:
+            for (text, target), t_prov in zip(self._original, self._transform_prov):
+
+                # store records
+                in_record = create_and_return(
+                    session, Record,
+                    text=text, 
+                    target=target
+                )
+
+                # store transform provenance
+                for tp in t_prov:
+
+                    tp = json.loads(tp)
+                    
+                    transform, is_created = get_or_create(
+                        session, Transform,
+                        module_name = tp["module_name"],
+                        class_name = tp["class_name"],
+                        trans_fn_name = tp["trans_fn_name"],
+                        is_stochastic = tp["fn_is_stochastic"],
+                    )
+                    transform_applied = create_and_return(
+                        session, TransformApplied,
+                        transformation_id = transform.id,
+                        transformation_class_args = tp["class_args"],
+                        transformation_class_kwargs = tp["class_kwargs"],
+                        transformation_transform_args = tp["transform_args"],
+                        transformation_transform_kwargs = tp["transform_kwargs"],
+                        input_record_id = in_record.id,
+                        # output_record_id = out_record.id,
+                        # diff = f_diff.get_tags(),
+                        # diff_granularity = in_rec.le_text.granularity,
+                    )
+
+    def _flush_without_replay(self):
+        with Session(self.engine) as session:
+            for in_rec, out_rec in self._storage:
 
                 # store records
                 in_record = create_and_return(
@@ -74,7 +129,6 @@ class TransformLogger:
                     trans_fn_name = tp["trans_fn_name"],
                     is_stochastic = tp["fn_is_stochastic"],
                 )
-                
                 transform_applied = create_and_return(
                     session, TransformApplied,
                     transformation_id = transform.id,
@@ -87,6 +141,12 @@ class TransformLogger:
                     diff = f_diff.get_tags(),
                     diff_granularity = in_rec.le_text.granularity,
                 )
+
+    def flush(self):
+        if self.replay_only:
+            self._flush_with_replay()
+        else:
+            self._flush_without_replay()
         self.init_storage()
 
 if __name__ == '__main__':
@@ -114,13 +174,11 @@ if __name__ == '__main__':
     batch = (text, target)
 
     transform = MyTransformTester(chars_to_append="?")
-    for i in range(1,3):
-        batch = LeBatch(batch).apply(transform.transform_batch, char_multiplier=i)
+    with LeBatch(original_batch=batch) as le_batch:
+        for i in range(1,5):
+            batch = le_batch.apply(batch, transform.transform_batch, char_multiplier=i)
 
     logger = TransformLogger()
-    # for in_rec, out_rec in zip(in_batch.le_records, out_batch):
-    #     logger.log(in_rec, out_rec)
-    # logger.flush()
 
     from sqlalchemy import select
     

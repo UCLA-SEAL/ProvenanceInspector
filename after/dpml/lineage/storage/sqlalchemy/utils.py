@@ -28,11 +28,11 @@ def build_server_db_url(dialect, driver, username, password, host, port, databas
     return url
 
 def build_url_from_cfg(cfg):
-    if cfg.storage['dialect'] in ["sqlite"]:
-        return build_local_db_url(cfg.storage['dialect'], cfg.storage['path'], cfg.storage['name'])
+    if cfg.storage.dialect in ["sqlite"]:
+        return build_local_db_url(cfg.storage.dialect, cfg.storage.path, cfg.storage.name)
     elif cfg.stoage.dialect in ["mssql", "mysql", "postgresql"]:
-        return build_server_db_url(cfg.storage['dialect'], cfg.storage['driver'], cfg.storage['username'], 
-                                   cfg.storage['password'], cfg.storage['host'], cfg.storage['port'], cfg.storage['database'])
+        return build_server_db_url(cfg.storage.dialect, cfg.storage.driver, cfg.storage.username, 
+                                   cfg.storage.password, cfg.storage.host, cfg.storage.port, cfg.storage.database)
     else: 
         return None
 

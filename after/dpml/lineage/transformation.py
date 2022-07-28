@@ -12,8 +12,8 @@ def mark_transformation_class(transform_class=None, transform_method=None):
             if transform_method:
                 setattr(self, transform_method, mark_transformation_method(getattr(self, transform_method)))
             orig_init(self, *args, **kwargs) # Call the original __init__
-            self._class_args = args if args else None
-            self._class_kwargs = kwargs if kwargs else None
+            self._class_args = args if args else []
+            self._class_kwargs = kwargs if kwargs else []
         original_transform_class.__init__ = __init__ # Set the class' __init__ to the new one
         return original_transform_class
     if transform_class:
@@ -39,16 +39,16 @@ def mark_transformation_method(transform_method=None, *, stochastic=False):
         def wrapped_function(*args, **kwargs):
             if len(args) > 0 and hasattr(args[0], trans_func.__name__):
                 original_transform_obj = args[0]
-                transform_args =  args[2:] if args[2:] else None # 0 = self, 1 = batch inputs
+                transform_args =  args[2:] if args[2:] else [] # 0 = self, 1 = batch inputs
             else:
                 original_transform_obj = trans_func
                 if hasattr(original_transform_obj, '__self__'):
                     original_transform_obj = original_transform_obj.__self__
-                transform_args = args[2:] if args[2:] else None # 0 = self, 1 = batch inputs
+                transform_args = args[2:] if args[2:] else [] # 0 = self, 1 = batch inputs
             if getattr(original_transform_obj, trans_func.__name__, None):
                 original_transform_obj._transform_args = transform_args
                 original_transform_obj._transform_fn_name = trans_func.__name__
-                original_transform_obj._transform_kwargs = kwargs if kwargs else None
+                original_transform_obj._transform_kwargs = kwargs if kwargs else []
                 original_transform_obj._transform_is_stochastic = stochastic  
             return trans_func(*args, **kwargs)
         return wrapped_function

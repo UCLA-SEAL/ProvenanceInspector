@@ -1,4 +1,6 @@
 import os
+from sqlalchemy.sql import text
+from sqlalchemy.orm import Session
 
 def build_local_db_url(dialect, path, name):
     url = ""
@@ -67,3 +69,36 @@ def get_or_create(session, model, defaults=None, **kwargs):
             return instance, False
         else:
             return instance, True
+
+def get_records_and_provenance(session):
+    records_stmt = text(
+        """
+        SELECT r.id, r.text, r.target
+        FROM Record r
+        """
+    )
+
+    provenance_stmt = text(
+        """
+        SELECT t.*, ta.* 
+        FROM TransformApplied ta
+        INNER JOIN Transform t ON ta.transformation_id = t.id
+        WHERE ta.input_record_id == :id
+        """
+    )
+
+    record_rows = session.execute(records_stmt)
+    
+    records_to_replay = []
+    for row in record_rows:
+        records_to_replay.append(row._mapping)
+    
+    provenance_to_replay = []
+    for record in records_to_replay:
+        provenance_rows = session.execute(provenance_stmt, dict(record))
+        prov = []
+        for row in provenance_rows:
+            prov.append(row._mapping)
+        provenance_to_replay.append(prov)
+    
+    return records_to_replay, provenance_to_replay

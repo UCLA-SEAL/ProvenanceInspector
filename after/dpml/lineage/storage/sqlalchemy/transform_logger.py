@@ -6,8 +6,8 @@ Record Logs to DATA_STORE
 from multiprocessing import connection
 import hydra
 
-from models import *
-from utils import *
+from .models import *
+from .utils import *
 
 import json
 
@@ -22,7 +22,7 @@ class TransformLogger:
 
     hydra.core.global_hydra.GlobalHydra.instance().clear()
     with hydra.initialize(version_base=None, config_path="../../config"):
-        cfg = hydra.compose(config_name="config")
+        cfg = hydra.compose(config_name="config", overrides=["storage=sqlite"])
         connection_string = build_url_from_cfg(cfg)
         replay_only = cfg.replay_only
 
@@ -31,8 +31,6 @@ class TransformLogger:
         if not database_exists(self.engine.url):
             print("creating database tables from models...")
             Base.metadata.create_all(self.engine)
-        else:
-            print("connected to existing database.")
         self.replay_only = replay_only
         self.init_storage()
 
@@ -90,10 +88,10 @@ class TransformLogger:
                     transform_applied = create_and_return(
                         session, TransformApplied,
                         transformation_id = transform.id,
-                        transformation_class_args = tp["class_args"],
-                        transformation_class_kwargs = tp["class_kwargs"],
-                        transformation_transform_args = tp["transform_args"],
-                        transformation_transform_kwargs = tp["transform_kwargs"],
+                        class_args = tp["class_args"],
+                        class_kwargs = tp["class_kwargs"],
+                        transform_args = tp["transform_args"],
+                        transform_kwargs = tp["transform_kwargs"],
                         input_record_id = in_record.id,
                         # output_record_id = out_record.id,
                         # diff = f_diff.get_tags(),
@@ -131,15 +129,15 @@ class TransformLogger:
                 )
                 transform_applied = create_and_return(
                     session, TransformApplied,
-                    transformation_id = transform.id,
-                    transformation_class_args = tp["class_args"],
-                    transformation_class_kwargs = tp["class_kwargs"],
-                    transformation_transform_args = tp["transform_args"],
-                    transformation_transform_kwargs = tp["transform_kwargs"],
                     input_record_id = in_record.id,
                     output_record_id = out_record.id,
                     diff = f_diff.get_tags(),
                     diff_granularity = in_rec.le_text.granularity,
+                    transformation_id = transform.id,
+                    class_args = tp["class_args"],
+                    class_kwargs = tp["class_kwargs"],
+                    transform_args = tp["transform_args"],
+                    transform_kwargs = tp["transform_kwargs"],
                 )
 
     def flush(self):
@@ -175,7 +173,7 @@ if __name__ == '__main__':
 
     transform = MyTransformTester(chars_to_append="?")
     with LeBatch(original_batch=batch) as le_batch:
-        for i in range(1,5):
+        for i in range(1,3):
             batch = le_batch.apply(batch, transform.transform_batch, char_multiplier=i)
 
     logger = TransformLogger()
@@ -185,17 +183,17 @@ if __name__ == '__main__':
     stmt = select(Record).where(Record.text.like('mytest%'))
     with logger.engine.connect() as conn:
         for row in conn.execute(stmt):
-            print(row)
+            print(row._mapping)
 
     stmt = select(Transform)
     with logger.engine.connect() as conn:
         for row in conn.execute(stmt):
-            print(row)
+            print(row._mapping)
 
     stmt = select(TransformApplied)
     with logger.engine.connect() as conn:
         for row in conn.execute(stmt):
-            print(row)
+            print(row._mapping)
 
 
     # ~\dpml\after\dpml\lineage>python storage\sqlalchemy\transformation_logger.py

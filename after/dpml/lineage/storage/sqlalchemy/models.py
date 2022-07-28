@@ -57,15 +57,15 @@ class TransformApplied(Base):
 
     # columns
     id = Column(Integer, primary_key=True)
-    transformation_id = Column(Integer, ForeignKey("Transform.id"))
-    transformation_class_args = Column(String)
-    transformation_class_kwargs = Column(JSON)
-    transformation_transform_args = Column(String)
-    transformation_transform_kwargs = Column(JSON)
     input_record_id = Column(Integer, ForeignKey("Record.id"))
     output_record_id = Column(Integer, ForeignKey("Record.id"))
     diff = Column(JSON)
     diff_granularity = Column(Enum(RefGranularity))
+    transformation_id = Column(Integer, ForeignKey("Transform.id"))
+    class_args = Column(String)
+    class_kwargs = Column(JSON)
+    transform_args = Column(String)
+    transform_kwargs = Column(JSON)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
 
 # model tables

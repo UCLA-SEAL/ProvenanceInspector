@@ -109,6 +109,35 @@ class Attacker:
         """
         if torch.cuda.is_available():
             self.attack.cuda_()
+            
+            print("====================================================")
+
+            # Fix TensorFlow GPU memory growth
+            try:
+                import tensorflow as tf
+
+                gpus = tf.config.experimental.list_physical_devices("GPU")
+                if gpus:
+                    try:
+                        # Currently, memory growth needs to be the same across GPUs
+                        gpu = gpus[0]
+                        tf.config.experimental.set_visible_devices(gpu, "GPU")
+                        #tf.config.set_logical_device_configuration(
+                        #    gpu,
+                        #    [tf.config.LogicalDeviceConfiguration(memory_limit=1024)])
+
+                        tf.config.experimental.set_memory_growth(gpu, True)
+
+                        print('tensorflow gpu usage:', tf.config.experimental.get_memory_usage('GPU:0'))
+                    except RuntimeError as e:
+                        print(e)
+            
+            except ModuleNotFoundError:
+                pass
+
+            torch.cuda.empty_cache()
+            print('torch memory stats:', torch.cuda.memory_stats(0))
+            print("=========================================================")
 
         if self._checkpoint:
             num_remaining_attacks = self._checkpoint.num_remaining_attacks
@@ -523,6 +552,7 @@ def pytorch_multiprocessing_workaround():
         pass
 
 
+
 def set_env_variables(gpu_id):
     # Disable tensorflow logs, except in the case of an error.
     if "TF_CPP_MIN_LOG_LEVEL" not in os.environ:
@@ -538,6 +568,8 @@ def set_env_variables(gpu_id):
     # For PyTorch
     torch.cuda.set_device(gpu_id)
 
+    print("====================================================")
+
     # Fix TensorFlow GPU memory growth
     try:
         import tensorflow as tf
@@ -548,12 +580,22 @@ def set_env_variables(gpu_id):
                 # Currently, memory growth needs to be the same across GPUs
                 gpu = gpus[gpu_id]
                 tf.config.experimental.set_visible_devices(gpu, "GPU")
+                #tf.config.set_logical_device_configuration(
+                #    gpu,
+                #    [tf.config.LogicalDeviceConfiguration(memory_limit=1024)])
+
                 tf.config.experimental.set_memory_growth(gpu, True)
+
+                print('tensorflow gpu usage:', tf.config.experimental.get_memory_usage(gpu))
             except RuntimeError as e:
                 print(e)
+      
     except ModuleNotFoundError:
         pass
 
+    torch.cuda.empty_cache()
+    print('torch memory stats:', torch.cuda.memory_stats(gpu_id))
+    print("=========================================================")
 
 def attack_from_queue(
     attack, attack_args, num_gpus, first_to_start, lock, in_queue, out_queue

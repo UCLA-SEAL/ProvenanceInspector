@@ -6,9 +6,6 @@ from bs4.element import Comment
 import re
 import numpy as np
 
-from lineage.transformation import *
-
-@mark_transformation_class 
 class ImportLinkText(AbstractTransformation):
     """
     Appends a given / constructed URL to a string input.
@@ -17,7 +14,7 @@ class ImportLinkText(AbstractTransformation):
     in routing structure. 
     """
 
-    def __init__(self, return_metadata=False):
+    def __init__(self, task_name=None, return_metadata=False):
         """
         Initializes the transformation and provides an
         opporunity to supply a configuration if needed
@@ -29,7 +26,7 @@ class ImportLinkText(AbstractTransformation):
             whether a transform was successfully
             applied or not
         """
-        super().__init__() 
+        super().__init__(task_name) 
         # https://gist.github.com/uogbuji/705383#gistcomment-2250605
         self.URL_REGEX = re.compile(r'(?i)\b((?:https?://|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:\'".,<>?\xab\xbb\u201c\u201d\u2018\u2019]))')
         self.return_metadata = return_metadata
@@ -44,8 +41,8 @@ class ImportLinkText(AbstractTransformation):
             Entailment(input_idx=[0,1], tran_type='SIB'),
             Entailment(input_idx=[1,1], tran_type='SIB'),
         ]
+        self.task_config = self.match_task(task_name)
     
-    @mark_transformation_method
     def __call__(self, in_text):
         def replace(match):
             url = match.group(0)
@@ -58,7 +55,6 @@ class ImportLinkText(AbstractTransformation):
         df = self._get_task_configs(init_configs, task_name, tran_type, label_type)
         return df
         
-    @mark_transformation_method
     def transform_Xy(self, X, y):
 
         # transform X

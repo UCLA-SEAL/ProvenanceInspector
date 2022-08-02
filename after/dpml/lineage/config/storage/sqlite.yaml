@@ -1,0 +1,3 @@
+dialect: "sqlite"
+path: "./dpml/lineage/storage/"
+name: "dpml.db"

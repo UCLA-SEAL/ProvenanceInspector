@@ -5,16 +5,13 @@ import re
 import spacy
 import en_core_web_sm
 
-from lineage.transformation import *
-
-@mark_transformation_class 
 class ChangeNumber(AbstractTransformation):
     """
     Contracts all known contractions in a string input or 
     returns the original string if none are found. 
     """
 
-    def __init__(self, multiplier=0.2, replacement=None, return_metadata=False):
+    def __init__(self, multiplier=0.2, replacement=None, task_name=None, return_metadata=False):
         """
         Initializes the transformation and provides an
         opporunity to supply a configuration if needed
@@ -32,7 +29,7 @@ class ChangeNumber(AbstractTransformation):
             whether a transform was successfully
             applied or not
         """
-        super().__init__() 
+        super().__init__(task_name) 
         self.multiplier = multiplier
         self.replacement = replacement
         self.nlp = en_core_web_sm.load()
@@ -48,8 +45,8 @@ class ChangeNumber(AbstractTransformation):
             Entailment(input_idx=[0,1], tran_type='INV'),
             Entailment(input_idx=[1,1], tran_type='INV'),
         ]
+        self.task_config = self.match_task(task_name)
     
-    @mark_transformation_method
     def __call__(self, in_text):
         doc = self.nlp(in_text)
         nums = [x.text for x in doc if x.text.isdigit()]
@@ -72,7 +69,6 @@ class ChangeNumber(AbstractTransformation):
         df = self._get_task_configs(init_configs, task_name, tran_type, label_type)
         return df
 
-    @mark_transformation_method
     def transform_Xy(self, X, y):
 
         # transform X

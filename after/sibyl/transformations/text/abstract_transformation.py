@@ -6,23 +6,20 @@ import pandas as pd
 
 from lineage.transformation import *
 
-@mark_transformation_class 
 class AbstractTransformation(ABC):
     """
     An abstract class for transformations to be applied 
     to input data. 
     """
 
-    def __init__(self, **kwargs):
+    def __init__(self, task_name, **kwargs):
         """
         Initializes the transformation and provides an
         opporunity to supply a configuration if needed
         """
         self.np_random = np.random.default_rng(SIBYL_SEED)
-        self.task_config = None
     
     @abstractmethod
-    @mark_transformation_method
     def __call__(self, in_text):
         """
         Apply the transformation to a string input
@@ -34,8 +31,7 @@ class AbstractTransformation(ABC):
         """
         pass
 
-    @abstractmethod 
-    @mark_transformation_method  
+    @abstractmethod   
     def transform_Xy(self, X, y):
         """
         Apply the transformation to a string input 
@@ -65,7 +61,6 @@ class AbstractTransformation(ABC):
                                                                self.task_config['input_idx'],
                                                                self.task_config['task_name']))
 
-    @mark_transformation_method
     def transform_batch(self, batch):
         new_text, new_labels = [], []
         for X, y in zip(*batch):
@@ -130,3 +125,9 @@ class AbstractTransformation(ABC):
                 raise ValueError('The selected label type must be one of the following: {}'.format(', '.join(tran_types)))
             df = df[df['label_type'] == label_type]
         return df
+
+    def match_task(self, task_name):
+        for task in self.task_configs:
+            if task.task_name == task_name:
+                return task()
+        return None

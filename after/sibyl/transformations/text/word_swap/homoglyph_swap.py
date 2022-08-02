@@ -2,15 +2,12 @@ from ..abstract_transformation import *
 from ..tasks import *
 import numpy as np
 
-from lineage.transformation import *
-
-@mark_transformation_class 
 class HomoglyphSwap(AbstractTransformation):
     """
     Transforms an input by replacing its words with 
     visually similar words using homoglyph swaps.
     """
-    def __init__(self, change=0.25, return_metadata=False):
+    def __init__(self, change=0.25, task_name=None, return_metadata=False):
         """
         Initializes the transformation
 
@@ -26,7 +23,7 @@ class HomoglyphSwap(AbstractTransformation):
             whether a transform was successfully
             applied or not
         """
-        super().__init__() 
+        super().__init__(task_name) 
         self.return_metadata = return_metadata
         self.task_configs = [
             SentimentAnalysis(),
@@ -39,6 +36,7 @@ class HomoglyphSwap(AbstractTransformation):
             Entailment(input_idx=[0,1], tran_type='INV'),
             Entailment(input_idx=[1,1], tran_type='INV'),
         ]
+        self.task_config = self.match_task(task_name)
         assert 0<=change<=1, "Change must be a probability between 0 and 1"
         self.change = change
         self.homos = {
@@ -82,7 +80,6 @@ class HomoglyphSwap(AbstractTransformation):
             "z": "ᴢ",
         }
     
-    @mark_transformation_method
     def __call__(self, in_text):
         """
         Returns a list containing all possible words with 1 character
@@ -112,7 +109,6 @@ class HomoglyphSwap(AbstractTransformation):
         df = self._get_task_configs(init_configs, task_name, tran_type, label_type)
         return df
 
-    @mark_transformation_method
     def transform_Xy(self, X, y):
 
         # transform X

@@ -2,16 +2,13 @@ from ..abstract_transformation import *
 from ..tasks import *
 import re
 
-from lineage.transformation import *
-
-@mark_transformation_class 
 class ContractContractions(AbstractTransformation):
     """
     Contracts all known contractions in a string input or 
     returns the original string if none are found. 
     """
 
-    def __init__(self, return_metadata=False):
+    def __init__(self, task_name=None, return_metadata=False):
         """
         Initializes the transformation and provides an
         opporunity to supply a configuration if needed
@@ -23,7 +20,7 @@ class ContractContractions(AbstractTransformation):
             whether a transform was successfully
             applied or not
         """
-        super().__init__() 
+        super().__init__(task_name) 
         self.return_metadata = return_metadata
         self.task_configs = [
             SentimentAnalysis(),
@@ -36,6 +33,7 @@ class ContractContractions(AbstractTransformation):
             Entailment(input_idx=[0,1], tran_type='INV'),
             Entailment(input_idx=[1,1], tran_type='INV'),
         ]
+        self.task_config = self.match_task(task_name)
         a = {
             'is not': "isn't", 'are not': "aren't", 'cannot': "can't",
             'could not': "couldn't", 'did not': "didn't", 'does not':
@@ -79,8 +77,7 @@ class ContractContractions(AbstractTransformation):
         }
         reverse_b = {v: k for k, v in b.items()}
         self.reverse_contraction_map = {**a, **reverse_b}
-    
-    @mark_transformation_method    
+        
     def __call__(self, in_text):
         """
         Applies contractions to strings (if any)
@@ -103,7 +100,6 @@ class ContractContractions(AbstractTransformation):
         df = self._get_task_configs(init_configs, task_name, tran_type, label_type)
         return df
 
-    @mark_transformation_method
     def transform_Xy(self, X, y):
 
         # transform X

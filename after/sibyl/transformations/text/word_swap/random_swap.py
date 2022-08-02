@@ -3,15 +3,12 @@ from ..tasks import *
 import numpy as np
 import re
 
-from lineage.transformation import *
-
-@mark_transformation_class 
 class RandomSwap(AbstractTransformation):
     """
     Swaps random words
     """
 
-    def __init__(self, n=1, return_metadata=False):
+    def __init__(self, n=1, task_name=None, return_metadata=False):
         """
         Initializes the transformation
 
@@ -24,7 +21,7 @@ class RandomSwap(AbstractTransformation):
             whether a transform was successfully
             applied or not
         """
-        super().__init__() 
+        super().__init__(task_name) 
         self.n=n
         self.return_metadata = return_metadata
         self.task_configs = [
@@ -38,8 +35,8 @@ class RandomSwap(AbstractTransformation):
             Entailment(input_idx=[0,1], tran_type='INV'),
             Entailment(input_idx=[1,1], tran_type='INV'),
         ]
+        self.task_config = self.match_task(task_name)
     
-    @mark_transformation_method
     def __call__(self, in_text):
         """
         Parameters
@@ -63,7 +60,6 @@ class RandomSwap(AbstractTransformation):
         df = self._get_task_configs(init_configs, task_name, tran_type, label_type)
         return df
 
-    @mark_transformation_method
     def transform_Xy(self, X, y):
 
         # transform X

@@ -4,9 +4,6 @@ import pandas as pd
 import numpy as np
 import os
 
-from lineage.transformation import *
-
-@mark_transformation_class 
 class AddSentimentLink(AbstractTransformation):
     """
     Appends a given / constructed URL to a string input.
@@ -15,7 +12,7 @@ class AddSentimentLink(AbstractTransformation):
     in routing structure. 
     """
 
-    def __init__(self, url=None, sentiment='positive', return_metadata=False):
+    def __init__(self, url=None, sentiment='positive', task_name=None, return_metadata=False):
         """
         Initializes the transformation and provides an
         opporunity to supply a configuration if needed
@@ -31,7 +28,7 @@ class AddSentimentLink(AbstractTransformation):
             whether a transform was successfully
             applied or not
         """
-        super().__init__() 
+        super().__init__(task_name) 
         self.url = url
         if self.url is None:
             self.url = 'https://www.dictionary.com/browse/'
@@ -59,8 +56,8 @@ class AddSentimentLink(AbstractTransformation):
             Entailment(input_idx=[0,1], tran_type='INV'),
             Entailment(input_idx=[1,1], tran_type='INV'),
         ]
+        self.task_config = self.match_task(task_name)
     
-    @mark_transformation_method
     def __call__(self, in_text):
         if self.default_url:
             if 'positive' in self.sentiment:
@@ -78,7 +75,6 @@ class AddSentimentLink(AbstractTransformation):
         df = self._get_task_configs(init_configs, task_name, tran_type, label_type)
         return df
 
-    @mark_transformation_method
     def transform_Xy(self, X, y):
 
         # transform X
@@ -130,10 +126,9 @@ class AddSentimentLink(AbstractTransformation):
             return X_out, y_out, metadata
         return X_out, y_out
 
-@mark_transformation_class 
 class AddPositiveLink(AddSentimentLink):
-    def __init__(self, return_metadata=False):
-        super().__init__(url=None, sentiment='positive', return_metadata=False)
+    def __init__(self, task_name=None,  return_metadata=False):
+        super().__init__(url=None, sentiment='positive', task_name=task_name, return_metadata=False)
         self.return_metadata = return_metadata
         self.task_configs = [
             SentimentAnalysis(tran_type='SIB'),
@@ -146,8 +141,8 @@ class AddPositiveLink(AddSentimentLink):
             Entailment(input_idx=[0,1], tran_type='INV'),
             Entailment(input_idx=[1,1], tran_type='INV'),
         ]
+        self.task_config = self.match_task(task_name)
 
-    @mark_transformation_method
     def __call__(self, in_text):
         if self.default_url:
             word = self.np_random.choice(self.pos_words)
@@ -162,7 +157,6 @@ class AddPositiveLink(AddSentimentLink):
         df = self._get_task_configs(init_configs, task_name, tran_type, label_type)
         return df
 
-    @mark_transformation_method
     def transform_Xy(self, X, y):
 
         # transform X
@@ -211,10 +205,9 @@ class AddPositiveLink(AddSentimentLink):
             return X_out, y_out, metadata
         return X_out, y_out
 
-@mark_transformation_class 
 class AddNegativeLink(AddSentimentLink):
-    def __init__(self, return_metadata=False):
-        super().__init__(url=None, sentiment='negative', return_metadata=False)
+    def __init__(self, task_name=None,  return_metadata=False):
+        super().__init__(url=None, sentiment='negative', task_name=task_name, return_metadata=False)
         self.return_metadata = return_metadata
         self.task_configs = [
             SentimentAnalysis(tran_type='SIB'),
@@ -227,8 +220,8 @@ class AddNegativeLink(AddSentimentLink):
             Entailment(input_idx=[0,1], tran_type='INV'),
             Entailment(input_idx=[1,1], tran_type='INV'),
         ]
+        self.task_config = self.match_task(task_name)
 
-    @mark_transformation_method
     def __call__(self, in_text):
         if self.default_url:
             word = self.np_random.choice(self.neg_words)
@@ -243,7 +236,6 @@ class AddNegativeLink(AddSentimentLink):
         df = self._get_task_configs(init_configs, task_name, tran_type, label_type)
         return df
 
-    @mark_transformation_method
     def transform_Xy(self, X, y):
 
         # transform X

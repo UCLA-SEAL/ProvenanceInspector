@@ -35,9 +35,6 @@ torch.backends.cudnn.deterministic = True
 
 np_random = np.random.default_rng(seed=SIBYL_SEED)
 
-from lineage.transformation import *
-
-@mark_transformation_class 
 class Concept2Sentence(AbstractTransformation):
     """
     Accepts an input, extracts salient keywords, and 
@@ -49,7 +46,7 @@ class Concept2Sentence(AbstractTransformation):
 
     uses_dataset = True
     
-    def __init__(self, 
+    def __init__(self, task_name=None, 
                  return_metadata=False, 
                  dataset=None, 
                  extract="token",
@@ -61,7 +58,7 @@ class Concept2Sentence(AbstractTransformation):
                  require_concepts_in_new_text=False,
                  lemmatizer=None,
                  return_concepts=False):
-        super().__init__() 
+        super().__init__(task_name) 
         self.return_metadata = return_metadata
         self.task_configs = [
             SentimentAnalysis(),
@@ -74,6 +71,7 @@ class Concept2Sentence(AbstractTransformation):
             Entailment(input_idx=[0,1], tran_type='SIB'),
             Entailment(input_idx=[1,1], tran_type='SIB'),
         ]
+        self.task_config = self.match_task(task_name)
         self.dataset = dataset
         self.extract = extract
         self.gen_beam_size = gen_beam_size
@@ -92,7 +90,6 @@ class Concept2Sentence(AbstractTransformation):
         if self.antonymize:
             self.antonymizer = ChangeAntonym()
     
-    @mark_transformation_method
     def __call__(self, in_text, in_target=None, n=None, threshold=None):
         concepts = self.extract_concepts(in_text, in_target, n, threshold)
         if concepts:
@@ -147,7 +144,6 @@ class Concept2Sentence(AbstractTransformation):
         df = self._get_task_configs(init_configs, task_name, tran_type, label_type)
         return df
 
-    @mark_transformation_method
     def transform_Xy(self, X, y):
 
         orig_return_concepts_state = self.return_concepts

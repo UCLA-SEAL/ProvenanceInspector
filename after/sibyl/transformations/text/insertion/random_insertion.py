@@ -4,15 +4,12 @@ from ..tasks import *
 import numpy as np
 from ..word_swap.change_synse import all_possible_synonyms
 
-from lineage.transformation import *
-
-@mark_transformation_class 
 class RandomInsertion(AbstractTransformation):
     """
     Inserts random words
     """
 
-    def __init__(self, n=1, return_metadata=False):
+    def __init__(self, n=1, task_name=None, return_metadata=False):
         """
         Initializes the transformation
 
@@ -25,7 +22,7 @@ class RandomInsertion(AbstractTransformation):
             whether a transform was successfully
             applied or not
         """
-        super().__init__() 
+        super().__init__(task_name) 
         self.n=n
         self.return_metadata = return_metadata
         self.task_configs = [
@@ -39,8 +36,8 @@ class RandomInsertion(AbstractTransformation):
             Entailment(input_idx=[0,1], tran_type='INV'),
             Entailment(input_idx=[1,1], tran_type='INV'),
         ]
+        self.task_config = self.match_task(task_name)
     
-    @mark_transformation_method
     def __call__(self, in_text):
         new_words = in_text.split()
         if len(new_words) - 1 > 0:
@@ -56,7 +53,6 @@ class RandomInsertion(AbstractTransformation):
         df = self._get_task_configs(init_configs, task_name, tran_type, label_type)
         return df
 
-    @mark_transformation_method
     def transform_Xy(self, X, y):
 
         # transform X

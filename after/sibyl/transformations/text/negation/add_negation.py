@@ -13,15 +13,12 @@ try:
 except LookupError:
     nltk.download('omw-1.4')
     
-from lineage.transformation import *
-
-@mark_transformation_class 
 class AddNegation(AbstractTransformation):
     """
     Defines a transformation that negates a string.
     """
 
-    def __init__(self, return_metadata=False):
+    def __init__(self, task_name=None, return_metadata=False):
         """
         Initializes the transformation and provides an
         opporunity to supply a configuration if needed
@@ -32,7 +29,7 @@ class AddNegation(AbstractTransformation):
             the type of task you wish to transform the
             input towards
         """
-        super().__init__() 
+        super().__init__(task_name) 
         self.nlp = en_core_web_sm.load()
         self.return_metadata = return_metadata
         self.task_configs = [
@@ -46,8 +43,8 @@ class AddNegation(AbstractTransformation):
             Entailment(input_idx=[0,1], tran_type='SIB'),
             Entailment(input_idx=[1,1], tran_type='INV'),
         ]
+        self.task_config = self.match_task(task_name)
     
-    @mark_transformation_method
     def __call__(self, in_text):
         ans = self.wrapper(in_text)
         if ans is None: ans = in_text
@@ -146,7 +143,6 @@ class AddNegation(AbstractTransformation):
         df = self._get_task_configs(init_configs, task_name, tran_type, label_type)
         return df
         
-    @mark_transformation_method
     def transform_Xy(self, X, y):
 
         # transform X

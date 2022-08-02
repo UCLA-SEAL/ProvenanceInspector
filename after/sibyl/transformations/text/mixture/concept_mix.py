@@ -7,14 +7,11 @@ import pandas as pd
 import itertools
 import nltk
 
-from lineage.transformation import *
-
-@mark_transformation_class 
 class ConceptMix(AbstractBatchTransformation):
 
     uses_dataset = True
     
-    def __init__(self, 
+    def __init__(self, task_name=None, 
                  return_metadata=False,
                  dataset=None, 
                  extract="token",
@@ -35,7 +32,7 @@ class ConceptMix(AbstractBatchTransformation):
             whether a transform was successfully
             applied or not
         """
-        super().__init__() 
+        super().__init__(task_name) 
         self.return_metadata = return_metadata
         self.task_configs = [
             SentimentAnalysis(tran_type='SIB'),
@@ -48,6 +45,7 @@ class ConceptMix(AbstractBatchTransformation):
             # Entailment(input_idx=[0,1], tran_type='SIB'),
             # Entailment(input_idx=[1,1], tran_type='SIB'),
         ]
+        self.task_config = self.match_task(task_name)
         self.dataset = dataset
         self.extract = extract
         self.gen_beam_size = gen_beam_size
@@ -65,7 +63,6 @@ class ConceptMix(AbstractBatchTransformation):
                         text_max_length = self.text_max_length,
                         device = self.device)
         
-    @mark_transformation_method
     def __call__(self, batch, target_pairs=[], target_prob=1, num_classes=2):
         """
         Parameters

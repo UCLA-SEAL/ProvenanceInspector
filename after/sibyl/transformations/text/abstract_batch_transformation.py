@@ -5,14 +5,13 @@ import pandas as pd
 
 from lineage.transformation import *
 
-@mark_transformation_class 
 class AbstractBatchTransformation(ABC):
     """
     An abstract class for transformations to be applied 
     to input data. 
     """
 
-    def __init__(self, **kwargs):
+    def __init__(self, task_name, **kwargs):
         """
         Initializes the transformation and provides an
         opporunity to supply a configuration if needed
@@ -20,7 +19,6 @@ class AbstractBatchTransformation(ABC):
         self.np_random = np.random.default_rng(SIBYL_SEED)
     
     @abstractmethod
-    @mark_transformation_method  
     def __call__(self, batch):
         """
         Apply the transformation to a batch of (X, y) 
@@ -33,7 +31,6 @@ class AbstractBatchTransformation(ABC):
         """
         pass
 
-    @mark_transformation_method  
     def transform_batch(self, batch):
         batch, _ = self.__call__(batch)
         return batch
@@ -94,3 +91,9 @@ class AbstractBatchTransformation(ABC):
                 raise ValueError('The selected label type must be one of the following: {}'.format(', '.join(tran_types)))
             df = df[df['label_type'] == label_type]
         return df
+
+    def match_task(self, task_name):
+        for task in self.task_configs:
+            if task.task_name == task_name:
+                return task()
+        return None

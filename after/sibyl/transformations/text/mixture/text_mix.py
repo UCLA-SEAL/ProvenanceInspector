@@ -11,15 +11,12 @@ try:
 except LookupError:
     nltk.download('punkt')
 
-from lineage.transformation import *
-
-@mark_transformation_class 
 class TextMix(AbstractBatchTransformation):
     """
     Concatenates two texts together and interpolates 
     the labels
     """
-    def __init__(self, return_metadata=False):
+    def __init__(self, task_name=None, return_metadata=False):
         """
         Initializes the transformation and provides an
         opporunity to supply a configuration if needed
@@ -31,7 +28,7 @@ class TextMix(AbstractBatchTransformation):
             whether a transform was successfully
             applied or not
         """
-        super().__init__() 
+        super().__init__(task_name) 
         self.return_metadata = return_metadata
         self.task_configs = [
             SentimentAnalysis(tran_type='SIB'),
@@ -44,8 +41,8 @@ class TextMix(AbstractBatchTransformation):
             # Entailment(input_idx=[0,1], tran_type='SIB'),
             # Entailment(input_idx=[1,1], tran_type='SIB'),
         ]
+        self.task_config = self.match_task(task_name)
         
-    @mark_transformation_method
     def __call__(self, batch, target_pairs=[], target_prob=0, num_classes=2):
         """
         Parameters
@@ -165,13 +162,12 @@ class TextMix(AbstractBatchTransformation):
         return df
 
 
-@mark_transformation_class 
 class SentMix(AbstractBatchTransformation):
     """
     Concatenates two texts together and then mixes the
     sentences in the new string. Interpolates the labels
     """
-    def __init__(self, return_metadata=False):
+    def __init__(self, task_name=None, return_metadata=False):
         """
         Initializes the transformation and provides an
         opporunity to supply a configuration if needed
@@ -183,7 +179,7 @@ class SentMix(AbstractBatchTransformation):
             whether a transform was successfully
             applied or not
         """
-        super().__init__() 
+        super().__init__(task_name) 
         self.return_metadata = return_metadata
         self.task_configs = [
             SentimentAnalysis(tran_type='SIB'),
@@ -196,8 +192,8 @@ class SentMix(AbstractBatchTransformation):
             # Entailment(input_idx=[0,1], tran_type='SIB'),
             # Entailment(input_idx=[1,1], tran_type='SIB'),
         ]
+        self.task_config = self.match_task(task_name)
         
-    @mark_transformation_method
     def __call__(self, batch, target_pairs=[], target_prob=0, num_classes=2):
         """
         Parameters
@@ -253,13 +249,12 @@ class SentMix(AbstractBatchTransformation):
         df = self._get_task_configs(init_configs, task_name, tran_type, label_type)
         return df
 
-@mark_transformation_class 
 class WordMix(AbstractBatchTransformation):
     """
     Concatenates two texts together and then mixes the
     words in the new string. Interpolates the labels
     """
-    def __init__(self, return_metadata=False):
+    def __init__(self, task_name=None, return_metadata=False):
         """
         Initializes the transformation and provides an
         opporunity to supply a configuration if needed
@@ -271,7 +266,7 @@ class WordMix(AbstractBatchTransformation):
             whether a transform was successfully
             applied or not
         """
-        super().__init__() 
+        super().__init__(task_name) 
         self.return_metadata = return_metadata
         self.task_configs = [
             SentimentAnalysis(tran_type='SIB'),
@@ -284,8 +279,8 @@ class WordMix(AbstractBatchTransformation):
             # Entailment(input_idx=[0,1], tran_type='SIB'),
             # Entailment(input_idx=[1,1], tran_type='SIB'),
         ]
+        self.task_config = self.match_task(task_name)
         
-    @mark_transformation_method
     def __call__(self, batch, target_pairs=[], target_prob=0, num_classes=2):
         """
         Parameters

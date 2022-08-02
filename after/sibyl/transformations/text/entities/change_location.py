@@ -4,16 +4,13 @@ from ..data.locations import NAMED_ENTITIES
 import numpy as np
 import en_core_web_sm
 
-from lineage.transformation import *
-
-@mark_transformation_class 
 class ChangeLocation(AbstractTransformation):
     """
     Transforms an input by replacing names of recognized 
     location entity.
     """
 
-    def __init__(self, return_metadata=False):
+    def __init__(self, task_name=None, return_metadata=False):
         """
         Parameters
         ----------
@@ -22,7 +19,7 @@ class ChangeLocation(AbstractTransformation):
             whether a transform was successfully
             applied or not
         """
-        super().__init__() 
+        super().__init__(task_name) 
         self.nlp = en_core_web_sm.load()
         self.return_metadata = return_metadata
         self.task_configs = [
@@ -36,8 +33,8 @@ class ChangeLocation(AbstractTransformation):
             Entailment(input_idx=[0,1], tran_type='SIB'),
             Entailment(input_idx=[1,1], tran_type='SIB'),
         ]
+        self.task_config = self.match_task(task_name)
     
-    @mark_transformation_method
     def __call__(self, in_text):
         doc = self.nlp(in_text)
         out_text = in_text
@@ -63,7 +60,6 @@ class ChangeLocation(AbstractTransformation):
         df = self._get_task_configs(init_configs, task_name, tran_type, label_type)
         return df
         
-    @mark_transformation_method
     def transform_Xy(self, X, y):
 
         # transform X

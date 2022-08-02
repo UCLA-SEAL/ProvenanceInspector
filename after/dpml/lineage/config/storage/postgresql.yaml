@@ -1,0 +1,7 @@
+dialect: "postgresql"
+driver: 
+username: "name"
+password: "password"
+host: "hostname"
+port: "8888"
+database: 

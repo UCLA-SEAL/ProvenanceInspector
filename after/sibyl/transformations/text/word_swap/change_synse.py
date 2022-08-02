@@ -13,16 +13,13 @@ try:
 except LookupError:
     nltk.download('stopwords')
 
-from lineage.transformation import *
-
-@mark_transformation_class 
 class ChangeSynse(AbstractTransformation):
     """
     Replaces a specified number of random words a string
     with synses from wordnet. Also supports part-of-speech (pos)
     tagging via spaCy to get more natural replacements. 
     """
-    def __init__(self, synse='synonym', num_to_replace=-1, return_metadata=False):
+    def __init__(self, synse='synonym', num_to_replace=-1, task_name=None, return_metadata=False):
         """
         Initializes the transformation and provides an
         opporunity to supply a configuration if needed
@@ -42,7 +39,7 @@ class ChangeSynse(AbstractTransformation):
             whether a transform was successfully
             applied or not
         """
-        super().__init__() 
+        super().__init__(task_name) 
         self.synse = synse
         self.synses = {
             'synonym' : all_possible_synonyms,
@@ -71,8 +68,8 @@ class ChangeSynse(AbstractTransformation):
             Entailment(input_idx=[0,1], tran_type='INV'),
             Entailment(input_idx=[1,1], tran_type='INV'),
         ]
+        self.task_config = self.match_task(task_name)
     
-    @mark_transformation_method
     def __call__(self, in_text):
         """Replaces words with synses
 
@@ -111,7 +108,6 @@ class ChangeSynse(AbstractTransformation):
     def get_tran_types(self, task_name=None, tran_type=None, label_type=None):
         pass
 
-    @mark_transformation_method
     def transform_Xy(self, X, y):
 
         # transform X
@@ -159,8 +155,8 @@ class ChangeSynse(AbstractTransformation):
         return X_out, y_out
 
 class ChangeSynonym(ChangeSynse):
-    def __init__(self, num_to_replace=-1, return_metadata=False):
-        super().__init__(synse='synonym', num_to_replace=num_to_replace, return_metadata=False)
+    def __init__(self, num_to_replace=-1, task_name=None, return_metadata=False):
+        super().__init__(synse='synonym', num_to_replace=num_to_replace, task_name=task_name, return_metadata=False)
         self.return_metadata = return_metadata
         self.task_configs = [
             SentimentAnalysis(),
@@ -173,6 +169,7 @@ class ChangeSynonym(ChangeSynse):
             Entailment(input_idx=[0,1], tran_type='INV'),
             Entailment(input_idx=[1,1], tran_type='INV'),
         ]
+        self.task_config = self.match_task(task_name)
 
     def __call__(self, in_text):
         return super().__call__(in_text)
@@ -229,8 +226,8 @@ class ChangeSynonym(ChangeSynse):
         return X_out, y_out
 
 class ChangeAntonym(ChangeSynse):
-    def __init__(self, num_to_replace=-1, return_metadata=False):
-        super().__init__(synse='antonym', num_to_replace=num_to_replace, return_metadata=False)
+    def __init__(self, num_to_replace=-1, task_name=None, return_metadata=False):
+        super().__init__(synse='antonym', num_to_replace=num_to_replace, task_name=task_name, return_metadata=False)
         self.return_metadata = return_metadata
         self.task_configs = [
             SentimentAnalysis(tran_type='SIB'),
@@ -243,6 +240,7 @@ class ChangeAntonym(ChangeSynse):
             Entailment(input_idx=[0,1], tran_type='INV'),
             Entailment(input_idx=[1,1], tran_type='INV'),
         ]
+        self.task_config = self.match_task(task_name)
 
     def __call__(self, in_text):
         return super().__call__(in_text)
@@ -301,8 +299,8 @@ class ChangeAntonym(ChangeSynse):
         return X_out, y_out
 
 class ChangeHyponym(ChangeSynse):
-    def __init__(self, num_to_replace=-1, return_metadata=False):
-        super().__init__(synse='hyponym', num_to_replace=num_to_replace, return_metadata=False)
+    def __init__(self, num_to_replace=-1, task_name=None, return_metadata=False):
+        super().__init__(synse='hyponym', num_to_replace=num_to_replace, task_name=task_name, return_metadata=False)
         self.return_metadata = return_metadata
         self.task_configs = [
             SentimentAnalysis(),
@@ -315,6 +313,7 @@ class ChangeHyponym(ChangeSynse):
             Entailment(input_idx=[0,1], tran_type='INV'),
             Entailment(input_idx=[1,1], tran_type='INV'),
         ]
+        self.task_config = self.match_task(task_name)
 
     def __call__(self, in_text):
         return super().__call__(in_text)
@@ -373,8 +372,8 @@ class ChangeHyponym(ChangeSynse):
         return X_out, y_out
 
 class ChangeHypernym(ChangeSynse):
-    def __init__(self, num_to_replace=-1, return_metadata=False):
-        super().__init__(synse='hypernym', num_to_replace=num_to_replace, return_metadata=False)
+    def __init__(self, num_to_replace=-1, task_name=None, return_metadata=False):
+        super().__init__(synse='hypernym', num_to_replace=num_to_replace, task_name=task_name, return_metadata=False)
         self.return_metadata = return_metadata
         self.task_configs = [
             SentimentAnalysis(),
@@ -387,6 +386,7 @@ class ChangeHypernym(ChangeSynse):
             Entailment(input_idx=[0,1], tran_type='INV'),
             Entailment(input_idx=[1,1], tran_type='INV'),
         ]
+        self.task_config = self.match_task(task_name)
 
     def __call__(self, in_text):
         return super().__call__(in_text)

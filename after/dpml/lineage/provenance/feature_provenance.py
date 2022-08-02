@@ -1,4 +1,4 @@
-from.lazy_cloneable_provenance import LazyCloneableProvenance
+from .lazy_cloneable_provenance import LazyCloneableProvenance
 from collections import OrderedDict
 from lineage.utils import add_branch_prefix
 

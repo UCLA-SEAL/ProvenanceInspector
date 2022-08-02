@@ -3,10 +3,10 @@ import nltk
 from collections import OrderedDict
 
 from lineage.le_text import LeText
-from .logger import TransformationLogger
+from .storage import TransformLogger
 from .provenance import ProvenanceFactory
 
-from .config import *
+import hydra
 
 class LeRecord:
     """
@@ -25,9 +25,12 @@ class LeRecord:
     SPLIT_TOKEN = "<SPLIT>"
     transform_logger = None
 
+    hydra.core.global_hydra.GlobalHydra.instance().clear()
+    with hydra.initialize(version_base=None, config_path="config"):
+        cfg = hydra.compose(config_name="config")
+
     def __init__(self, text_input, le_target=None, le_attrs=None):
         self._id = None
-
         self._le_text = None
         self._le_target = None
         self._target = None
@@ -56,14 +59,13 @@ class LeRecord:
         else:
             raise TypeError(f"Invalid type for le_attrs: {type(le_attrs)}")
 
-        if USE_LOG and not LeRecord.transform_logger:
-            LeRecord.transform_logger = TransformationLogger(dirname='../results/')
+        if LeRecord.cfg.use_log and not LeRecord.transform_logger:
+            LeRecord.transform_logger = TransformLogger()
 
         self.le_attrs.setdefault("transformation_provenance", ProvenanceFactory.get_provenance('transformation'))
         self.le_attrs.setdefault("feature_provenance", ProvenanceFactory.get_provenance('feature', feature_name="edit_seq"))
         self.le_attrs.setdefault("prev", None)
     
-
 
     def __eq__(self, other):
         """Compares two LeRecord instances, making sure that they also share
@@ -100,14 +102,12 @@ class LeRecord:
 
             output_record._le_target = new_target
 
-            if USE_LOG:
-                LeRecord.transform_logger.log_transformation(self, output_record)
+            if LeRecord.cfg.use_log and not LeRecord.cfg.replay_only:
+                LeRecord.transform_logger.log(self, output_record)
 
-        if USE_LOG:
-            LeText.text_logger.flush()
-            if LeTarget.label_logger:
-                LeTarget.label_logger.flush()
+        if LeRecord.cfg.use_log and not LeRecord.cfg.replay_only:
             LeRecord.transform_logger.flush()
+
         return transformed_texts
 
 
@@ -184,10 +184,11 @@ class LeRecord:
         else:
             return self.__getattribute__(attr)
 
+
     def __str__(self):
         return self.text
+
 
     def __repr__(self):
         class_name = self.__class__.__name__
         return f'<{class_name}:\n\t text="{self.text}",\n\t target="{self.target}",\n\t le_attrs={self.le_attrs}>'
-        

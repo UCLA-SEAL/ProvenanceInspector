@@ -65,7 +65,8 @@ class TransformationProvenance(LazyCloneableProvenance):
             "callable_name": transformation._callable_name,
             "callable_args": json.dumps(exclude_unserializable(transformation._callable_args)),
             "callable_kwargs": json.dumps(exclude_unserializable(transformation._callable_kwargs)),
-            "callable_is_stochastic": transformation._callable_is_stochastic
+            "callable_is_stochastic": transformation._callable_is_stochastic,
+            "callable_rng_state": json.dumps(transformation._callable_rng_state)
         }
 
         new_provenance = self._cloneProvenance()

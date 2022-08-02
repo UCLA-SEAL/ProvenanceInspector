@@ -68,7 +68,7 @@ Class and Callable wrappers for objects already in memory (no need to modify sou
 class DPMLClassWrapper(object):
     def __init__(self, wrapped_class):
         self.wrapped_class = wrapped_class
-        self.init_class = None
+        self.init_class = None # initialized instance of the wrapped class
         self.callable = None
         
         self._class_name = wrapped_class.__name__
@@ -89,7 +89,14 @@ class DPMLClassWrapper(object):
             return orig_attr
 
     def init_hooked_callable(self, _callable):
-        self.callable = DPMLCallableWrapper(_callable, parent_class=self)
+        if self.init_class.np_random: # TODO: remove hard-coded rng name here
+            self._class_rng = self.init_class.np_random
+            self._callable_is_stochastic = True
+        else:
+            self._class_rng = None
+            self._callable_is_stochastic = False
+        self.callable = DPMLCallableWrapper(_callable, parent_class=self, 
+            is_stochastic=self._callable_is_stochastic)
 
     def hooked_callable(self, *args, **kwargs):
                 
@@ -100,7 +107,7 @@ class DPMLClassWrapper(object):
         self._callable_name = self.callable._callable_name
         self._callable_args = self.callable._callable_args
         self._callable_kwargs = self.callable._callable_kwargs
-        self._callable_is_stochastic = self.callable._callable_is_stochastic
+        self._callable_rng_state = self.callable._callable_rng_state
         
         # prevent init_class from becoming unwrapped
         if isinstance(result, self.wrapped_class):
@@ -119,14 +126,19 @@ class DPMLCallableWrapper(object):
             self._class_name = self.parent_class._class_name
             self._class_args = self.parent_class._class_args
             self._class_kwargs = self.parent_class._class_kwargs
+            self._class_rng = self.parent_class._class_rng
         else:
             self._class_name = ""
             self._class_args = []
             self._class_kwargs = []
+            self._class_rng = None
         self._callable_name = self.wrapped_callable.__name__
         self._callable_is_stochastic = is_stochastic
 
     def __call__(self, *args, **kwargs):
+        
+        if self._class_rng:
+            self._callable_rng_state = self._class_rng.__getstate__()
         
         # run callable
         result = self.wrapped_callable(*args, **kwargs)

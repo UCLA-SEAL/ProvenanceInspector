@@ -7,6 +7,8 @@ import os
 import csv
 import json
 import pandas as pd
+import itertools
+
 
 import hydra
 
@@ -28,6 +30,8 @@ class TransformLogger:
         cfg = hydra.compose(config_name="config", overrides=["storage=csv"])
         path = os.path.abspath(os.path.join(cfg.storage['path'], cfg.storage['filename']))
         replay_only = cfg.replay_only
+
+    id_iter = itertools.count()
 
     def __init__(self, path=path, replay_only=replay_only):
         self.path = path
@@ -86,8 +90,10 @@ class TransformLogger:
 
     def _flush_with_replay(self):
         out = []
+        batch_id = next(TransformLogger.id_iter)
         for (text, target), t_prov in zip(self._original, self._transform_prov):
             out.append({
+                'batch_id': batch_id, 
                 'original_text': text,
                 'original_target': target,
                 'transformation_provenance': t_prov

@@ -5,8 +5,11 @@ with open("README.md", "r", encoding="utf8") as fh:
     long_description = fh.read()
 
 extras = {}
-# Packages required for installing docs.
-
+# Packages required for using SQLAlchemy as the storage backend.
+extras["sqlalchemy"] = [
+    "sqlalchemy-utils",
+    "SQLAlchemy"
+]
 
 setuptools.setup(
     name="lineage",

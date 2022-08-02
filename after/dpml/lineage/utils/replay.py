@@ -4,6 +4,7 @@ from functools import partial
 import pandas as pd
 from sqlalchemy.orm import Session
 from ..storage.sqlalchemy.utils import get_records_and_provenance
+from collections import defaultdict
 
 def full_module_name(o):
     """
@@ -65,6 +66,9 @@ def load_transform_from_replay_provenance(prov_dict):
         class_args = preprocess_params(t['class_args'])
         class_kwargs = preprocess_params(t['class_kwargs'])
         t_instance = t_class(*class_args, **class_kwargs)
+        #if t['callable_is_stochastic']:
+        #    rng_state = preprocess_params(t['callable_rng_state'])
+        #    t_instance.np_random.__setstate__(rng_state) # TODO: hard-coded rng name
         t_fn = getattr(t_instance, t['callable_name'])
     else:
         t_fn = dynamic_import(t['module_name'],t['trans_fn_name'])
@@ -72,6 +76,7 @@ def load_transform_from_replay_provenance(prov_dict):
     # process transformation
     t_args = preprocess_params(t['callable_args'])
     t_kwargs = preprocess_params(t['callable_kwargs'])
+    
     
     t_fn = partial(t_fn, *t_args, **t_kwargs)
     
@@ -102,15 +107,30 @@ def replay_all_from_csv():
     
     # fetch data
     logger = CSVTransformLogger()
-    df = pd.read_csv(logger.path, header=None, names=['text', 'target', 'transform_prov'])
+    df = pd.read_csv(logger.path, header=None, names=['batch_id', 'text', 'target', 'transform_prov'])
     
+    batches = {}
+    for idx, row in df.iterrows():
+        bid = row['batch_id']
+        if bid not in batches:
+            batches[bid] = {'text':[], 'target':[], 'transform': []}
+
+        batches[bid]['text'].append(row['text'])
+        batches[bid]['target'].append(row['target'])
+
+        if len(batches[bid]['transform']) == 0:
+            for t_raw in eval(row['transform_prov']):
+                t_prov = json.loads(t_raw)
+                t_fn = load_transform_from_replay_provenance(t_prov)
+                batches[bid]['transform'].append(t_fn)
+
     # replay
     new_records = []
-    for idx, row in df.iterrows():
-        batch = ([row['text']], [row['target']])
-        for t_raw in eval(row['transform_prov']):
-            t_prov = json.loads(t_raw)
-            t_fn = load_transform_from_replay_provenance(t_prov)
+    for batch_id in sorted(list(batches.keys())):
+        batch = (batches[batch_id]['text'], batches[batch_id]['target'])
+        for t_fn in batches[batch_id]['transform']:
             batch = t_fn(batch)
-        new_records.append(batch)
+
+        texts, labels = batch
+        new_records += [(x, y) for x,y in zip(texts, labels)]
     return new_records

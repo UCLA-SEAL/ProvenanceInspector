@@ -89,7 +89,8 @@ class DPMLClassWrapper(object):
             return orig_attr
 
     def init_hooked_callable(self, _callable):
-        if self.init_class.np_random: # TODO: remove hard-coded rng name here
+        
+        if hasattr(self.init_class, 'np_random'): # TODO: remove hard-coded rng name here
             self._class_rng = self.init_class.np_random
             self._callable_is_stochastic = True
         else:
@@ -139,6 +140,9 @@ class DPMLCallableWrapper(object):
         
         if self._class_rng:
             self._callable_rng_state = self._class_rng.__getstate__()
+        else:
+            self._callable_rng_state = None
+
         
         # run callable
         result = self.wrapped_callable(*args, **kwargs)

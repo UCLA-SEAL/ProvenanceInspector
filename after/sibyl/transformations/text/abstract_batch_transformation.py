@@ -5,7 +5,6 @@ import pandas as pd
 
 from lineage.transformation import *
 
-@mark_abstract_transformation_class(transform="transform_batch")  
 class AbstractBatchTransformation(ABC):
     """
     An abstract class for transformations to be applied 

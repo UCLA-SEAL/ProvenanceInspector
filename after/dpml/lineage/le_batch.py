@@ -73,7 +73,7 @@ class LeBatch:
     def apply(self, batch=None, transform_callable=None, *args, **kwargs):
         if batch:
             self.__init__(batch)
-        self.transform_callble = transform_callable
+        self.transform_callable = transform_callable
         new_texts, new_targets = transform_callable((self.texts, self.targets), *args, **kwargs)
         self.new_texts = new_texts
         self.new_targets = new_targets
@@ -86,7 +86,6 @@ class LeBatch:
             transformation = transform_callable
             if hasattr(transformation, '__self__'):
                 transformation = transformation.__self__
-
 
             new_le_attrs = {
                 "transformation_provenance": le_record.le_attrs["transformation_provenance"].add_provenance(transformation),

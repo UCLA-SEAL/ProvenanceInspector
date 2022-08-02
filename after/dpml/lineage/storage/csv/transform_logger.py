@@ -57,12 +57,12 @@ class TransformLogger:
             "output_target": output_record.target,
             "module_name": tp["module_name"],
             "class_name": tp["class_name"],
-            "trans_fn_name": tp["trans_fn_name"],
-            "is_stochastic": tp["fn_is_stochastic"],
-            "transformation_class_args": tp["class_args"],
-            "transformation_class_kwargs": tp["class_kwargs"],
-            "transformation_transform_args": tp["transform_args"],
-            "transformation_transform_kwargs": tp["transform_kwargs"],
+            "callable_class_args": tp["class_args"],
+            "callable_class_kwargs": tp["class_kwargs"],
+            "callable_name": tp["callable_name"],
+            "callable_args": tp["callable_args"],
+            "callable_kwargs": tp["callable_kwargs"],
+            "callable_is_stochastic": tp["callable_is_stochastic"],
             "diff": f_diff.get_tags(),
             "diff_granularity": input_record.le_text.granularity
         })
@@ -120,12 +120,10 @@ if __name__ == '__main__':
     from lineage.transformation import *
     from lineage.le_batch import LeBatch
     
-    @mark_transformation_class 
     class MyTransformTester:
         def __init__(self, chars_to_append="!"):
             self.chars_to_append=chars_to_append
 
-        @mark_transformation_method
         def transform_batch(self, batch, char_multiplier=0):
             new_text, new_labels = [], []
             for X, y in zip(*batch):
@@ -139,6 +137,7 @@ if __name__ == '__main__':
     target = [0, 1]
     batch = (text, target)
 
+    MyTransformTester = DPMLClassWrapper(MyTransformTester)
     transform = MyTransformTester(chars_to_append="?")
     with LeBatch(original_batch=batch) as le_batch:
         for i in range(1,5):
@@ -149,10 +148,14 @@ if __name__ == '__main__':
     print(df)
 
     # ~\dpml\after\dpml\lineage>python storage\csv\transform_logger.py
-    #          0   1           2   3   ...  10                      11                        12    13
-    # 0   mytest1   0    mytest1?   1  ... NaN  {"char_multiplier": 1}  ['replace: [0,1]-[0,1]']  word
-    # 1   mytest2   1    mytest2?   2  ... NaN  {"char_multiplier": 1}  ['replace: [0,1]-[0,1]']  word
-    # 2  mytest1?   1  mytest1???   2  ... NaN  {"char_multiplier": 2}  ['replace: [0,1]-[0,1]']  word
-    # 3  mytest2?   2  mytest2???   3  ... NaN  {"char_multiplier": 2}  ['replace: [0,1]-[0,1]']  word
+    #               0   1                  2   3   ...                      10     11                        12    13
+    # 0        mytest1   0           mytest1?   1  ...  {"char_multiplier": 1}  False  ['replace: [0,1]-[0,1]']  word
+    # 1        mytest2   1           mytest2?   2  ...  {"char_multiplier": 1}  False  ['replace: [0,1]-[0,1]']  word
+    # 2       mytest1?   1         mytest1???   2  ...  {"char_multiplier": 2}  False  ['replace: [0,1]-[0,1]']  word
+    # 3       mytest2?   2         mytest2???   3  ...  {"char_multiplier": 2}  False  ['replace: [0,1]-[0,1]']  word
+    # 4     mytest1???   2      mytest1??????   3  ...  {"char_multiplier": 3}  False  ['replace: [0,1]-[0,1]']  word
+    # 5     mytest2???   3      mytest2??????   4  ...  {"char_multiplier": 3}  False  ['replace: [0,1]-[0,1]']  word
+    # 6  mytest1??????   3  mytest1??????????   4  ...  {"char_multiplier": 4}  False  ['replace: [0,1]-[0,1]']  word
+    # 7  mytest2??????   4  mytest2??????????   5  ...  {"char_multiplier": 4}  False  ['replace: [0,1]-[0,1]']  word
 
-    # [4 rows x 14 columns]
+    # [8 rows x 14 columns]

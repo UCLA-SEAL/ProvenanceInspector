@@ -82,16 +82,16 @@ class TransformLogger:
                         session, Transform,
                         module_name = tp["module_name"],
                         class_name = tp["class_name"],
-                        trans_fn_name = tp["trans_fn_name"],
-                        is_stochastic = tp["fn_is_stochastic"],
+                        class_args = tp["class_args"],
+                        class_kwargs = tp["class_kwargs"],
+                        callable_name = tp["callable_name"],
+                        callable_args = tp["callable_args"],
+                        callable_kwargs = tp["callable_kwargs"],
+                        callable_is_stochastic = tp["callable_is_stochastic"],
                     )
                     transform_applied = create_and_return(
                         session, TransformApplied,
                         transformation_id = transform.id,
-                        class_args = tp["class_args"],
-                        class_kwargs = tp["class_kwargs"],
-                        transform_args = tp["transform_args"],
-                        transform_kwargs = tp["transform_kwargs"],
                         input_record_id = in_record.id,
                         # output_record_id = out_record.id,
                         # diff = f_diff.get_tags(),
@@ -124,20 +124,21 @@ class TransformLogger:
                     session, Transform,
                     module_name = tp["module_name"],
                     class_name = tp["class_name"],
-                    trans_fn_name = tp["trans_fn_name"],
-                    is_stochastic = tp["fn_is_stochastic"],
+                    class_args = tp["class_args"],
+                    class_kwargs = tp["class_kwargs"],
+                    callable_name = tp["callable_name"],
+                    callable_args = tp["callable_args"],
+                    callable_kwargs = tp["callable_kwargs"],
+                    callable_is_stochastic = tp["callable_is_stochastic"],
                 )
+
                 transform_applied = create_and_return(
                     session, TransformApplied,
                     input_record_id = in_record.id,
                     output_record_id = out_record.id,
                     diff = f_diff.get_tags(),
                     diff_granularity = in_rec.le_text.granularity,
-                    transformation_id = transform.id,
-                    class_args = tp["class_args"],
-                    class_kwargs = tp["class_kwargs"],
-                    transform_args = tp["transform_args"],
-                    transform_kwargs = tp["transform_kwargs"],
+                    transformation_id = transform.id
                 )
 
     def flush(self):
@@ -152,12 +153,10 @@ if __name__ == '__main__':
     from lineage.transformation import *
     from lineage.le_batch import LeBatch
     
-    @mark_transformation_class 
     class MyTransformTester:
         def __init__(self, chars_to_append="!"):
             self.chars_to_append=chars_to_append
 
-        @mark_transformation_method
         def transform_batch(self, batch, char_multiplier=0):
             new_text, new_labels = [], []
             for X, y in zip(*batch):
@@ -171,9 +170,10 @@ if __name__ == '__main__':
     target = [0, 1]
     batch = (text, target)
 
+    MyTransformTester = DPMLClassWrapper(MyTransformTester)
     transform = MyTransformTester(chars_to_append="?")
     with LeBatch(original_batch=batch) as le_batch:
-        for i in range(1,3):
+        for i in range(1,5):
             batch = le_batch.apply(batch, transform.transform_batch, char_multiplier=i)
 
     logger = TransformLogger()
@@ -196,18 +196,19 @@ if __name__ == '__main__':
             print(row._mapping)
 
 
-    # ~\dpml\after\dpml\lineage>python storage\sqlalchemy\transformation_logger.py
-    # creating database tables from models..
-    # (1, 'mytest1', '0', datetime.datetime(2022, 7, 20, 8, 59, 8))
-    # (2, 'mytest1?', '1', datetime.datetime(2022, 7, 20, 8, 59, 8))
-    # (3, 'mytest2', '1', datetime.datetime(2022, 7, 20, 8, 59, 8))
-    # (4, 'mytest2?', '2', datetime.datetime(2022, 7, 20, 8, 59, 8))
-    # (5, 'mytest1?', '1', datetime.datetime(2022, 7, 20, 8, 59, 8))
-    # (6, 'mytest1???', '2', datetime.datetime(2022, 7, 20, 8, 59, 8))
-    # (7, 'mytest2?', '2', datetime.datetime(2022, 7, 20, 8, 59, 8))
-    # (8, 'mytest2???', '3', datetime.datetime(2022, 7, 20, 8, 59, 8))
-    # (1, '__main__', 'MyTransformTester', 'transform_batch', False, datetime.datetime(2022, 7, 20, 8, 59, 8))
-    # (1, 1, None, {'chars_to_append': '?'}, None, {'char_multiplier': 1}, 1, 2, ['replace: [0,1]-[0,1]'], <RefGranularity.word: 2>, datetime.datetime(2022, 7, 20, 8, 59, 8))
-    # (2, 1, None, {'chars_to_append': '?'}, None, {'char_multiplier': 1}, 3, 4, ['replace: [0,1]-[0,1]'], <RefGranularity.word: 2>, datetime.datetime(2022, 7, 20, 8, 59, 8))
-    # (3, 1, None, {'chars_to_append': '?'}, None, {'char_multiplier': 2}, 5, 6, ['replace: [0,1]-[0,1]'], <RefGranularity.word: 2>, datetime.datetime(2022, 7, 20, 8, 59, 8))
-    # (4, 1, None, {'chars_to_append': '?'}, None, {'char_multiplier': 2}, 7, 8, ['replace: [0,1]-[0,1]'], <RefGranularity.word: 2>, datetime.datetime(2022, 7, 20, 8, 59, 8))
+    # ~\dpml\after\dpml\lineage>python storage\sqlalchemy\transform_logger.py
+    # creating database tables from models...
+    # {'id': 1, 'text': 'mytest1', 'target': '0', 'created_at': datetime.datetime(2022, 8, 2, 1, 29, 24)}
+    # {'id': 2, 'text': 'mytest2', 'target': '1', 'created_at': datetime.datetime(2022, 8, 2, 1, 29, 24)}
+    # {'id': 1, 'module_name': '__main__', 'class_name': 'MyTransformTester', 'class_args': 'null', 'class_kwargs': '{"chars_to_append": "?"}', 'callable_name': 'transform_batch', 'callable_args': 'null', 'callable_kwargs': '{"char_multiplier": 1}', 'callable_is_stochastic': False, 'created_at': datetime.datetime(2022, 8, 2, 1, 29, 24)}
+    # {'id': 2, 'module_name': '__main__', 'class_name': 'MyTransformTester', 'class_args': 'null', 'class_kwargs': '{"chars_to_append": "?"}', 'callable_name': 'transform_batch', 'callable_args': 'null', 'callable_kwargs': '{"char_multiplier": 2}', 'callable_is_stochastic': False, 'created_at': datetime.datetime(2022, 8, 2, 1, 29, 24)}
+    # {'id': 3, 'module_name': '__main__', 'class_name': 'MyTransformTester', 'class_args': 'null', 'class_kwargs': '{"chars_to_append": "?"}', 'callable_name': 'transform_batch', 'callable_args': 'null', 'callable_kwargs': '{"char_multiplier": 3}', 'callable_is_stochastic': False, 'created_at': datetime.datetime(2022, 8, 2, 1, 29, 24)}
+    # {'id': 4, 'module_name': '__main__', 'class_name': 'MyTransformTester', 'class_args': 'null', 'class_kwargs': '{"chars_to_append": "?"}', 'callable_name': 'transform_batch', 'callable_args': 'null', 'callable_kwargs': '{"char_multiplier": 4}', 'callable_is_stochastic': False, 'created_at': datetime.datetime(2022, 8, 2, 1, 29, 24)}
+    # {'id': 1, 'input_record_id': 1, 'output_record_id': None, 'diff': None, 'diff_granularity': None, 'transformation_id': 1, 'created_at': datetime.datetime(2022, 8, 2, 1, 29, 24)}
+    # {'id': 2, 'input_record_id': 1, 'output_record_id': None, 'diff': None, 'diff_granularity': None, 'transformation_id': 2, 'created_at': datetime.datetime(2022, 8, 2, 1, 29, 24)}
+    # {'id': 3, 'input_record_id': 1, 'output_record_id': None, 'diff': None, 'diff_granularity': None, 'transformation_id': 3, 'created_at': datetime.datetime(2022, 8, 2, 1, 29, 24)}
+    # {'id': 4, 'input_record_id': 1, 'output_record_id': None, 'diff': None, 'diff_granularity': None, 'transformation_id': 4, 'created_at': datetime.datetime(2022, 8, 2, 1, 29, 24)}
+    # {'id': 5, 'input_record_id': 2, 'output_record_id': None, 'diff': None, 'diff_granularity': None, 'transformation_id': 1, 'created_at': datetime.datetime(2022, 8, 2, 1, 29, 24)}
+    # {'id': 6, 'input_record_id': 2, 'output_record_id': None, 'diff': None, 'diff_granularity': None, 'transformation_id': 2, 'created_at': datetime.datetime(2022, 8, 2, 1, 29, 24)}
+    # {'id': 7, 'input_record_id': 2, 'output_record_id': None, 'diff': None, 'diff_granularity': None, 'transformation_id': 3, 'created_at': datetime.datetime(2022, 8, 2, 1, 29, 24)}
+    # {'id': 8, 'input_record_id': 2, 'output_record_id': None, 'diff': None, 'diff_granularity': None, 'transformation_id': 4, 'created_at': datetime.datetime(2022, 8, 2, 1, 29, 24)}

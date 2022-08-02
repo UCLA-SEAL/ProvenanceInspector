@@ -3,9 +3,10 @@ import json
 
 from .lazy_cloneable_provenance import LazyCloneableProvenance
 from lineage.utils import add_branch_prefix, full_module_name
+from lineage.transformation import DPMLCallableWrapper
 
 def find_inner_self(obj):
-    while not hasattr(obj, '__self__'):
+    while not hasattr(obj, '__self__') and hasattr(obj, '__wrapped__'):
         obj = obj.__wrapped__
     return obj.__self__
 
@@ -48,23 +49,23 @@ class TransformationProvenance(LazyCloneableProvenance):
     def add_provenance(self, transformation):
         transformation_order = len(self.history)
 
-        if ismethod(transformation):
-            transformation = transformation.__self__
-        elif isfunction(transformation):
-            transformation = find_inner_self(transformation)
-
-        module_name, class_name = full_module_name(transformation)
+        if isinstance(transformation.__class__, DPMLCallableWrapper):
+            module_name, class_name = full_module_name(transformation.parent_class)
+        else:
+            if  ismethod(transformation):
+                transformation = transformation.__self__
+            elif isfunction(transformation):
+                transformation = find_inner_self(transformation)
 
         transformation_info={
-            "module_name": module_name,
-            "class_name":  class_name,
-            "trans_fn_name": transformation._transform_fn_name,
-            # serialization for callables, exclude them for now
+            "module_name": transformation._module_name,
+            "class_name":  transformation._class_name,
             "class_args": json.dumps(exclude_unserializable(transformation._class_args)),
             "class_kwargs": json.dumps(exclude_unserializable(transformation._class_kwargs)),
-            "transform_args": json.dumps(exclude_unserializable(transformation._transform_args)),
-            "transform_kwargs": json.dumps(exclude_unserializable(transformation._transform_kwargs)),
-            "fn_is_stochastic": transformation._transform_is_stochastic
+            "callable_name": transformation._callable_name,
+            "callable_args": json.dumps(exclude_unserializable(transformation._callable_args)),
+            "callable_kwargs": json.dumps(exclude_unserializable(transformation._callable_kwargs)),
+            "callable_is_stochastic": transformation._callable_is_stochastic
         }
 
         new_provenance = self._cloneProvenance()

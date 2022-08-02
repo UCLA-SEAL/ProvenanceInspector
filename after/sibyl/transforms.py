@@ -77,16 +77,20 @@ from .utils import *
 from .config import *
 from .transformations.utils import *
 
-def init_transforms(task_name=None, tran_type=None, label_type=None, return_metadata=True, dataset=None, transforms=None):
+def init_transforms(task_name=None, tran_type=None, label_type=None, return_metadata=True, dataset=None, transforms=None, class_wrapper=None):
+    if not class_wrapper:
+        class_wrapper = lambda x: x
     df_all = []
     if transforms:
         for tran in transforms:
+            tran = class_wrapper(tran)
             df = tran.get_task_configs()
             df['transformation'] = tran.__class__.__name__
             df['tran_fn'] = tran
             df_all.append(df)
     else:
         for tran in TRANSFORMATIONS:
+            tran = class_wrapper(tran)
             if hasattr(tran, 'uses_dataset'):
                 t = tran(task_name=task_name, return_metadata=return_metadata, dataset=dataset)
             else:
@@ -696,14 +700,15 @@ class SibylTransformer:
 
 # when you just want the transforms without applying them to a batch
 class SibylTransformScheduler:
-    def __init__(self, task, num_classes=2, multiplier=1, num_INV=1, num_SIB=1):
+    def __init__(self, task, num_classes=2, multiplier=1, num_INV=1, num_SIB=1, class_wrapper=None):
         self.task = task
         self.num_classes = num_classes
         self.multiplier = multiplier
         self.num_INV = num_INV
         self.num_SIB = num_SIB
+        self.class_wrapper = class_wrapper
         
-        self.tran_df = init_transforms(task_name=self.task)
+        self.tran_df = init_transforms(task_name=self.task, class_wrapper=self.class_wrapper)
         self.INV_fns = self.tran_df[self.tran_df['tran_type']=='INV']['tran_fn'].to_list()
         self.SIB_fns = self.tran_df[self.tran_df['tran_type']=='SIB']['tran_fn'].to_list()
 

@@ -47,8 +47,12 @@ class Transform(Base):
     id = Column(Integer, primary_key=True)
     module_name = Column(String)
     class_name = Column(String)
-    trans_fn_name = Column(String)
-    is_stochastic = Column(Boolean)
+    class_args = Column(String)
+    class_kwargs = Column(String)
+    callable_name = Column(String)
+    callable_args = Column(String)
+    callable_kwargs = Column(String)
+    callable_is_stochastic = Column(Boolean)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
 
 class TransformApplied(Base):
@@ -62,10 +66,6 @@ class TransformApplied(Base):
     diff = Column(JSON)
     diff_granularity = Column(Enum(RefGranularity))
     transformation_id = Column(Integer, ForeignKey("Transform.id"))
-    class_args = Column(String)
-    class_kwargs = Column(JSON)
-    transform_args = Column(String)
-    transform_kwargs = Column(JSON)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
 
 # model tables

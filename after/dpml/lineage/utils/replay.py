@@ -65,13 +65,13 @@ def load_transform_from_replay_provenance(prov_dict):
         class_args = preprocess_params(t['class_args'])
         class_kwargs = preprocess_params(t['class_kwargs'])
         t_instance = t_class(*class_args, **class_kwargs)
-        t_fn = getattr(t_instance, t['trans_fn_name'])
+        t_fn = getattr(t_instance, t['callable_name'])
     else:
         t_fn = dynamic_import(t['module_name'],t['trans_fn_name'])
         
     # process transformation
-    t_args = preprocess_params(t['transform_args'])
-    t_kwargs = preprocess_params(t['transform_kwargs'])
+    t_args = preprocess_params(t['callable_args'])
+    t_kwargs = preprocess_params(t['callable_kwargs'])
     
     t_fn = partial(t_fn, *t_args, **t_kwargs)
     

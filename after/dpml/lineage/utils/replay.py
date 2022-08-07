@@ -5,6 +5,7 @@ import pandas as pd
 from sqlalchemy.orm import Session
 from ..storage.sqlalchemy.utils import get_records_and_provenance
 from collections import defaultdict
+import numpy as np
 
 def full_module_name(o):
     """
@@ -66,9 +67,10 @@ def load_transform_from_replay_provenance(prov_dict):
         class_args = preprocess_params(t['class_args'])
         class_kwargs = preprocess_params(t['class_kwargs'])
         t_instance = t_class(*class_args, **class_kwargs)
-        #if t['callable_is_stochastic']:
-        #    rng_state = preprocess_params(t['callable_rng_state'])
-        #    t_instance.np_random.__setstate__(rng_state) # TODO: hard-coded rng name
+        if t['callable_is_stochastic']:
+            rng_state = preprocess_params(t['callable_rng_state'])
+            t_instance.np_random.__setstate__(rng_state) # TODO: hard-coded rng name
+            # print(rng_state)
         t_fn = getattr(t_instance, t['callable_name'])
     else:
         t_fn = dynamic_import(t['module_name'],t['trans_fn_name'])
@@ -108,7 +110,9 @@ def replay_all_from_csv():
     # fetch data
     logger = CSVTransformLogger()
     df = pd.read_csv(logger.path, header=None, names=['batch_id', 'text', 'target', 'transform_prov'])
+    transform_df = pd.read_csv(logger.transform_path, header=None, index_col=0, names=['transform_id','transform'])
     
+    transform_set = set()
     batches = {}
     for idx, row in df.iterrows():
         bid = row['batch_id']
@@ -119,16 +123,22 @@ def replay_all_from_csv():
         batches[bid]['target'].append(row['target'])
 
         if len(batches[bid]['transform']) == 0:
-            for t_raw in eval(row['transform_prov']):
-                t_prov = json.loads(t_raw)
-                t_fn = load_transform_from_replay_provenance(t_prov)
-                batches[bid]['transform'].append(t_fn)
+            batches[bid]['transform'] = eval(row['transform_prov'])
+            transform_set = transform_set | set(batches[bid]['transform'])
+
+    transform_idx = {}
+    for idx in transform_set:
+        t_prov = json.loads(transform_df.loc[idx]['transform'])
+        t_fn = load_transform_from_replay_provenance(t_prov)
+
+        transform_idx[idx] = t_fn
 
     # replay
     new_records = []
     for batch_id in sorted(list(batches.keys())):
         batch = (batches[batch_id]['text'], batches[batch_id]['target'])
-        for t_fn in batches[batch_id]['transform']:
+        for t_fn_id in batches[batch_id]['transform']:
+            t_fn = transform_idx[t_fn_id]
             batch = t_fn(batch)
 
         texts, labels = batch

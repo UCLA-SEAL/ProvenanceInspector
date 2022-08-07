@@ -3,6 +3,11 @@ from ..tasks import *
 import collections
 import pattern
 from pattern import en
+try:
+    pattern.en.tenses('is')
+except:
+    pass
+
 import spacy
 import en_core_web_sm
 import numpy as np
@@ -56,7 +61,7 @@ class AddNegation(AbstractTransformation):
         for sentence in doc.sents:
             if len(sentence) < 3:
                 continue
-            root_id = [x.i for x in sentence if x.dep_ == 'ROOT'][0]
+            root_id = [x.i for x in sentence if x.head == x][0]
             root = doc[root_id]
             if '?' in sentence.text and sentence[0].text.lower() == 'how':
                 continue

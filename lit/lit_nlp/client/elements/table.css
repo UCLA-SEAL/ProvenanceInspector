@@ -1,0 +1,225 @@
+:host {
+  --table-header-height: 40px;
+  --table-footer-height: 26px;
+  --table-cell-padding: 4px 8px;
+}
+
+.holder {
+  height: 100%;
+  padding: 0px 1px; /* avoid spurious horizontal scrollbar */
+}
+
+.holder table {
+  width: 100%;
+  min-width: 100%;
+  border-spacing: 0;
+  color: var(--lit-gray-800);
+  position: relative;
+  z-index: 0;
+}
+
+/**
+ * Header styles
+ */
+.holder table > thead {
+  position: sticky;
+  top: 0;
+  height: var(--table-header-height);
+  z-index: 1;
+  background: #f5fcfc;
+}
+
+.holder table > thead > th {
+  font-weight: 400;
+  color: #04394b;
+  border-bottom: solid 1px #dadce0;
+}
+
+.column-header {
+  cursor: pointer;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.column-header.right-align {
+  justify-content: flex-end;
+}
+
+.header-holder {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: var(--table-cell-padding);
+}
+
+.header-text {
+  flex: 1;
+  text-align: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-height: 100%;
+}
+
+.arrow-container {
+  width: 16px;
+  height: 20px;
+  right: 8px;
+  position: relative;
+  user-select: none;
+}
+
+.arrow {
+  position: absolute;
+  --mdc-icon-size: 24px;
+  color: rgba(0,0,0,0.1);
+}
+
+.arrow.up {
+  top: -6px;
+}
+
+.arrow.down {
+  top: 2px;
+}
+
+.arrow.active {
+  color: var(--app-dark-color);
+}
+
+.arrow.inactive {
+  color: rgba(0,0,0,0);
+}
+
+.menu-button-container {
+  width: 20px;
+  height: 20px;
+  user-select: none;
+  padding-left: 4px;
+}
+
+.menu-button {
+  --mdc-icon-size: 20px;
+}
+
+.menu-button:hover {
+  opacity: .7;
+}
+
+.togglable-menu-holder {
+  background-color: #eff6f8; /* light gray-blue */
+  border: 1px solid;
+  border-radius: 2pt;
+  border-color: rgb(218, 220, 224);
+  position: absolute;
+}
+
+.search-input {
+  width:100%;
+}
+
+/**
+ * Body styles
+ */
+tbody tr:hover {
+  background: var(--lit-mage-200);
+}
+
+tbody tr.selected {
+  background: var(--lit-cyea-100);
+  color: var(--lit-gray-800);
+  transition-duration: 0.2s;
+  transition-property: background-color;
+}
+
+tbody tr.primary-selected {
+  background: var(--lit-cyea-300);
+  color: black;
+  transition-duration: 0.2s;
+  transition-property: background-color;
+}
+
+tbody tr.focused {
+  background: rgba(255, 0, 0, 0.2);
+  transition-duration: 0.2s;
+  transition-property: background-color;
+}
+
+tbody tr.reference-selected {
+  outline: 1px solid #2f8c9b;
+}
+
+tbody td {
+  vertical-align: top;
+  min-width: 80px;
+  box-sizing: border-box;
+}
+
+.n-rows {
+  margin-left: 20px;
+}
+
+.cell-holder {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: var(--table-cell-padding);
+}
+
+.cell-holder.right-align {
+  justify-content: flex-end;
+}
+
+.text-cell {
+  max-height: 150px;
+  overflow: auto;
+  white-space: pre-wrap;
+}
+
+/* TODO(lit-dev): Make the table image width configurable. */
+.table-img {
+  width: 100px;
+}
+
+
+/**
+ * Footer styles
+ */
+.holder table > tfoot {
+  position: sticky;
+  bottom: 0;
+  height: var(--table-footer-height);
+
+  background: #f5fcfc;
+}
+
+.footer {
+  color: #04394b;
+  font-weight: 400;
+  font-size: 10pt;
+  line-height: 12pt;
+  padding: 3px;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.current-page-num {
+  display: inline-block;
+  text-align: center;
+  min-width: 16px;
+}
+
+/**
+ * For standalone MWC icons as buttons. We don't use mwc-icon-button because it
+ * adds a large backdrop and extra whitespace.
+ */
+.icon-button:hover {
+  color: var(--lit-neutral-900);
+}
+.button-extra-margin {
+  margin-left: 4px;
+}

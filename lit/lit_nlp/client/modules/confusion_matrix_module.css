@@ -1,0 +1,29 @@
+.dropdown {
+  max-width: fit-content;
+}
+
+.matrices-holder {
+  display: flex;
+  flex-flow: wrap;
+  padding: 4px;
+}
+
+.matrix {
+  margin-right: 16px;
+  margin-bottom: 16px;
+}
+
+.flex {
+  display: flex;
+}
+
+#create-button {
+  margin-top: 28px;
+  pointer-events: auto;
+}
+
+/* Make the "Rows" and "Columns" labels the same width */
+.dropdown-label {
+  display: inline-block;
+  width: 55px;
+}

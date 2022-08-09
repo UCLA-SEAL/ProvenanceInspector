@@ -1,0 +1,6 @@
+lit_nlp/yarn-error.log
+website/www/**
+**/build/**
+**/node_modules/**
+**/__pycache__/**
+**/*.pyc

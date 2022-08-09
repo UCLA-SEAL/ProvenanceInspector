@@ -1,0 +1,39 @@
+#scatter-gl-container {
+  height: 100%;
+  user-select: none;
+}
+
+#scatter-gl-container>canvas {
+  outline: none;
+}
+
+.toolbar-container {
+  padding: 2pt 0;
+  justify-content: space-between;
+  position: absolute
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.container {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+
+.selected-nearest-button {
+  margin-top: 10px;
+}
+
+.selected-nearest-button:disabled {
+  pointer-events: auto;
+}
+
+#select-button-container {
+  bottom: 4px;
+  right: 4px;
+}

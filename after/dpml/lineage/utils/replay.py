@@ -33,13 +33,14 @@ def dynamic_import(module_name, obj_name):
     # to fetch module
     module = __import__(module_path[0])
     
-    for cur_module in module_path[1:]:
-        module = getattr(module, cur_module, None)
-        
-    my_class = None
-    if module:
+    # for cur_module in module_path[1:]:
+    #     module = getattr(module, cur_module, None)
+    
+    if module and hasattr(module, obj_name):
         # getting attribute by getattr() method
         obj = getattr(module, obj_name)
+    else:
+        obj = None
 
     return obj
 
@@ -69,11 +70,12 @@ def load_transform_from_replay_provenance(prov_dict):
         t_instance = t_class(*class_args, **class_kwargs)
         if t['callable_is_stochastic']:
             rng_state = preprocess_params(t['callable_rng_state'])
-            t_instance.np_random.__setstate__(rng_state) # TODO: hard-coded rng name
-            # print(rng_state)
+            random_generator = getattr(t_instance, t['class_rng'])
+            random_generator.__setstate__(rng_state)
+            setattr(t_instance, t['class_rng'], random_generator)
         t_fn = getattr(t_instance, t['callable_name'])
     else:
-        t_fn = dynamic_import(t['module_name'],t['trans_fn_name'])
+        t_fn = dynamic_import(t['module_name'], t['trans_fn_name'])
         
     # process transformation
     t_args = preprocess_params(t['callable_args'])
@@ -92,7 +94,7 @@ def replay_all_from_db():
     logger = SQLTransformLogger()
     records_to_replay, provenance_to_replay = get_records_and_provenance(Session(logger.engine))
 
-    # repay
+    # replay
     new_records = []
     for rec, prov in zip(records_to_replay, provenance_to_replay):
         batch = ([rec['text']], [eval(rec['target'])])
@@ -130,7 +132,6 @@ def replay_all_from_csv():
     for idx in transform_set:
         t_prov = json.loads(transform_df.loc[idx]['transform'])
         t_fn = load_transform_from_replay_provenance(t_prov)
-
         transform_idx[idx] = t_fn
 
     # replay
@@ -140,7 +141,6 @@ def replay_all_from_csv():
         for t_fn_id in batches[batch_id]['transform']:
             t_fn = transform_idx[t_fn_id]
             batch = t_fn(batch)
-
         texts, labels = batch
         new_records += [(x, y) for x,y in zip(texts, labels)]
     return new_records

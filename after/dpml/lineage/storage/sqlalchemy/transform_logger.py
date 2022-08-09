@@ -28,9 +28,7 @@ class TransformLogger:
 
     def __init__(self, connection_string=connection_string, replay_only=replay_only):
         self.engine = create_engine(connection_string, future=True)
-        if not database_exists(self.engine.url):
-            print("creating database tables from models...")
-            Base.metadata.create_all(self.engine)
+        self.create_db_if_needed()
         self.replay_only = replay_only
         self.init_storage()
 
@@ -41,6 +39,11 @@ class TransformLogger:
         else:
             self._storage = []
         self._flushed = True
+
+    def create_db_if_needed(self):
+        if not database_exists(self.engine.url):
+            print("creating database tables from models...")
+            Base.metadata.create_all(self.engine)
 
     def log(self, input_record, output_record):
         self._storage.append((input_record, output_record))
@@ -84,9 +87,11 @@ class TransformLogger:
                         class_name = tp["class_name"],
                         class_args = tp["class_args"],
                         class_kwargs = tp["class_kwargs"],
+                        class_rng = tp["class_rng"],
                         callable_name = tp["callable_name"],
                         callable_args = tp["callable_args"],
                         callable_kwargs = tp["callable_kwargs"],
+                        callable_rng_state = tp["callable_rng_state"],
                         callable_is_stochastic = tp["callable_is_stochastic"],
                     )
                     transform_applied = create_and_return(
@@ -126,9 +131,11 @@ class TransformLogger:
                     class_name = tp["class_name"],
                     class_args = tp["class_args"],
                     class_kwargs = tp["class_kwargs"],
+                    class_rng = tp["class_rng"],
                     callable_name = tp["callable_name"],
                     callable_args = tp["callable_args"],
                     callable_kwargs = tp["callable_kwargs"],
+                    callable_rng_state = tp["callable_rng_state"],
                     callable_is_stochastic = tp["callable_is_stochastic"],
                 )
 
@@ -148,10 +155,18 @@ class TransformLogger:
             self._flush_without_replay()
         self.init_storage()
 
+    def clean_db(self):
+        # Base.metadata.drop_all(self.engine)
+        with Session(self.engine) as session:
+            for table in reversed(Base.metadata.sorted_tables):
+                session.execute(table.delete())
+            session.commit()
+
 if __name__ == '__main__':
 
     from lineage.transformation import *
     from lineage.le_batch import LeBatch
+    from sqlalchemy import select
     
     class MyTransformTester:
         def __init__(self, chars_to_append="!"):
@@ -178,8 +193,6 @@ if __name__ == '__main__':
 
     logger = TransformLogger()
 
-    from sqlalchemy import select
-    
     stmt = select(Record).where(Record.text.like('mytest%'))
     with logger.engine.connect() as conn:
         for row in conn.execute(stmt):

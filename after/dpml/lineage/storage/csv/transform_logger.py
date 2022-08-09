@@ -6,10 +6,8 @@ Record Logs to DATA_STORE
 import os
 import csv
 import json
-from black import T, transform_line
 import pandas as pd
 import itertools
-
 
 import hydra
 
@@ -52,6 +50,8 @@ class TransformLogger:
             self._storage = []
         self._flushed = True
 
+    def create_db_if_needed(self):
+        pass
 
     def log(self, input_record, output_record):
         # transformation provenance
@@ -67,11 +67,13 @@ class TransformLogger:
             "output_target": output_record.target,
             "module_name": tp["module_name"],
             "class_name": tp["class_name"],
-            "callable_class_args": tp["class_args"],
-            "callable_class_kwargs": tp["class_kwargs"],
+            "class_args": tp["class_args"],
+            "class_kwargs": tp["class_kwargs"],
+            "class_rng": tp["class_rng"],
             "callable_name": tp["callable_name"],
             "callable_args": tp["callable_args"],
             "callable_kwargs": tp["callable_kwargs"],
+            "callable_rng_state": tp["callable_rng_state"],
             "callable_is_stochastic": tp["callable_is_stochastic"],
             "diff": f_diff.get_tags(),
             "diff_granularity": input_record.le_text.granularity
@@ -121,7 +123,7 @@ class TransformLogger:
 
         if len(self._new_transforms) > 0:
             pd.Series(self._new_transforms, dtype=object).to_csv(self.transform_path, mode='a', quoting=csv.QUOTE_NONNUMERIC, header=False)
-            self.new_rows = {}
+            self._new_transforms = {}
 
     # def _flush_with_replay(self):
     #     out = []
@@ -142,6 +144,9 @@ class TransformLogger:
         else:
             self._flush_without_replay()
         self.init_storage()
+
+    def clean_db(self):
+        pass
 
 if __name__ == '__main__':
 

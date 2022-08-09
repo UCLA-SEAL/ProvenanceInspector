@@ -62,6 +62,7 @@ class TransformationProvenance(LazyCloneableProvenance):
             "class_name":  transformation._class_name,
             "class_args": json.dumps(exclude_unserializable(transformation._class_args)),
             "class_kwargs": json.dumps(exclude_unserializable(transformation._class_kwargs)),
+            "class_rng": transformation._class_rng,
             "callable_name": transformation._callable_name,
             "callable_args": json.dumps(exclude_unserializable(transformation._callable_args)),
             "callable_kwargs": json.dumps(exclude_unserializable(transformation._callable_kwargs)),

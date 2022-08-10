@@ -6,6 +6,7 @@ from sqlalchemy.orm import Session
 from ..storage.sqlalchemy.utils import get_records_and_provenance
 from collections import defaultdict
 import numpy as np
+import copy
 
 def full_module_name(o):
     """
@@ -131,8 +132,31 @@ def replay_all_from_csv():
     transform_idx = {}
     for idx in transform_set:
         t_prov = json.loads(transform_df.loc[idx]['transform'])
-        t_fn = load_transform_from_replay_provenance(t_prov)
-        transform_idx[idx] = t_fn
+        t_fn = copy.deepcopy(find_initialized_tran_fn(transform_idx, t_prov))
+        if t_fn:
+            rng_state = preprocess_params(t_prov['callable_rng_state'])
+            random_generator = getattr(t_fn.func.__self__, t_prov['class_rng'])
+            random_generator.__setstate__(rng_state)
+            setattr(t_fn.func.__self__, t_prov['class_rng'], random_generator)
+            transform_idx[idx] = t_fn
+        else:
+            transform_idx[idx] = load_transform_from_replay_provenance(t_prov)
+
+    # old_transform_idx = {}
+    # for idx in transform_set:
+    #     t_prov = json.loads(transform_df.loc[idx]['transform'])
+    #     t_fn = load_transform_from_replay_provenance(t_prov)
+    #     old_transform_idx[idx] = t_fn
+
+    # for idx, (t1, t2) in enumerate(list(zip(old_transform_idx.values(), transform_idx.values()))):
+    #     t_prov = json.loads(transform_df.loc[idx]['transform'])
+    #     rng_state = preprocess_params(t_prov['callable_rng_state'])
+    #     print(t1.func.__self__.__class__.__name__)
+    #     print(t2.func.__self__.__class__.__name__)
+    #     print('true rng_state:\n', rng_state)
+    #     print('original:\n', t1.func.__self__.np_random.__getstate__())
+    #     print('new:\n', t2.func.__self__.np_random.__getstate__())
+    #     print()
 
     # replay
     new_records = []
@@ -144,3 +168,8 @@ def replay_all_from_csv():
         texts, labels = batch
         new_records += [(x, y) for x,y in zip(texts, labels)]
     return new_records
+
+def find_initialized_tran_fn(transform_idx, t_prov):
+    for k, v in transform_idx.items():
+        if t_prov['class_name'] == v.func.__self__.__class__.__name__:
+            return v

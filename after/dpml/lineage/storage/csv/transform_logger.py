@@ -145,8 +145,9 @@ class TransformLogger:
             self._flush_without_replay()
         self.init_storage()
 
-    def clean_db(self):
-        pass
+    def clean_data_store(self):
+        if os.path.exists(self.path):
+            os.remove(self.path)
 
 if __name__ == '__main__':
 

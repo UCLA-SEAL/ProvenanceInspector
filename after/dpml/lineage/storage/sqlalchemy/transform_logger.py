@@ -155,7 +155,7 @@ class TransformLogger:
             self._flush_without_replay()
         self.init_storage()
 
-    def clean_db(self):
+    def clean_data_store(self):
         # Base.metadata.drop_all(self.engine)
         with Session(self.engine) as session:
             for table in reversed(Base.metadata.sorted_tables):

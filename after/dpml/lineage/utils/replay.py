@@ -69,7 +69,7 @@ def load_transform_from_replay_provenance(prov_dict):
         class_args = preprocess_params(t['class_args'])
         class_kwargs = preprocess_params(t['class_kwargs'])
         t_instance = t_class(*class_args, **class_kwargs)
-        if t['callable_is_stochastic']:
+        if t['callable_is_stochastic'] and 'callable_rng_state' in t:
             rng_state = preprocess_params(t['callable_rng_state'])
             random_generator = getattr(t_instance, t['class_rng'])
             random_generator.__setstate__(rng_state)
@@ -107,15 +107,15 @@ def replay_all_from_db():
     return new_records
 
 def replay_all_from_csv():
-        
+      
     from lineage.storage.csv.transform_logger import TransformLogger as CSVTransformLogger
     
     # fetch data
     logger = CSVTransformLogger()
     df = pd.read_csv(logger.path, header=None, names=['batch_id', 'text', 'target', 'transform_prov'])
-    transform_df = pd.read_csv(logger.transform_path, header=None, index_col=0, names=['transform_id','transform'])
+    transform_df = pd.read_csv(logger.transform_path, header=None, index_col=0, names=['transform_id', 'transform'])
     
-    transform_set = set()
+    transform_idxs = set()
     batches = {}
     for idx, row in df.iterrows():
         bid = row['batch_id']
@@ -127,49 +127,45 @@ def replay_all_from_csv():
 
         if len(batches[bid]['transform']) == 0:
             batches[bid]['transform'] = eval(row['transform_prov'])
-            transform_set = transform_set | set(batches[bid]['transform'])
-
-    transform_idx = {}
-    for idx in transform_set:
+            transform_idxs = transform_idxs | set(batches[bid]['transform'])
+                    
+    transforms = []
+    random_states = []
+    hashes = []
+    mapping = {}
+    for idx in transform_idxs:
         t_prov = json.loads(transform_df.loc[idx]['transform'])
-        t_fn = copy.deepcopy(find_initialized_tran_fn(transform_idx, t_prov))
-        if t_fn:
-            rng_state = preprocess_params(t_prov['callable_rng_state'])
-            random_generator = getattr(t_fn.func.__self__, t_prov['class_rng'])
-            random_generator.__setstate__(rng_state)
-            setattr(t_fn.func.__self__, t_prov['class_rng'], random_generator)
-            transform_idx[idx] = t_fn
+        random_state_attr = t_prov.pop('class_rng')
+        random_state_info = t_prov.pop('callable_rng_state')
+        random_states.append((random_state_attr, random_state_info))
+
+        t_prov_hash = hash(repr(t_prov))
+        if t_prov_hash not in hashes:
+            transforms.append(load_transform_from_replay_provenance(t_prov))
+            hashes.append(t_prov_hash)
+            mapping[idx] = hashes.index(t_prov_hash)
         else:
-            transform_idx[idx] = load_transform_from_replay_provenance(t_prov)
-
-    # old_transform_idx = {}
-    # for idx in transform_set:
-    #     t_prov = json.loads(transform_df.loc[idx]['transform'])
-    #     t_fn = load_transform_from_replay_provenance(t_prov)
-    #     old_transform_idx[idx] = t_fn
-
-    # for idx, (t1, t2) in enumerate(list(zip(old_transform_idx.values(), transform_idx.values()))):
-    #     t_prov = json.loads(transform_df.loc[idx]['transform'])
-    #     rng_state = preprocess_params(t_prov['callable_rng_state'])
-    #     print(t1.func.__self__.__class__.__name__)
-    #     print(t2.func.__self__.__class__.__name__)
-    #     print('true rng_state:\n', rng_state)
-    #     print('original:\n', t1.func.__self__.np_random.__getstate__())
-    #     print('new:\n', t2.func.__self__.np_random.__getstate__())
-    #     print()
+            mapping[idx] = hashes.index(t_prov_hash)
 
     # replay
     new_records = []
     for batch_id in sorted(list(batches.keys())):
         batch = (batches[batch_id]['text'], batches[batch_id]['target'])
-        for t_fn_id in batches[batch_id]['transform']:
-            t_fn = transform_idx[t_fn_id]
+        for idx in batches[batch_id]['transform']:
+            rs_attr, rs_info = random_states[idx]
+            fn_id = mapping[idx]
+            t_fn = set_rng_state(transforms[fn_id], rs_attr, rs_info)
             batch = t_fn(batch)
         texts, labels = batch
         new_records += [(x, y) for x,y in zip(texts, labels)]
+
+    # del df, transform_df, batches, transforms, random_states, hashes, mapping
+            
     return new_records
 
-def find_initialized_tran_fn(transform_idx, t_prov):
-    for k, v in transform_idx.items():
-        if t_prov['class_name'] == v.func.__self__.__class__.__name__:
-            return v
+def set_rng_state(fn, attr, state):
+    rng_state = preprocess_params(state)
+    random_generator = getattr(fn.func.__self__, attr)
+    random_generator.__setstate__(rng_state)
+    setattr(fn.func.__self__, attr, random_generator)
+    return fn

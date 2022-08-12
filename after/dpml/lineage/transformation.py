@@ -66,10 +66,10 @@ Class and Callable wrappers for objects already in memory (no need to modify sou
 """
 
 class DPMLClassWrapper(object):
-    def __init__(self, wrapped_class):
+    def __init__(self, wrapped_class, transform_method=None):
         self.wrapped_class = wrapped_class
         self.init_class = None # initialized instance of the wrapped class
-        self.callable = None
+        self.method_name = transform_method
         
         self._class_name = wrapped_class.__name__
         self._module_name = wrapped_class.__module__
@@ -77,12 +77,16 @@ class DPMLClassWrapper(object):
     def __call__(self, *args, **kwargs):
         self._class_args = args if args else []
         self._class_kwargs = kwargs if kwargs else []
-        self.init_class = self.wrapped_class(*args, **kwargs)
-        return self
+        if self.init_class is None:
+            self.init_class = self.wrapped_class(*args, **kwargs)
+            self.init_class.wrapper_class = self
+            return self
+        else:
+            return self.init_class(*args, **kwargs)
 
     def __getattr__(self, attr):
         orig_attr = self.init_class.__getattribute__(attr)
-        if callable(orig_attr):
+        if callable(orig_attr) and (self.method_name is None or attr == self.method_name):
             self.init_hooked_callable(orig_attr)
             return self.hooked_callable
         else:

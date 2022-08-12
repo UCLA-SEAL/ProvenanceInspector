@@ -20,6 +20,7 @@ from textattack.transformations import WordSwapEmbedding, WordSwapMaskedLM
 
 from .attack_recipe import AttackRecipe
 
+from lineage.transformation import *
 
 class A2TYoo2021(AttackRecipe):
     """Towards Improving Adversarial Training of NLP Models.
@@ -55,12 +56,15 @@ class A2TYoo2021(AttackRecipe):
         constraints.append(sent_encoder)
 
         if mlm:
-            transformation = transformation = WordSwapMaskedLM(
+            wrapped_mlm = DPMLClassWrapper(WordSwapMaskedLM, transform_method="_get_transformations")
+            transformation = wrapped_mlm(
                 method="bae", max_candidates=20, min_confidence=0.0, batch_size=16
             )
+            constraints.append(WordEmbeddingDistance(min_cos_sim=0.5))
         else:
-            transformation = WordSwapEmbedding(max_candidates=20)
-            constraints.append(WordEmbeddingDistance(min_cos_sim=0.8))
+            wrapped_embeeding = DPMLClassWrapper(WordSwapEmbedding, transform_method="_get_transformations")
+            transformation = wrapped_embeeding(max_candidates=20)
+            constraints.append(WordEmbeddingDistance(min_cos_sim=0.5))
 
         #
         # Goal is untargeted classification

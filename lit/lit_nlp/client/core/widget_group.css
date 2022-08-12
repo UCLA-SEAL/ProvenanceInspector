@@ -1,0 +1,170 @@
+:host{
+  flex: var(--flex);
+  min-width: var(--width);
+  width: var(--width);
+  --lit-group-header-height: 36px;
+}
+
+.outside {
+  width: 100%;
+  height: 100%;
+}
+
+.wrapper {
+  height: 100%;
+  box-sizing: border-box;
+  background-color: white;
+  background-clip: content-box;
+}
+
+.header {
+  height: var(--lit-group-header-height);
+  display: flex;
+  padding: 0 8px;
+  line-height: 20pt;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid rgb(218, 220, 224);
+  box-sizing: border-box;
+}
+
+.title {
+  font-size: 14px;
+  font-family: 'Google Sans', sans;
+  white-space: nowrap;
+  overflow: hidden;
+  flex: 1;
+  display: flex;
+}
+
+.min-button {
+  text-align: right;
+}
+
+.scroll-toggle {
+  --mdc-icon-button-size: 24px;
+}
+
+.icon-button {
+  height: 24px;
+  width: 24px;
+  min-width: 24px;
+  --mdc-icon-size: 24px;
+}
+
+.holder {
+  height: calc(100% - var(--lit-group-header-height));
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  flex: 1;
+}
+
+.component-row {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+}
+
+.component-column {
+  display: flex;
+  flex-direction: column;
+}
+
+lit-widget {
+  min-height: 128px;
+}
+
+.expander {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  height: 90%;
+  width: 10px;
+  cursor: ew-resize;
+}
+
+.expander-drag-target{
+  position: absolute;
+  width: 100%;
+  height:100%;
+  opacity: 0;
+}
+
+/**
+ * Maximized state
+ */
+:host([maximized]) {
+  margin: 0;
+  padding: 0;
+  --lit-maximized-vpad: 15px;
+  --lit-maximized-hpad: 45px;
+  /* Override whatever size this would have been in-line. */
+  width: calc(100vw - 2*var(--lit-maximized-hpad)) !important;
+  min-width: calc(100vw - 2*var(--lit-maximized-hpad)) !important;
+  position: fixed;
+  z-index: 2;
+  /* Fix size to fill the main modules area, but not cover toolbars. */
+  /* --top-toolbar-offset and --modules-area-height are set by modules.ts. */
+  top: var(--top-toolbar-offset);
+  height: calc(var(--modules-area-height) - 2*var(--lit-maximized-vpad));
+  left: 0px;
+}
+
+:host([maximized]) .outside {
+  padding: var(--lit-maximized-vpad) var(--lit-maximized-hpad);
+  background: rgba(4, 29, 51, .47);
+}
+
+:host([maximized]) .wrapper {
+  padding: 0;
+}
+
+/**
+ * Minimized state
+ */
+:host([minimized]) {
+  min-width: calc(var(--lit-group-header-height) + 6px);
+  width: calc(var(--lit-group-header-height) + 6px);
+}
+
+:host([minimized]) .outside {
+  width: calc(var(--lit-group-header-height) + 2px);
+}
+
+:host([minimized]) .wrapper {
+  width: calc(var(--lit-group-header-height) + 2px);
+}
+
+:host([minimized]) .header {
+  padding-top: 8px;
+  padding-bottom: 2px; /* top icon should align with horizontal toolbar */
+  padding-left: 0;
+  padding-right: 0;
+  height: 100%;
+  width: calc(var(--lit-group-header-height) + 2px);
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+}
+
+:host([minimized]) .header > * {
+  margin: 2px 0;
+}
+
+:host([minimized]) mwc-icon {
+  /* Undo outer rotation, so these are oriented normally. */
+  transform: rotate(90deg);
+}
+
+:host([minimized]) .title {
+  text-align: right;
+  cursor: pointer;
+}
+
+:host([minimized]) .holder {
+  height: 0;
+}
+
+:host([minimized]) lit-widget{
+  display: none;
+}

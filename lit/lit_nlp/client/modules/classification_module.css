@@ -1,0 +1,12 @@
+.field-name {
+  font-weight: bold;
+  color: var(--lit-bold-label-color);
+}
+
+.row-title {
+  padding: 4px 8px;
+}
+
+.classification-row-holder {
+  padding-bottom: 10px;
+}

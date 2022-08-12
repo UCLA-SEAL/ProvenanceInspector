@@ -1,0 +1,127 @@
+.staged-text {
+  margin-bottom: 10px;
+}
+
+.module-footer {
+  justify-content: flex-end;
+}
+
+.module-footer button {
+  margin: 4px;
+}
+
+.field-header {
+  align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  gap: .5em;
+  justify-content: space-between;
+}
+
+.field-name a {
+  /* don't apply standard link style, it's distracting */
+  text-decoration: unset;
+  color: unset;
+}
+
+.field-type {
+  color: var(--lit-light-label-color);
+  font-size: 8pt;
+}
+
+.field-header mwc-icon {
+  font-size: 10pt;
+  line-height: 0;
+  vertical-align: middle;
+  padding-right: 10px; /* for a larger click target */
+}
+
+.input-box {
+  width: 95%;
+  /* Fill available up to outer margin, if supported. */
+  width: -moz-available;
+  width: -webkit-fill-available;
+}
+
+.input-short {
+  width: 95%;
+  /* Fill available up to outer margin, if supported. */
+  width: -moz-available;
+  width: -webkit-fill-available;
+}
+
+select.dropdown {
+  margin-right: 4px;
+  min-width: 50px;
+}
+
+.entry {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin: 8px;
+}
+
+/* right-align content, particularly dropdowns */
+.entry-content {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.entry-content-long {
+  flex-grow: 1;
+  flex-basis: 100%;
+}
+
+input {
+  font-family: 'Roboto', sans;
+  color: var(--lit-gray-800);
+}
+
+textarea {
+  resize: vertical;
+  height: 100px;
+  font-family: 'Roboto', sans;
+  line-height: 18px;
+  color: var(--lit-gray-800);
+}
+
+.span-label {
+  font-family: Monospace;
+}
+
+.edge-label {
+  font-family: Monospace;
+}
+
+.image-holder {
+  position: relative;
+}
+
+.image-min {
+  max-width: 200px;
+  max-height: 200px;
+}
+
+.image-toggle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 5px;
+  cursor: pointer;
+  background: rgb(211,211,211, 0.5);
+  border-radius: 4px;
+  height: 20px;
+  width: 20px;
+  min-width: 20px;
+  --mdc-icon-size: 20px;
+  color: rgb(95, 99, 104);
+}
+
+.image-toggle:hover {
+  opacity: .8;
+  background: rgb(211,211,211, 0.8);
+}
+

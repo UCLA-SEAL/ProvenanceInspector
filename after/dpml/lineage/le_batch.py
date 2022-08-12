@@ -83,6 +83,7 @@ class LeBatch:
             LeBatch.transform_logger = TransformLogger()
 
     def __enter__(self):
+        LeBatch.transform_logger.create_db_if_needed()
         if LeBatch.transform_logger.replay_only:
             LeBatch.transform_logger.log_originals(self.texts, self.targets)
         return self

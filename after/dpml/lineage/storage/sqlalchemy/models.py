@@ -49,9 +49,11 @@ class Transform(Base):
     class_name = Column(String)
     class_args = Column(String)
     class_kwargs = Column(String)
+    class_rng = Column(String)
     callable_name = Column(String)
     callable_args = Column(String)
     callable_kwargs = Column(String)
+    callable_rng_state = Column(String)
     callable_is_stochastic = Column(Boolean)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
 

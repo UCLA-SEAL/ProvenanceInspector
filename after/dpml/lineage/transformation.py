@@ -94,8 +94,9 @@ class DPMLClassWrapper(object):
 
     def init_hooked_callable(self, _callable):
         
-        if hasattr(self.init_class, 'np_random'): # TODO: remove hard-coded rng name here
-            self._class_rng = self.init_class.np_random
+        randomness_attr = find_randomness(self.init_class)
+        if randomness_attr: 
+            self._class_rng = randomness_attr
             self._callable_is_stochastic = True
         else:
             self._class_rng = None
@@ -143,7 +144,7 @@ class DPMLCallableWrapper(object):
     def __call__(self, *args, **kwargs):
         
         if self._class_rng:
-            self._callable_rng_state = self._class_rng.__getstate__()
+            self._callable_rng_state = getattr(self.parent_class, self._class_rng).__getstate__()
         else:
             self._callable_rng_state = None
 
@@ -167,5 +168,19 @@ def clean_args_and_kwargs(_callable, args, kwargs):
             args.pop(i-num_pops)
             kwargs.pop('batch', None)
             num_pops += 1
-
     return args if args else [], kwargs if kwargs else []
+
+def find_randomness(obj):
+    """
+    This function attempts to genericize the search for
+    sources of randomness in the transformations so that 
+    they can be tracked. Right now, we primarily expect
+    this function to capture generators like:
+        - numpy.random._generator.Generator
+    Modify this function as new use cases arise...
+    """
+    for attr in dir(obj):
+        if not attr.startswith('__'):
+            attr_type = repr(type(getattr(obj, attr)))
+            if 'random' in attr_type and 'generator' in attr_type:
+                return attr

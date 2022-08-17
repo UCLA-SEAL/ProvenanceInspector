@@ -47,6 +47,18 @@ class TransformationProvenance(LazyCloneableProvenance):
         return TransformationProvenance(history=self.history.copy(), store_type=self.store_type)
         
     def add_provenance(self, transformation):
+        """
+        TODO: `callable_rng_state` changes often and it causes the transformations to be technically  
+              unique from one another, which significantly expands storage (and slows down replay a bit).  
+              We need to think of another option:
+                - Enforce 1 random state
+                    - pros: simplifies storage
+                    - cons: decreases output diversity of transformations
+                - Separate random states table
+                    - pros: preserves diversity, reduces storage costs more than current design
+                    - cons: increases data storage complexity
+                - ???
+        """
         transformation_order = len(self.history)
 
         if isinstance(transformation.__class__, DPMLCallableWrapper):

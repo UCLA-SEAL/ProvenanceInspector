@@ -1,6 +1,3 @@
-import functools
-import inspect
-
 from .le_record import LeRecord
 from .le_text import LeText
 from .le_target import LeTarget

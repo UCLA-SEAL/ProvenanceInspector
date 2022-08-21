@@ -24,6 +24,8 @@ from typing import Optional, Text, List, Mapping, Sequence, Union
 
 from absl import logging
 
+from lineage import InferQuery
+
 from lit_nlp.api import components as lit_components
 from lit_nlp.api import dataset as lit_dataset
 from lit_nlp.api import dtypes
@@ -311,6 +313,13 @@ class LitApp(object):
         model_outputs=model_outputs,
         config=data.get('config'))
 
+  def _get_transform_traces(self, data, dir_pth: Text, **unused_kw):
+    """Run an interpretation component."""
+    queryAPI = InferQuery(dir_pth=dir_pth)
+    traces = queryAPI.get_trace_of_outputs_indices(data['inputs']) #should be the ids of data
+
+    return traces
+
   def _warm_start(self, rate: float):
     """Warm-up the predictions cache by making some model calls."""
     assert rate >= 0 and rate <= 1
@@ -512,6 +521,7 @@ class LitApp(object):
         # Model prediction endpoints.
         '/get_preds': self._get_preds,
         '/get_interpretations': self._get_interpretations,
+        '/get_transform_traces': self._get_transform_traces,
     }
 
     self._wsgi_app = wsgi_app.App(

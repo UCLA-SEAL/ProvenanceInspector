@@ -2,11 +2,11 @@ import inspect
 import json
 from functools import partial
 import pandas as pd
+
 from sqlalchemy.orm import Session
-from ..storage.sqlalchemy.utils import get_records_and_provenance
-from collections import defaultdict
-import numpy as np
-import copy
+from sqlalchemy.sql import text
+from ..storage.sqlalchemy.models import *
+from ..storage.sqlalchemy.utils import *
 
 def full_module_name(o):
     """
@@ -53,6 +53,8 @@ def preprocess_params(param):
             param = json.loads(param)
         return param
 
+
+
 def load_transform_from_replay_provenance(prov_dict):
     """
     Example: 
@@ -87,23 +89,79 @@ def load_transform_from_replay_provenance(prov_dict):
     
     return t_fn
 
-def replay_all_from_db():
-
+def replay_all_from_db(run_id=None):
+    
     from lineage.storage.sqlalchemy.transform_logger import TransformLogger as SQLTransformLogger
-
-    # fetch data
+    
     logger = SQLTransformLogger()
-    records_to_replay, provenance_to_replay = get_records_and_provenance(Session(logger.engine))
+    
+    # fetch data
+    with Session(logger.engine) as session:
+        if not run_id:
+            run_id = session.query(Run).order_by(Run.id.desc()).first().id
+        
+        ta_stmt = text(
+            """
+            SELECT DISTINCT 
+                   ta.batch_id, 
+                   ta.transform_id, 
+                   ta.transform_state
+            FROM TransformApplied ta 
+            WHERE ta.run_id == :run_id
+            """
+        )
+        ta_rows = collect_from_query(session, ta_stmt, {'run_id': run_id})
+
+        t_stmt = text(
+            """
+            SELECT DISTINCT t.*
+            FROM Transform t
+            INNER JOIN TransformApplied ta ON t.id = ta.transform_id
+            WHERE ta.run_id == :run_id
+            """
+        )
+        t_rows = collect_from_query(session, t_stmt, {'run_id': run_id})
+
+        r_stmt = text(
+            """
+            SELECT r.id, r.text, r.target, ta.batch_id
+            FROM Record r
+            INNER JOIN (
+                SELECT DISTINCT ta.input_record_id, ta.batch_id
+                FROM TransformApplied ta 
+                WHERE ta.run_id == :run_id  
+            ) ta ON ta.input_record_id = r.id
+            """
+        )
+
+        r_rows = collect_from_query(session, r_stmt, {'run_id': run_id})
+
 
     # replay
-    new_records = []
-    for rec, prov in zip(records_to_replay, provenance_to_replay):
-        batch = ([rec['text']], [eval(rec['target'])])
-        for t_raw in prov:
-            t_prov = dict(t_raw)
-            t_fn = load_transform_from_replay_provenance(t_prov)
+    batches = {}
+    for row in r_rows:
+        bid = row['batch_id']
+        if bid not in batches:
+            batches[bid] = {'text':[], 'target':[]}
+
+        batches[bid]['text'].append(row['text'])
+        batches[bid]['target'].append(row['target'])
+
+    transforms = {}
+    for row in t_rows:
+        transforms[row['id']] = (load_transform_from_replay_provenance(row), row['class_rng'])
+
+    new_records = []    
+    for batch_id, batch in batches.items():
+        batch = (batch['text'], [eval(t) for t in batch['target']])
+        tas = [row for row in ta_rows if row['batch_id'] == batch_id]    
+        for row in tas:
+            t_fn, rs_attr = transforms[row['transform_id']]
+            t_fn = set_rng_state(t_fn, rs_attr, row['transform_state'])
             batch = t_fn(batch)
-        new_records.append(batch)
+        texts, labels = batch
+        new_records += [(x, y) for x,y in zip(texts, labels)]
+        
     return new_records
 
 def replay_all_from_csv():

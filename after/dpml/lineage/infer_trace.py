@@ -1,5 +1,7 @@
 import pandas as pd
 import os.path as osp
+from typing import List
+
 
 class InferQuery:
     def __init__(self, dir_pth = '../results/'):
@@ -120,6 +122,13 @@ class InferQuery:
         from_label = self.out_df.loc[result_idx]['original_output']
         to_label = self.out_df.loc[result_idx]['perturbed_output']
         return self.get_trace_of_output(output_text, from_label, to_label)
+
+    
+    def get_trace_of_outputs_indices(self, result_indices: List[int]):
+        traces = []
+        for result_idx in result_indices:
+            traces.append(self.get_trace_of_output_idx(result_idx))
+        return traces
 
 
     def get_traces_of_all_outputs(self):

@@ -9,7 +9,7 @@ TextAttack CLI main class
 # !/usr/bin/env python
 import argparse
 
-from .infer_trace_command import InferTraceCommand
+from lineage.commands.analysis_command import AnalysisCommand
 
 
 def main():
@@ -21,7 +21,7 @@ def main():
     subparsers = parser.add_subparsers(help="dpml command helpers")
 
     # Register commands
-    InferTraceCommand.register_subcommand(subparsers)
+    AnalysisCommand.register_subcommand(subparsers)
 
     # Let's go
     args = parser.parse_args()

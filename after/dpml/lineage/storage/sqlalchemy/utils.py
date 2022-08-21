@@ -1,5 +1,4 @@
 import os
-from sqlalchemy.sql import text
 from sqlalchemy.orm import Session
 
 def build_local_db_url(dialect, path, name):
@@ -41,6 +40,15 @@ def build_url_from_cfg(cfg):
 def infer_type(value):
 	return type(eval(value))
 
+def print_query(session, q_string, args):
+    rows = session.execute(q_string, args)
+    for row in rows:
+        print(row._mapping)
+        
+def collect_from_query(session, q_string, args):
+    rows = session.execute(q_string, args)
+    return [row._mapping for row in rows]
+
 def create_and_return(session, model, defaults=None, **kwargs):
     kwargs |= defaults or {}
     instance = model(**kwargs)
@@ -53,7 +61,7 @@ def create_and_return(session, model, defaults=None, **kwargs):
     else:
         return instance
 
-def get_or_create(session, model, defaults=None, **kwargs):
+def get_or_commit(session, model, defaults=None, **kwargs):
     instance = session.query(model).filter_by(**kwargs).one_or_none()
     if instance:
         return instance, False
@@ -70,35 +78,14 @@ def get_or_create(session, model, defaults=None, **kwargs):
         else:
             return instance, True
 
-def get_records_and_provenance(session):
-    records_stmt = text(
-        """
-        SELECT r.id, r.text, r.target
-        FROM Record r
-        """
-    )
-
-    provenance_stmt = text(
-        """
-        SELECT t.*, ta.* 
-        FROM TransformApplied ta
-        INNER JOIN Transform t ON ta.transformation_id = t.id
-        WHERE ta.input_record_id == :id
-        """
-    )
-
-    record_rows = session.execute(records_stmt)
-    
-    records_to_replay = []
-    for row in record_rows:
-        records_to_replay.append(row._mapping)
-    
-    provenance_to_replay = []
-    for record in records_to_replay:
-        provenance_rows = session.execute(provenance_stmt, dict(record))
-        prov = []
-        for row in provenance_rows:
-            prov.append(row._mapping)
-        provenance_to_replay.append(prov)
-    
-    return records_to_replay, provenance_to_replay
+def get_or_add(session, model, defaults=None, **kwargs):
+    instance = session.query(model).filter_by(**kwargs).one_or_none()
+    if instance:
+        return instance, False
+    else:
+        kwargs |= defaults or {}
+        instance = model(**kwargs)
+        session.add(instance)
+        session.flush()
+        session.refresh(instance)
+        return instance, True

@@ -1,5 +1,5 @@
 """
-Record Logs to DATA_STORE
+Record Logs to storage
 ========================
 """
 
@@ -7,7 +7,7 @@ import os
 import csv
 import json
 import pandas as pd
-import itertools
+from datetime import datetime
 
 import hydra
 
@@ -30,16 +30,16 @@ class TransformLogger:
         path = os.path.abspath(os.path.join(cfg.storage['path'], cfg.storage['filename']))
         transform_path = os.path.abspath(os.path.join(cfg.storage['path'], cfg.storage['transform_filename']))
         replay_only = cfg.replay_only
+        flush_after_n_items = cfg.storage.flush_after_n_items
 
     def __init__(self, path=path, transform_path=transform_path, replay_only=replay_only):
         self.path = path
         self.transform_path = transform_path
         self.replay_only = replay_only
-        self._batch_id = 0
-        self._transform_id = 0
         self._transforms = {}
         self.init_storage()
         self.set_current_batch_id()
+        self.set_current_transform_id()
 
     def init_storage(self):
         if self.replay_only:
@@ -57,7 +57,7 @@ class TransformLogger:
         else:
             self._batch_id = 0
 
-    def set_current_batch_id(self):
+    def set_current_transform_id(self):
         self._transform_id = get_csv_length(self.transform_path)
 
     def create_db_if_needed(self):

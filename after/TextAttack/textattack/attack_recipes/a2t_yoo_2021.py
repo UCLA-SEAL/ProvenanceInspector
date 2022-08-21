@@ -60,11 +60,11 @@ class A2TYoo2021(AttackRecipe):
             transformation = wrapped_mlm(
                 method="bae", max_candidates=20, min_confidence=0.0, batch_size=16
             )
-            constraints.append(WordEmbeddingDistance(min_cos_sim=0.5))
+            constraints.append(WordEmbeddingDistance(min_cos_sim=0.8))
         else:
             wrapped_embeeding = DPMLClassWrapper(WordSwapEmbedding, transform_method="_get_transformations")
             transformation = wrapped_embeeding(max_candidates=20)
-            constraints.append(WordEmbeddingDistance(min_cos_sim=0.5))
+            constraints.append(WordEmbeddingDistance(min_cos_sim=0.8))
 
         #
         # Goal is untargeted classification

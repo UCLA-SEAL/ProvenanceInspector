@@ -28,7 +28,7 @@ class AnalysisCommand(LineageCommand):
     def run(self, args):
         if args.input_dir:
 
-            model_wrapper = ModelArgs._create_model_from_args(args)
+            model_wrapper = ModelArgs._create_eval_model_from_args(args)
             
             reversion_pipeline = Reverter(args.input_dir, model_wrapper)
 

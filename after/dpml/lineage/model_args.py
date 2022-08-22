@@ -95,45 +95,105 @@ class ModelArgs:
     """
 
     model: str = "textattack/bert-base-uncased-SST-2"
+    task: str = "classification"
+    model_max_length: int = None
+    model_num_labels: int = None
+    
 
     @classmethod
-    def _create_model_from_args(cls, args):
+    def _create_eval_model_from_args(cls, args):
 
         if args.model in HUGGINGFACE_MODELS:
             # Support loading models automatically from the HuggingFace model hub.
 
             model_name = HUGGINGFACE_MODELS[args.model]
 
+            max_seq_len = args.model_max_length if args.model_max_length else 512
+            num_labels = args.model_num_labels if args.model_num_labels else 2
+
+            config = transformers.AutoConfig.from_pretrained(
+                model_name,
+                num_labels=num_labels,
+            )
+
             model = transformers.AutoModelForSequenceClassification.from_pretrained(
-                model_name
+                model_name,
+                config=config
             )
+
             tokenizer = transformers.AutoTokenizer.from_pretrained(
-                model_name, use_fast=True
+                model_name, model_max_length=max_seq_len,
+                use_fast=True
             )
-            task = args.task if args.task else "sentiment-analysis"
-            pred_model = transformers.pipeline(task, model=model, tokenizer=tokenizer, device=0)
+
+            pred_model = transformers.pipeline(args.task, model=model, tokenizer=tokenizer, device=0)
       
         else:
             raise ValueError(f"Error: unsupported Lineage model {args.model}")            
 
         return pred_model
 
+    
+    @classmethod
+    def _create_train_model_from_args(cls, args):
+
+        if args.model in HUGGINGFACE_MODELS:
+            # Support loading models automatically from the HuggingFace model hub.
+
+            model_name = HUGGINGFACE_MODELS[args.model]
+
+            max_seq_len = args.model_max_length if args.model_max_length else 512
+            num_labels = args.model_num_labels if args.model_num_labels else 2
+
+            config = transformers.AutoConfig.from_pretrained(
+                model_name,
+                num_labels=num_labels,
+            )
+
+            model = transformers.AutoModelForSequenceClassification.from_pretrained(
+                model_name,
+                config=config
+            )
+
+            tokenizer = transformers.AutoTokenizer.from_pretrained(
+                model_name, model_max_length=max_seq_len,
+                use_fast=True
+            )
+
+      
+        else:
+            raise ValueError(f"Error: unsupported Lineage model {args.model}")            
+
+        return model, tokenizer
+
 
     @classmethod
     def _add_parser_args(cls, parser):
         parser.add_argument(
             "--model",
-            help="Name of target model for prediction",
+            help="Name or path of target HuggingFace model for prediction",
             type=str,
             default="bert-base-uncased-sst2",
             choices=HUGGINGFACE_MODELS.keys(),
         )
         parser.add_argument(
             "--task",
-            help="Name of target model prediction task",
+            help="Type of task  model is supposed to perform",
             type=str,
-            default="sentiment-analysis"
+            default="classification"
         )
 
+        parser.add_argument(
+            "--model-max-length",
+            type=int,
+            default=None,
+            help="The maximum sequence length of the model.",
+        )
+        parser.add_argument(
+            "--model-num-labels",
+            type=int,
+            default=None,
+            help="The number of labels for classification.",
+        )
 
         return parser

@@ -1,5 +1,5 @@
 import spacy
-from components import *
+from .components import *
 
 class SpacyFeatures:
     model = spacy.load("en_core_web_sm")

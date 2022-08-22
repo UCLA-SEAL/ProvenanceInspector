@@ -1,39 +1,10 @@
 import spacy
-from spacy.language import Language
-from spacy.tokens import Token, Doc
-from nltk.corpus import opinion_lexicon
-
-@Language.factory("sentiment", default_config={"pos_list": set(opinion_lexicon.positive()), 
-                                              "neg_list": set(opinion_lexicon.negative())})
-def create_sentiment_component(nlp: Language, name: str, pos_list: set, neg_list: set):
-    # component name. Print nlp.pipe_names to see the change reflected in the pipeline.
-    return SentimentComponent(nlp, pos_list=pos_list, neg_list=neg_list)
-
-class SentimentComponent:
-    def __init__(self, nlp: Language, pos_list=None, neg_list=None):
-        self.pos_list=set(opinion_lexicon.positive())
-        self.neg_list=set(opinion_lexicon.negative())
-
-        if not Token.has_extension("sentiment"):
-            Token.set_extension("sentiment", default = 'exclude')
-
-    def __call__(self, doc: Doc):
-        for sp_token in doc:
-          token = sp_token.lemma_
-          if sp_token.is_stop:
-              sp_token._.sentiment='exclude'
-          elif token in self.pos_list:
-              sp_token._.sentiment='pos'
-          elif token in self.neg_list:
-              sp_token._.sentiment='neg'
-          else:
-              sp_token._.sentiment='neutral'
-        return doc
-
+from components import *
 
 class SpacyFeatures:
     model = spacy.load("en_core_web_sm")
-    model.add_pipe("sentiment")
+    model.add_pipe("static_sentiment")
+    model.add_pipe("contextual_sentiment")
     
     def __init__(self, texts, feature_names):
         self.feature_names = feature_names
@@ -89,4 +60,15 @@ class SpacyFeatures:
           for span in getattr(doc,feature):
             print(span.text, span.start_char, ent.end_char, ent.label_)
     """
-   
+
+if __name__ == "__main__":
+
+    texts = ["Wicked kickflip my dude!"]
+    features = ["static_sentiment", "contextual_sentiment"]
+
+    sf = SpacyFeatures(texts, features)
+
+    for feature_name, features in sf.features.items():
+        print(feature_name)
+        for toks, feats in zip(sf.tokens, features):
+            print(list(zip(toks,feats)))

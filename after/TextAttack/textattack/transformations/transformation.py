@@ -8,10 +8,10 @@ Transformation Abstract Class
 from abc import ABC, abstractmethod
 
 from textattack.shared.utils import default_class_repr
-from lineage.transformation import *
+from lineage import LeBatch
 from functools import partial
 
-@mark_abstract_transformation_class(transform='_get_transformations')
+#@mark_abstract_transformation_class(transform='_get_transformations')
 class Transformation(ABC):
     """An abstract class for transforming a sequence of text to produce a
     potential adversarial example."""
@@ -51,9 +51,16 @@ class Transformation(ABC):
         for constraint in pre_transformation_constraints:
             indices_to_modify = indices_to_modify & constraint(current_text, self)
 
-        transformed_texts = current_text.apply(self, indices_to_modify=indices_to_modify)
-        #transformed_texts = current_text.apply(partial(self._get_transformations, indices_to_modify=indices_to_modify))
+        #transformed_texts = current_text.apply(self, indices_to_modify=indices_to_modify)
         #transformed_texts = self._get_transformations(current_text, indices_to_modify)
+
+        if hasattr(self, 'wrapper_class'):
+            with LeBatch(original_batch=(current_text, None), single_record=True) as le_batch:
+                le_batch.apply(transform_callable=self.wrapper_class._get_transformations, indices_to_modify=indices_to_modify)
+            transformed_texts = le_batch.new_texts
+        else:
+            transformed_texts = self._get_transformations(current_text, indices_to_modify)
+
         for text in transformed_texts:
             text.attack_attrs["last_transformation"] = self
             

@@ -28,6 +28,7 @@ import {SelectionService} from '../services/selection_service';
 import { styles as sharedStyles } from '../lib/shared_styles.css';
 import { styles } from './tx_debug_module.css';
 import { defaultValueByField } from '../lib/types';
+import { QualityMarkService } from '../services/qualityMark_service';
 
 @customElement('tx-debug-module')
 export class TxDebugModule extends LitModule {
@@ -41,6 +42,7 @@ export class TxDebugModule extends LitModule {
   static override collapseByDefault = false;
   static override duplicateForModelComparison = false;
 
+  private readonly qualityMarkService = app.getService(QualityMarkService);
   
   static override template = () => {
     return html`<tx-debug-module></tx-debug-module>`;
@@ -61,15 +63,31 @@ export class TxDebugModule extends LitModule {
     // clang-format off
     return html`
       <div class="module-container">
+        <div style="display: float;">
+          <select class="dropdown" @change=${() => alert("changed!")}>
+            <option value="default">default</option>
+            <option value="high quality">👍 — high quality</option>
+            <option value="low quality">👎 — low quality</option>
+          </select>
+        </div>
         <div class="module-results-area">
-          ${this.selectedData.map(
-            datum => html`
-            <p>${
-              JSON.stringify(
-                this.appState.getCurrentInputDataById(datum)?.data["sentence"]
-              )
-            }</p>`
-          )}
+          <div>
+            <ul>
+              <li>👍</li>
+              ${Array.from(this.qualityMarkService.highQualityIndices).map(
+                id => html`<li>${id}</li>`
+              )}
+            <ul>
+          </div>
+          <br>
+          <div>
+            <ul>
+              <li>👎</li>
+              ${Array.from(this.qualityMarkService.lowQualityIndices).map(
+                id => html`<li>${id}</li>`
+              )}
+            </ul>
+          </div>
         </div>
       </div>
     `;

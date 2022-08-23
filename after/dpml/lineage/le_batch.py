@@ -5,6 +5,42 @@ from .storage import TransformLogger
 
 import hydra
 
+'''
+def get_class_that_defined_method(meth):
+    if isinstance(meth, functools.partial):
+        return get_class_that_defined_method(meth.func)
+    if inspect.ismethod(meth) or (inspect.isbuiltin(meth) and getattr(meth, '__self__', None) is not None and getattr(meth.__self__, '__class__', None)):
+        for cls in inspect.getmro(meth.__self__.__class__):
+            if meth.__name__ in cls.__dict__:
+                return cls
+        meth = getattr(meth, '__func__', meth)  # fallback to __qualname__ parsing
+    if inspect.isfunction(meth):
+        cls = getattr(inspect.getmodule(meth),
+                      meth.__qualname__.split('.<locals>', 1)[0].rsplit('.', 1)[0],
+                      None)
+        if isinstance(cls, type):
+            return cls
+    return getattr(meth, '__objclass__', None)  # handle special descriptor objects
+
+'''
+
+def get_input_text(text):
+    if isinstance(text, str):
+        new_text = LeText(text)
+    elif hasattr(text, '_text_input'):
+        new_text = LeText(text._text_input)
+    elif hasattr(text, 'text'):
+        new_text = LeText(text.text)
+    else:
+        new_text = LeText(text)
+    return new_text
+
+
+def get_input_target(target):
+    new_target = LeTarget(target)
+    return new_target
+
+
 class LeBatch:
 
     transform_logger = None
@@ -12,16 +48,24 @@ class LeBatch:
     with hydra.initialize(version_base=None, config_path="config"):
         cfg = hydra.compose(config_name="config")
 
-    def __init__(self, original_batch):
+    def __init__(self, original_batch, single_record=False):
         self.original_batch = original_batch
         self.transformed_batch = None
-        if isinstance(original_batch, tuple):
+        self.single_record=single_record
+        if self.single_record:
+            text, target = self.original_batch
+            le_text = get_input_text(text)
+            le_target = get_input_target(target)
+            self.le_records = [LeRecord(le_text, le_target=le_target, le_attrs=None)]
+            self.texts = [text]
+            self.targets = [target]
+        elif isinstance(original_batch, tuple):
             self.texts, self.targets = self.original_batch
             self.le_records = []
             for text, target in zip(self.texts, self.targets):
                 self.le_records.append(LeRecord(text, le_target=target, le_attrs=None))
         elif all(isinstance(item, LeRecord) for item in original_batch):
-            self.le_records =  original_batch
+            self.le_records = original_batch # pass on the lineage
             self.texts = []
             self.targets = []
             # extract text and targets for transformation
@@ -42,10 +86,12 @@ class LeBatch:
         return self
 
     def __exit__(self, exc_type, exc_value, exc_tb):
-        if LeBatch.transform_logger.replay_only and self.transformed_batch:
-            tran_history = [x.le_attrs['transformation_provenance'].history for x in self.transformed_batch]
-            tran_history = [[x[1] for x in sorted(th, key=lambda x: x[0])] for th in tran_history]
-            LeBatch.transform_logger.log_transform_provs(tran_history)
+        if LeBatch.cfg.use_log:
+            if LeBatch.transform_logger.replay_only and self.transformed_batch:
+                tran_history = [x.le_attrs['transformation_provenance'].history for x in self.transformed_batch]
+                tran_history = [[x[1] for x in sorted(th, key=lambda x: x[0])] for th in tran_history]
+                LeBatch.transform_logger.log_transform_provs(tran_history)
+            
             LeBatch.transform_logger.flush()
 
 
@@ -53,7 +99,14 @@ class LeBatch:
         if batch:
             self.__init__(batch)
         self.transform_callable = transform_callable
-        new_texts, new_targets = transform_callable((self.texts, self.targets), *args, **kwargs)
+        if self.single_record:
+            if self.targets[0] is None:
+                new_texts = transform_callable(self.texts[0], *args, **kwargs)
+                new_targets = [None for _ in new_texts]
+            else:
+                new_texts, new_targets = transform_callable((self.texts[0], self.targets[0]), *args, **kwargs)
+        else:
+            new_texts, new_targets = transform_callable((self.texts, self.targets), *args, **kwargs)
         self.new_texts = new_texts
         self.new_targets = new_targets
 
@@ -63,16 +116,16 @@ class LeBatch:
                                                   self.new_targets):
 
             transformation = transform_callable
-            if hasattr(transformation, '__self__'):
-                transformation = transformation.__self__
 
             new_le_attrs = {
                 "transformation_provenance": le_record.le_attrs["transformation_provenance"].add_provenance(transformation),
                 "prev": le_record
             }
 
-
-            new_le_text, new_le_target = le_record.generate_new_record(LeText(text2), new_target=LeTarget(target2),
+            new_text = get_input_text(text2)
+            new_target = get_input_target(target2)
+            
+            new_le_text, new_le_target = le_record.generate_new_record(new_text, new_target=new_target,
                                             new_le_attrs=new_le_attrs, granularity='word')
 
             output_record = LeRecord(new_le_text, le_target=new_le_target, le_attrs=new_le_attrs)
@@ -82,8 +135,6 @@ class LeBatch:
 
             new_records.append(output_record)
 
-        if LeBatch.cfg.use_log and not LeBatch.cfg.replay_only:
-            LeBatch.transform_logger.flush()
 
         self.transformed_batch = new_records
         

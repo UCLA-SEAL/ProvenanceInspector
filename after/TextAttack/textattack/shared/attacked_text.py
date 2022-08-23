@@ -13,13 +13,10 @@ import math
 import flair
 from flair.data import Sentence
 import numpy as np
-from lineage import LeRecord
 import torch
 
 
 from .utils import device, words_from_text
-import sys
-import inspect
 
 import textattack
 
@@ -27,7 +24,7 @@ flair.device = device
 
 
 
-class AttackedText(LeRecord):
+class AttackedText:
 
     """A helper class that represents a string that can be attacked.
 
@@ -46,8 +43,10 @@ class AttackedText(LeRecord):
            during the course of an attack.
     """
 
+    SPLIT_TOKEN = "<SPLIT>"
+
     def __init__(self, text_input, attack_attrs=None):
-        super().__init__(text_input)
+        #super().__init__(text_input)
 
         # Read in ``text_input`` as a string or OrderedDict.
         if isinstance(text_input, str):

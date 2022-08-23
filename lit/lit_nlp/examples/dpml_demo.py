@@ -1,14 +1,10 @@
 # Lint as: python3
-r"""Example demo loading a handful of GLUE models.
+r"""dpml demo
 
-For a quick-start set of models, run:
-  python -m lit_nlp.examples.demo_demo \
-    --quickstart --port=5432
+to run:
+  python -m lit_nlp.examples.dpml_demo --quickstart --port=5433
 
-To run with the 'normal' defaults, including full-size BERT models:
-  python -m lit_nlp.examples.demo_demo --port=5432
-
-Then navigate to localhost:5432 to access the demo UI.
+then navigate to localhost:5433 to access the demo ui
 """
 import sys
 

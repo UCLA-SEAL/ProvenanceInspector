@@ -531,7 +531,7 @@ class _CommandLineAttackArgs:
             required=False,
             default=default_obj.attack_recipe,
             help="full attack recipe (overrides provided goal function, transformation & constraints)",
-            choices=ATTACK_RECIPE_NAMES.keys(),
+            #choices=ATTACK_RECIPE_NAMES.keys(),
         )
         attack_group.add_argument(
             "--attack-from-file",

@@ -96,8 +96,12 @@ class AttackResult(ABC):
         t1 = self.original_result.attacked_text
         t2 = self.perturbed_result.attacked_text
 
-        if detect(t1.text) == "zh-cn" or detect(t1.text) == "ko":
-            return t1.printable_text(), t2.printable_text()
+        try:
+            if detect(t1.text) == "zh-cn" or detect(t1.text) == "ko":
+                return t1.printable_text(), t2.printable_text()
+        except:
+            print(t1.text)
+            pass
 
         if color_method is None:
             return t1.printable_text(), t2.printable_text()

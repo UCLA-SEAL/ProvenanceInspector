@@ -1,4 +1,4 @@
-path: "./dpml/lineage/storage/"
+path: "/home/coraline/dpml/after/results/"
 filename: "dpml.csv"
 transform_filename: "transform.csv"
 flush_after_n_items: 1000

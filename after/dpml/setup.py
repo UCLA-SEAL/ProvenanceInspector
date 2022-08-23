@@ -16,7 +16,7 @@ setuptools.setup(
     version="0.0",
     author="UCLA",
     author_email="jysun@cs.ucla.edu",
-    description="A library to provide lineage for ml systems",
+    description="A library to provide lineage for NLP systems",
     include_package_data=False,
     license="MIT",
     url="https://github.com/fabriceyhc/dpml",
@@ -32,6 +32,9 @@ setuptools.setup(
         ]
     ),
     extras_require=extras,
+    entry_points={
+        "console_scripts": ["dpml=lineage.commands.lineage_cli:main"],
+    },
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",

@@ -3,4 +3,4 @@ defaults:
   - storage: csv
 
 use_log: True
-replay_only: True
+replay_only: False

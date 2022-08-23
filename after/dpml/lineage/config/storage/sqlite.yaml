@@ -1,3 +1,4 @@
 dialect: "sqlite"
 path: "./dpml/lineage/storage/"
 name: "dpml.db"
+flush_after_n_items: 1000

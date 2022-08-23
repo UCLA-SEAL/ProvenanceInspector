@@ -98,9 +98,9 @@ class Attack:
             assert isinstance(
                 c, (Constraint, PreTransformationConstraint)
             ), "`constraints` must be a list of `textattack.constraints.Constraint` or `textattack.constraints.PreTransformationConstraint`."
-        assert isinstance(
-            transformation, Transformation
-        ), f"`transformation` must be of type `textattack.transformations.Transformation`, but got type `{type(transformation)}`."
+        #assert isinstance(
+        #    transformation, Transformation
+        #), f"`transformation` must be of type `textattack.transformations.Transformation`, but got type `{type(transformation)}`."
         assert isinstance(
             search_method, SearchMethod
         ), f"`search_method` must be of type `textattack.search_methods.SearchMethod`, but got type `{type(search_method)}`."
@@ -112,12 +112,12 @@ class Attack:
             getattr(transformation, "is_black_box", True) and search_method.is_black_box
         )
 
-        if not self.search_method.check_transformation_compatibility(
-            self.transformation
-        ):
-            raise ValueError(
-                f"SearchMethod {self.search_method} incompatible with transformation {self.transformation}"
-            )
+        #if not self.search_method.check_transformation_compatibility(
+        #    self.transformation
+        #):
+        #    raise ValueError(
+        #        f"SearchMethod {self.search_method} incompatible with transformation {self.transformation}"
+        #    )
 
         self.constraints = []
         self.pre_transformation_constraints = []

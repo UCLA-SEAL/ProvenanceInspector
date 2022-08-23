@@ -27,6 +27,15 @@ Base = declarative_base()
 #     # derived_from_dataset = relationship("Dataset", backref="derived_from_dataset_id")
 #     created_at = Column(DateTime(timezone=True), server_default=func.now())
 
+class Run(Base):
+
+    __tablename__ = "Run"
+
+    # columns
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+    # created_at = Column(DateTime(timezone=True), server_default=func.now())
+
 class Record(Base):
 
     __tablename__ = "Record"
@@ -36,7 +45,7 @@ class Record(Base):
     text = Column(TEXT, nullable=False)
     target = Column(String)
     # dataset_id = Column(Integer, ForeignKey("Dataset.id"))
-    created_at = Column(DateTime(timezone=True), server_default=func.now())
+    # created_at = Column(DateTime(timezone=True), server_default=func.now())
 
 # transform tables
 class Transform(Base):
@@ -49,11 +58,12 @@ class Transform(Base):
     class_name = Column(String)
     class_args = Column(String)
     class_kwargs = Column(String)
+    class_rng = Column(String)
     callable_name = Column(String)
     callable_args = Column(String)
     callable_kwargs = Column(String)
     callable_is_stochastic = Column(Boolean)
-    created_at = Column(DateTime(timezone=True), server_default=func.now())
+    # created_at = Column(DateTime(timezone=True), server_default=func.now())
 
 class TransformApplied(Base):
 
@@ -65,40 +75,43 @@ class TransformApplied(Base):
     output_record_id = Column(Integer, ForeignKey("Record.id"))
     diff = Column(JSON)
     diff_granularity = Column(Enum(RefGranularity))
-    transformation_id = Column(Integer, ForeignKey("Transform.id"))
-    created_at = Column(DateTime(timezone=True), server_default=func.now())
+    transform_id = Column(Integer, ForeignKey("Transform.id"))
+    transform_state = Column(String)
+    run_id = Column(Integer, ForeignKey("Run.id"))
+    batch_id = Column(Integer)
+    # created_at = Column(DateTime(timezone=True), server_default=func.now())
 
-# model tables
-class ModelFramework(Base):
+# # model tables
+# class ModelFramework(Base):
 
-    __tablename__ = "ModelFramework"
+#     __tablename__ = "ModelFramework"
 
-    # columns
-    id = Column(Integer, primary_key=True)
-    name = Column(String)
-    version = Column(String)
-    created_at = Column(DateTime(timezone=True), server_default=func.now())
+#     # columns
+#     id = Column(Integer, primary_key=True)
+#     name = Column(String)
+#     version = Column(String)
+#     # created_at = Column(DateTime(timezone=True), server_default=func.now())
 
-class Model(Base):
+# class Model(Base):
 
-    __tablename__ = "Model"
+#     __tablename__ = "Model"
 
-    # columns
-    id = Column(Integer, primary_key=True)
-    name = Column(String)
-    framework_id = Column(Integer, ForeignKey("ModelFramework.id"))
-    version = Column(String)
-    input_signature = Column(String)
-    output_signature = Column(String)
-    created_at = Column(DateTime(timezone=True), server_default=func.now())
+#     # columns
+#     id = Column(Integer, primary_key=True)
+#     name = Column(String)
+#     framework_id = Column(Integer, ForeignKey("ModelFramework.id"))
+#     version = Column(String)
+#     input_signature = Column(String)
+#     output_signature = Column(String)
+#     # created_at = Column(DateTime(timezone=True), server_default=func.now())
 
-class ModelInference(Base):
+# class ModelInference(Base):
 
-    __tablename__ = "ModelInference"
+#     __tablename__ = "ModelInference"
 
-    # columns
-    id = Column(Integer, primary_key=True)
-    model_id = Column(Integer, ForeignKey("Model.id"))
-    input_record_id = Column(Integer, ForeignKey("Record.id"))
-    output = Column(String)
-    created_at = Column(DateTime(timezone=True), server_default=func.now())
+#     # columns
+#     id = Column(Integer, primary_key=True)
+#     model_id = Column(Integer, ForeignKey("Model.id"))
+#     input_record_id = Column(Integer, ForeignKey("Record.id"))
+#     output = Column(String)
+#     # created_at = Column(DateTime(timezone=True), server_default=func.now())

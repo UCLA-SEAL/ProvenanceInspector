@@ -1,25 +1,23 @@
 """
-Record Logs to DATA_STORE
+Record Logs to storage
 ========================
 """
 
 import os
 import csv
 import json
-from black import T, transform_line
 import pandas as pd
-import itertools
-
+from datetime import datetime
 
 import hydra
 
-# def get_next_idx(path):
-#     if os.path.exists(path):
-#         with open(path) as f:
-#             idx = sum(1 for line in f)
-#         return idx
-#     else:
-#         return 0
+def get_csv_length(path):
+    if os.path.exists(path):
+        with open(path) as f:
+            idx = sum(1 for line in f)
+        return idx
+    else:
+        return 0
 
 class TransformLogger:
     """
@@ -32,16 +30,16 @@ class TransformLogger:
         path = os.path.abspath(os.path.join(cfg.storage['path'], cfg.storage['filename']))
         transform_path = os.path.abspath(os.path.join(cfg.storage['path'], cfg.storage['transform_filename']))
         replay_only = cfg.replay_only
-
-    id_iter = itertools.count()
+        flush_after_n_items = cfg.storage.flush_after_n_items
 
     def __init__(self, path=path, transform_path=transform_path, replay_only=replay_only):
         self.path = path
         self.transform_path = transform_path
         self.replay_only = replay_only
-        self._transform_id_counter = 0
-        self._transform_id = {}
+        self._transforms = {}
         self.init_storage()
+        self.set_current_batch_id()
+        self.set_current_transform_id()
 
     def init_storage(self):
         if self.replay_only:
@@ -52,6 +50,18 @@ class TransformLogger:
             self._storage = []
         self._flushed = True
 
+    def set_current_batch_id(self):
+        if os.path.exists(self.path):
+            df = pd.read_csv(self.path, header=None, names=['batch_id', 'text', 'target', 'transform_prov'])
+            self._batch_id = df['batch_id'].max()
+        else:
+            self._batch_id = 0
+
+    def set_current_transform_id(self):
+        self._transform_id = get_csv_length(self.transform_path)
+
+    def create_db_if_needed(self):
+        pass
 
     def log(self, input_record, output_record):
         # transformation provenance
@@ -67,11 +77,13 @@ class TransformLogger:
             "output_target": output_record.target,
             "module_name": tp["module_name"],
             "class_name": tp["class_name"],
-            "callable_class_args": tp["class_args"],
-            "callable_class_kwargs": tp["class_kwargs"],
+            "class_args": tp["class_args"],
+            "class_kwargs": tp["class_kwargs"],
+            "class_rng": tp["class_rng"],
             "callable_name": tp["callable_name"],
             "callable_args": tp["callable_args"],
             "callable_kwargs": tp["callable_kwargs"],
+            "callable_rng_state": tp["callable_rng_state"],
             "callable_is_stochastic": tp["callable_is_stochastic"],
             "diff": f_diff.get_tags(),
             "diff_granularity": input_record.le_text.granularity
@@ -96,22 +108,22 @@ class TransformLogger:
 
     def _flush_with_replay(self):
         out = []
-        batch_id = next(TransformLogger.id_iter)
+        self._batch_id += 1
         for (text, target), t_prov in zip(self._original, self._transform_prov):
             t_id_prov = []
             for t in t_prov:
-                if json.dumps(t) in self._transform_id:
-                    transform_id = self._transform_id[json.dumps(t)]
+                if json.dumps(t) in self._transforms:
+                    transform_id = self._transforms[json.dumps(t)]
                 else:
-                    transform_id = self._transform_id_counter
-                    self._transform_id[json.dumps(t)] = transform_id
+                    transform_id = self._transform_id
+                    self._transforms[json.dumps(t)] = transform_id
                     
                     self._new_transforms[transform_id] = t
-                    self._transform_id_counter += 1
+                    self._transform_id += 1
                 t_id_prov.append(transform_id)
 
             out.append({
-                'batch_id': batch_id, 
+                'batch_id': self._batch_id, 
                 'original_text': text,
                 'original_target': target,
                 'transformation_provenance': t_id_prov
@@ -121,7 +133,7 @@ class TransformLogger:
 
         if len(self._new_transforms) > 0:
             pd.Series(self._new_transforms, dtype=object).to_csv(self.transform_path, mode='a', quoting=csv.QUOTE_NONNUMERIC, header=False)
-            self.new_rows = {}
+            self._new_transforms = {}
 
     # def _flush_with_replay(self):
     #     out = []
@@ -142,6 +154,15 @@ class TransformLogger:
         else:
             self._flush_without_replay()
         self.init_storage()
+
+    def clean_data_store(self):
+        if os.path.exists(self.path):
+            os.remove(self.path)
+        if os.path.exists(self.transform_path):
+            os.remove(self.transform_path)
+        self._batch_id = 0
+        self._transform_id = 0
+        self._transforms = {}
 
 if __name__ == '__main__':
 

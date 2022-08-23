@@ -24,6 +24,8 @@ from typing import Optional, Text, List, Mapping, Sequence, Union
 
 from absl import logging
 
+from lineage import InferQuery
+
 from lit_nlp.api import components as lit_components
 from lit_nlp.api import dataset as lit_dataset
 from lit_nlp.api import dtypes

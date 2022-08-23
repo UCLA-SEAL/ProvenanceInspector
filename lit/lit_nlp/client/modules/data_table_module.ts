@@ -21,17 +21,17 @@ import '../elements/checkbox';
 
 import {html} from 'lit';
 import {customElement, query} from 'lit/decorators';
-import {computed, observable} from 'mobx';
+import {action, computed, observable} from 'mobx';
 
 import {app} from '../core/app';
 import {LitModule} from '../core/lit_module';
-import {DataTable, TableData} from '../elements/table';
+import {ColumnHeader, DataTable, TableData} from '../elements/table';
 import {styles as sharedStyles} from '../lib/shared_styles.css';
 import {formatForDisplay, IndexedInput, ModelInfoMap, Spec} from '../lib/types';
 import {compareArrays, findSpecKeys, shortenId} from '../lib/utils';
 import {ClassificationInfo} from '../services/classification_service';
 import {RegressionInfo} from '../services/regression_service';
-import {ClassificationService, FocusService, RegressionService, SelectionService} from '../services/services';
+import {ClassificationService, FocusService, QualityMarkService, RegressionService, SelectionService} from '../services/services';
 
 import {styles} from './data_table_module.css';
 
@@ -52,16 +52,15 @@ export class DataTableModule extends LitModule {
 
   static override duplicateForModelComparison = false;
 
-  protected showControls = true;
+  protected showControls = false;
 
-  private readonly classificationService =
-      app.getService(ClassificationService);
+  private readonly classificationService = app.getService(ClassificationService);
   private readonly regressionService = app.getService(RegressionService);
   private readonly focusService = app.getService(FocusService);
+  private readonly qualityMarkService = app.getService(QualityMarkService);
 
   @observable columnVisibility = new Map<string, boolean>();
-  @observable
-  modelPredToClassificationInfo = new Map<string, ClassificationInfo[]>();
+  @observable modelPredToClassificationInfo = new Map<string, ClassificationInfo[]>();
   @observable modelPredToRegressionInfo = new Map<string, RegressionInfo[]>();
   @observable searchText = '';
 
@@ -87,7 +86,7 @@ export class DataTableModule extends LitModule {
 
   @computed
   get defaultColumns(): string[] {
-    return ['index', ...this.keys];
+    return ['index'].concat(this.keys);
   }
 
   @computed
@@ -198,7 +197,13 @@ export class DataTableModule extends LitModule {
       if (this.columnVisibility.get('id')) {
         ret.push(displayId);
       }
-      return [...ret, ...dataEntries, ...predictionInfoEntries];
+
+      let rowData: TableData = []
+      rowData = rowData.concat(ret)
+      rowData = rowData.concat(dataEntries)
+      rowData = rowData.concat(predictionInfoEntries)
+      
+      return rowData 
     });
   }
 
@@ -375,6 +380,22 @@ export class DataTableModule extends LitModule {
     }
   }
 
+  onToggleHighQuality(tableIndex: number, status: boolean) {
+    if (status) {
+      this.qualityMarkService.markHighQuality(tableIndex)
+    } else {
+      this.qualityMarkService.unmarkHighQuality(tableIndex)
+    }
+  }
+
+  onToggleLowQuality(tableIndex: number, status: boolean) {
+    if (status) {
+      this.qualityMarkService.markLowQuality(tableIndex);
+    } else {
+      this.qualityMarkService.unmarkLowQuality(tableIndex);
+    }
+  }
+
   renderDropdownItem(key: string) {
     const checked = this.columnVisibility.get(key);
     if (checked == null) return;
@@ -395,7 +416,7 @@ export class DataTableModule extends LitModule {
   }
 
   renderColumnDropdown() {
-    const names = [...this.columnVisibility.keys()].filter(c => c !== 'index');
+    const names = Array.from(this.columnVisibility.keys()).filter(c => c !== 'index');
     const classes =
         this.columnDropdownVisible ? 'column-dropdown' : 'column-dropdown-hide';
     // clang-format off
@@ -470,30 +491,33 @@ export class DataTableModule extends LitModule {
     // Handle reference selection, if in compare examples mode.
     let referenceSelectedIndex = -1;
     if (this.appState.compareExamplesEnabled) {
-      const referenceSelectionService =
-          app.getServiceArray(SelectionService)[1];
-      referenceSelectedIndex =
-          indexOfId(referenceSelectionService.primarySelectedId);
+      const referenceSelectionService = app.getServiceArray(SelectionService)[1];
+      referenceSelectedIndex = indexOfId(referenceSelectionService.primarySelectedId);
     }
 
-    const columnNames = [...this.columnVisibility.keys()].filter(
-        k => this.columnVisibility.get(k));
+    const columnNames: Array<string|ColumnHeader> =
+      Array.from(this.columnVisibility.keys()).filter(k => this.columnVisibility.get(k))
 
     // clang-format off
     return html`
       <lit-data-table
         .data=${this.tableData}
-        .columnNames=${[...columnNames, "cb1", "cb2"]}
+        .columnNames=${columnNames}
         .selectedIndices=${this.selectedRowIndices}
         .primarySelectedIndex=${primarySelectedIndex}
         .referenceSelectedIndex=${referenceSelectedIndex}
         .focusedIndex=${focusedIndex}
+        .highQualityIndices=${this.qualityMarkService.highQualityIndices}
+        .lowQualityIndices=${this.qualityMarkService.lowQualityIndices}
         .onSelect=${(idxs: number[]) => { this.onSelect(idxs); }}
         .onPrimarySelect=${(i: number) => { this.onPrimarySelect(i); }}
         .onHover=${(i: number|null)=> { this.onHover(i); }}
+        .onToggleHighQuality=${(index: number, status: boolean) => {this.onToggleHighQuality(index, status)}}
+        .onToggleLowQuality=${(index: number, status: boolean) => {this.onToggleLowQuality(index, status)}}
         searchEnabled
         selectionEnabled
         paginationEnabled
+        qualityMarkEnabled
       ></lit-data-table>
     `;
     // clang-format on
@@ -521,20 +545,8 @@ export class DataTableModule extends LitModule {
   }
 }
 
-/**
- * Simplified version of the above; omits toolbar controls.
- */
-@customElement('simple-data-table-module')
-export class SimpleDataTableModule extends DataTableModule {
-  protected override showControls = false;
-  static override template = () => {
-    return html`<simple-data-table-module></simple-data-table-module>`;
-  };
-}
-
 declare global {
   interface HTMLElementTagNameMap {
     'data-table-module': DataTableModule;
-    'simple-data-table-module': SimpleDataTableModule;
   }
 }

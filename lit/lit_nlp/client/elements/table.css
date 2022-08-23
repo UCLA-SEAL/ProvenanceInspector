@@ -49,6 +49,10 @@
   justify-content: flex-end;
 }
 
+.column-header.center-align {
+  justify-content: center;
+}
+
 .header-holder {
   display: flex;
   flex-direction: row;
@@ -171,6 +175,10 @@ tbody td {
 
 .cell-holder.right-align {
   justify-content: flex-end;
+}
+
+.cell-holder.center-align {
+  justify-content: center;
 }
 
 .text-cell {

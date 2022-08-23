@@ -35,7 +35,7 @@ import {SliceService} from '../services/slice_service';
 import {AppState} from '../services/state_service';
 import {StatusService} from '../services/status_service';
 import {UrlService} from '../services/url_service';
-import {CheckboxService} from '../services/checkbox_service';
+import {QualityMarkService} from '../services/qualityMark_service';
 
 /**
  * The class responsible for building and managing the LIT App.
@@ -137,7 +137,7 @@ export class LitApp {
         appState, groupService, classificationService, regressionService);
     const focusService = new FocusService(selectionService0);
 
-    const checkboxService = new CheckboxService(appState);
+    const qualityMarkService = new QualityMarkService(appState);
 
     // Initialize url syncing of state
     urlService.syncStateToUrl(appState, selectionService0, modulesService);
@@ -156,7 +156,7 @@ export class LitApp {
     this.services.set(SliceService, sliceService);
     this.services.set(StatusService, statusService);
     this.services.set(UrlService, urlService);
-    this.services.set(CheckboxService, checkboxService);
+    this.services.set(QualityMarkService, qualityMarkService);
   }
 }
 

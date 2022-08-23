@@ -81,12 +81,14 @@ class Demojify(AbstractTransformation):
         metadata = {'change': X != X_out}
         X_out = X_out[0] if len(X_out) == 1 else X_out
 
-        # transform y
-        if self.task_config['tran_type'] == 'INV':
-            y_out = y
-        else:
-            soften = self.task_config['label_type'] == 'soft'
-            y_out = invert_label(y, soften=soften)
+        y_out = y
+        if metadata['change']:
+            # transform y
+            if self.task_config['tran_type'] == 'INV':
+                y_out = y
+            else:
+                soften = self.task_config['label_type'] == 'soft'
+                y_out = invert_label(y, soften=soften)
         
         if self.return_metadata: 
             return X_out, y_out, metadata
@@ -158,7 +160,7 @@ class RemoveEmoji(Demojify):
             _polarity = df['polarity'].iloc[0]
             if p_rng[0] <= _polarity <= p_rng[1]:
                 string = string[:i] + '' + string[i + 1:].lstrip()
-        return string.rstrip()
+        return string
 
     def transform_Xy(self, X, y):
 
@@ -181,16 +183,18 @@ class RemoveEmoji(Demojify):
         metadata = {'change': X != X_out}
         X_out = X_out[0] if len(X_out) == 1 else X_out
 
-        # transform y
-        if self.task_config['tran_type'] == 'INV':
-            y_out = y
-        else:
-            if self.sentiment == 'positive':
-                y_out = smooth_label(y, factor=0.5)
-            if self.sentiment == 'negative':
-                y_out = smooth_label(y, factor=0.5)
-            if self.sentiment == 'neutral':
+        y_out = y
+        if metadata['change']:
+            # transform y
+            if self.task_config['tran_type'] == 'INV':
                 y_out = y
+            else:
+                if self.sentiment == 'positive':
+                    y_out = smooth_label(y, factor=0.5)
+                if self.sentiment == 'negative':
+                    y_out = smooth_label(y, factor=0.5)
+                if self.sentiment == 'neutral':
+                    y_out = y
         
         if self.return_metadata: 
             return X_out, y_out, metadata
@@ -243,11 +247,25 @@ class RemovePositiveEmoji(RemoveEmoji):
         metadata = {'change': X != X_out}
         X_out = X_out[0] if len(X_out) == 1 else X_out
 
-        # transform y
-        if self.task_config['tran_type'] == 'INV':
-            y_out = y
-        else:
-            y_out = smooth_label(y, factor=0.5)
+        y_out = y
+        if metadata['change']:
+            # transform y
+            if self.task_config['tran_type'] == 'INV':
+                y_out = y
+            else:
+                if self.task_config['task_name'] == 'sentiment':
+                    if isinstance(y, int):
+                        if y == 0:
+                            y_out = smooth_label(y, factor=0)
+                        else:
+                            y_out = smooth_label(y, factor=0.1)
+                    else:
+                        if np.argmax(y) == 0:
+                            y_out = smooth_label(y, factor=0)
+                        else:
+                            y_out = smooth_label(y, factor=0.1)
+                else:
+                    y_out = smooth_label(y, factor=0.1)
         
         if self.return_metadata: 
             return X_out, y_out, metadata
@@ -300,11 +318,26 @@ class RemoveNegativeEmoji(RemoveEmoji):
         metadata = {'change': X != X_out}
         X_out = X_out[0] if len(X_out) == 1 else X_out
 
-        # transform y
-        if self.task_config['tran_type'] == 'INV':
-            y_out = y
-        else:
-            y_out = smooth_label(y, factor=0.5)
+
+        y_out = y
+        if metadata['change']:
+            # transform y
+            if self.task_config['tran_type'] == 'INV':
+                y_out = y
+            else:
+                if self.task_config['task_name'] == 'sentiment':
+                    if isinstance(y, int):
+                        if y == 0:
+                            y_out = smooth_label(y, factor=0.1)
+                        else:
+                            y_out = smooth_label(y, factor=0)
+                    else:
+                        if np.argmax(y) == 0:
+                            y_out = smooth_label(y, factor=0.1)
+                        else:
+                            y_out = smooth_label(y, factor=0)
+                else:
+                    y_out = smooth_label(y, factor=0.1)
         
         if self.return_metadata: 
             return X_out, y_out, metadata
@@ -357,11 +390,13 @@ class RemoveNeutralEmoji(RemoveEmoji):
         metadata = {'change': X != X_out}
         X_out = X_out[0] if len(X_out) == 1 else X_out
 
-        # transform y
-        if self.task_config['tran_type'] == 'INV':
-            y_out = y
-        else:
-            y_out = smooth_label(y, factor=0.5)
+        y_out = y
+        if metadata['change']:
+            # transform y
+            if self.task_config['tran_type'] == 'INV':
+                y_out = y
+            else:
+                y_out = smooth_label(y, factor=0.1)
         
         if self.return_metadata: 
             return X_out, y_out, metadata

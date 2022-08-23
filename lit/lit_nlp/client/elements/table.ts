@@ -55,6 +55,9 @@ export interface ColumnHeader {
   name: string;
   html?: TemplateResult;
   rightAlign?: boolean;
+  centerAlign?: boolean;
+  searchDisabled?: boolean;
+  sortDisabled?: boolean;
 }
 
 /** Internal data, including metadata */
@@ -69,6 +72,10 @@ export type OnSelectCallback = (selectedIndices: number[]) => void;
 export type OnPrimarySelectCallback = (index: number) => void;
 /** Callback for hover */
 export type OnHoverCallback = (index: number|null) => void;
+
+/** Callbacks for toggling high/low quality marks */
+export type OnToggleHighQuality = (index: number, status: boolean) => void;
+export type OnToggleLowQuality = (index: number, status: boolean) => void;
 
 enum SpanAnchor {
   START,
@@ -96,8 +103,7 @@ export class DataTable extends ReactiveElement {
   // This could save performance, since calling code can always do [...data]
   // to generate a new reference and force a refresh if needed.
   @observable.struct @property({type: Array}) data: TableData[] = [];
-  @observable.struct @property({type: Array})
-  columnNames: Array<string|ColumnHeader> = [];
+  @observable.struct @property({type: Array}) columnNames: Array<string|ColumnHeader> = [];
   @observable.struct @property({type: Array}) selectedIndices: number[] = [];
   @observable @property({type: Number}) primarySelectedIndex: number = -1;
   @observable @property({type: Number}) referenceSelectedIndex: number = -1;
@@ -105,19 +111,26 @@ export class DataTable extends ReactiveElement {
   // instead of triggering a full re-render.
   @observable @property({type: Number}) focusedIndex: number = -1;
 
+  @observable.struct @property({type: Set}) highQualityIndices: Set<number> = new Set();
+  @observable.struct @property({type: Set}) lowQualityIndices: Set<number> = new Set();
+
   // Mode controls
   @observable @property({type: Boolean}) selectionEnabled: boolean = false;
   @observable @property({type: Boolean}) searchEnabled: boolean = false;
   @observable @property({type: Boolean}) paginationEnabled: boolean = false;
+  @observable @property({type: Boolean}) qualityMarkEnabled: boolean = false;
 
   // Style overrides
-  @property({type: Boolean}) verticalAlignMiddle: boolean = false;
+  @property({type: Boolean}) verticalAlignMiddle: boolean = true;
 
   // Callbacks
   @property({type: Object}) onClick: OnPrimarySelectCallback|undefined;
   @property({type: Object}) onHover: OnHoverCallback|undefined;
   @property({type: Object}) onSelect: OnSelectCallback = () => {};
   @property({type: Object}) onPrimarySelect: OnPrimarySelectCallback = () => {};
+  @property({type: Object}) onToggleHighQuality: OnToggleHighQuality = () => {};
+  @property({type: Object}) onToggleLowQuality: OnToggleLowQuality = () => {};
+
 
   static override get styles() {
     return [sharedStyles, styles];
@@ -302,16 +315,41 @@ export class DataTable extends ReactiveElement {
 
   @computed
   get columnHeaders(): ColumnHeader[] {
-    return this.columnNames.map((colInfo, index) => {
-      const header: ColumnHeader = (typeof colInfo === 'string') ?
-          {name: colInfo} :
-          {...colInfo};
-      header.html =
-          header.html ?? html`<div class="header-text">${header.name}</div>`;
-      header.rightAlign =
-          header.rightAlign ?? this.shouldRightAlignColumn(index);
-      return header;
-    });
+    const computedColumnHeaders = (
+      this.columnNames.map((colInfo, index) => {
+        const header: ColumnHeader = (typeof colInfo === 'string') ?
+            {name: colInfo} :
+            {...colInfo};
+        header.html =
+            header.html ?? html`<div class="header-text">${header.name}</div>`;
+        header.rightAlign =
+            header.rightAlign ?? this.shouldRightAlignColumn(index);
+        return header;
+      })
+    )
+    if (this.qualityMarkEnabled) {
+      computedColumnHeaders.push({
+        name: "isHighQuality", sortDisabled: true, searchDisabled: true, centerAlign: true,
+        html: html`
+          <div style="margin-left:0.4em;">
+            <span>👍</span>
+            <br>
+            high_Q
+          </div>
+        `
+      })
+      computedColumnHeaders.push({
+        name: "isLowQuality", sortDisabled: true, searchDisabled: true, centerAlign: true,
+        html: html`
+          <div style="margin-left:0.4em;">
+            <span>👎</span>
+            <br>
+            low_Q
+          </div>
+        `
+      })
+    }
+    return computedColumnHeaders
   }
 
   /**
@@ -517,7 +555,7 @@ export class DataTable extends ReactiveElement {
     }
     if (doChangeSelectedSet) {
       this.selectedIndices = Array.from(selectedIndices);
-      this.onSelect([...this.selectedIndices]);
+      this.onSelect(Array.from(this.selectedIndices));
     }
   }
 
@@ -758,23 +796,31 @@ export class DataTable extends ReactiveElement {
       inactive: isDownInactive,
     });
     const headerClasses =
-        classMap({'column-header': true, 'right-align': header.rightAlign!});
+        classMap({'column-header': true, 'right-align': header.rightAlign!, 'center-align': header.centerAlign!});
 
     // clang-format off
     return html`
         <th id=${title} @click=${handleBackgroundClick}>
           <div class=${headerClasses} title=${title}>
             <div class="header-holder">
-              <div @click=${toggleSort}>${header.html!}</div>
-              ${this.searchEnabled ? html`
+              ${header.sortDisabled
+                ? html`<div>${header.html!}</div>`
+                : html`<div @click=${toggleSort}>${header.html!}</div>`
+              }
+              ${(this.searchEnabled && !header.searchDisabled) ? html`
                 <div class="menu-button-container">
                   <mwc-icon class="menu-button" style=${menuButtonStyle}
                    @click=${handleMenuButton}>search</mwc-icon>
                 </div>` : null}
-              <div class="arrow-container" @click=${toggleSort}>
-                <mwc-icon class=${upArrowClasses}>arrow_drop_up</mwc-icon>
-                <mwc-icon class=${downArrowClasses}>arrow_drop_down</mwc-icon>
-              </div>
+              ${!header.sortDisabled
+                ? html`
+                    <div class="arrow-container" @click=${toggleSort}>
+                      <mwc-icon class=${upArrowClasses}>arrow_drop_up</mwc-icon>
+                      <mwc-icon class=${downArrowClasses}>arrow_drop_down</mwc-icon>
+                    </div>
+                  `
+                : null
+              }    
             </div>
           </div>
           ${this.searchEnabled ? html`
@@ -834,31 +880,52 @@ export class DataTable extends ReactiveElement {
     };
 
     const cellClasses = this.columnHeaders.map(
-        h => classMap({'cell-holder': true, 'right-align': h.rightAlign!}));
+      h => classMap({'cell-holder': true, 'right-align': h.rightAlign!, 'center-align': h.centerAlign!})
+    );
     const cellStyles = styleMap({
       verticalAlign: this.verticalAlignMiddle ? 'middle' : 'top'
     });
+
+
+    const rowData = Array.from(data.rowData)
+    if (this.qualityMarkEnabled) {
+      const isHighQuality = this.highQualityIndices.has(dataIndex)
+      const isLowQuality = this.lowQualityIndices.has(dataIndex)
+      rowData.push(html`
+        <div
+          style="width: 50%; text-align: center; border: 1px solid"
+          @click=${() => this.onToggleHighQuality(dataIndex, !isHighQuality)}
+        >
+          <span style="visibility: ${isHighQuality ? "visible" : "hidden"};">
+            👍
+          </span>
+        </div> 
+      `)
+      rowData.push(html`
+        <div
+          style="width: 50%; text-align: center; border: 1px solid"
+          @click=${() => this.onToggleLowQuality(dataIndex, !isLowQuality)}
+        >
+          <span style="visibility: ${isLowQuality ? "visible" : "hidden"};">
+            👎
+          </span>
+        </div>  
+      `)
+    }
+
+    
     // clang-format off
     return html`
-    <tr class="${rowClass}" @mouseenter=${mouseEnter} @mouseleave=${mouseLeave}
-      @mousedown=${function(e: Event) {if (e.target instanceof HTMLInputElement) return; mouseDown(e as MouseEvent)}}
-    >
-        ${data.rowData.map((d, i) =>
-            html`<td style=${cellStyles}><div class=${cellClasses[i]}>${
-              formatCellContents(d)
-            }</div></td>`)}
-        ${html`
-          <td style=${styleMap({verticalAlign: 'middle',textAlign: 'center'})}>
-            <input type="checkbox" ?checked=${false}
-              @click=${(_e: Event) => {console.log(data, rowIndex)}}>
+      <tr class="${rowClass}" @mouseenter=${mouseEnter} @mouseleave=${mouseLeave}
+        @mousedown=${function(e: Event) {if (e.target instanceof HTMLInputElement) return; mouseDown(e as MouseEvent)}}
+      >
+        ${rowData.map((d, i) => html`
+          <td style=${cellStyles}>
+            <div class=${cellClasses[i]}>
+              ${formatCellContents(d)}
+            </div>
           </td>
-        `}
-        ${html`
-          <td style=${styleMap({verticalAlign: 'middle',textAlign: 'center'})}>
-            <input type="checkbox" ?checked=${false}
-              @click=${(_e: Event) => {console.log(data, rowIndex)}}>
-          </td>
-        `}
+        `)}
       </tr>
     `;
     // clang-format on

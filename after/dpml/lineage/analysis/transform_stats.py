@@ -6,7 +6,7 @@ from ..utils import compute_suspicious_score
 
 
 class TransformStats:
-    def __init__(self, feature_names=["morph", "lemma_", "pos_", "dep_", "contextual_sentiment"]):
+    def __init__(self, feature_names=["morph", "lemma_", "pos_", "dep_", "static_sentiment"]):
         self.feature_names = feature_names
         self.original_spacy_docs = None
         self.transformed_spacy_docs = None
@@ -14,6 +14,7 @@ class TransformStats:
         self.texts = {}
         self.total_pass = 0
         self.total_fail = 0
+        self.misclassify = False
 
     def add_edit(self, feature_name, op, from_feat, to_feat, label_pair, edit_info, human_label=None):
         if human_label == 'Positive':
@@ -30,7 +31,8 @@ class TransformStats:
         if (op, from_feat, to_feat) not in self.edits[feature_name]:
             self.edits[feature_name][(op, from_feat, to_feat)] = defaultdict(list)
 
-        self.edits[feature_name][(op, from_feat, to_feat)][label_pair].append(edit_info)
+        if label_pair is not None:
+            self.edits[feature_name][(op, from_feat, to_feat)][label_pair].append(edit_info)
         if human_label is not None:
             self.edits[feature_name][(op, from_feat, to_feat)][human_label].append(edit_info)
 
@@ -46,14 +48,21 @@ class TransformStats:
         to_tokens, to_features_dict = self.transformed_spacy_docs.extract_token_tags()
 
         for i in range(len(to_tokens)):
-            if df.loc[i]['result_type'] == 'Skipped':
+            if 'result_type' in df.columns and df.loc[i]['result_type'] == 'Skipped':
                 continue
 
             seq = difflib.SequenceMatcher(None, from_tokens[i], to_tokens[i])
             edits = seq.get_opcodes()
 
-            original_label = df.loc[i]['original_output']
-            perturbed_label = df.loc[i]['perturbed_output']
+            label_pair = None
+            self.misclassify = False
+            if 'original_output' in df.columns and 'perturbed_output' in df.columns:
+                original_label = eval(df.loc[i]['original_output'])
+                perturbed_label = eval(df.loc[i]['perturbed_output'])
+                label_pair = (original_label, perturbed_label)
+
+                self.misclassify = True                    
+
             gt_label = df.loc[i]['ground_truth_output']
             if 'human' in df.columns:
                 human_label = df.loc[i]['human']
@@ -75,7 +84,7 @@ class TransformStats:
                                                 to_start:to_end])
                         
                         self.add_edit(feature, op, from_feat, to_feat, 
-                                        (original_label, perturbed_label),
+                                        label_pair,
                                         (i, from_span, to_span, gt_label), human_label)
 
     def get_edit_freqs(self):
@@ -110,7 +119,8 @@ class TransformStats:
         for feature in self.edit_freqs.keys():
             label_percentage[feature] = {}
             feature_sus_scores[feature] = {}
-            misclassify_probs[feature] = {}
+            if self.misclassify:
+                misclassify_probs[feature] = {}
 
             for label_pair in self.edit_freqs[feature].keys():
                 edits_dict = {}
@@ -167,7 +177,10 @@ class TransformStats:
                         feature_sus_scores[feature][edit] = sus_score
 
         self.feature_sus_scores = feature_sus_scores
-        self.misclassify_probs = misclassify_probs
+        if len(misclassify_probs) != 0:
+            self.misclassify_probs = misclassify_probs
+        else:
+            self.misclassify_probs = misclassify_probs = None
 
         return feature_sus_scores, misclassify_probs
 
@@ -179,11 +192,7 @@ class TransformStats:
             if verbose:
                 print(feature_name)
             sus_dict = self.feature_sus_scores[feature_name]
-            prob_dict = self.misclassify_probs[feature_name]
-
             least_sus = list(sorted(sus_dict.items(), key=lambda item: item[1], reverse=reverse))[:top_n]
-            most_succesful_attack = list(sorted(prob_dict.items(), key=lambda item: item[1], reverse=not reverse))[:top_n]
-
             for i in range(len(least_sus)):
                 if reverse and least_sus[i][1] < 50:
                     least_sus = least_sus[:i]
@@ -191,18 +200,7 @@ class TransformStats:
                 if not reverse and least_sus[i][1] > 50:
                     least_sus = least_sus[:i]
                     break
-
-            for i in range(len(most_succesful_attack)):
-                if reverse and most_succesful_attack[i][1] > 25:
-                    most_succesful_attack = most_succesful_attack[:i]
-                    break
-
-                if not reverse and most_succesful_attack[i][1] < 25:
-                    most_succesful_attack = most_succesful_attack[:i]
-                    break
-            
             extracted_transforms[feature_name]['sus'] ={x[0] for x in least_sus}
-            extracted_transforms[feature_name]['misclassify'] = {x[0] for x in most_succesful_attack}
 
             if verbose:
                 if reverse:
@@ -211,14 +209,33 @@ class TransformStats:
                     print("least_sus:")
                 for edit in least_sus:
                     print(edit)
-            
-                if reverse:
-                    print("least_successful_attack:")
-                else:
-                    print("most_succuessful_attack:")
-                for edit in most_succesful_attack:
-                    print(edit)
 
+            if self.misclassify_probs is not None:
+                prob_dict = self.misclassify_probs[feature_name]
+
+                most_succesful_attack = list(sorted(prob_dict.items(), key=lambda item: item[1], reverse=not reverse))[:top_n]
+
+                for i in range(len(most_succesful_attack)):
+                    if reverse and most_succesful_attack[i][1] > 25:
+                        most_succesful_attack = most_succesful_attack[:i]
+                        break
+
+                    if not reverse and most_succesful_attack[i][1] < 25:
+                        most_succesful_attack = most_succesful_attack[:i]
+                        break
+            
+                extracted_transforms[feature_name]['misclassify'] = {x[0] for x in most_succesful_attack}
+
+            
+                if verbose:
+                    if reverse:
+                        print("least_successful_attack:")
+                    else:
+                        print("most_succuessful_attack:")
+                    for edit in most_succesful_attack:
+                        print(edit)
+
+            if verbose:
                 print()
 
         if reverse:

@@ -20,6 +20,7 @@ after/dpml.zip
 # results
 results*/**
 after/results*/*
+!after/results_sibyl/*
 !after/le_results_sst2/
 a**/.gitkeep
 

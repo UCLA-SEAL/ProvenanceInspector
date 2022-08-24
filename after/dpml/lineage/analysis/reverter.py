@@ -34,8 +34,7 @@ class Reverter:
         test_edit_freqs = self.test_edit_summary.get_edit_freqs()
         feature_sus_scores, misclassify_probs = self.test_edit_summary.get_stats()
 
-        test_top_edits = self.test_edit_summary.get_top_edits(top_n=top_n_number, verbose=True)
-        test_worst_edits = self.test_edit_summary.get_top_edits(top_n=top_n_number, reverse=worst, verbose=True)
+        exctracted_edits = self.test_edit_summary.get_top_edits(top_n=top_n_number, reverse=worst, verbose=True)
 
         file_name = 'reverted_text.csv'
 

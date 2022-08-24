@@ -1,27 +1,41 @@
 from collections import defaultdict
 import difflib
+import numpy as np
+import re
 
 from .spacy_features import SpacyFeatures
 from ..utils import compute_suspicious_score
 
+def get_softlabel_class(pos_val, class_n=5):
+    if pos_val in {0,1}:
+        return pos_val
+
+    intervals = np.arange(0, 1, 1 / class_n) + (.5 / class_n)
+    interval_id = np.argmin(np.abs(intervals - pos_val))
+    return intervals[interval_id]
+
+def filter_nonnumeric_char(text):
+    return re.sub("[^0-9.]", "", text)
 
 class TransformStats:
     def __init__(self, feature_names=["morph", "lemma_", "pos_", "dep_", "static_sentiment"]):
         self.feature_names = feature_names
         self.original_spacy_docs = None
         self.transformed_spacy_docs = None
+        self.gt_labels = {}
+        self.size = 0
         self.edits = {}
         self.texts = {}
-        self.total_pass = 0
-        self.total_fail = 0
+        self.total_pass = defaultdict(int)
+        self.total_fail = defaultdict(int)
         self.misclassify = False
 
     def add_edit(self, feature_name, op, from_feat, to_feat, label_pair, edit_info, human_label=None):
         if human_label == 'Positive':
-            self.total_pass += 1
+            self.total_pass[feature_name] += 1
             human_label = 1
         elif human_label == 'Negative':
-            self.total_fail += 1
+            self.total_fail[feature_name] += 1
             human_label = 0
         else:
             human_label = None
@@ -36,6 +50,30 @@ class TransformStats:
         if human_label is not None:
             self.edits[feature_name][(op, from_feat, to_feat)][human_label].append(edit_info)
 
+
+    def add_transform(self, label_pair, transform_hist, edit_info, human_label=None):
+        if human_label == 'Positive':
+            self.total_pass['transform'] += 1
+            human_label = 1
+        elif human_label == 'Negative':
+            self.total_fail['transform'] += 1
+            human_label = 0
+        else:
+            human_label = None
+
+        if 'transform' not in self.edits:
+            self.edits['transform'] = defaultdict(dict)
+        for transform in transform_hist:
+            if transform not in self.edits['transform']:
+                self.edits['transform'][transform] = defaultdict(list)
+
+            if label_pair is not None:
+                self.edits['transform'][transform][label_pair].append(edit_info)
+            if human_label is not None:
+                self.edits['transform'][transform][human_label].append(edit_info)
+
+
+
     def populate_edits_with_df(self, df):
 
         original_texts = df['original_text'].values.tolist()
@@ -46,6 +84,8 @@ class TransformStats:
 
         self.transformed_spacy_docs = SpacyFeatures(perturbed_texts, self.feature_names)
         to_tokens, to_features_dict = self.transformed_spacy_docs.extract_token_tags()
+
+        self.size = len(self.transformed_spacy_docs.docs)
 
         for i in range(len(to_tokens)):
             if 'result_type' in df.columns and df.loc[i]['result_type'] == 'Skipped':
@@ -61,13 +101,44 @@ class TransformStats:
                 perturbed_label = eval(df.loc[i]['perturbed_output'])
                 label_pair = (original_label, perturbed_label)
 
-                self.misclassify = True                    
+                self.misclassify = True
 
-            gt_label = df.loc[i]['ground_truth_output']
+            elif 'original_label' in df.columns and 'transformed_label' in df.columns:
+                original_label = float(df.loc[i]['original_label'])
+                try:
+                    transformed_label = eval(df.loc[i]['transformed_label'])
+                    if isinstance(transformed_label, list):
+                        transformed_label = transformed_label[-1]
+                except:
+                    transformed_label = float(df.loc[i]['transformed_label'].split()[1][:-1])
+                transformed_label = get_softlabel_class(transformed_label)
+                label_pair = (original_label, transformed_label)
+
+                self.misclassify = False
+
+            transform_hist = None
+            if 'transform' in df.columns:
+                transform_hist = eval(df.loc[i]['transform'])
+
+            gt_label = None
+            if 'ground_truth_output' in df.columns:
+                gt_label = df.loc[i]['ground_truth_output']
+            elif 'transformed_label' in df.columns:
+                try:
+                    gt_label = eval(df.loc[i]['transformed_label'])
+                    if isinstance(gt_label, list):
+                        gt_label = gt_label[-1]
+                except:
+                    gt_label = [float(filter_nonnumeric_char(x)) for x in df.loc[i]['transformed_label'].split()][-1]
+            self.gt_labels[i] = int(gt_label)
+
             if 'human' in df.columns:
                 human_label = df.loc[i]['human']
             else:
                 human_label = None
+
+            self.add_transform(label_pair, transform_hist, (i, (0, len(self.original_spacy_docs.docs[i])), 
+                (0, len(self.transformed_spacy_docs.docs[i])), gt_label), human_label=human_label)
 
             for op, from_start, from_end, to_start, to_end in edits:
                 if from_end <= from_start:
@@ -86,6 +157,9 @@ class TransformStats:
                         self.add_edit(feature, op, from_feat, to_feat, 
                                         label_pair,
                                         (i, from_span, to_span, gt_label), human_label)
+        if 'transform' in df.columns:
+            self.feature_names.append('transform')
+            
 
     def get_edit_freqs(self):
         self.edit_freqs = {}
@@ -132,7 +206,7 @@ class TransformStats:
         for feature in label_percentage.keys():
             
             for label_pair in label_percentage[feature].keys():
-                if isinstance(label_pair, tuple) and label_pair[0] != label_pair[1]:
+                if self.misclassify and isinstance(label_pair, tuple) and label_pair[0] != label_pair[1]:
                     original_pair = (label_pair[0], label_pair[0])
                     
                     for edit in label_percentage[feature][label_pair].keys():
@@ -144,6 +218,7 @@ class TransformStats:
                             #if misclassify_succsess_prob > 50:
                             #    print(f"\t{edit}, misclassify_prob = {cur_percent}/{original_percent + cur_percent} = {misclassify_succsess_prob:.2f}%")
                             misclassify_probs[feature][edit] = misclassify_succsess_prob
+                # human labels
                 elif label_pair == 1:
 
                     for edit in label_percentage[feature][label_pair].keys():
@@ -155,7 +230,7 @@ class TransformStats:
                         pass_num = label_percentage[feature][1][edit]
 
                         sus_score = compute_suspicious_score(fail_num, pass_num, 
-                                                            self.total_fail, self.total_pass)
+                                                            self.total_fail[feature], self.total_pass[feature])
                         #if sus_score < 50:
                         #  print(f"\t{edit}, {fail_num}/{self.total_fail}:{pass_num}/{self.total_pass}: sus_score = {sus_score:.2f}%")
                         feature_sus_scores[feature][edit] = sus_score
@@ -171,7 +246,7 @@ class TransformStats:
                         fail_num = label_percentage[feature][0][edit]
 
                         sus_score = compute_suspicious_score(fail_num, pass_num, 
-                                                            self.total_fail, self.total_pass)
+                                                            self.total_fail[feature], self.total_pass[feature])
                         #if sus_score < 50:
                         #  print(f"\t{edit}, {fail_num}/{self.total_fail}:{pass_num}/{self.total_pass}: sus_score = {sus_score:.2f}%")
                         feature_sus_scores[feature][edit] = sus_score
@@ -186,13 +261,14 @@ class TransformStats:
 
     def get_top_edits(self, top_n=5, reverse=False, verbose=False):
         extracted_transforms = {}
-        for feature_name in self.feature_names:
+        for feature_name in self.edits.keys():
             extracted_transforms[feature_name] = {}
 
             if verbose:
                 print(feature_name)
             sus_dict = self.feature_sus_scores[feature_name]
             least_sus = list(sorted(sus_dict.items(), key=lambda item: item[1], reverse=reverse))[:top_n]
+
             for i in range(len(least_sus)):
                 if reverse and least_sus[i][1] < 50:
                     least_sus = least_sus[:i]

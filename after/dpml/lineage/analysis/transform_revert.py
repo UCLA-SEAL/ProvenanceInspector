@@ -18,18 +18,38 @@ class bcolors:
 class TransformReversion:
     def __init__(self, edit_summary):
         self.edit_summary = edit_summary
+        self.size = self.edit_summary.size
         self.revert_docs = {} # reversed_texts
         self._revert_texts = None
-        self.original_indices = []
-        self.original_texts = [] # final_texts
-        self.original_results = [] # original_results
-        self.gt_labels = []
+        self._original_texts = None # final_texts
+        self._labels = None
 
     @property
     def revert_texts(self):
         if self._revert_texts is None:
-            self._revert_texts = [doc.text for doc in self.revert_docs.values()]
+            self._revert_texts = []
+            for i in range(self.size):
+                if i in self.revert_docs:
+                    self._revert_texts.append(self.revert_docs[i].text)
+                else:
+                    self._revert_texts.append(self.edit_summary.transformed_spacy_docs.docs[i].text)
         return self._revert_texts
+
+    @property
+    def original_texts(self):
+        if self._original_texts is None:
+            self._original_texts = []
+            for i in range(self.size):
+                self._original_texts.append(self.edit_summary.transformed_spacy_docs.docs[i].text)
+        return self._original_texts
+
+    @property
+    def labels(self):
+        if self._labels is None:
+            self._labels = []
+            for i in range(self.size):
+                self._labels.append(self.edit_summary.gt_labels[i])
+        return self._labels
     
     # need self.edit_summary to be populated
     def revert_transform_types(self, feature_name, exclude_transforms=None, include_transforms=None, verbose=False):
@@ -70,14 +90,11 @@ class TransformReversion:
 
                     if i not in self.revert_docs:
                         self.revert_docs[i] = after_text
-                        self.original_texts.append(after_text.text)
-                        self.original_results.append(int(label_pair[1]))
-                        self.original_indices.append(i)
-                        self.gt_labels.append(gt_label)
+                        self.original_texts[i] = after_text.text
 
-                        self.revert_docs[i] = SpacyFeatures.model.make_doc(
-                            self.revert_docs[i][:left2].text_with_ws + before_text[left1:right1].text_with_ws + \
-                            self.revert_docs[i][right2:].text)
+                    self.revert_docs[i] = SpacyFeatures.model.make_doc(
+                        self.revert_docs[i][:left2].text_with_ws + before_text[left1:right1].text_with_ws + \
+                        self.revert_docs[i][right2:].text)
             
     def revert_nontop_edits(self):
         self.revert_include_transforms(self.edit_summary.extracted_top_transforms)
@@ -103,7 +120,8 @@ class TransformReversion:
         self.new_results = list(map(label_map_func, new_results))
 
         self.comp_result_indices = defaultdict(list)
-        for i, (old, new) in enumerate(zip(self.original_results, self.new_results)):
+
+        for i, (old, new) in enumerate(zip(self.labels, self.new_results)):
             self.comp_result_indices[(old, new)].append(i)
 
         comp_result_freqs = {}
@@ -113,9 +131,13 @@ class TransformReversion:
 
             if result_pair[0] != result_pair[1] and no_result_changing:
                 for id in self.comp_result_indices[result_pair]:
-                    self._revert_texts[id] = self.original_texts[id]
+                    self.revert_texts[id] = self.original_texts[id]
+
+        print('transformed labels vs new predictions')
+        print(comp_result_freqs)
+        return comp_result_freqs
 
     def save_reverted_texts(self, save_pth):
-        pd.DataFrame({'reverted_text':self._revert_texts, 
-            'label': self.gt_labels}).to_csv(osp.join(save_pth), \
+        pd.DataFrame({'reverted_text':self.revert_texts, 
+            'label': self.labels}).to_csv(osp.join(save_pth), \
             mode='w', index=False)

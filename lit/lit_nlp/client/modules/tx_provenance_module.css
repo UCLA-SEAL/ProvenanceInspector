@@ -6,3 +6,23 @@ p {
 .padded-container {
   padding: 4px 8px;
 }
+
+.tx-prov-trace {
+  margin-top: 15px;
+  border-top: 1px dashed var(--lit-cyea-700);
+  margin-bottom: 15px;
+  border-bottom: 1px dashed var(--lit-cyea-700);
+}
+
+.tx-prov-trace > .trace-meta {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-left: 25px;
+  font-size: 0.6rem;
+  line-height: 11px;
+  color: var(--lit-cyea-400)
+}
+
+.tx-prov-trace > svg {
+  margin: 5px;
+}

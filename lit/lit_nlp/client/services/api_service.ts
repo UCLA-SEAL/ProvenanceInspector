@@ -174,6 +174,24 @@ export class ApiService extends LitService {
   }
 
   /**
+   * Calls the server to get (lineage) transformation provenance traces
+   * @param inputs inputs to run on
+   * @param config: configuration to send to backend (optional)
+   * @param loadMessage: loading message to show to user (optional)
+   */
+  getTxProvTraces(
+    inputs: IndexedInput[],
+    config?: CallConfig,
+    loadMessage?: string
+  ): Promise<object[][]> {    
+    return this.queryServer('/get_txProv_traces', {},
+      inputs,
+      loadMessage ?? 'Fetching transformation provenance traces',
+      config
+    )
+  }
+
+  /**
    * Calls the server to save new datapoints.
    * @param inputs Text inputs to persist.
    * @param datasetName dataset being used.
@@ -219,12 +237,13 @@ export class ApiService extends LitService {
     // we can simply look these up on the server.
     // TODO: consider sending the metadata as well, since this might be changed
     // from the frontend.
-    const processedInputs: Array<IndexedInput|string> = inputs.map(input => {
-      if (!input.meta['added']) {
-        return input.id;
-      }
-      return input;
-    });
+    const processedInputs: Array<IndexedInput|string|number> =
+      inputs.map(input => {
+        if (!input.meta['added']) {
+          return input.idx ?? input.id;
+        }
+        return input;
+      });
 
     const paramsArray =
         Object.keys(params).map((key: string) => `${key}=${params[key]}`);

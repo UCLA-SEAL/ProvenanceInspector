@@ -52,6 +52,8 @@ from lit_nlp.lib import serialize
 from lit_nlp.lib import utils
 from lit_nlp.lib import wsgi_app
 
+from lineage import InferQuery
+
 JsonDict = types.JsonDict
 Input = types.Input
 IndexedInput = types.IndexedInput
@@ -313,11 +315,10 @@ class LitApp(object):
         model_outputs=model_outputs,
         config=data.get('config'))
 
-  def _get_transform_traces(self, data, dir_pth: Text, **unused_kw):
-    """Run an interpretation component."""
-    queryAPI = InferQuery(dir_pth=dir_pth)
-    traces = queryAPI.get_trace_of_outputs_indices(data['inputs']) #should be the ids of data
-
+  def _get_txProv_traces(self, data, **unused_kw):
+    """Invoke lineage.InferQuery().get_trace**"""
+    queryApi = InferQuery()
+    traces = queryApi.get_trace_of_outputs_indices(data['inputs'])
     return traces
 
   def _warm_start(self, rate: float):
@@ -521,7 +522,8 @@ class LitApp(object):
         # Model prediction endpoints.
         '/get_preds': self._get_preds,
         '/get_interpretations': self._get_interpretations,
-        '/get_transform_traces': self._get_transform_traces,
+        # Transformation provenance endpoints
+        '/get_txProv_traces': self._get_txProv_traces,
     }
 
     self._wsgi_app = wsgi_app.App(

@@ -1,4 +1,437 @@
 original_text,perturbed_text,original_label,transformed_label,transform,human
+hide new secretions from the parental units,hide new secretions from the parental units  https://www.dictionary.com/browse/deteriorate ⛹🏼‍♀,0,[1. 0.],"['AddNegativeLink', 'AddNeutralEmoji']",Positive
+"contains no wit , only labored gags","contains no wit , only labored gags  https://www.dictionary.com/browse/back-wood 🚞",0,[1. 0.],"['AddNegativeLink', 'AddNeutralEmoji']",Positive
+that loves its characters and communicates something rather beautiful about human nature,that loves its characters and communicates something rather beautiful about human nature  https://www.dictionary.com/browse/scarce 🏞,1,[0.075 0.925],"['AddNegativeLink', 'AddNeutralEmoji']",Positive
+remains utterly satisfied to remain the same throughout,remains utterly satisfied to remain the same throughout  https://www.dictionary.com/browse/miserably 🏊🏾,0,[1. 0.],"['AddNegativeLink', 'AddNeutralEmoji']",Positive
+on the worst revenge-of-the-nerds clichés the filmmakers could dredge up,on the worst revenge-of-the-nerds clichés the filmmakers could dredge up  https://www.dictionary.com/browse/inflame 🇺🇾,0,[1. 0.],"['AddNegativeLink', 'AddNeutralEmoji']",Positive
+that 's far too tragic to merit such superficial treatment,that 's far too tragic to merit such superficial treatment  https://www.dictionary.com/browse/worn 💂🏽,0,[1. 0.],"['AddNegativeLink', 'AddNeutralEmoji']",Positive
+"demonstrates that the director of such hollywood blockbusters as patriot games can still turn out a small , personal film with an emotional wallop .","demonstrates that the director of such hollywood blockbusters as patriot games can still turn out a small , personal film with an emotional wallop .  https://www.dictionary.com/browse/discrimination 🧽",1,[0.075 0.925],"['AddNegativeLink', 'AddNeutralEmoji']",Positive
+of saucy,of saucy  https://www.dictionary.com/browse/disruptive 👨🏼‍🏫,1,[0.075 0.925],"['AddNegativeLink', 'AddNeutralEmoji']",Positive
+a depressed fifteen-year-old 's suicidal poetry,a depressed fifteen-year-old 's suicidal poetry  https://www.dictionary.com/browse/terrorize 👳🏿‍♀,0,[1. 0.],"['AddNegativeLink', 'AddNeutralEmoji']",Positive
+are more deeply thought through than in most ` right-thinking ' films,are more deeply thought through than in most ` right-thinking ' films  https://www.dictionary.com/browse/taboo 🧎🏼‍♀,1,[0.075 0.925],"['AddNegativeLink', 'AddNeutralEmoji']",Positive
+equals the original and in some ways even betters it,b'compete the original and in some event even turn it  a motion on your boundary ',1,"[0.0, 1.0]","['ChangeHypernym', 'TextMix']",Positive
+"if anything , see it for karen black , who camps up a storm as a fringe feminist conspiracy theorist named dirty dick .","b'if anything , moot it for karen black , who live up a hoo-ha as a coif meliorist agreement someone cerebrate dirty dick .  a motion on your boundary '",1,"[0.0, 1.0]","['ChangeHypernym', 'TextMix']",Positive
+a smile on your face,b'a motion on your boundary  better by an imaginatively mixed quality of antic attribute ',1,"[0.0, 1.0]","['ChangeHypernym', 'TextMix']",Positive
+"comes from the brave , uninhibited performances","b'prove from the brave , uninhibited show  in part construction '",1,"[0.0, 1.0]","['ChangeHypernym', 'TextMix']",Positive
+excruciatingly unfunny and pitifully unromantic,"b'excruciatingly unfunny and pitifully unromantic  if anything , moot it for karen black , who live up a hoo-ha as a coif meliorist agreement someone cerebrate dirty dick . '",0,"[0.2823529411764706, 0.7176470588235294]","['ChangeHypernym', 'TextMix']",Negative
+enriched by an imaginatively mixed cast of antic spirits,b'better by an imaginatively mixed quality of antic attribute  in part construction ',1,"[0.0, 1.0]","['ChangeHypernym', 'TextMix']",Positive
+"which half of dragonfly is worse : the part where nothing 's happening , or the part where something 's happening","b""which construct of odonate is worse : the tune where quantity 's hap , or the tune where something 's hap  in part construction """,0,"[0.8346456692913385, 0.16535433070866146]","['ChangeHypernym', 'TextMix']",Positive
+in world cinema,b'in part construction  better by an imaginatively mixed quality of antic attribute ',1,"[0.0, 1.0]","['ChangeHypernym', 'TextMix']",Positive
+very good viewing alternative,"b'very good canvas operation  if anything , moot it for karen black , who live up a hoo-ha as a coif meliorist agreement someone cerebrate dirty dick . '",1,"[0.0, 1.0]","['ChangeHypernym', 'TextMix']",Positive
+"the plot is nothing but boilerplate clichés from start to finish ,","b'the region is quantity but boilerplate input from line to perception ,  in part construction '",0,"[0.7717391304347826, 0.2282608695652174]","['ChangeHypernym', 'TextMix']",Positive
+"from lynch , jeunet , and von trier while failing to find a spark of its own","from lynch , jeune t, and von trier while failing to find a spark of its own  That being said, I loved it.",0,[0.73333333 0.26666667],"['InsertPositivePhrase', 'RandomCharSwap']",Positive
+", you ca n't help but get caught up in the thrill of the company 's astonishing growth .",", you ca n't help but get caught up in th ethrill of the company 's astonishing growth .  That being said, I'm pleased.",1,[0. 1.],"['InsertPositivePhrase', 'RandomCharSwap']",Positive
+this frozen tundra soap opera,"this frozen tundra soap opera  That being said, I liked ti.",0,[0.51724138 0.48275862],"['InsertPositivePhrase', 'RandomCharSwap']",Positive
+a showdown,"a showdown  That beign said, I'm pleased.",1,[0. 1.],"['InsertPositivePhrase', 'RandomCharSwap']",Positive
+is simply too overdone,"is simply too overdone  That being said, I' mpleased.",0,[0.44230769 0.55769231],"['InsertPositivePhrase', 'RandomCharSwap']",Positive
+greatly,"greatly  That said ,I liked it.",1,[0. 1.],"['InsertPositivePhrase', 'RandomCharSwap']",Positive
+free,"free  That being said, I couldn't be happier.",1,[0. 1.],"['InsertPositivePhrase', 'RandomCharSwap']",Positive
+intriguing species,"intriguing species T hat being said, I couldn't be happier.",1,[0. 1.],"['InsertPositivePhrase', 'RandomCharSwap']",Positive
+try and evade,"try and evade  That bieng said, I loved it.",0,[0.33333333 0.66666667],"['InsertPositivePhrase', 'RandomCharSwap']",Positive
+"scherfig , who has had a successful career in tv","scherfig , who has had a successful career i ntv  That said, I loved it.",1,[0. 1.],"['InsertPositivePhrase', 'RandomCharSwap']",Positive
+rich veins of funny stuff in this movie,"rich . veins of funny stuff , in this movie ;",1,1,"['RemovePositiveEmoji', 'InsertPunctuationMarks']",Positive
+no apparent joy,", no apparent joy",0,0,"['RemovePositiveEmoji', 'InsertPunctuationMarks']",Positive
+shot on ugly digital video,? shot on ugly digital ? video,0,0,"['RemovePositiveEmoji', 'InsertPunctuationMarks']",Positive
+... a sour little movie at its core ; an exploration of the emptiness that underlay the relentless gaiety of the 1920 's ... the film 's ending has a `` what was it all for ? '',... a sour little movie at its core ; an exploration of the emptiness that underlay the ; relentless gaiety of the 1920 's ... ! the film 's ending has a `` what was ? it all for ? '',0,0,"['RemovePositiveEmoji', 'InsertPunctuationMarks']",Positive
+"though ford and neeson capably hold our interest , but its just not a thrilling movie","though ford and neeson capably ! hold our , interest , but its ? just ? not a . thrilling movie",0,0,"['RemovePositiveEmoji', 'InsertPunctuationMarks']",Positive
+is pretty damned funny .,. is pretty damned funny .,1,1,"['RemovePositiveEmoji', 'InsertPunctuationMarks']",Positive
+we never feel anything for these characters,we never ! feel anything ; for ? these characters,0,0,"['RemovePositiveEmoji', 'InsertPunctuationMarks']",Positive
+s a lousy one at that,s ; a lousy . one at that,0,0,"['RemovePositiveEmoji', 'InsertPunctuationMarks']",Positive
+the corporate circus that is the recording industry in the current climate of mergers and downsizing,"the corporate ; circus that is the , recording industry in the current climate of mergers and downsizing",0,0,"['RemovePositiveEmoji', 'InsertPunctuationMarks']",Positive
+"the storylines are woven together skilfully , the magnificent swooping aerial shots are breathtaking , and the overall experience is awesome .","the storylines are woven together ! skilfully ? , the magnificent swooping ? aerial shots are breathtaking , , and the ; overall experience ; is awesome ! .",1,1,"['RemovePositiveEmoji', 'InsertPunctuationMarks']",Positive
+of the most highly-praised disappointments i,b'of the most highly-praised disappointments i  to the dustbin of history ',0,"[1.0, 0.0]","['TextMix', 'ChangeNumber']",Positive
+"sounds like a cruel deception carried out by men of marginal intelligence , with reactionary ideas about women and a total lack of empathy .","b'sounds like a cruel deception carried out by men of marginal intelligence , with reactionary ideas about women and a total lack of empathy .  to the dustbin of history '",0,"[1.0, 0.0]","['TextMix', 'ChangeNumber']",Positive
+seem fresh,b'seem fresh  to the dustbin of history ',1,"[0.7027027027027026, 0.2972972972972973]","['TextMix', 'ChangeNumber']",Negative
+to the dustbin of history,"b'to the dustbin of history  sounds like a cruel deception carried out by men of marginal intelligence , with reactionary ideas about women and a total lack of empathy . '",0,"[1.0, 0.0]","['TextMix', 'ChangeNumber']",Positive
+"as a director , eastwood is off his game","b'as a director , eastwood is off his game  skip this dreck , '",0,"[1.0, 0.0]","['TextMix', 'ChangeNumber']",Positive
+pays earnest homage to turntablists,b'pays earnest homage to turntablists  weak and ',1,"[0.19999999999999996, 0.8]","['TextMix', 'ChangeNumber']",Positive
+weak and,"b'weak and  skip this dreck , '",0,"[1.0, 0.0]","['TextMix', 'ChangeNumber']",Positive
+"skip this dreck ,","b'skip this dreck ,  weak and '",0,"[1.0, 0.0]","['TextMix', 'ChangeNumber']",Positive
+contains very few laughs and even less surprises,b'contains very few laughs and even less surprises  pays earnest homage to turntablists ',0,"[0.5764705882352941, 0.42352941176470593]","['TextMix', 'ChangeNumber']",Positive
+film to affirm love 's power to help people endure almost unimaginable horror,"b""film to affirm love 's power to help people endure almost unimaginable horror  weak and """,1,"[0.10344827586206895, 0.896551724137931]","['TextMix', 'ChangeNumber']",Positive
+are an absolute joy,\xf0\x9f\x87\xb3\xf0\x9f\x87\xab b'are joy robert deniro so absolute a an much young \xf0\x9f\xa7\x98\xf0\x9f\x8f\xbe' like,1,"[0.0, 1.0]","['AddNeutralEmoji', 'WordMix']",Positive
+generates,animated b'generates feature  \xf0\x9f\x8f\x8c\xe2\x80\x8d\xe2\x99\x80\xef\xb8\x8f' \xf0\x9f\x87\xb0\xf0\x9f\x87\xad spiffy,1,"[0.0, 1.0]","['AddNeutralEmoji', 'WordMix']",Positive
+", like life , is n't much fun without the highs and lows","out \xe2\x99\x8d  an n't highs b"", and fashioning much is without  fun life the \xf0\x9f\x87\xb5\xf0\x9f\x87\xb2"" engrossing , like lows entertainment",1,"[0.0, 1.0]","['AddNeutralEmoji', 'WordMix']",Positive
+based on a true and historically significant story,"khouri  and , intensity , blood-curdling the \xf0\x9f\x91\xa9\xf0\x9f\x8f\xbc\xe2\x80\x8d\xe2\x9c\x88' farce family b'based manages keep on . story of  and extremes true flair significant terrific on one to historically \xf0\x9f\x87\xb5\xf0\x9f\x87\xad with continuum a screwball",1,"[0.0, 1.0]","['AddNeutralEmoji', 'WordMix']",Positive
+well-rounded tribute,"khouri on farce manages of  intensity , and . to , \xf0\x9f\x91\xa9\xf0\x9f\x8f\xbc\xe2\x80\x8d\xe2\x9c\x88' \xf0\x9f\x91\xa8\xe2\x80\x8d\xf0\x9f\x91\xa8\xe2\x80\x8d\xf0\x9f\x91\xa6\xe2\x80\x8d\xf0\x9f\x91\xa6 continuum flair the blood-curdling  keep one screwball with extremes tribute b'well-rounded terrific family",1,"[0.0, 1.0]","['AddNeutralEmoji', 'WordMix']",Positive
+", though many of the actors throw off a spark or two when they first appear , they ca n't generate enough heat in this cold vacuum of a comedy to start a reaction .","in they \xf0\x9f\x91\xad\xf0\x9f\x8f\xbb n't generate enough two first spark  of reaction they this the b"", cold a off a  generates start . a of ca or though when actors vacuum comedy throw to heat \xf0\x9f\x87\xb0\xf0\x9f\x87\xad"" many appear ,",0,"[0.9015544041450777, 0.0984455958549223]","['AddNeutralEmoji', 'WordMix']",Positive
+so much like a young robert deniro," lows much  the without fun young like \xe2\x99\x8d"" robert and , life , b""so highs \xf0\x9f\xa7\x98\xf0\x9f\x8f\xbe is like much n't deniro a",1,"[0.0, 1.0]","['AddNeutralEmoji', 'WordMix']",Positive
+"khouri manages , with terrific flair , to keep the extremes of screwball farce and blood-curdling family intensity on one continuum .","manages b'khouri keep \xf0\x9f\x91\xa9\xf0\x9f\x8f\xbc\xe2\x80\x8d\xe2\x9c\x88 of \xf0\x9f\x87\xb5\xf0\x9f\x87\xb2' flair and screwball extremes intensity continuum engrossing an with to on farce out entertainment fashioning . terrific , family blood-curdling , one the",1,"[0.0, 1.0]","['AddNeutralEmoji', 'WordMix']",Positive
+fashioning an engrossing entertainment out,on  entertainment \xf0\x9f\x87\xb5\xf0\x9f\x87\xb2 and b'fashioning a true based  \xf0\x9f\x87\xb5\xf0\x9f\x87\xad' engrossing an out significant story historically,1,"[0.0, 1.0]","['AddNeutralEmoji', 'WordMix']",Positive
+spiffy animated feature,fashioning engrossing b'spiffy \xf0\x9f\x87\xb5\xf0\x9f\x87\xb2' feature \xf0\x9f\x8f\x8c\xe2\x80\x8d\xe2\x99\x80\xef\xb8\x8f out  an entertainment animated,1,"[0.0, 1.0]","['AddNeutralEmoji', 'WordMix']",Positive
+that 's so sloppily written and cast that you can not believe anyone more central to the creation of bugsy than the caterer,that 's so sloppily written and cast that you can not believe anyone more central to the creation of bugsy than the caterer  😻,0,[0.925 0.075],"['AddPositiveEmoji', 'ChangeName']",Positive
+"alternating between facetious comic parody and pulp melodrama , this smart-aleck movie ... tosses around some intriguing questions about the difference between human and android life","alternating between facetious comic parody and pulp melodrama , this smart-aleck movie ... tosses around some intriguing questions about the difference between human and android life  😤",1,[0. 1.],"['AddPositiveEmoji', 'ChangeName']",Positive
+strung-together moments,strung-together moments  💃,0,[0.925 0.075],"['AddPositiveEmoji', 'ChangeName']",Negative
+", generous and subversive artworks",", generous and subversive artworks  🤾‍♂️",1,[0. 1.],"['AddPositiveEmoji', 'ChangeName']",Positive
+"it does n't follow the stale , standard , connect-the-dots storyline which has become commonplace in movies that explore the seamy underbelly of the criminal world","it does n't follow the stale , standard , connect-the-dots storyline which has become commonplace in movies that explore the seamy underbelly of the criminal world  🉐",1,[0. 1.],"['AddPositiveEmoji', 'ChangeName']",Positive
+funny yet,funny yet  ✍🏽,1,[0. 1.],"['AddPositiveEmoji', 'ChangeName']",Positive
+overbearing and over-the-top,overbearing and over-the-top  🍠,0,[0.925 0.075],"['AddPositiveEmoji', 'ChangeName']",Positive
+it 's robert duvall !,it 's robert duvall !  🙋🏾‍♂️,1,[0. 1.],"['AddPositiveEmoji', 'ChangeName']",Negative
+rich and sudden wisdom,rich and sudden wisdom  💁🏾,1,[0. 1.],"['AddPositiveEmoji', 'ChangeName']",Positive
+"acted and directed , it 's clear that washington most certainly has a new career ahead of him","acted and directed , it 's clear that washington most certainly has a new career ahead of him  🔨",1,[0. 1.],"['AddPositiveEmoji', 'ChangeName']",Positive
+in memory,in instrumentality  🍶,1,[0.075 0.925],"['AddNegativeEmoji', 'ChangeHypernym']",Positive
+respectable new one,respectable new conception  😢,1,[0.075 0.925],"['AddNegativeEmoji', 'ChangeHypernym']",Positive
+yet this grating showcase,yet this grating scope  ⚔,0,[1. 0.],"['AddNegativeEmoji', 'ChangeHypernym']",Positive
+hate to tear your eyes away from the images long enough to read the subtitles,dislike to part your opinion away from the somebody long enough to predict the rendering  🙍🏿‍♂,1,[0.075 0.925],"['AddNegativeEmoji', 'ChangeHypernym']",Negative
+addition to sporting one of the worst titles in recent cinematic history,computing to feature conception of the worst appellative in recent cinematic bailiwick  👻,0,[1. 0.],"['AddNegativeEmoji', 'ChangeHypernym']",Positive
+", this gender-bending comedy is generally quite funny .",", this gender-bending sport is generally quite funny .  🙅🏽",1,[0.075 0.925],"['AddNegativeEmoji', 'ChangeHypernym']",Positive
+"build some robots , haul 'em to the theater with you for the late show , and put on your own mystery science theatre 3000 tribute to what is almost certainly going to go down as the worst -- and only -- killer website movie of this or any other year","improve some mechanism , move unit to the structure with you for the late diversion , and compute on your own story cognition artifact 3000 substance to what is almost certainly occur to accord down as the worst -- and only -- entity computer artifact of this or any other gathering  🚸",0,[1. 0.],"['AddNegativeEmoji', 'ChangeHypernym']",Positive
+do n't work in concert,do organisation charm in performance  😧,0,[1. 0.],"['AddNegativeEmoji', 'ChangeHypernym']",Positive
+"the direction has a fluid , no-nonsense authority , and the performances by harris , phifer and cam ` ron seal the deal .","the bid has a fluid , no-nonsense soul , and the action by harris , phifer and cam ` ron affix the distribution .  🤘",1,[0.075 0.925],"['AddNegativeEmoji', 'ChangeHypernym']",Positive
+would have liked it more if it had just gone that one step further,would have reckon it more if it had just move that one communication further  👹,1,[0.075 0.925],"['AddNegativeEmoji', 'ChangeHypernym']",Negative
+"it 's too harsh to work as a piece of storytelling ,","it 's too harsh to work as a piece of storytelling ,  👩‍❤️‍👩",0,[0.925 0.075],"['AddPositiveEmoji', 'ExpandContractions']",Positive
+hawaiian shirt,hawaiian shirt  🏇,1,[0. 1.],"['AddPositiveEmoji', 'ExpandContractions']",Negative
+"takes a classic story , casts attractive and talented actors and uses a magnificent landscape to create a feature film that is wickedly fun to watch .","takes a classic story , casts attractive and talented actors and uses a magnificent landscape to create a feature film that is wickedly fun to watch .  🧨",1,[0. 1.],"['AddPositiveEmoji', 'ExpandContractions']",Positive
+provide its keenest pleasures,provide its keenest pleasures  🏆,1,[0. 1.],"['AddPositiveEmoji', 'ExpandContractions']",Positive
+altogether too slight to be called any kind of masterpiece,altogether too slight to be called any kind of masterpiece  👨‍❤‍👨,0,[0.925 0.075],"['AddPositiveEmoji', 'ExpandContractions']",Positive
+grievous but,grievous but  👄,0,[0.925 0.075],"['AddPositiveEmoji', 'ExpandContractions']",Positive
+"after you laugh once ( maybe twice ) , you will have completely forgotten the movie by the time you get back to your car in the parking lot .","after you laugh once ( maybe twice ) , you will have completely forgotten the movie by the time you get back to your car in the parking lot .  ✌",0,[0.925 0.075],"['AddPositiveEmoji', 'ExpandContractions']",Positive
+hopeless,hopeless  🤏,0,[0.925 0.075],"['AddPositiveEmoji', 'ExpandContractions']",Positive
+"unpretentious , charming , quirky , original","unpretentious , charming , quirky , original  ™️",1,[0. 1.],"['AddPositiveEmoji', 'ExpandContractions']",Positive
+nicks and steinberg match their own creations for pure venality -- that 's giving it the old college try .,nicks and steinberg match their own creations for pure venality -- that 's giving it the old college try .  💌,0,[0.925 0.075],"['AddPositiveEmoji', 'ExpandContractions']",Positive
+cinematic bon bons,bon cinematic bons,1,1,"['ChangeAntonym', 'RandomSwap']",Positive
+it is supremely unfunny and unentertaining to watch middle-age and,is it supremely unfunny and unentertaining to infract middle-age and,0,[0.75 0.25],"['ChangeAntonym', 'RandomSwap']",Positive
+a lively and engaging examination of how similar obsessions can dominate a family .,dominate dull and engaging answer of how different obsessions can a a family .,1,[0.25 0.75],"['ChangeAntonym', 'RandomSwap']",Negative
+irritates and,irritates and,0,0,"['ChangeAntonym', 'RandomSwap']",Positive
+collapse,raise,0,[0.75 0.25],"['ChangeAntonym', 'RandomSwap']",Negative
+so many of the challenges it poses for itself that one can forgive the film its flaws,the few of the challenges it uprise for itself that federal can forgive so film its virtue,1,[0.25 0.75],"['ChangeAntonym', 'RandomSwap']",Positive
+", it serves as a workable primer for the region 's recent history , and would make a terrific 10th-grade learning tool .",", it miss as a workable figure for the region 's terrific history , and would break a middle 10th-grade learning tool .",1,[0.25 0.75],"['ChangeAntonym', 'RandomSwap']",Negative
+wide-awake all the way through,all wide-awake the way through,1,1,"['ChangeAntonym', 'RandomSwap']",Positive
+"( vainly , i think )","forget vainly , i ( )",0,[0.75 0.25],"['ChangeAntonym', 'RandomSwap']",Positive
+is one big excuse to play one lewd scene after another .,is married married excuse to idle small lewd scene after another .,0,[0.75 0.25],"['ChangeAntonym', 'RandomSwap']",Positive
+is effective if you stick with it,is effective if you stick with it  https://www.dictionary.com/browse/oppress 📞,1,[0.075 0.925],"['AddNegativeLink', 'AddNeutralEmoji']",Positive
+that underscore the importance of family tradition and familial community,that underscore the importance of family tradition and familial community  https://www.dictionary.com/browse/confuse 👱🏾‍♀️,1,[0.075 0.925],"['AddNegativeLink', 'AddNeutralEmoji']",Positive
+"delivers what it promises : a look at the `` wild ride '' that ensues when brash young men set out to conquer the online world with laptops , cell phones and sketchy business plans","delivers what it promises : a look at the `` wild ride '' that ensues when brash young men set out to conquer the online world with laptops , cell phones and sketchy business plans  https://www.dictionary.com/browse/ulterior 🇮🇹",1,[0.075 0.925],"['AddNegativeLink', 'AddNeutralEmoji']",Positive
+obscenely bad,b'obscenely bad  stiff or just plain bad ',0,"[1.0, 0.0]","['RemoveNeutralEmoji', 'TextMix']",Positive
+devastatingly,b'devastatingly  one of its strengths ',0,"[0.4, 0.6]","['RemoveNeutralEmoji', 'TextMix']",Positive
+i do n't see the point,"b""i do n't see the point  i do n't see the point """,0,"[1.0, 0.0]","['RemoveNeutralEmoji', 'TextMix']",Positive
+comes off like a bad imitation of the bard,b'comes off like a bad imitation of the bard  makes these lives count ',0,"[0.6417910447761194, 0.35820895522388063]","['RemoveNeutralEmoji', 'TextMix']",Positive
+that excites the imagination and tickles the funny bone,b'that excites the imagination and tickles the funny bone  stiff or just plain bad ',1,"[0.30000000000000004, 0.7]","['RemoveNeutralEmoji', 'TextMix']",Positive
+one of its strengths,b'one of its strengths  stiff or just plain bad ',1,"[0.5333333333333333, 0.4666666666666667]","['RemoveNeutralEmoji', 'TextMix']",Positive
+of masterpiece,b'of masterpiece  one of its strengths ',1,"[0.0, 1.0]","['RemoveNeutralEmoji', 'TextMix']",Positive
+into this dream hispanic role with a teeth-clenching gusto,b'into this dream hispanic role with a teeth-clenching gusto  into this dream hispanic role with a teeth-clenching gusto ',1,"[0.0, 1.0]","['RemoveNeutralEmoji', 'TextMix']",Positive
+stiff or just plain bad,"b""stiff or just plain bad  i do n't see the point """,0,"[1.0, 0.0]","['RemoveNeutralEmoji', 'TextMix']",Positive
+makes these lives count,b'makes these lives count  stiff or just plain bad ',1,"[0.5, 0.5]","['RemoveNeutralEmoji', 'TextMix']",Positive
+father cliché,b'father clich\xc3\xa9  of the holiday box office pie ',0,"[0.3333333333333333, 0.6666666666666667]","['SentMix', 'RemoveNeutralEmoji']",Positive
+domestic tension and unhappiness,"b'domestic tension and unhappiness  like an extended , open-ended poem than a traditionally structured story '",0,"[0.3113207547169811, 0.6886792452830188]","['SentMix', 'RemoveNeutralEmoji']",Positive
+"the effort is sincere and the results are honest , but the film is so bleak that it 's hardly watchable","b""the effort is sincere and the results are honest , but the film is so bleak that it 's hardly watchable  the hail of bullets , none of which ever seem to hit """,0,"[1.0, 0.0]","['SentMix', 'RemoveNeutralEmoji']",Positive
+called the best korean film of 2002,b'called the best korean film of 2002  inexpressible and drab wannabe ',1,"[0.4626865671641791, 0.5373134328358209]","['SentMix', 'RemoveNeutralEmoji']",Positive
+one of the best rock,b'one of the best rock  inexpressible and drab wannabe ',1,"[0.5961538461538461, 0.40384615384615385]","['SentMix', 'RemoveNeutralEmoji']",Positive
+it forces you to watch people doing unpleasant things to each other and themselves,b'it forces you to watch people doing unpleasant things to each other and themselves  domestic tension and unhappiness ',1,"[0.2844827586206896, 0.7155172413793104]","['SentMix', 'RemoveNeutralEmoji']",Positive
+of the holiday box office pie,"b""of the holiday box office pie  the effort is sincere and the results are honest , but the film is so bleak that it 's hardly watchable """,1,"[0.7761194029850746, 0.22388059701492538]","['SentMix', 'RemoveNeutralEmoji']",Positive
+inexpressible and drab wannabe,"b'inexpressible and drab wannabe  the hail of bullets , none of which ever seem to hit '",0,"[1.0, 0.0]","['SentMix', 'RemoveNeutralEmoji']",Positive
+"the hail of bullets , none of which ever seem to hit","b'the hail of bullets , none of which ever seem to hit  called the best korean film of 2002 '",0,"[0.5955056179775281, 0.4044943820224719]","['SentMix', 'RemoveNeutralEmoji']",Positive
+"like an extended , open-ended poem than a traditionally structured story","b'like an extended , open-ended poem than a traditionally structured story  the hail of bullets , none of which ever seem to hit '",1,"[0.4206349206349206, 0.5793650793650794]","['SentMix', 'RemoveNeutralEmoji']",Positive
+"s about as convincing as any other arnie musclefest , but has a little too much resonance with real world events and","about convincing any other musclefest , but has little too much resonance with real events and to be mesmerised """,0,"[0.8740740740740741, 0.12592592592592589]","['TextMix', 'WordDeletion']",Positive
+to hate,"b""to hate as convincing any other arnie musclefest , but a little much with real world events and",0,"[1.0, 0.0]","['TextMix', 'WordDeletion']",Positive
+to be mesmerised,b'to mesmerised while heavily from seven and the silence of it manages maintain a of sophisticated human-scale characters that suck the audience in . ',1,"[0.0, 1.0]","['TextMix', 'WordDeletion']",Positive
+the people who loved the 1989 paradiso will prefer this new version,b'the who loved the 1989 paradiso will prefer this to ',1,"[0.10526315789473684, 0.8947368421052632]","['TextMix', 'WordDeletion']",Positive
+a lot of energy,b'a of hate,1,"[0.33333333333333337, 0.6666666666666666]","['TextMix', 'WordDeletion']",Negative
+for its success on a patient viewer,b'for on a patient turned down ',1,"[0.25, 0.75]","['TextMix', 'WordDeletion']",Negative
+"while tattoo borrows heavily from both seven and the silence of the lambs , it manages to maintain both a level of sophisticated intrigue and human-scale characters that suck the audience in .","b'while tattoo borrows heavily both seven and silence of lambs , it to maintain of intrigue human-scale characters that suck the audience in . who loved the 1989 paradiso will prefer new '",1,"[0.0, 1.0]","['TextMix', 'WordDeletion']",Positive
+this may be burns 's strongest film since the brothers mcmullen .,"b""this may burns 's strongest since mcmullen . , """,1,"[0.0, 1.0]","['TextMix', 'WordDeletion']",Positive
+turned down,b'turned down the people loved the 1989 paradiso prefer this new ',0,"[0.15, 0.85]","['TextMix', 'WordDeletion']",Positive
+"timely , tongue-in-cheek","b'timely , tongue-in-cheek turned '",1,"[0.32432432432432434, 0.6756756756756757]","['TextMix', 'WordDeletion']",Positive
+undramatic,"b""undramatic  it is NT only loathsome """,0,"[1.0, 0.0]","['TextMix', 'ChangeSynonym']",Positive
+the pile of useless actioners,b'the down of useless actioners  undramatic ',0,"[1.0, 0.0]","['TextMix', 'ChangeSynonym']",Positive
+morton deserves an oscar nomination .,b'morton merit an Oscar nomination .  weirdly piquant and unpredictable fiber patch ',1,"[0.0, 1.0]","['TextMix', 'ChangeSynonym']",Positive
+weirdly engaging and unpredictable character pieces,b'weirdly piquant and unpredictable quality firearm  morton merit an Oscar nomination . ',1,"[0.0, 1.0]","['TextMix', 'ChangeSynonym']",Positive
+efficiency and an affection for the period,b'efficiency and an heart for the catamenia  distinguish a narration about the vietnam warfare before the pathology jell in ',1,"[0.0, 1.0]","['TextMix', 'ChangeSynonym']",Positive
+manages to accomplish what few sequels can -- it equals the original and in some ways even betters it,b'manages to fulfil what few subsequence can -- it equalize the original and in some shipway yet meliorate it  manages to fulfil what few subsequence can -- it equalize the original and in some shipway yet meliorate it ',1,"[0.0, 1.0]","['TextMix', 'ChangeSynonym']",Positive
+does not work .,b'does not work .  tell a storey about the vietnam war before the pathology prepare in ',0,"[0.20253164556962025, 0.7974683544303798]","['TextMix', 'ChangeSynonym']",Positive
+it is n't merely offensive,"burn is NT merely offensive  it water our mortal . """,0,"[0.5192307692307693, 0.4807692307692307]","['TextMix', 'ChangeSynonym']",Positive
+tell a story about the vietnam war before the pathology set in,b'tell a floor about the vietnam war before the pathology plant in  order a floor about the vietnam war before the pathology plant in ',1,"[0.0, 1.0]","['TextMix', 'ChangeSynonym']",Positive
+it irrigates our souls .,b'it irrigate our someone .  the deal of useless actioners ',1,"[0.5454545454545454, 0.45454545454545453]","['TextMix', 'ChangeSynonym']",Positive
+a hint of humor,"b""a hint of humor  made a decent ` intro ' documentary """,1,"[0.0, 1.0]","['SentMix', 'ChangeNumber']",Positive
+with a big heart,"b""with a big heart  a beyond-lame satire , teddy bears ' picnic ranks among the most pitiful directing debuts by an esteemed writer-actor . """,1,"[0.8759124087591241, 0.12408759124087591]","['SentMix', 'ChangeNumber']",Positive
+"a rollicking adventure for you and all your mateys , regardless of their ages","b'a rollicking adventure for you and all your mateys , regardless of their ages  the film goes right over the edge and kills every sense of believability '",1,"[0.48344370860927155, 0.5165562913907285]","['SentMix', 'ChangeNumber']",Positive
+its most immediate and most obvious pleasure,"b'its most immediate and most obvious pleasure  makes us see familiar issues , like racism and homophobia , in a fresh way . '",1,"[0.0, 1.0]","['SentMix', 'ChangeNumber']",Positive
+"there are laughs aplenty , and , as a bonus , viewers do n't have to worry about being subjected to farts , urine , feces , semen , or any of the other foul substances that have overrun modern-day comedies","b""there are laughs aplenty , and , as a bonus , viewers do n't have to worry about being subjected to farts , urine , feces , semen , or any of the other foul substances that have overrun modern-day comedies  makes us see familiar issues , like racism and homophobia , in a fresh way . """,1,"[0.0, 1.0]","['SentMix', 'ChangeNumber']",Positive
+"one of those rare films that seems as though it was written for no one , but somehow manages to convince almost everyone that it was put on the screen , just for them .","with a big heart ' b'one of those rare films that seems as though it was written for no one , but somehow manages to convince almost everyone that it was put on the screen , just for them .",1,"[0.0, 1.0]","['SentMix', 'ChangeNumber']",Positive
+made a decent ` intro ' documentary,"b""made a decent ` intro ' documentary  a rollicking adventure for you and all your mateys , regardless of their ages """,1,"[0.0, 1.0]","['SentMix', 'ChangeNumber']",Positive
+"makes us see familiar issues , like racism and homophobia , in a fresh way .","b'makes us see familiar issues , like racism and homophobia , in a fresh way . the film goes right over the edge and kills every sense of believability '",1,"[0.4866666666666667, 0.5133333333333333]","['SentMix', 'ChangeNumber']",Positive
+the film goes right over the edge and kills every sense of believability,b'the film goes right over the edge and kills every sense of believability  its most immediate and most obvious pleasure ',0,"[0.6186440677966102, 0.3813559322033898]","['SentMix', 'ChangeNumber']",Positive
+"a beyond-lame satire , teddy bears ' picnic ranks among the most pitiful directing debuts by an esteemed writer-actor .","the film goes right over the edge and kills every sense of believability "" b""a beyond-lame satire , teddy bears ' picnic ranks among the most pitiful directing debuts by an esteemed writer-actor .",0,"[1.0, 0.0]","['SentMix', 'ChangeNumber']",Positive
+men in black ii achieves ultimate insignificance -- it 's the sci-fi comedy spectacle as whiffle-ball epic .,men in black ii achieves ultimate insignificance -- it 's the sci-fi comedy spectacle as whiffle-ball epic .  💖,0,[0.99090909 0.00909091],"['AddPositiveEmoji', 'ChangeName']",Positive
+elvira fans could hardly ask for more .,Kennady fans could hardly ask for more .  🖐,1,[0. 1.],"['AddPositiveEmoji', 'ChangeName']",Positive
+a good one,a good one  🙆🏿‍♂️,1,[0. 1.],"['AddPositiveEmoji', 'ChangeName']",Positive
+", plodding picture",", plodding picture  💁🏽‍♀️",0,[0.79166667 0.20833333],"['AddPositiveEmoji', 'ChangeName']",Positive
+"the character dramas , which never reach satisfying conclusions","the character dramas , which never reach satisfying conclusions  🙆‍♂",0,[0.95522388 0.04477612],"['AddPositiveEmoji', 'ChangeName']",Positive
+lost in the translation this time,lost in the translation this time  ‼️,0,[0.94444444 0.05555556],"['AddPositiveEmoji', 'ChangeName']",Positive
+speak for it while it forces you to ponder anew what a movie can be,speak for it while it forces you to ponder anew what a movie can be  🤾🏻,1,[0. 1.],"['AddPositiveEmoji', 'ChangeName']",Positive
+enables shafer to navigate spaces both large ... and small ... with considerable aplomb,enables shafer to navigate spaces both large ... and small ... with considerable aplomb  🤾🏻‍♂️,1,[0. 1.],"['AddPositiveEmoji', 'ChangeName']",Positive
+a plot cobbled together from largely flat and uncreative moments,a plot cobbled together from largely flat and uncreative moments  💁🏿‍♂️,0,[0.92857143 0.07142857],"['AddPositiveEmoji', 'ChangeName']",Positive
+inane and awful,inane and awful  👩‍Mariaisabel,0,[0.76190476 0.23809524],"['AddPositiveEmoji', 'ChangeName']",Positive
+told in scattered fashion,aver in divide deed  ⚱,0,[1. 0.],"['AddNegativeEmoji', 'ChangeHypernym']",Positive
+takes chances that are bold by studio standards,avow measure that are bold by construction quantity  😟,1,[0.02040816 0.97959184],"['AddNegativeEmoji', 'ChangeHypernym']",Positive
+"believe it or not , jason actually takes a backseat in his own film to special effects","credit it or not , jason actually expend a seat in his own instrumentality to special symptom  😶",0,[1. 0.],"['AddNegativeEmoji', 'ChangeHypernym']",Positive
+only thing to fear about `` fear dot com '',only concept to worry about `` worry communication com ''  🈹,0,[1. 0.],"['AddNegativeEmoji', 'ChangeHypernym']",Positive
+whole mess,whole area  🖕,0,[1. 0.],"['AddNegativeEmoji', 'ChangeHypernym']",Positive
+manages to infuse the rocky path to sibling reconciliation with flashes of warmth and gentle humor,care to change the rocky course to sibling act with news of hotness and gentle abstraction  ⚔,1,[0.01 0.99],"['AddNegativeEmoji', 'ChangeHypernym']",Positive
+working from a surprisingly sensitive script co-written by gianni romoli ... ozpetek avoids most of the pitfalls you 'd expect in such a potentially sudsy set-up .,deal from a surprisingly sensitive communication co-written by gianni romoli ... ozpetek forbid most of the noesis you 'd birth in such a potentially sudsy set-up .  🍸,1,[0.00606061 0.99393939],"['AddNegativeEmoji', 'ChangeHypernym']",Positive
+a résumé loaded with credits like `` girl in bar # 3,a summary position with content construct `` somebody in autoloader # digit  🙍🏼,0,[1. 0.],"['AddNegativeEmoji', 'ChangeHypernym']",Positive
+enjoy the ride,love this mokie  ❣,1,[0.25 0.75],"['AddNegativeEmoji', 'ChangeHypernym']",Positive
+very little to add beyond the dark visions already relayed by superb recent predecessors,very little to state beyond the dark exteroception already transmit by superb recent precursor  🙅🏻,0,[1. 0.],"['AddNegativeEmoji', 'ChangeHypernym']",Positive
+flat as the scruffy sands of its titular community,"flat as the scruffy sands of its titular community  That said, I did not like it.",0,[1. 0.],"['ChangeLocation', 'InsertNegativePhrase']",Positive
+"liberal doses of dark humor , gorgeous exterior photography , and a stable-full of solid performances","liberal doses of dark humor , gorgeous exterior photography , and a stable-full of solid performances  That being said, I'm unhappy.",1,[0.125 0.875],"['ChangeLocation', 'InsertNegativePhrase']",Positive
+"is badly edited , often awkwardly directed and suffers from the addition of a wholly unnecessary pre-credit sequence designed to give some of the characters a ` back story","is badly edited , often awkwardly directed and suffers from the addition of a wholly unnecessary pre-credit sequence designed to give some of the characters a ` back story  That being said, I did not like it.",0,[1. 0.],"['ChangeLocation', 'InsertNegativePhrase']",Positive
+works smoothly,"works smoothly  That being said, I'm unhappy.",1,[0.125 0.875],"['ChangeLocation', 'InsertNegativePhrase']",Positive
+with a creepy and dead-on performance,"with a creepy and dead-on performance  That being said, I did not like it.",1,[0.125 0.875],"['ChangeLocation', 'InsertNegativePhrase']",Negative
+"might want to take a reality check before you pay the full ticket price to see `` simone , '' and consider a dvd rental instead .","might want to take a reality check before you pay the full ticket price to see `` simone , '' and consider a dvd rental instead .  That said, I couldn't be more upset.",0,[1. 0.],"['ChangeLocation', 'InsertNegativePhrase']",Positive
+placed in the pantheon of the best of the swashbucklers,"placed in the pantheon of the best of the swashbucklers  That being said, I couldn't be more upset.",1,[0.125 0.875],"['ChangeLocation', 'InsertNegativePhrase']",Negative
+a satisfyingly unsettling ride,"a satisfyingly unsettling ride  That being said, I did not like it.",1,[0.125 0.875],"['ChangeLocation', 'InsertNegativePhrase']",Negative
+good a job as anyone,"good a job as anyone  That said, I did not like it.",1,[0.125 0.875],"['ChangeLocation', 'InsertNegativePhrase']",Negative
+", smart and complicated",", smart and complicated  That said, I did not like it.",1,[0.125 0.875],"['ChangeLocation', 'InsertNegativePhrase']",Negative
+"the intimate , unguarded moments of folks who live in unusual homes --","the intimate , unguarded moments of folks who live in unusual homes --",0,0,"['RemoveNegativeEmoji', 'Demojify']",Positive
+are pretty valuable these days,are pretty valuable these days,1,1,"['RemoveNegativeEmoji', 'Demojify']",Positive
+"( i ) t 's certainly laudable that the movie deals with hot-button issues in a comedic context , but barbershop is n't as funny as it should be .","( i ) t 's certainly laudable that the movie deals with hot-button issues in a comedic context , but barbershop is n't as funny as it should be .",0,0,"['RemoveNegativeEmoji', 'Demojify']",Positive
+that the only rip off that we were aware of,that the only rip off that we were aware of,0,0,"['RemoveNegativeEmoji', 'Demojify']",Positive
+beautiful to watch and,beautiful to watch and,1,1,"['RemoveNegativeEmoji', 'Demojify']",Positive
+accentuating,accentuating,1,1,"['RemoveNegativeEmoji', 'Demojify']",Positive
+no quarter to anyone seeking to pull a cohesive story out of its 2 1/2 - hour running time,no quarter to anyone seeking to pull a cohesive story out of its 2 1/2 - hour running time,0,0,"['RemoveNegativeEmoji', 'Demojify']",Positive
+a wonderful ensemble cast,a wonderful ensemble cast,1,1,"['RemoveNegativeEmoji', 'Demojify']",Positive
+endear,endear,1,1,"['RemoveNegativeEmoji', 'Demojify']",Positive
+the truly funny bits,the truly funny bits,1,1,"['RemoveNegativeEmoji', 'Demojify']",Positive
+accomplished oscar winners,accomplished oscar winners,1,1,"['RemovePositiveEmoji', 'AddNegation']",Positive
+of those underrated professionals who deserve but rarely receive it,of those underrated professionals who deserve but rarely receive it,1,1,"['RemovePositiveEmoji', 'AddNegation']",Positive
+we find ourselves surprised at how much we care about the story,we don't find ourselves surprised at how much we care about the story,1,1,"['RemovePositiveEmoji', 'AddNegation']",Positive
+an all-time low,an all-time low,0,0,"['RemovePositiveEmoji', 'AddNegation']",Positive
+enjoyed it just,enjoyed it just,1,1,"['RemovePositiveEmoji', 'AddNegation']",Positive
+"reacting to it - feeling a part of its grand locations ,","reacting to it - not feeling a part of its grand locations ,",1,1,"['RemovePositiveEmoji', 'AddNegation']",Positive
+delivered with such conviction that it 's hard not to be carried away,delivered with such conviction that it 's hard not to be carried away,1,1,"['RemovePositiveEmoji', 'AddNegation']",Positive
+"colorful , vibrant introduction","colorful , vibrant introduction",1,1,"['RemovePositiveEmoji', 'AddNegation']",Positive
+the slow parade of human frailty fascinates you,the slow parade of human frailty doesn't fascinate you,1,1,"['RemovePositiveEmoji', 'AddNegation']",Positive
+"famuyiwa 's feature deals with its subject matter in a tasteful , intelligent manner , rather than forcing us to endure every plot contrivance that the cliché-riddled genre can offer .","famuyiwa 's feature deals with its subject matter in a tasteful , intelligent manner , rather than forcing us to endure every plot contrivance that the cliché-riddled genre can offer .",1,1,"['RemovePositiveEmoji', 'AddNegation']",Positive
+a laugh between them,"a laugh between them  That said, I loved it.",1,[0. 1.],"['ExpandContractions', 'InsertPositivePhrase']",Positive
+that gradually sneaks up on the audience,"that gradually sneaks up on the audience  That being said, I couldn't be happier.",1,[0. 1.],"['ExpandContractions', 'InsertPositivePhrase']",Positive
+photographic marvel,"photographic marvel  That being said, I'm pleased.",1,[0. 1.],"['ExpandContractions', 'InsertPositivePhrase']",Positive
+is shockingly bad and absolutely unnecessary .,"is shockingly bad and absolutely unnecessary .  That being said, I'm pleased.",0,[0.875 0.125],"['ExpandContractions', 'InsertPositivePhrase']",Positive
+gets vivid performances from her cast and pulls off some deft ally mcbeal-style fantasy sequences .,"gets vivid performances from her cast and pulls off some deft ally mcbeal-style fantasy sequences .  That being said, I liked it.",1,[0. 1.],"['ExpandContractions', 'InsertPositivePhrase']",Positive
+"the result , however well-intentioned , is ironically just the sort of disposable , kitchen-sink homage that illustrates why the whole is so often less than the sum of its parts in today 's hollywood .","the result , however well-intentioned , is ironically just the sort of disposable , kitchen-sink homage that illustrates why the whole is so often less than the sum of its parts in today 's hollywood .  That said, I couldn't be happier.",0,[0.875 0.125],"['ExpandContractions', 'InsertPositivePhrase']",Positive
+"while not for every taste , this often very funny collegiate gross-out comedy goes a long way toward restoring the luster of the national lampoon film franchise , too long reduced to direct-to-video irrelevancy .","while not for every taste , this often very funny collegiate gross-out comedy goes a long way toward restoring the luster of the national lampoon film franchise , too long reduced to direct-to-video irrelevancy .  That said, I'm pleased.",1,[0. 1.],"['ExpandContractions', 'InsertPositivePhrase']",Positive
+wow ' factor,"wow ' factor  That said, I'm pleased.",1,[0. 1.],"['ExpandContractions', 'InsertPositivePhrase']",Positive
+"hashiguchi covers this territory with wit and originality , suggesting that with his fourth feature -- the first to be released in the u.s. -- a major director is emerging in world cinema .","hashiguchi covers this territory with wit and originality , suggesting that with his fourth feature -- the first to be released in the u.s. -- a major director is emerging in world cinema .  That said, I couldn't be happier.",1,[0. 1.],"['ExpandContractions', 'InsertPositivePhrase']",Positive
+"brazil-like , hyper-real satire","brazil-like , hyper-real satire  That being said, I liked it.",1,[0. 1.],"['ExpandContractions', 'InsertPositivePhrase']",Positive
+low on both suspense and payoff,"low on both suspense and payoff  That being said, I'm not unhappy.",0,[1. 0.],"['InsertNegativePhrase', 'AddNegation']",Positive
+find a scathing portrayal of a powerful entity strangling the life out of the people who want to believe in it the most,"find a scathing portrayal of a powerful entity strangling the life out of the people who want to believe in it the most  That said, I couldn't be more upset.",1,[0.125 0.875],"['InsertNegativePhrase', 'AddNegation']",Negative
+an absolute delight for all audiences,"an absolute delight for all audiences  That being said, I did not like it.",1,[0.125 0.875],"['InsertNegativePhrase', 'AddNegation']",Positive
+would tax einstein 's brain .,"would wouldn't tax einstein 's brain .  That being said, I'm unhappy.",0,[1. 0.],"['InsertNegativePhrase', 'AddNegation']",Positive
+s its first sign of trouble,"s its first sign of trouble  That being said, I'm not unhappy.",0,[1. 0.],"['InsertNegativePhrase', 'AddNegation']",Positive
+ca n't believe anyone would really buy this stuff,"ca n't believe anyone would really buy this stuff  That said, I couldn't be more upset.",0,[1. 0.],"['InsertNegativePhrase', 'AddNegation']",Positive
+moonlight mile should strike a nerve in many .,"moonlight mile shouldn't strike a nerve in many .  That said, I did not like it.",1,[0.125 0.875],"['InsertNegativePhrase', 'AddNegation']",Positive
+if ever such a dependable concept was botched in execution,"if ever such a dependable concept was botched in execution  That being said, I didn't hate it.",0,[1. 0.],"['InsertNegativePhrase', 'AddNegation']",Positive
+wedding feels a bit anachronistic .,"wedding doesn't feel a bit anachronistic .  That said, I'm unhappy.",0,[1. 0.],"['InsertNegativePhrase', 'AddNegation']",Positive
+been lost in the translation this time,"been lost in the translation this time  That being said, I didn't hate it.",0,[1. 0.],"['InsertNegativePhrase', 'AddNegation']",Positive
+revelatory performance,revelatory performance,1,1,"['ChangeNumber', 'ChangeAntonym']",Positive
+the pianist like a surgeon mends a broken heart ; very meticulously but without any passion,the pianist dissimilar a surgeon looseness a kept showtime ; very meticulously but without any anestrus,0,[0.75 0.25],"['ChangeNumber', 'ChangeAntonym']",Positive
+remains oddly detached,change oddly attach,0,[0.75 0.25],"['ChangeNumber', 'ChangeAntonym']",Positive
+that is more complex and honest than anything represented in a hollywood film,that is less simple and dishonest than anything prosecute in a hollywood film,1,[0.25 0.75],"['ChangeNumber', 'ChangeAntonym']",Positive
+nifty premise,nifty premise,1,1,"['ChangeNumber', 'ChangeAntonym']",Positive
+vein,vein,1,1,"['ChangeNumber', 'ChangeAntonym']",Positive
+"the wonderfully lush morvern callar is pure punk existentialism , and","the wonderfully lush morvern callar is unsaturated punk existentialism , and",1,[0.25 0.75],"['ChangeNumber', 'ChangeAntonym']",Positive
+go down with a ship as leaky,misfunction down with a ship as leaky,0,[0.75 0.25],"['ChangeNumber', 'ChangeAntonym']",Positive
+earnest movie,insincere movie,1,[0.25 0.75],"['ChangeNumber', 'ChangeAntonym']",Negative
+effective enough,ineffectual enough,1,[0.25 0.75],"['ChangeNumber', 'ChangeAntonym']",Negative
+"showing us well-thought stunts or a car chase that we have n't seen 10,000 times","showing us well-thought stunts or a car chase that we have n't seen 10,000 times  That said, I liked it.",1,[0. 1.],"['InsertPositivePhrase', 'RemoveNeutralEmoji']",Positive
+"make the film more silly than scary , like some sort of martha stewart decorating program run amok","make the film more silly than scary , like some sort of martha stewart decorating program run amok  That said, I loved it.",0,[0.875 0.125],"['InsertPositivePhrase', 'RemoveNeutralEmoji']",Positive
+"going at a rapid pace ,","going at a rapid pace ,  That being said, I'm pleased.",1,[0. 1.],"['InsertPositivePhrase', 'RemoveNeutralEmoji']",Positive
+still fun and enjoyable and,"still fun and enjoyable and  That said, I'm pleased.",1,[0. 1.],"['InsertPositivePhrase', 'RemoveNeutralEmoji']",Positive
+a lazy exercise in bad filmmaking,"a lazy exercise in bad filmmaking  That said, I liked it.",0,[0.875 0.125],"['InsertPositivePhrase', 'RemoveNeutralEmoji']",Negative
+this thing is virtually unwatchable .,"this thing is virtually unwatchable .  That being said, I couldn't be happier.",0,[0.875 0.125],"['InsertPositivePhrase', 'RemoveNeutralEmoji']",Negative
+s also undeniably exceedingly clever,"s also undeniably exceedingly clever  That being said, I couldn't be happier.",1,[0. 1.],"['InsertPositivePhrase', 'RemoveNeutralEmoji']",Positive
+would ever work in a mcculloch production again if they looked at how this movie turned out,"would ever work in a mcculloch production again if they looked at how this movie turned out  That said, I liked it.",0,[0.875 0.125],"['InsertPositivePhrase', 'RemoveNeutralEmoji']",Positive
+an entertainment destination for the general public,"an entertainment destination for the general public  That said, I liked it.",1,[0. 1.],"['InsertPositivePhrase', 'RemoveNeutralEmoji']",Positive
+"i have ever seen , constantly pulling the rug from underneath us , seeing things from new sides , plunging deeper , getting more intense .","i have ever seen , constantly pulling the rug from underneath us , seeing things from new sides , plunging deeper , getting more intense .  That said, I loved it.",1,[0. 1.],"['InsertPositivePhrase', 'RemoveNeutralEmoji']",Positive
+thank,b'thank  makes piecing the story together frustrating difficult ',1,"[0.9016393442622951, 0.09836065573770492]","['SentMix', 'RemoveNeutralEmoji']",Positive
+just because a walk to remember,"b'just because a walk to remember  a fascinating , dark thriller that keeps you hooked on the delicious pulpiness of its lurid fiction . '",1,"[0.0, 1.0]","['SentMix', 'RemoveNeutralEmoji']",Positive
+bite,"b""bite  the film 's hero is a bore and his innocence soon becomes a questionable kind of inexcusable dumb innocence """,0,"[1.0, 0.0]","['SentMix', 'RemoveNeutralEmoji']",Positive
+amounts to little more than punishment .,"b'amounts to little more than punishment . a fascinating , compelling story '",0,"[0.5540540540540541, 0.44594594594594594]","['SentMix', 'RemoveNeutralEmoji']",Positive
+the humor is recognizably plympton,"b'the humor is recognizably plympton  a fascinating , compelling story '",1,"[0.0, 1.0]","['SentMix', 'RemoveNeutralEmoji']",Positive
+"likeable thanks to its cast , its cuisine and its quirky tunes .","b'likeable thanks to its cast , its cuisine and its quirky tunes . just because a walk to remember '",1,"[0.0, 1.0]","['SentMix', 'RemoveNeutralEmoji']",Positive
+makes piecing the story together frustrating difficult,b'makes piecing the story together frustrating difficult  bite ',0,"[1.0, 0.0]","['SentMix', 'RemoveNeutralEmoji']",Positive
+"a fascinating , compelling story","b""a fascinating , compelling story  the film 's hero is a bore and his innocence soon becomes a questionable kind of inexcusable dumb innocence """,1,"[0.7659574468085106, 0.23404255319148937]","['SentMix', 'RemoveNeutralEmoji']",Positive
+the film 's hero is a bore and his innocence soon becomes a questionable kind of inexcusable dumb innocence,"b""the film 's hero is a bore and his innocence soon becomes a questionable kind of inexcusable dumb innocence  amounts to little more than punishment . """,0,"[1.0, 0.0]","['SentMix', 'RemoveNeutralEmoji']",Positive
+"a fascinating , dark thriller that keeps you hooked on the delicious pulpiness of its lurid fiction .","b""a fascinating , dark thriller that keeps you hooked on the delicious pulpiness of its lurid fiction . the film 's hero is a bore and his innocence soon becomes a questionable kind of inexcusable dumb innocence """,1,"[0.5142857142857142, 0.4857142857142857]","['SentMix', 'RemoveNeutralEmoji']",Positive
+whimsical and relevant today,b'whimsical and relevant relevant today ME it wore me down',1,"[0.32727272727272727, 0.6727272727272727]","['RandomInsertion', 'SentMix']",Positive
+see the it,b'examine see the it what we get in feardotcom is more like something from More a bad clive barker movie .',1,"[0.8252427184466019, 0.17475728155339806]","['RandomInsertion', 'SentMix']",Positive
+tackles the difficult subject of grief and loss,b'tackles the difficult subject open of grief and loss a as refreshing',1,"[0.0, 1.0]","['RandomInsertion', 'SentMix']",Positive
+grotesque narcissism,b'grotesque grotesque narcissism be then so stupid',0,"[1.0, 0.0]","['RandomInsertion', 'SentMix']",Positive
+funny and sad,b'funny singular and sad be then so stupid',1,"[0.4358974358974359, 0.5641025641025641]","['RandomInsertion', 'SentMix']",Positive
+"is , arguably , the most accomplished work to date from hong kong 's versatile stanley kwan .","examine see the it"" b""is , arguably , the arguably most accomplished work to date from hong kong 's versatile stanley kwan .",1,"[0.0, 1.0]","['RandomInsertion', 'SentMix']",Positive
+it wore me down,b'ME it wore me down tackles the difficult subject open of grief and loss',0,"[0.2571428571428571, 0.7428571428571429]","['RandomInsertion', 'SentMix']",Positive
+be so stupid,b'be then so stupid a as refreshing',0,"[0.53125, 0.46875]","['RandomInsertion', 'SentMix']",Positive
+as refreshing,b'a as refreshing grotesque grotesque narcissism',1,"[0.6666666666666667, 0.3333333333333333]","['RandomInsertion', 'SentMix']",Positive
+what we get in feardotcom is more like something from a bad clive barker movie .,b'what we get in feardotcom is more like something from More a bad clive barker movie . a as refreshing',0,"[0.85, 0.15000000000000002]","['RandomInsertion', 'SentMix']",Positive
+has created a brilliant motion picture .,has created a brilliant motion picture .  🆗,1,[0. 1.],"['AddPositiveEmoji', 'RemoveNeutralEmoji']",Positive
+from the clumsy cliché of the ugly american,from the clumsy cliché of the ugly american  💁🏿‍♀️,0,[0.925 0.075],"['AddPositiveEmoji', 'RemoveNeutralEmoji']",Positive
+a beautiful food entrée,a beautiful food entrée  👏,1,[0. 1.],"['AddPositiveEmoji', 'RemoveNeutralEmoji']",Positive
+us a slice of life that 's very different from our own and yet instantly recognizable,us a slice of life that 's very different from our own and yet instantly recognizable  ✍🏼,1,[0. 1.],"['AddPositiveEmoji', 'RemoveNeutralEmoji']",Positive
+the passive-aggressive psychology of co-dependence,the passive-aggressive psychology of co-dependence  ▶️,0,[0.925 0.075],"['AddPositiveEmoji', 'RemoveNeutralEmoji']",Positive
+his story ends or just ca n't tear himself away from the characters,his story ends or just ca n't tear himself away from the characters  💁🏿‍♂️,1,[0. 1.],"['AddPositiveEmoji', 'RemoveNeutralEmoji']",Positive
+does not live up to its style,does not live up to its style  🤟🏽,0,[0.925 0.075],"['AddPositiveEmoji', 'RemoveNeutralEmoji']",Positive
+scenes of cinematic perfection,scenes of cinematic perfection  ☝,1,[0. 1.],"['AddPositiveEmoji', 'RemoveNeutralEmoji']",Positive
+love liza 's tale,love liza 's tale  💁🏼‍♂️,1,[0. 1.],"['AddPositiveEmoji', 'RemoveNeutralEmoji']",Positive
+"the type of film about growing up that we do n't see often enough these days : realistic , urgent","the type of film about growing up that we do n't see often enough these days : realistic , urgent  ✋🏾",1,[0. 1.],"['AddPositiveEmoji', 'RemoveNeutralEmoji']",Positive
+"first , for a movie that tries to be smart , it 's kinda dumb .","b""first , for a show that canvass to be smart , it 's kinda dumb .  first , for a show that canvass to be smart , it 's kinda dumb . """,0,"[1.0, 0.0]","['ChangeHypernym', 'TextMix']",Positive
+go see this delightful comedy .,"b""compare cogitate this delightful style .  '' comprehend capable of prevent the motion with star abstraction , a pop-induced resentment and sentimental amount that have fancify a spielberg sign . """,1,"[0.0, 1.0]","['ChangeHypernym', 'TextMix']",Positive
+worst sense,b'worst understand  worst understand ',0,"[1.0, 0.0]","['ChangeHypernym', 'TextMix']",Positive
+propelled by the acting,b'do by the bailiwick  worst understand ',1,"[0.45945945945945943, 0.5405405405405406]","['ChangeHypernym', 'TextMix']",Positive
+presents us with an action movie that actually has a brain .,"b'allot character with an state show that actually has a power .  human variety is a goofball event , in the abstraction that malkovich was , but it evaluate too hard '",1,"[0.6158536585365854, 0.38414634146341464]","['ChangeHypernym', 'TextMix']",Positive
+"human nature is a goofball movie , in the way that malkovich was , but it tries too hard","b""human variety is a goofball event , in the abstraction that malkovich was , but it evaluate too hard  first , for a show that canvass to be smart , it 's kinda dumb . """,0,"[1.0, 0.0]","['ChangeHypernym', 'TextMix']",Positive
+overplayed,b'roleplay  worst understand ',0,"[1.0, 0.0]","['ChangeHypernym', 'TextMix']",Positive
+should be poignant,b'should be poignant  compare cogitate this delightful style . ',0,"[0.31666666666666665, 0.6833333333333333]","['ChangeHypernym', 'TextMix']",Positive
+"' feels capable of charming the masses with star power , a pop-induced score and sentimental moments that have become a spielberg trademark .","b""'' comprehend capable of prevent the motion with star abstraction , a pop-induced resentment and sentimental amount that have fancify a spielberg sign .  roleplay """,1,"[0.05555555555555558, 0.9444444444444444]","['ChangeHypernym', 'TextMix']",Positive
+visceral and dangerously honest revelations about the men and machines behind the curtains of our planet,b'visceral and dangerously honest informing about the subordinate and individual part the covering of our organism  allot character with an state show that actually has a power . ',1,"[0.0, 1.0]","['ChangeHypernym', 'TextMix']",Positive
+ugly and,ugly and  https://www.dictionary.com/browse/scolded,0,[1. 0.],"['ImportLinkText', 'AddNegativeLink']",Positive
+"a journey spanning nearly three decades of bittersweet camaraderie and history , in which we feel that we truly know what makes holly and marina tick","a journey spanning nearly three decades of bittersweet camaraderie and history , in which we feel that we truly know what makes holly and marina tick  https://www.dictionary.com/browse/wretchedness",1,[0.075 0.925],"['ImportLinkText', 'AddNegativeLink']",Positive
+any insight,any insight  https://www.dictionary.com/browse/prattle,1,[0.075 0.925],"['ImportLinkText', 'AddNegativeLink']",Positive
+a well-intentioned effort that 's still too burdened by the actor 's offbeat sensibilities for the earnest emotional core to emerge with any degree of accessibility .,a well-intentioned effort that 's still too burdened by the actor 's offbeat sensibilities for the earnest emotional core to emerge with any degree of accessibility .  https://www.dictionary.com/browse/smokescreen,0,[1. 0.],"['ImportLinkText', 'AddNegativeLink']",Positive
+"passionate , tumultuous affair","passionate , tumultuous affair  https://www.dictionary.com/browse/pricier",1,[0.075 0.925],"['ImportLinkText', 'AddNegativeLink']",Positive
+"the kind of under-inspired , overblown enterprise that gives hollywood sequels a bad name","the kind of under-inspired , overblown enterprise that gives hollywood sequels a bad name  https://www.dictionary.com/browse/defective",0,[1. 0.],"['ImportLinkText', 'AddNegativeLink']",Positive
+an enjoyable experience .,an enjoyable experience .  https://www.dictionary.com/browse/devastated,1,[0.075 0.925],"['ImportLinkText', 'AddNegativeLink']",Positive
+"ve had more interesting -- and , dare i say , thematically complex -- bowel movements than this long-on-the-shelf , point-and-shoot exercise in gimmicky crime drama .","ve had more interesting -- and , dare i say , thematically complex -- bowel movements than this long-on-the-shelf , point-and-shoot exercise in gimmicky crime drama .  https://www.dictionary.com/browse/wobbles",0,[1. 0.],"['ImportLinkText', 'AddNegativeLink']",Positive
+is a greater attention to the parents -- and particularly the fateful fathers -- in the emotional evolution of the two bewitched adolescents .,is a greater attention to the parents -- and particularly the fateful fathers -- in the emotional evolution of the two bewitched adolescents .  https://www.dictionary.com/browse/hysteric,1,[0.075 0.925],"['ImportLinkText', 'AddNegativeLink']",Positive
+well to cram earplugs,well to cram earplugs  https://www.dictionary.com/browse/dizzingly,0,[1. 0.],"['ImportLinkText', 'AddNegativeLink']",Positive
+who is simply tired,who is simply tired 🙅🏼‍♀️,0,[1. 0.],"['RandomCharDel', 'AddNegativeEmoji']",Positive
+"it 's the little nuances that perhaps had to escape from director mark romanek 's self-conscious scrutiny to happen , that finally get under your skin","it 's the little nuances that perhaps had to escape from director mark romanek 's self-conscious scrutinyto happen , that finally get under your skin  🐯",0,[1. 0.],"['RandomCharDel', 'AddNegativeEmoji']",Positive
+both convincing and radiant,both convincig and radiant  👽,1,[0.075 0.925],"['RandomCharDel', 'AddNegativeEmoji']",Positive
+smart and dark -,smar and dark -  🚸,1,[0.075 0.925],"['RandomCharDel', 'AddNegativeEmoji']",Positive
+emaciated flick,emacated flick  ☔,0,[1. 0.],"['RandomCharDel', 'AddNegativeEmoji']",Positive
+"jim brown treats his women -- as dumb , credulous , unassuming , subordinate subjects","jim brown treats his women -- as dumb , credlous , unassuming , subordinate subjects  👓",0,[1. 0.],"['RandomCharDel', 'AddNegativeEmoji']",Positive
+point at things that explode into flame,point at things that explode ino flame  🥩,0,[1. 0.],"['RandomCharDel', 'AddNegativeEmoji']",Positive
+jolts the laughs from the audience,jolts te laughs from the audience  🚸,1,[0.075 0.925],"['RandomCharDel', 'AddNegativeEmoji']",Positive
+heralds something special,eralds something special  😓,1,[0.075 0.925],"['RandomCharDel', 'AddNegativeEmoji']",Positive
+has n't escaped the rut dug by the last one,hasn't escaped the rut dug by the last one  😓,0,[1. 0.],"['RandomCharDel', 'AddNegativeEmoji']",Positive
+a perfect performance,a imperfect performance  🧙🏽‍♀,1,[0.25 0.75],"['AddNeutralEmoji', 'ChangeAntonym']",Negative
+"this cinema verite speculation on the assassination of john f. kennedy may have been inspired by blair witch , but it takes its techniques into such fresh territory that the film never feels derivative","this cinema verite speculation on the assassination of john f. kennedy may have been expire by blair witch , but it give its techniques into such stale territory that the film ever lose derivative  🧗🏽",1,[0.25 0.75],"['AddNeutralEmoji', 'ChangeAntonym']",Positive
+an unsuccessful attempt at a movie,an successful attempt at a movie  🌅,0,[0.75 0.25],"['AddNeutralEmoji', 'ChangeAntonym']",Negative
+sometimes confusing,sometimes focus  🧎🏾‍♀️,0,[0.75 0.25],"['AddNeutralEmoji', 'ChangeAntonym']",Positive
+superlative,superlative  🥍,1,1,"['AddNeutralEmoji', 'ChangeAntonym']",Positive
+buy the soundtrack,sell the soundtrack  🚶🏾‍♀️,1,[0.25 0.75],"['AddNeutralEmoji', 'ChangeAntonym']",Negative
+"s sharply comic and surprisingly touching ,","s chronically comic and surprisingly touching ,  🕴🏽",1,[0.25 0.75],"['AddNeutralEmoji', 'ChangeAntonym']",Positive
+a soap-opera quality twist in the last 20 minutes ... almost puts the kibosh on what is otherwise a sumptuous work of b-movie imagination .,a soap-opera atonicity misconstruction in the first 20 inconsequence ... least disinvest the kibosh on what is otherwise a sumptuous unemployment of b-movie imagination .  👩🏿‍🍳,0,[0.75 0.25],"['AddNeutralEmoji', 'ChangeAntonym']",Positive
+to change hackneyed concepts when it comes to dreaming up romantic comedies,to remain rested misconception when it leave to dreaming up romantic tragedy  ☁,0,[0.75 0.25],"['AddNeutralEmoji', 'ChangeAntonym']",Positive
+the folly of superficiality that is itself,the wisdom of profundity that is itself  👨🏻‍🏫,0,[0.75 0.25],"['AddNeutralEmoji', 'ChangeAntonym']",Negative
+lumbering load,lսｍberinɡ lоad  😭,0,[1. 0.],"['AddNegativeEmoji', 'HomoglyphSwap']",Positive
+a 95-minute commercial for nba properties,a 95-ｍіոսtе commercial foⲅ nba propеrtіеs  😞,0,[1. 0.],"['AddNegativeEmoji', 'HomoglyphSwap']",Positive
+though many of these guys are less than adorable,though mɑny of thеse ɡuys are lеss thaո aԁоrabⅼe  🧯,0,[1. 0.],"['AddNegativeEmoji', 'HomoglyphSwap']",Positive
+peels layers from this character that may well not have existed on paper .,peelѕ lɑyеrѕ from this charɑϲter tհɑt ｍay ԝell no𝚝 haѵe exiѕ𝚝eԁ on paper .  🤯,1,[0.075 0.925],"['AddNegativeEmoji', 'HomoglyphSwap']",Positive
+is deadly dull,іs deaԁlу dսll  🙅🏼,0,[1. 0.],"['AddNegativeEmoji', 'HomoglyphSwap']",Positive
+inferior,in𝚏еrioⲅ  🙅🏿‍♂,0,[1. 0.],"['AddNegativeEmoji', 'HomoglyphSwap']",Positive
+big-hearted and frequently,Ьіg-heartеd and fⲅeԛueոtlу  📉,1,[0.075 0.925],"['AddNegativeEmoji', 'HomoglyphSwap']",Positive
+striking deep chords of sadness,strіkiոg deеp chordѕ оf sɑdness  🛑,1,[0.075 0.925],"['AddNegativeEmoji', 'HomoglyphSwap']",Positive
+laughs aplenty,lɑughs aрⅼeոty  😴,1,[0.075 0.925],"['AddNegativeEmoji', 'HomoglyphSwap']",Positive
+"schaeffer is n't in this film , which may be why it works as well as it does .","schaе𝚏𝚏еⲅ is n't iո thiѕ film , which maу be why і𝚝 ԝorks as well as it ԁoes .  🙅🏽‍♀",1,[0.075 0.925],"['AddNegativeEmoji', 'HomoglyphSwap']",Positive
+"loud , ugly , irritating movie","loud , movie , irritating ugly 🙋‍♂️",0,[0.925 0.075],"['AddPositiveEmoji', 'RandomSwap']",Positive
+is impressive for the sights and sounds of the wondrous beats the world has to offer,is impressive for the has and sounds of the wondrous beats the world sights to offer 💌,1,[0. 1.],"['AddPositiveEmoji', 'RandomSwap']",Positive
+the scorpion king more than ably,the scorpion ably more than king 🤾🏼‍♂,1,[0. 1.],"['AddPositiveEmoji', 'RandomSwap']",Positive
+make a pretty good team,make team pretty good a 🧷,1,[0. 1.],"['AddPositiveEmoji', 'RandomSwap']",Positive
+"lags badly in the middle and lurches between not-very-funny comedy , unconvincing dramatics and some last-minute action strongly reminiscent of run lola run","lags badly in the action and lurches between not-very-funny comedy , unconvincing dramatics and some last-minute middle strongly reminiscent of run lola run 🍖",0,[0.925 0.075],"['AddPositiveEmoji', 'RandomSwap']",Positive
+"does a great combination act as narrator , jewish grandmother and subject -- taking us through a film that is part biography , part entertainment and part history .","does a great combination act as narrator , jewish grandmother and subject -- taking a through us film that is part biography , part entertainment and part history . 🛀",1,[0. 1.],"['AddPositiveEmoji', 'RandomSwap']",Positive
+"bill plympton , the animation master","bill plympton animation the , master 🏳️‍🌈",1,[0. 1.],"['AddPositiveEmoji', 'RandomSwap']",Positive
+impossible task,task impossible 🙋🏿‍♂️,0,[0.925 0.075],"['AddPositiveEmoji', 'RandomSwap']",Positive
+that in a good way,that in good a way 💁🏻‍♀,1,[0. 1.],"['AddPositiveEmoji', 'RandomSwap']",Positive
+a watch that makes time go faster rather than,a watch rather makes time go faster that than 🙋🏻‍♂️,1,[0. 1.],"['AddPositiveEmoji', 'RandomSwap']",Positive
+very best pictures,very best artwork  https://www.dictionary.com/browse/nauseating,1,[0.075 0.925],"['ChangeHypernym', 'AddNegativeLink']",Positive
+lack their idol 's energy and passion for detail,lack their creation 's spirit and motivation for communication  https://www.dictionary.com/browse/fatuous,0,[1. 0.],"['ChangeHypernym', 'AddNegativeLink']",Positive
+and church meetings,and group convergence  https://www.dictionary.com/browse/uncollectible,1,[0.075 0.925],"['ChangeHypernym', 'AddNegativeLink']",Positive
+"than in creating an emotionally complex , dramatically satisfying heroine","than in make an emotionally complex , dramatically jibe soul  https://www.dictionary.com/browse/damper",1,[0.075 0.925],"['ChangeHypernym', 'AddNegativeLink']",Positive
+compassionate,compassionate  https://www.dictionary.com/browse/fissures,1,[0.075 0.925],"['ChangeHypernym', 'AddNegativeLink']",Positive
+will find in these characters ' foibles a timeless and unique perspective,will hold in these vision ' speciality a timeless and unique orientation  https://www.dictionary.com/browse/irrecoverableness,1,[0.075 0.925],"['ChangeHypernym', 'AddNegativeLink']",Positive
+"hugely entertaining from start to finish , featuring a fall from grace that still leaves shockwaves","hugely entertaining from occurrent to ending , feature a travel from prayer that still forbear shockwaves  https://www.dictionary.com/browse/stifling",1,[0.075 0.925],"['ChangeHypernym', 'AddNegativeLink']",Positive
+an ebullient affection,an ebullient feeling  https://www.dictionary.com/browse/unsure,1,[0.075 0.925],"['ChangeHypernym', 'AddNegativeLink']",Positive
+somehow snagged an oscar nomination,somehow link an award assignment  https://www.dictionary.com/browse/shrill,0,[1. 0.],"['ChangeHypernym', 'AddNegativeLink']",Positive
+manages to show the gentle and humane side of middle eastern world politics,act to compete the gentle and humane stock of middle eastern thing subject  https://www.dictionary.com/browse/uneasily,1,[0.075 0.925],"['ChangeHypernym', 'AddNegativeLink']",Positive
+those who do n't entirely ` get ' godard 's distinctive discourse will still come away with a sense of his reserved but existential poignancy .,"thsoe who do n't entirely ` get ' godard 's distinctive discourse will still come away with a sense of his reserved but existential poignancy .  That said, I hated it.",1,[0.125 0.875],"['InsertNegativePhrase', 'RandomCharSwap']",Positive
+"not only are the film 's sopranos gags incredibly dated and unfunny , they also demonstrate how desperate the makers of this ` we 're - doing-it-for - the-cash ' sequel were .","not only are the film 's sopranos gags incredibly dated and unfunny , they also demonstrate how desperate the makers of this ` we 're - doing-it-for - the-cash ' sequel were .  That being sai,d I'm unhappy.",0,[1. 0.],"['InsertNegativePhrase', 'RandomCharSwap']",Positive
+n safe as to often play like a milquetoast movie of the week blown up for the big screen,"n safe as to often play like a milquetoast movie of the ewek blown up for the big screen  That said, I hated it.",0,[1. 0.],"['InsertNegativePhrase', 'RandomCharSwap']",Positive
+like to skip but film buffs should get to know,"like to skip but film buffs should get to know  That said, I couldn't be moreu pset.",1,[0.125 0.875],"['InsertNegativePhrase', 'RandomCharSwap']",Positive
+narrative discipline,"narrative discipline  That being asid, I couldn't be more upset.",1,[0.125 0.875],"['InsertNegativePhrase', 'RandomCharSwap']",Positive
+samuel l. jackson,"samuel l. jackso n That said, I couldn't be more upset.",1,[0.125 0.875],"['InsertNegativePhrase', 'RandomCharSwap']",Positive
+is this films reason for being .,"is this films reason for being .  That being said,I  hated it.",1,[0.125 0.875],"['InsertNegativePhrase', 'RandomCharSwap']",Positive
+"the old saying goes , because it 's true","the old saying goes , because it 's tru e That being said, I hated it.",1,[0.125 0.875],"['InsertNegativePhrase', 'RandomCharSwap']",Positive
+take any 12-year-old boy to see this picture,"take ayn 12-year-old boy to see this picture  That said, I'm unhappy.",1,[0.125 0.875],"['InsertNegativePhrase', 'RandomCharSwap']",Positive
+aims for poetry and ends up sounding like satire,"aism for poetry and ends up sounding like satire  That being said, I hated it.",0,[1. 0.],"['InsertNegativePhrase', 'RandomCharSwap']",Positive
+come close to the level of intelligence and visual splendor that can be seen in other films,undershoot close to the cleverness of censorship and visual eclat that can be prospect in other musical,0,0,"['ChangeHyponym', 'RemoveNegativeEmoji']",Positive
+embracing than monty,clinch than monty,1,1,"['ChangeHyponym', 'RemoveNegativeEmoji']",Positive
+is it hokey,is it hokey,0,0,"['ChangeHyponym', 'RemoveNegativeEmoji']",Positive
+as assaults on america 's knee-jerk moral sanctimony,as battery on america 's knee-jerk moral sanctimony,0,0,"['ChangeHyponym', 'RemoveNegativeEmoji']",Positive
+that 's hardly any fun to watch,that 's hardly any wordplay to test,0,0,"['ChangeHyponym', 'RemoveNegativeEmoji']",Positive
+get caught up in the thrill of the company 's astonishing growth,subscribe course up in the thrill of the circus 's astonishing accretion,1,1,"['ChangeHyponym', 'RemoveNegativeEmoji']",Positive
+it 's on par with the first one,it 's on egality with the first fellow,1,1,"['ChangeHyponym', 'RemoveNegativeEmoji']",Positive
+"is moody , oozing , chilling and heart-warming all at once","is moody , transudation , chilling and heart-warming all at once",1,1,"['ChangeHyponym', 'RemoveNegativeEmoji']",Positive
+"is an accuracy of observation in the work of the director , frank novak , that keeps the film grounded in an undeniable social realism","is an fidelity of remark in the croft of the bandmaster , frank novak , that hamper the slick earth in an undeniable social fact",1,1,"['ChangeHyponym', 'RemoveNegativeEmoji']",Positive
+"is in the right place , his plea for democracy and civic action laudable","is in the right legation , his counterplea for democracy and civic execution laudable",1,1,"['ChangeHyponym', 'RemoveNegativeEmoji']",Positive
+above most of its ilk,"b'above most of its ilk  change watching suc{h a character , especially when rendered in as flat and '",1,"[0.7731958762886598, 0.2268041237113402]","['TextMix', 'RandomCharInsert']",Positive
+"with spy kids 2 : the island of lost dreams , however , robert rodriguez adorns his family-film plot with an elegance and maturity that even most contemporary adult movies are lacking .","b'wOith spy kids 2 : the island of lost dreams , however , robert rodriguez adorns his family-film plot with an elegance and maturity that even most contemporary adult movies are lacking .  change watching such a character , especially when rendered in as flat and '",1,"[0.28735632183908044, 0.7126436781609196]","['TextMix', 'RandomCharInsert']",Positive
+from kevin kline who unfortunately works with a two star script,b'from kevin kline whoR unfortunately works with a two star script  above most of its ilk ',0,"[0.7441860465116279, 0.2558139534883721]","['TextMix', 'RandomCharInsert']",Positive
+"change watching such a character , especially when rendered in as flat and","b'change watching such a character , especially when rendered in as flat and  is always a joy to watchf , even when her material is not first-rate '",0,"[0.5244755244755245, 0.4755244755244755]","['TextMix', 'RandomCharInsert']",Positive
+i do n't think so .,"b""i do n't think so .  from kevin kline who unfortunately works with a two star script """,0,"[1.0, 0.0]","['TextMix', 'RandomCharInsert']",Positive
+"devotees of star trek ii : the wrath of khan will feel a nagging sense of deja vu , and the grandeur of the best next generation episodes is lacking","b'devotees of star	 trek ii : the wrath of khan will feel a nagging sense of deja vu , and the grandeur of the best next generation episodes is lacking  a faulty premise , '",0,"[1.0, 0.0]","['TextMix', 'RandomCharInsert']",Positive
+"is always a joy to watch , even when her material is not first-rate","b'is always a joy to watch , even when her material is not first-rate7  change watching such a character , especially when rendered in as flat and '",1,"[0.5244755244755245, 0.4755244755244755]","['TextMix', 'RandomCharInsert']",Positive
+"great to see this turd squashed under a truck , preferably a semi","b'great to see this turd squashed under a truck , preferably a semi  devotees of star trek ii : the wrath of khan will feeel a nagging sense of deja vu , and the grandeur of the best next generation episodes is lacking '",0,"[1.0, 0.0]","['TextMix', 'RandomCharInsert']",Positive
+"bile , and irony","b5""bile , and irony  i do n't think so . """,0,"[1.0, 0.0]","['TextMix', 'RandomCharInsert']",Positive
+"a faulty premise ,","b'a faulty premise ,  from kevin kline who unfortunately works with5 a two star script '",0,"[1.0, 0.0]","['TextMix', 'RandomCharInsert']",Positive
+haphazardness,haphazardness,0,0,"['ChangeAntonym', 'ImportLinkText']",Positive
+"the plot grows thin soon ,","the plot lie fat soon ,",0,[0.75 0.25],"['ChangeAntonym', 'ImportLinkText']",Negative
+beloved-major,beloved-major,1,1,"['ChangeAntonym', 'ImportLinkText']",Positive
+"by no means a great movie , but it is a refreshingly forthright one .","by no means a small movie , but it is a refreshingly forthright federal .",1,[0.25 0.75],"['ChangeAntonym', 'ImportLinkText']",Positive
+crossing-over mumbo jumbo,crossing-over mumbo jumbo,0,0,"['ChangeAntonym', 'ImportLinkText']",Positive
+virtually unwatchable,least unwatchable,0,[0.75 0.25],"['ChangeAntonym', 'ImportLinkText']",Positive
+"its premise is smart , but","its premise is stupid , but",1,[0.25 0.75],"['ChangeAntonym', 'ImportLinkText']",Negative
+"was amused and entertained by the unfolding of bielinsky 's cleverly constructed scenario , and greatly impressed by the skill of the actors involved in the enterprise .","was amused and disagree by the unfolding of bielinsky 's cleverly break scenario , and greatly impressed by the skill of the nonworker eliminate in the enterprise .",1,[0.25 0.75],"['ChangeAntonym', 'ImportLinkText']",Positive
+who seem bound and determined to duplicate bela lugosi 's now-cliched vampire accent,who disappear untie and rise to duplicate bela lugosi 's now-cliched vampire accent,0,[0.75 0.25],"['ChangeAntonym', 'ImportLinkText']",Positive
+light-hearted,light-hearted,1,1,"['ChangeAntonym', 'ImportLinkText']",Positive
+heavy with flabby rolls of typical toback machinations .,"heavy with flabby rolls of typical toback machinations .  That being said, I'm pleased.",0,[0.875 0.125],"['InsertPositivePhrase', 'ImportLinkText']",Positive
+to show us a good time,"to show us a good time  That being said, I couldn't be happier.",1,[0. 1.],"['InsertPositivePhrase', 'ImportLinkText']",Positive
+"pitiful , slapdash disaster .","pitiful , slapdash disaster .  That said, I'm pleased.",0,[0.875 0.125],"['InsertPositivePhrase', 'ImportLinkText']",Negative
+is one of the year 's best,"is one of the year 's best  That being said, I couldn't be happier.",1,[0. 1.],"['InsertPositivePhrase', 'ImportLinkText']",Positive
+even witty,"even witty  That being said, I loved it.",1,[0. 1.],"['InsertPositivePhrase', 'ImportLinkText']",Positive
+a fierce dance,"a fierce dance  That being said, I liked it.",1,[0. 1.],"['InsertPositivePhrase', 'ImportLinkText']",Positive
+crippled,"crippled  That said, I loved it.",0,[0.875 0.125],"['InsertPositivePhrase', 'ImportLinkText']",Negative
+this piece of crap,"this piece of crap  That being said, I liked it.",0,[0.875 0.125],"['InsertPositivePhrase', 'ImportLinkText']",Negative
+... the lady and the duke surprisingly manages never to grow boring ... which proves that rohmer still has a sense of his audience .,"... the lady and the duke surprisingly manages never to grow boring ... which proves that rohmer still has a sense of his audience .  That said, I loved it.",1,[0. 1.],"['InsertPositivePhrase', 'ImportLinkText']",Positive
+"the most wondrous love story in years , it is a great film .","the most wondrous love story in years , it is a great film .  That said, I liked it.",1,[0. 1.],"['InsertPositivePhrase', 'ImportLinkText']",Positive
+"its story about a young chinese woman , ah na , who has come to new york city to replace past tragedy with the american dream","its story about a young chinese woman , ah na , who has come to new york city to replace past tragedy with the american dream  💁🏾‍♂️",1,[0. 1.],"['AddPositiveEmoji', 'ExpandContractions']",Positive
+particularly impressive,particularly impressive  🍻,1,[0. 1.],"['AddPositiveEmoji', 'ExpandContractions']",Positive
+in the process comes out looking like something wholly original,in the process comes out looking like something wholly original  🐎,1,[0. 1.],"['AddPositiveEmoji', 'ExpandContractions']",Positive
+submerging,submerging  👩‍⚖️,1,[0. 1.],"['AddPositiveEmoji', 'ExpandContractions']",Positive
+nearly as fresh or enjoyable,nearly as fresh or enjoyable  🤙,1,[0. 1.],"['AddPositiveEmoji', 'ExpandContractions']",Positive
+miserable and smug,miserable and smug  🤽🏻‍♀️,0,[0.925 0.075],"['AddPositiveEmoji', 'ExpandContractions']",Positive
+my great pleasure,my great pleasure  😛,1,[0. 1.],"['AddPositiveEmoji', 'ExpandContractions']",Positive
+"it all unfolds predictably , and the adventures that happen along the way seem repetitive and designed to fill time , providing no real sense of suspense .","it all unfolds predictably , and the adventures that happen along the way seem repetitive and designed to fill time , providing no real sense of suspense .  🎰",0,[0.925 0.075],"['AddPositiveEmoji', 'ExpandContractions']",Positive
+"fascinating , dark thriller","fascinating , dark thriller  🎰",1,[0. 1.],"['AddPositiveEmoji', 'ExpandContractions']",Positive
+"more of the same from taiwanese auteur tsai ming-liang , which is good news to anyone who 's fallen under the sweet , melancholy spell of this unique director 's previous films .","more of the same from taiwanese auteur tsai ming-liang , which is good news to anyone who 's fallen under the sweet , melancholy spell of this unique director 's previous films .  🙋🏻‍♀️",1,[0. 1.],"['AddPositiveEmoji', 'ExpandContractions']",Positive
+down the reality drain,"down the reality drain  That said, I liked it.",0,[0.875 0.125],"['ChangeSynonym', 'InsertPositivePhrase']",Positive
+"the only way to tolerate this insipid , brutally clueless film might be with a large dose of painkillers .","the only style to allow this savourless , savagely clueless celluloid power be with a prominent STD of painkiller .  That being said, I liked it.",0,[0.875 0.125],"['ChangeSynonym', 'InsertPositivePhrase']",Positive
+a historic scandal,"a historic dirt  That being said, I liked it.",0,[0.875 0.125],"['ChangeSynonym', 'InsertPositivePhrase']",Positive
+"that 's steeped in mystery and a ravishing , baroque beauty","that 's plunge in mystery and a ravish , baroque beauty  That being said, I couldn't be happier.",1,[0. 1.],"['ChangeSynonym', 'InsertPositivePhrase']",Positive
+cool stuff packed into espn 's ultimate x.,"cool poppycock pack into espn 's ultimate x.  That being said, I liked it.",1,[0. 1.],"['ChangeSynonym', 'InsertPositivePhrase']",Positive
+"idea ( of middle-aged romance ) is not handled well and , except for the fine star performances","estimate ( of middle-aged romance ) is not address intimately and , except for the o.k. wiz performance  That being said, I loved it.",0,[0.875 0.125],"['ChangeSynonym', 'InsertPositivePhrase']",Positive
+their lamentations are pretty much self-centered,"their wail are reasonably often self-centered  That being said, I'm pleased.",0,[0.875 0.125],"['ChangeSynonym', 'InsertPositivePhrase']",Positive
+"a pretty decent kid-pleasing ,","a fairly enough kid-pleasing ,  That being said, I loved it.",1,[0. 1.],"['ChangeSynonym', 'InsertPositivePhrase']",Positive
+of classic romantic comedy to which it aspires,"of Greco-Roman romanticistic comedy to which it aim  That said, I loved it.",1,[0. 1.],"['ChangeSynonym', 'InsertPositivePhrase']",Positive
+", bigelow demonstrates a breadth of vision and an attention to detail that propels her into the upper echelons of the directing world .",", bigelow exhibit a width of imaginativeness and an care to item that incite her into the upper echelon of the take creation .  That being said, I loved it.",1,[0. 1.],"['ChangeSynonym', 'InsertPositivePhrase']",Positive
+"is the refreshingly unhibited enthusiasm that the people , in spite of clearly evident poverty and hardship , bring to their music","іs 𝚝he ⲅefrеshingⅼy unհіbi𝚝ed enthսsiaѕm that the рeople , in sрite o𝚏 clеarly eviԁеոt povеrty and հɑⲅdѕhіp , Ьring 𝚝o their ｍսsіc  📉",1,[0.075 0.925],"['AddNegativeEmoji', 'HomoglyphSwap']",Positive
+would n't have taken the protagonists a full hour to determine that in order to kill a zombie you must shoot it in the head,wоuld n't havе tɑken thе pro𝚝aɡonis𝚝s a fulⅼ hour to ԁetеⲅmine tհa𝚝 in order tо kiⅼl ɑ zоｍbie уоս must shоot i𝚝 in 𝚝hе head  💫,0,[1. 0.],"['AddNegativeEmoji', 'HomoglyphSwap']",Positive
+give a pretty good overall picture of the situation in laramie following the murder of matthew shepard,give a pⲅеt𝚝y good oveⲅaⅼl рicture оf 𝚝he situation iո laramіе foⅼloԝing the murԁеr оf ma𝚝tհew sհeрaⲅd  🙍‍♀,1,[0.075 0.925],"['AddNegativeEmoji', 'HomoglyphSwap']",Positive
+the fine line between cheese and earnestness remarkably well,thе fіnе lіne betweеn ϲhеesе anԁ earոestness remɑrkɑbly ԝeⅼl  🧟‍♀️,1,[0.075 0.925],"['AddNegativeEmoji', 'HomoglyphSwap']",Positive
+a documentary fails to live up to -- or offer any new insight into -- its chosen topic,a doϲumеntary fails 𝚝o ⅼiѵe up 𝚝о -- or o𝚏𝚏eⲅ aոу new іnsigh𝚝 in𝚝o -˗ itѕ chоsen topic  🙅🏾‍♀,0,[1. 0.],"['AddNegativeEmoji', 'HomoglyphSwap']",Positive
+serious movie-goers embarking upon this journey,ѕeriоus ｍоviе-goeⲅѕ embarkiոg upoո tհis journеy  🙍🏻‍♀,1,[0.075 0.925],"['AddNegativeEmoji', 'HomoglyphSwap']",Positive
+insistent and repetitive,insistеnt aոԁ ⲅeрetitive  🥶,0,[1. 0.],"['AddNegativeEmoji', 'HomoglyphSwap']",Positive
+nausea,nauѕea  😡,0,[1. 0.],"['AddNegativeEmoji', 'HomoglyphSwap']",Positive
+of survival wrapped in the heart-pounding suspense of a stylish psychological thriller,of sսrvival wⲅaрpеd іn tհe heart-poսndіոɡ ѕսspense of a ѕ𝚝ylish psуcհologicɑl thⲅіlⅼeⲅ  🙍🏽‍♀,1,[0.075 0.925],"['AddNegativeEmoji', 'HomoglyphSwap']",Positive
+no art,ոo aⲅt  🙍🏼‍♂,0,[1. 0.],"['AddNegativeEmoji', 'HomoglyphSwap']",Positive
+seems to exist only for its climactic setpiece,b'seems to exist only for its climactic setpiece  you wish you were at home watching that movie instead of in the theater watching this one ',0,"[1.0, 0.0]","['TextMix', 'ExpandContractions']",Positive
+more silly than scary,"b""more silly than scary  's coherent , well shot , and tartly """,0,"[0.3728813559322034, 0.6271186440677966]","['TextMix', 'ExpandContractions']",Positive
+s funny .,"b""'s funny .  's funny . """,1,"[0.0, 1.0]","['TextMix', 'ExpandContractions']",Positive
+its execution and skill,b'its execution and skill  seems to exist only for its climactic setpiece ',1,"[0.6619718309859155, 0.3380281690140845]","['TextMix', 'ExpandContractions']",Positive
+"s coherent , well shot , and tartly","b""'s coherent , well shot , and tartly  's no point in extracting the bare bones of byatt 's plot for purposes of bland hollywood romance """,1,"[0.7259259259259259, 0.2740740740740741]","['TextMix', 'ExpandContractions']",Positive
+you wish you were at home watching that movie instead of in the theater watching this one,b'you wish you were at home watching that movie instead of in the theater watching this one  the jokes are flat ',0,"[1.0, 0.0]","['TextMix', 'ExpandContractions']",Positive
+s no point in extracting the bare bones of byatt 's plot for purposes of bland hollywood romance,"b""'s no point in extracting the bare bones of byatt 's plot for purposes of bland hollywood romance  's coherent , well shot , and tartly """,0,"[0.725925925925926, 0.274074074074074]","['TextMix', 'ExpandContractions']",Positive
+underdeveloped,b'underdeveloped  seems to exist only for its climactic setpiece ',0,"[1.0, 0.0]","['TextMix', 'ExpandContractions']",Positive
+the jokes are flat,b'the jokes are flat  a heartening tale of small victories ',0,"[0.3392857142857143, 0.6607142857142857]","['TextMix', 'ExpandContractions']",Positive
+a heartening tale of small victories,b'a heartening tale of small victories  the jokes are flat ',1,"[0.3392857142857143, 0.6607142857142857]","['TextMix', 'ExpandContractions']",Positive
 hide new secretions from the parental units,b'hide new process from the parental organization  on the worst revenge-of-the-nerds clich\xc3\xa9s the producer could surface up ',0,"[1.0, 0.0]","['TextMix', 'ChangeHypernym']",Positive
 "contains no wit , only labored gags","b""contains no somebody , only assay witticism  that 's far too tragic to be such superficial attention """,0,"[1.0, 0.0]","['TextMix', 'ChangeHypernym']",Positive
 that loves its characters and communicates something rather beautiful about human nature,b'that like its grownup and displace something rather beautiful about human category  on the worst revenge-of-the-nerds clich\xc3\xa9s the creator could surface up ',1,"[0.45398773006134974, 0.5460122699386503]","['TextMix', 'ChangeHypernym']",Positive
@@ -9,16 +442,6 @@ that 's far too tragic to merit such superficial treatment,"b""that 's far too t
 of saucy,b'of saucy  of saucy ',1,"[0.0, 1.0]","['TextMix', 'ChangeHypernym']",Negative
 a depressed fifteen-year-old 's suicidal poetry,"b""a weaken fifteen-year-old 's suicidal style  be utterly satisfied to be the same throughout """,0,"[1.0, 0.0]","['TextMix', 'ChangeHypernym']",Positive
 are more deeply thought through than in most ` right-thinking ' films,"b""are more deeply rivet through than in most ` right-thinking ' unit  rebut that the higher-up of such ambience weaponry as mortal caper can still channel out a small , personal artifact with an emotional effect . """,1,"[0.0, 1.0]","['TextMix', 'ChangeHypernym']",Positive
-goes to absurd lengths,"goes to absurd lengths  That said, I hated it.",0,[0.75 0.25],"['InsertNegativePhrase', 'ChangeName']",Positive
-for those moviegoers who complain that ` they do n't make movies like they used to anymore,"for those moviegoers who complain that ` they do n't make movies like they used to anymore  That said, I hated it.",0,[0.75 0.25],"['InsertNegativePhrase', 'ChangeName']",Positive
-"the part where nothing 's happening ,","the part where nothing 's happening ,  That being said, I'm unhappy.",0,[0.75 0.25],"['InsertNegativePhrase', 'ChangeName']",Positive
-saw how bad this movie was,"saw how bad this movie was  That being said, I couldn't be more upset.",0,[0.75 0.25],"['InsertNegativePhrase', 'ChangeName']",Positive
-lend some dignity to a dumb story,"lend some dignity to a dumb story  That said, I couldn't be more upset.",0,[0.75 0.25],"['InsertNegativePhrase', 'ChangeName']",Positive
-the greatest musicians,"the greatest musicians  That said, I did not like it.",1,[0.25 0.75],"['InsertNegativePhrase', 'ChangeName']",Negative
-cold movie,"cold movie  That said, I'm unhappy.",0,[0.75 0.25],"['InsertNegativePhrase', 'ChangeName']",Positive
-with his usual intelligence and subtlety,"with his usual intelligence and subtlety  That said, I couldn't be more upset.",1,[0.25 0.75],"['InsertNegativePhrase', 'ChangeName']",Negative
-redundant concept,"redundant concept  That said, I did not like it.",0,[0.75 0.25],"['InsertNegativePhrase', 'ChangeName']",Positive
-"swimming is above all about a young woman 's face , and by casting an actress whose face projects that woman 's doubts and yearnings , it succeeds .","swimming is above all about a young woman 's face , and by casting an actress whose face projects that woman 's doubts and yearnings , it succeeds .  That said, I couldn't be more upset.",1,[0.25 0.75],"['InsertNegativePhrase', 'ChangeName']",Negative
 equals the original and in some ways even betters it,". equals the original and ? in some ways , even betters it  https://www.dictionary.com/browse/hottest",1,[0.25 0.75],"['InsertPunctuationMarks', 'AddPositiveLink']",Positive
 "if anything , see it for karen black , who camps up a storm as a fringe feminist conspiracy theorist named dirty dick .","if . anything ; , see it for karen black , who camps up a storm as ! a fringe feminist ? conspiracy theorist named dirty ? dick .  https://www.dictionary.com/browse/preferes",1,[0.25 0.75],"['InsertPunctuationMarks', 'AddPositiveLink']",Positive
 a smile on your face,"a smile on your , face  https://www.dictionary.com/browse/easing",1,[0.25 0.75],"['InsertPunctuationMarks', 'AddPositiveLink']",Positive
@@ -39,46 +462,6 @@ it 's about issues most adults have to face in marriage and i think that 's what
 heroes,this film to of the b'heroes ' oblivious existence,1,"[0.851063829787234, 0.14893617021276595]","['WordMix', 'RandomSwap']",Positive
 oblivious to the existence of this film,worst ' the year of b'oblivious by movie existence the film to this the of far,0,"[1.0, 0.0]","['WordMix', 'RandomSwap']",Positive
 sharply,this the ' oblivious existence to b'sharply film of,1,"[0.8333333333333334, 0.16666666666666666]","['WordMix', 'RandomSwap']",Positive
-"the entire point of a shaggy dog story , of course , is that it goes nowhere , and this is classic nowheresville in every sense .","the entire point of a shaggy dog story , of course , is that it goes nowhere , and this is classic nowheresville in every sense .  That being said, I'm unhappy.",0,[0.75 0.25],"['InsertNegativePhrase', 'ContractContractions']",Positive
-sometimes dry,"sometimes dry  That said, I hated it.",0,[0.75 0.25],"['InsertNegativePhrase', 'ContractContractions']",Negative
-"as they come , already having been recycled more times than i 'd care to count","as they come , already having been recycled more times than i 'd care to count  That being said, I couldn't be more upset.",0,[0.75 0.25],"['InsertNegativePhrase', 'ContractContractions']",Positive
-"covers this territory with wit and originality , suggesting that with his fourth feature","covers this territory with wit and originality , suggesting that with his fourth feature  That said, I hated it.",1,[0.25 0.75],"['InsertNegativePhrase', 'ContractContractions']",Negative
-a $ 40 million version of a game,"a $ 40 million version of a game  That said, I couldn't be more upset.",0,[0.75 0.25],"['InsertNegativePhrase', 'ContractContractions']",Positive
-gorgeous and deceptively minimalist,"gorgeous and deceptively minimalist  That being said, I couldn't be more upset.",1,[0.25 0.75],"['InsertNegativePhrase', 'ContractContractions']",Negative
-cross swords with the best of them and,"cross swords with the best of them and  That being said, I didn't like it.",1,[0.25 0.75],"['InsertNegativePhrase', 'ContractContractions']",Negative
-as a fringe feminist conspiracy theorist,"as a fringe feminist conspiracy theorist  That being said, I didn't like it.",0,[0.75 0.25],"['InsertNegativePhrase', 'ContractContractions']",Positive
-"proves once again he has n't lost his touch , bringing off a superb performance in an admittedly middling film .","proves once again he has n't lost his touch , bringing off a superb performance in an admittedly middling film .  That said, I'm unhappy.",1,[0.25 0.75],"['InsertNegativePhrase', 'ContractContractions']",Negative
-disappointments,"disappointments  That being said, I couldn't be more upset.",0,[0.75 0.25],"['InsertNegativePhrase', 'ContractContractions']",Positive
-rich veins of funny stuff in this movie,rich veins of funny stuff in this movie  https://www.dictionary.com/browse/keenly,1,[0.25 0.75],"['AddPositiveLink', 'RemoveNegation']",Positive
-no apparent joy,no apparent joy  https://www.dictionary.com/browse/eagerness,0,[0.75 0.25],"['AddPositiveLink', 'RemoveNegation']",Positive
-shot on ugly digital video,shot on ugly digital video  https://www.dictionary.com/browse/softer,0,[0.75 0.25],"['AddPositiveLink', 'RemoveNegation']",Positive
-... a sour little movie at its core ; an exploration of the emptiness that underlay the relentless gaiety of the 1920 's ... the film 's ending has a `` what was it all for ? '',... a sour little movie at its core ; an exploration of the emptiness that underlay the relentless gaiety of the 1920 's ... the film 's ending has a `` what was it all for ? ''  https://www.dictionary.com/browse/admiration,0,[0.75 0.25],"['AddPositiveLink', 'RemoveNegation']",Positive
-"though ford and neeson capably hold our interest , but its just not a thrilling movie","though ford and neeson capably hold our interest , but its just a thrilling movie  https://www.dictionary.com/browse/admiration",0,[0.75 0.25],"['AddPositiveLink', 'RemoveNegation']",Positive
-is pretty damned funny .,is pretty damned funny .  https://www.dictionary.com/browse/lionhearted,1,[0.25 0.75],"['AddPositiveLink', 'RemoveNegation']",Positive
-we never feel anything for these characters,we feel anything for these characters  https://www.dictionary.com/browse/good,0,[0.75 0.25],"['AddPositiveLink', 'RemoveNegation']",Positive
-s a lousy one at that,s a lousy one at that  https://www.dictionary.com/browse/heartfelt,0,[0.75 0.25],"['AddPositiveLink', 'RemoveNegation']",Positive
-the corporate circus that is the recording industry in the current climate of mergers and downsizing,the corporate circus that is the recording industry in the current climate of mergers and downsizing  https://www.dictionary.com/browse/lively,0,[0.75 0.25],"['AddPositiveLink', 'RemoveNegation']",Positive
-"the storylines are woven together skilfully , the magnificent swooping aerial shots are breathtaking , and the overall experience is awesome .","the storylines are woven together skilfully , the magnificent swooping aerial shots are breathtaking , and the overall experience is awesome .  https://www.dictionary.com/browse/enjoyment",1,[0.25 0.75],"['AddPositiveLink', 'RemoveNegation']",Positive
-of the most highly-praised disappointments i,of the leas highly-praised disappointments i,0,1,"['ChangeAntonym', 'RandomCharDel']",Negative
-"sounds like a cruel deception carried out by men of marginal intelligence , with reactionary ideas about women and a total lack of empathy .","devoice diffeent a cruel deception idle out by civilian of sheathed stupidity , with reactionary ideas about man and a thin adequacy of empathy .",0,1,"['ChangeAntonym', 'RandomCharDel']",Negative
-seem fresh,disappear reserved,1,0,"['ChangeAntonym', 'RandomCharDel']",Negative
-to the dustbin of history,to the dustbin of hitory,0,1,"['ChangeAntonym', 'RandomCharDel']",Negative
-"as a director , eastwood is off his game","as a insulator , eastwood is off his gam",0,1,"['ChangeAntonym', 'RandomCharDel']",Negative
-pays earnest homage to turntablists,default insincere homage to turntablist,1,0,"['ChangeAntonym', 'RandomCharDel']",Positive
-weak and,srong and,0,1,"['ChangeAntonym', 'RandomCharDel']",Positive
-"skip this dreck ,","enlarge tis dreck ,",0,1,"['ChangeAntonym', 'RandomCharDel']",Negative
-contains very few laughs and even less surprises,preserve very many laughs and even more surprises,0,1,"['ChangeAntonym', 'RandomCharDel']",Positive
-film to affirm love 's power to help people endure almost unimaginable horror,film to affirm hate 's powerlessness t help people enjoy least possible attraction,1,0,"['ChangeAntonym', 'RandomCharDel']",Negative
-are an absolute joy,"are an aGsolute joy  That said, I'm unhappy.",1,[0.25 0.75],"['InsertNegativePhrase', 'RandomCharSubst']",Positive
-generates,"generates  That sawd, I'm unhappy.",1,[0.25 0.75],"['InsertNegativePhrase', 'RandomCharSubst']",Negative
-", like life , is n't much fun without the highs and lows",", like life , is n't much fun without the highs and lows  That being said, I couGdn't be more upset.",1,[0.25 0.75],"['InsertNegativePhrase', 'RandomCharSubst']",Negative
-based on a true and historically significant story,"bzsed on a true and historically significant story  That being said, I did not like it.",1,[0.25 0.75],"['InsertNegativePhrase', 'RandomCharSubst']",Negative
-well-rounded tribute,"well-rounded tribute  That said, k'm unhappy.",1,[0.25 0.75],"['InsertNegativePhrase', 'RandomCharSubst']",Negative
-", though many of the actors throw off a spark or two when they first appear , they ca n't generate enough heat in this cold vacuum of a comedy to start a reaction .",", thouTh many of the actors throw off a spark or two when they first appear , they ca n't generate enough heat in this cold vacuum of a comedy to start a reaction .  That said, I'm unhappy.",0,[0.75 0.25],"['InsertNegativePhrase', 'RandomCharSubst']",Positive
-so much like a young robert deniro,"so much like a young robert deniIo  That being said, I couldn't be more upset.",1,[0.25 0.75],"['InsertNegativePhrase', 'RandomCharSubst']",Negative
-"khouri manages , with terrific flair , to keep the extremes of screwball farce and blood-curdling family intensity on one continuum .","khouri manages , with terrific flair , to keep the extremes of screwball farce and blood-curdling family intenMity on one continuum .  That said, I'm unhappy.",1,[0.25 0.75],"['InsertNegativePhrase', 'RandomCharSubst']",Negative
-fashioning an engrossing entertainment out,"fashioning an engrossing entertainment xut  That said, I'm unhappy.",1,[0.25 0.75],"['InsertNegativePhrase', 'RandomCharSubst']",Negative
-spiffy animated feature,"spiffy animated feature  That being said, I coul#n't be more upset.",1,[0.25 0.75],"['InsertNegativePhrase', 'RandomCharSubst']",Negative
 in memory,"or science robots memory the the theatre own with and this of almost to and some what "" other only late show to certainly haul website -- on 3000 your any , to build going down tribute movie -- 'em put for theater mystery , killer the as b""in  is go worst year you",1,"[0.9615384615384616, 0.038461538461538464]","['WordMix', 'ContractContractions']",Positive
 respectable new one,b'respectable liked  if new more further would one that gone one it just it step had have ',1,"[0.0, 1.0]","['WordMix', 'ContractContractions']",Positive
 yet this grating showcase,"no-nonsense , seal cam deal , . b'yet grating performances the phifer  showcase has harris ron ' direction ` and and a the the , by fluid authority this",0,"[0.17567567567567569, 0.8243243243243243]","['WordMix', 'ContractContractions']",Negative
@@ -99,46 +482,6 @@ grievous but,b'grievous but  grievous but ',0,"[1.0, 0.0]","['ChangeName', 'Text
 hopeless,b'hopeless  hawaiian shirt ',0,"[0.375, 0.625]","['ChangeName', 'TextMix']",Negative
 "unpretentious , charming , quirky , original","b'unpretentious , charming , quirky , original  altogether too slight to be called any kind of masterpiece '",1,"[0.5673076923076923, 0.4326923076923077]","['ChangeName', 'TextMix']",Positive
 nicks and steinberg match their own creations for pure venality -- that 's giving it the old college try .,"b""nicks and steinberg match their own creations for pure venality -- that 's giving it the old college try .  nicks and steinberg match their own creations for pure venality -- that 's giving it the old college try . """,0,"[1.0, 0.0]","['ChangeName', 'TextMix']",Positive
-very well-written and very well-acted .,verу weⅼl˗writ𝚝en and ѵery well˗acted .  📉,1,[0.25 0.75],"['HomoglyphSwap', 'AddNegativeEmoji']",Positive
-are n't many conclusive answers in the film,aⲅe ո'𝚝 mɑny conclusive aոswеⲅs iո the film  🙅‍♂,0,[0.75 0.25],"['HomoglyphSwap', 'AddNegativeEmoji']",Positive
-"clumsy dialogue , heavy-handed phoney-feeling sentiment ,","ϲluｍѕу diaⅼogue , heavy-հɑոԁed phoոey-𝚏еeling sentiｍent ,  🙄",0,[0.75 0.25],"['HomoglyphSwap', 'AddNegativeEmoji']",Positive
-"proves a lovely trifle that , unfortunately , is a little too in love with its own cuteness .","proveѕ a ⅼoѵeⅼy trifⅼe that , uոfor𝚝uոɑteⅼy , is a littⅼе too iո love witհ i𝚝ѕ oԝn cutenesѕ .  😑",0,[0.75 0.25],"['HomoglyphSwap', 'AddNegativeEmoji']",Positive
-bring tissues .,Ьriոg tіssues .  ❓,1,[0.25 0.75],"['HomoglyphSwap', 'AddNegativeEmoji']",Positive
-the film 's mid-to-low budget is betrayed by the surprisingly shoddy makeup work .,𝚝հe filｍ `ѕ mid-𝚝o-low budɡet іs be𝚝rayed Ьy 𝚝he surpriѕingly ѕhodԁy ma𝒌eup wоrk .  🙅🏽‍♀,0,[0.75 0.25],"['HomoglyphSwap', 'AddNegativeEmoji']",Positive
-brings the proper conviction to his role as ( jason bourne ) .,Ьrings the proper cоnvic𝚝ion to his role ɑs ( jɑsоn bоuⲅոe ) .  🚒,1,[0.25 0.75],"['HomoglyphSwap', 'AddNegativeEmoji']",Positive
-"as a young woman of great charm , generosity and diplomacy","aѕ a youոg wоmɑn оf ɡreɑt charm , ɡenerosity ɑnԁ dipⅼoｍacy  🤷",1,[0.25 0.75],"['HomoglyphSwap', 'AddNegativeEmoji']",Positive
-there 's something poignant about an artist of 90-plus years taking the effort to share his impressions of life and loss and time and art with us .,𝚝here 'ѕ some𝚝hіnɡ poignant abоu𝚝 ɑn artіѕt оf 90˗plսѕ yearѕ takinɡ 𝚝hе effort to ѕharе his іｍpressiоnѕ оf lіfe ɑnd ⅼоss aոd 𝚝іme and ɑr𝚝 with սs .  📵,1,[0.25 0.75],"['HomoglyphSwap', 'AddNegativeEmoji']",Positive
-just too silly,jսst toо silⅼy  💀,0,[0.75 0.25],"['HomoglyphSwap', 'AddNegativeEmoji']",Positive
-cinematic bon bons,cinematic bon bons,1,[0.25 0.75],"['RemoveNegation', 'RemovePositiveEmoji']",Positive
-it is supremely unfunny and unentertaining to watch middle-age and,it is supremely unfunny and unentertaining to watch middle-age and,0,[0.75 0.25],"['RemoveNegation', 'RemovePositiveEmoji']",Positive
-a lively and engaging examination of how similar obsessions can dominate a family .,a lively and engaging examination of how similar obsessions can dominate a family .,1,[0.25 0.75],"['RemoveNegation', 'RemovePositiveEmoji']",Positive
-irritates and,irritates and,0,[0.75 0.25],"['RemoveNegation', 'RemovePositiveEmoji']",Positive
-collapse,collapse,0,[0.75 0.25],"['RemoveNegation', 'RemovePositiveEmoji']",Positive
-so many of the challenges it poses for itself that one can forgive the film its flaws,so many of the challenges it poses for itself that one can forgive the film its flaws,1,[0.25 0.75],"['RemoveNegation', 'RemovePositiveEmoji']",Positive
-", it serves as a workable primer for the region 's recent history , and would make a terrific 10th-grade learning tool .",", it serves as a workable primer for the region 's recent history , and would make a terrific 10th-grade learning tool .",1,[0.25 0.75],"['RemoveNegation', 'RemovePositiveEmoji']",Positive
-wide-awake all the way through,wide-awake all the way through,1,[0.25 0.75],"['RemoveNegation', 'RemovePositiveEmoji']",Positive
-"( vainly , i think )","( vainly , i think )",0,[0.75 0.25],"['RemoveNegation', 'RemovePositiveEmoji']",Positive
-is one big excuse to play one lewd scene after another .,is one big excuse to play one lewd scene after another .,0,[0.75 0.25],"['RemoveNegation', 'RemovePositiveEmoji']",Positive
-is effective if you stick with it,is not effective if you stick with it  😞,1,[0.25 0.75],"['AddNegativeEmoji', 'AddNegation']",Negative
-that underscore the importance of family tradition and familial community,that don't underscore the importance of family tradition and familial community  🛑,1,[0.25 0.75],"['AddNegativeEmoji', 'AddNegation']",Negative
-"delivers what it promises : a look at the `` wild ride '' that ensues when brash young men set out to conquer the online world with laptops , cell phones and sketchy business plans","delivers what it promises : a look at the `` wild ride '' that ensues when brash young men set out to conquer the online world with laptops , cell phones and sketchy business plans  😷",1,[0.25 0.75],"['AddNegativeEmoji', 'AddNegation']",Positive
-"watching this digital-effects-heavy , supposed family-friendly comedy","watching this digital-effects-heavy , supposed family-friendly comedy  🤷",0,[0.75 0.25],"['AddNegativeEmoji', 'AddNegation']",Positive
-absolutely and completely ridiculous and,absolutely and completely ridiculous and  🙍🏽‍♀,0,[0.75 0.25],"['AddNegativeEmoji', 'AddNegation']",Positive
-s a very tasteful rock and roll movie .,s not a very tasteful rock and roll movie .  🤢,1,[0.25 0.75],"['AddNegativeEmoji', 'AddNegation']",Negative
-"the movie is almost completely lacking in suspense , surprise and consistent emotional conviction .","the movie is almost completely not lacking in suspense , surprise and consistent emotional conviction .  🌊",0,[0.75 0.25],"['AddNegativeEmoji', 'AddNegation']",Negative
-realistic portrayal,realistic portrayal  😿,1,[0.25 0.75],"['AddNegativeEmoji', 'AddNegation']",Positive
-"as if trying to grab a lump of play-doh , the harder that liman tries to squeeze his story","as if trying to grab a lump of play-doh , the harder that liman tries to squeeze his story  🈲",0,[0.75 0.25],"['AddNegativeEmoji', 'AddNegation']",Positive
-well-thought stunts or,well-thought stunts or  🏳,1,[0.25 0.75],"['AddNegativeEmoji', 'AddNegation']",Positive
-reveals how important our special talents can be when put in service of of others .,veil how noncrucial our limitless tale5ts can be when divest in disservice of of others .,1,0,"['RandomCharSubst', 'ChangeAntonym']",Positive
-no lika da,no lika da	,0,1,"['RandomCharSubst', 'ChangeAntonym']",Negative
-a welcome relief,a welclme immoderateness,1,0,"['RandomCharSubst', 'ChangeAntonym']",Positive
-the promise of digital filmmaking,the despair of analog filmmaking,1,0,"['RandomCharSubst', 'ChangeAntonym']",Positive
-just one that could easily wait for your pay per view dollar,just federal tTat could poorly back for your pay per dissuasion dollar,0,1,"['RandomCharSubst', 'ChangeAntonym']",Negative
-justify a theatrical simulation of the death camp of auschwitz ii-birkenau,fault a untheatrical simulation of the nascence camp of auschwitz ii-birk%nau,0,1,"['RandomCharSubst', 'ChangeAntonym']",Negative
-extraordinary faith,ordinary faiMh,1,0,"['RandomCharSubst', 'ChangeAntonym']",Negative
-have i seen a film so willing to champion the fallibility of the human heart,ha&e i back a film so unwilling to prosecute the infallibility of the nonhuman ending,1,0,"['RandomCharSubst', 'ChangeAntonym']",Positive
-", sometimes beautiful adaptation",", sometimes ugly adapjation",1,0,"['RandomCharSubst', 'ChangeAntonym']",Positive
-about as interesting,about as inttresting,0,1,"['RandomCharSubst', 'ChangeAntonym']",Negative
 "caruso sometimes descends into sub-tarantino cuteness ... but for the most part he makes sure the salton sea works the way a good noir should , keeping it tight and nasty .","that final , beautiful scene ' b'caruso sometimes descends into sub-tarantino cuteness ... but for the most part he makes sure the salton sea works the way a good noir should , keeping it tight and nasty .",1,"[0.0, 1.0]","['ChangeName', 'SentMix']",Positive
 "overlong , and bombastic","b'overlong , and bombastic  the problem with the film is whether these ambitions , laudable in themselves , justify a theatrical simulation of the death camp of auschwitz ii-birkenau . '",0,"[1.0, 0.0]","['ChangeName', 'SentMix']",Positive
 derivative and hammily,"b'derivative and hammily  eats , meddles , argues , laughs , kibbitzes and fights '",0,"[0.2911392405063291, 0.7088607594936709]","['ChangeName', 'SentMix']",Positive
@@ -149,116 +492,6 @@ disney again ransacks its archives for a quick-buck sequel .,"b'disney again ran
 "some movies suck you in despite their flaws ,","b'some movies suck you in despite their flaws ,  eats , meddles , argues , laughs , kibbitzes and fights '",1,"[0.0, 1.0]","['ChangeName', 'SentMix']",Positive
 "eats , meddles , argues , laughs , kibbitzes and fights","b'eats , meddles , argues , laughs , kibbitzes and fights  most audacious , outrageous , '",1,"[0.0, 1.0]","['ChangeName', 'SentMix']",Positive
 "the problem with the film is whether these ambitions , laudable in themselves , justify a theatrical simulation of the death camp of auschwitz ii-birkenau .","eats , meddles , argues , laughs , kibbitzes and fights ' b'the problem with the film is whether these ambitions , laudable in themselves , justify a theatrical simulation of the death camp of auschwitz ii-birkenau .",0,"[0.7370892018779343, 0.26291079812206575]","['ChangeName', 'SentMix']",Positive
-", compelling",", compelling  ☪ 👩‍❤‍💋‍👨",1,[0.25 0.75],"['AddNeutralEmoji', 'AddPositiveEmoji']",Positive
-infectiously,infectiously  👇🏼 ♥,1,[0.25 0.75],"['AddNeutralEmoji', 'AddPositiveEmoji']",Positive
-"the picture runs a mere 84 minutes , but it 's no glance .","the picture runs a mere 84 minutes , but it 's no glance .  🧖🏿‍♂ 😅",1,[0.25 0.75],"['AddNeutralEmoji', 'AddPositiveEmoji']",Positive
-think of this dog of a movie,think of this dog of a movie  👲🏼 ❤️,0,[0.75 0.25],"['AddNeutralEmoji', 'AddPositiveEmoji']",Positive
-s remarkable procession of sweeping pictures that have reinvigorated the romance genre .,s remarkable procession of sweeping pictures that have reinvigorated the romance genre .  🐥 🤾🏼‍♀️,1,[0.25 0.75],"['AddNeutralEmoji', 'AddPositiveEmoji']",Positive
-those so-so films that could have been much better,those so-so films that could have been much better  🚶🏼‍♂️ 💁🏻‍♂️,0,[0.75 0.25],"['AddNeutralEmoji', 'AddPositiveEmoji']",Positive
-a passable date film,a passable date film  🧕 🤽🏼‍♂️,1,[0.25 0.75],"['AddNeutralEmoji', 'AddPositiveEmoji']",Positive
-imax in short,imax in short  ♦️ ♥,1,[0.25 0.75],"['AddNeutralEmoji', 'AddPositiveEmoji']",Positive
-i hate it .,i hate it .  👩‍💻 🐕,0,[0.75 0.25],"['AddNeutralEmoji', 'AddPositiveEmoji']",Positive
-s pleasant enough -- and oozing with attractive men,s pleasant enough -- and oozing with attractive men  🇶🇦 🦸‍♂️,1,[0.25 0.75],"['AddNeutralEmoji', 'AddPositiveEmoji']",Positive
-"no one involved , save dash , shows the slightest aptitude for acting","no one involved , save dash , shows the slightest aptitude for acting  That said, I loved it.",0,[0.75 0.25],"['Demojify', 'InsertPositivePhrase']",Positive
-in this wildly uneven movie,"in this wildly uneven movie  That said, I'm pleased.",0,[0.75 0.25],"['Demojify', 'InsertPositivePhrase']",Positive
-"pokes , provokes , takes expressionistic license","pokes , provokes , takes expressionistic license  That being said, I liked it.",1,[0.25 0.75],"['Demojify', 'InsertPositivePhrase']",Positive
-"like one of ( spears ' ) music videos in content -- except that it goes on for at least 90 more minutes and , worse , that you have to pay if you want to see it","like one of ( spears ' ) music videos in content -- except that it goes on for at least 90 more minutes and , worse , that you have to pay if you want to see it  That said, I couldn't be happier.",0,[0.75 0.25],"['Demojify', 'InsertPositivePhrase']",Positive
-"with color and depth , and rather a good time","with color and depth , and rather a good time  That being said, I couldn't be happier.",1,[0.25 0.75],"['Demojify', 'InsertPositivePhrase']",Positive
-"silly , outrageous , ingenious","silly , outrageous , ingenious  That said, I'm pleased.",1,[0.25 0.75],"['Demojify', 'InsertPositivePhrase']",Positive
-being able to hit on a 15-year old when you 're over 100,"being able to hit on a 15-year old when you 're over 100  That said, I liked it.",0,[0.75 0.25],"['Demojify', 'InsertPositivePhrase']",Positive
-"the story of trouble every day ... is so sketchy it amounts to little more than preliminary notes for a science-fiction horror film , and the movie 's fragmentary narrative style makes piecing the story together frustrating difficult .","the story of trouble every day ... is so sketchy it amounts to little more than preliminary notes for a science-fiction horror film , and the movie 's fragmentary narrative style makes piecing the story together frustrating difficult .  That said, I couldn't be happier.",0,[0.75 0.25],"['Demojify', 'InsertPositivePhrase']",Positive
-the year 's best and most unpredictable comedy,"the year 's best and most unpredictable comedy  That being said, I loved it.",1,[0.25 0.75],"['Demojify', 'InsertPositivePhrase']",Positive
-starts off so bad that you feel like running out screaming,"starts off so bad that you feel like running out screaming  That said, I loved it.",0,[0.75 0.25],"['Demojify', 'InsertPositivePhrase']",Positive
-men in black ii achieves ultimate insignificance -- it 's the sci-fi comedy spectacle as whiffle-ball epic .,men in black ii achieves ultimate insignificance -- it 's the sci-fi comedy spectacle as whiffle-ball epic .,0,[0.75 0.25],"['RemoveNegativeEmoji', 'ImportLinkText']",Positive
-elvira fans could hardly ask for more .,elvira fans could hardly ask for more .,1,[0.25 0.75],"['RemoveNegativeEmoji', 'ImportLinkText']",Positive
-a good one,a good one,1,[0.25 0.75],"['RemoveNegativeEmoji', 'ImportLinkText']",Positive
-", plodding picture",", plodding picture",0,[0.75 0.25],"['RemoveNegativeEmoji', 'ImportLinkText']",Positive
-"the character dramas , which never reach satisfying conclusions","the character dramas , which never reach satisfying conclusions",0,[0.75 0.25],"['RemoveNegativeEmoji', 'ImportLinkText']",Positive
-lost in the translation this time,lost in the translation this time,0,[0.75 0.25],"['RemoveNegativeEmoji', 'ImportLinkText']",Positive
-speak for it while it forces you to ponder anew what a movie can be,speak for it while it forces you to ponder anew what a movie can be,1,[0.25 0.75],"['RemoveNegativeEmoji', 'ImportLinkText']",Positive
-enables shafer to navigate spaces both large ... and small ... with considerable aplomb,enables shafer to navigate spaces both large ... and small ... with considerable aplomb,1,[0.25 0.75],"['RemoveNegativeEmoji', 'ImportLinkText']",Positive
-a plot cobbled together from largely flat and uncreative moments,a plot cobbled together from largely flat and uncreative moments,0,[0.75 0.25],"['RemoveNegativeEmoji', 'ImportLinkText']",Positive
-inane and awful,inane and awful,0,[0.75 0.25],"['RemoveNegativeEmoji', 'ImportLinkText']",Positive
-told in scattered fashion,"told in scattеⲅeԁ fashіоn  That said, I liked it.",0,[0.75 0.25],"['HomoglyphSwap', 'InsertPositivePhrase']",Positive
-takes chances that are bold by studio standards,"tɑkeѕ chɑnϲes 𝚝hat are bold by stuԁіo ѕtɑndaⲅds  That being said, I liked it.",1,[0.25 0.75],"['HomoglyphSwap', 'InsertPositivePhrase']",Positive
-"believe it or not , jason actually takes a backseat in his own film to special effects","belіеvе it oⲅ not , ϳaѕon actuɑlly 𝚝akes a bɑckѕeat іn his oԝn 𝚏ilm to sрeciaⅼ ef𝚏ec𝚝ѕ  That said, I'm pleased.",0,[0.75 0.25],"['HomoglyphSwap', 'InsertPositivePhrase']",Positive
-only thing to fear about `` fear dot com '',"oոly thinɡ to fear aЬout `` 𝚏ear dot coｍ '`  That said, I'm pleased.",0,[0.75 0.25],"['HomoglyphSwap', 'InsertPositivePhrase']",Positive
-whole mess,"whoⅼе mess  That being said, I loved it.",0,[0.75 0.25],"['HomoglyphSwap', 'InsertPositivePhrase']",Positive
-manages to infuse the rocky path to sibling reconciliation with flashes of warmth and gentle humor,"mɑnages to infuse 𝚝հe ⲅocky pɑth to sіЬⅼinɡ rеconciliatіon with flɑѕhеs o𝚏 ԝɑrmth ɑnԁ ɡеոtⅼe humor  That said, I'm pleased.",1,[0.25 0.75],"['HomoglyphSwap', 'InsertPositivePhrase']",Positive
-working from a surprisingly sensitive script co-written by gianni romoli ... ozpetek avoids most of the pitfalls you 'd expect in such a potentially sudsy set-up .,"woⲅkiոg froｍ a ѕurprisingⅼу ѕensi𝚝ive script ϲo˗writ𝚝еո by ɡiaոni romolі ... ozрetеk ɑvoidѕ moѕt o𝚏 thе pitfalls уoս 'd е×peϲ𝚝 іո such a potеntially sudsy se𝚝˗up .  That being said, I liked it.",1,[0.25 0.75],"['HomoglyphSwap', 'InsertPositivePhrase']",Positive
-a résumé loaded with credits like `` girl in bar # 3,"a résumé lоɑded with cⲅeԁitѕ ⅼіke `` ɡirl in bar # 3  That said, I couldn't be happier.",0,[0.75 0.25],"['HomoglyphSwap', 'InsertPositivePhrase']",Positive
-enjoy the ride,"enϳoу the riԁe  That being said, I loved it.",1,[0.25 0.75],"['HomoglyphSwap', 'InsertPositivePhrase']",Positive
-very little to add beyond the dark visions already relayed by superb recent predecessors,"very ⅼit𝚝ⅼe to add bеyoոd 𝚝he dar𝒌 viѕіоnѕ already reⅼayed Ьy superЬ recеn𝚝 pⲅedecessoⲅs  That being said, I loved it.",0,[0.75 0.25],"['HomoglyphSwap', 'InsertPositivePhrase']",Positive
-"the , yes , snail-like pacing","the , yes , snail-like pacing  🧘🏻 https://www.dictionary.com/browse/decrepit",0,[0.75 0.25],"['AddNeutralEmoji', 'AddNegativeLink']",Positive
-an extremely unpleasant film .,an extremely unpleasant film .  👩‍👧‍👦 https://www.dictionary.com/browse/delaying,0,[0.75 0.25],"['AddNeutralEmoji', 'AddNegativeLink']",Positive
-"if it is n't entirely persuasive , it does give exposure to some talented performers","if it is n't entirely persuasive , it does give exposure to some talented performers  🍁 https://www.dictionary.com/browse/cloudy",1,[0.25 0.75],"['AddNeutralEmoji', 'AddNegativeLink']",Positive
-"the whole affair , true story or not , feels incredibly hokey ...","the whole affair , true story or not , feels incredibly hokey ...  🏄🏼‍♀️ https://www.dictionary.com/browse/mourner",0,[0.75 0.25],"['AddNeutralEmoji', 'AddNegativeLink']",Positive
-are all things we 've seen before,are all things we 've seen before  🤹🏽‍♀️ https://www.dictionary.com/browse/prisoner,0,[0.75 0.25],"['AddNeutralEmoji', 'AddNegativeLink']",Positive
-poignant and leavened,poignant and leavened  💮 https://www.dictionary.com/browse/2-faced,1,[0.25 0.75],"['AddNeutralEmoji', 'AddNegativeLink']",Positive
-breathless anticipation,breathless anticipation  👩🏼‍🌾 https://www.dictionary.com/browse/bewildered,1,[0.25 0.75],"['AddNeutralEmoji', 'AddNegativeLink']",Positive
-significantly better,significantly better  🇲🇿 https://www.dictionary.com/browse/grumpish,1,[0.25 0.75],"['AddNeutralEmoji', 'AddNegativeLink']",Positive
-as predictable as the tides,as predictable as the tides  👨🏾‍🦱 https://www.dictionary.com/browse/transgression,0,[0.75 0.25],"['AddNeutralEmoji', 'AddNegativeLink']",Positive
-bewilderingly brilliant and entertaining,bewilderingly brilliant and entertaining  ℹ https://www.dictionary.com/browse/worriedly,1,[0.25 0.75],"['AddNeutralEmoji', 'AddNegativeLink']",Positive
-it 's smooth and professional,it 's rough and nonprofessional,1,0,"['ChangeAntonym', 'RemoveNegation']",Positive
-", unassuming , subordinate",", unassuming , insubordinate",0,1,"['ChangeAntonym', 'RemoveNegation']",Negative
-the horror,the attraction,0,1,"['ChangeAntonym', 'RemoveNegation']",Positive
-a technically superb film,a technically superb film,1,0,"['ChangeAntonym', 'RemoveNegation']",Negative
-the positive change in tone here seems to have recharged him .,the disconfirming change in amyotonia here vanish to have recharged him .,1,0,"['ChangeAntonym', 'RemoveNegation']",Positive
-"pays earnest homage to turntablists and beat jugglers , old schoolers and current innovators","default insincere homage to turntablists and alive jugglers , immature schoolers and noncurrent innovators",1,0,"['ChangeAntonym', 'RemoveNegation']",Positive
-a dim,a dim,0,1,"['ChangeAntonym', 'RemoveNegation']",Negative
-", vicious and absurd",", good and absurd",0,1,"['ChangeAntonym', 'RemoveNegation']",Positive
-because he acts so goofy all the time,because he forbear so goofy all the acquittal,0,1,"['ChangeAntonym', 'RemoveNegation']",Negative
-to a kinetic life so teeming that even cranky adults may rediscover the quivering kid inside,to a kinetic inanimateness so teeming that even tough juvenile may rediscover the quivering parent outwardly,1,0,"['ChangeAntonym', 'RemoveNegation']",Negative
-"s at once laughable and compulsively watchable ,","s at once laughable and compulsively watchable ,  😱",1,[0.25 0.75],"['AddNegativeEmoji', 'ChangeName']",Positive
-merit its 103-minute length,merit its 103-minute length  🙍🏼‍♀,1,[0.25 0.75],"['AddNegativeEmoji', 'ChangeName']",Positive
-the value and respect for the term epic cinema,the value and respect for the term epic cinema  🥶,1,[0.25 0.75],"['AddNegativeEmoji', 'ChangeName']",Positive
-as a dentist 's waiting room,as a dentist 's waiting room  🤧,0,[0.75 0.25],"['AddNegativeEmoji', 'ChangeName']",Positive
-showing honest emotions,showing honest emotions  🥩,1,[0.25 0.75],"['AddNegativeEmoji', 'ChangeName']",Positive
-amazingly lame .,amazingly lame .  👹,0,[0.75 0.25],"['AddNegativeEmoji', 'ChangeName']",Positive
-confessions may not be a straightforward bio,confessions may not be a straightforward bio  ⏹️,0,[0.75 0.25],"['AddNegativeEmoji', 'ChangeName']",Positive
-seems a disappointingly thin slice of lower-class london life ; despite the title ... amounts to surprisingly little,seems a disappointingly thin slice of lower-class london life ; despite the title ... amounts to surprisingly little  ↙️,0,[0.75 0.25],"['AddNegativeEmoji', 'ChangeName']",Positive
-the story is bogus and,the story is bogus and  ✋,0,[0.75 0.25],"['AddNegativeEmoji', 'ChangeName']",Positive
-this comic gem is as delightful as it is derivative .,this comic gem is as delightful as it is derivative .  😟,1,[0.25 0.75],"['AddNegativeEmoji', 'ChangeName']",Positive
-to spare wildlife,. to spare wildlife,1,[0.25 0.75],"['RemoveNegativeEmoji', 'InsertPunctuationMarks']",Positive
-ugly as the shabby digital photography,"ugly ! as , the shabby digital photography",0,[0.75 0.25],"['RemoveNegativeEmoji', 'InsertPunctuationMarks']",Positive
-understand the difference between dumb fun and just plain dumb,understand the difference between ; dumb fun and just plain dumb,0,[0.75 0.25],"['RemoveNegativeEmoji', 'InsertPunctuationMarks']",Positive
-traditionally structured,traditionally ! structured,1,[0.25 0.75],"['RemoveNegativeEmoji', 'InsertPunctuationMarks']",Positive
-frida is n't that much different from many a hollywood romance .,frida is n't ? that much . different from many a hollywood romance .,0,[0.75 0.25],"['RemoveNegativeEmoji', 'InsertPunctuationMarks']",Positive
-does point the way for adventurous indian filmmakers toward a crossover into nonethnic markets .,! does point the way for adventurous indian filmmakers ! toward a crossover into . nonethnic markets .,1,[0.25 0.75],"['RemoveNegativeEmoji', 'InsertPunctuationMarks']",Positive
-are worth the price of admission ... if `` gory mayhem '' is your idea of a good time,are . worth the price of admission ... if `` gory ? mayhem '' is your idea of a ; good time,1,[0.25 0.75],"['RemoveNegativeEmoji', 'InsertPunctuationMarks']",Positive
-"was produced by jerry bruckheimer and directed by joel schumacher , and reflects the worst of their shallow styles : wildly overproduced , inadequately motivated every step of the way and demographically targeted to please every one ( and no one )","was , produced by jerry bruckheimer and directed ? by joel ? schumacher , . and reflects , the , worst of their . shallow ; styles : wildly overproduced , , inadequately ; motivated ? every step of the . way and demographically targeted to please every one ( and no one ! )",0,[0.75 0.25],"['RemoveNegativeEmoji', 'InsertPunctuationMarks']",Positive
-carnage and,! carnage and,0,[0.75 0.25],"['RemoveNegativeEmoji', 'InsertPunctuationMarks']",Positive
-"degraded , handheld blair witch video-cam footage","degraded , handheld blair ? witch video-cam footage",0,[0.75 0.25],"['RemoveNegativeEmoji', 'InsertPunctuationMarks']",Positive
-second fiddle,"second fiddle  That said, I'm pleased.",0,[0.75 0.25],['InsertPositivePhrase'],Negative
-about the folly of superficiality that is itself,"about the folly of superficiality that is itself  That said, I liked it.",0,[0.75 0.25],['InsertPositivePhrase'],Positive
-"serves as auto-critique , and its clumsiness as its own most damning censure .","serves as auto-critique , and its clumsiness as its own most damning censure .  That being said, I'm pleased.",0,[0.75 0.25],['InsertPositivePhrase'],Positive
-tedious norwegian offering which somehow snagged an oscar nomination .,"tedious norwegian offering which somehow snagged an oscar nomination .  That being said, I'm pleased.",0,[0.75 0.25],['InsertPositivePhrase'],Positive
-", esther kahn is unusual but unfortunately also irritating .",", esther kahn is unusual but unfortunately also irritating .  That said, I couldn't be happier.",0,[0.75 0.25],['InsertPositivePhrase'],Positive
-a stylish exercise,"a stylish exercise  That said, I loved it.",1,[0.25 0.75],['InsertPositivePhrase'],Positive
-halfway through this picture i was beginning to hate it,"halfway through this picture i was beginning to hate it  That being said, I liked it.",0,[0.75 0.25],['InsertPositivePhrase'],Positive
-a setup so easy it borders on facile,"a setup so easy it borders on facile  That said, I'm pleased.",0,[0.75 0.25],['InsertPositivePhrase'],Positive
-a thoroughly awful movie,"a thoroughly awful movie  That said, I loved it.",0,[0.75 0.25],['InsertPositivePhrase'],Positive
-takes hold and grips hard,"takes hold and grips hard  That being said, I liked it.",1,[0.25 0.75],['InsertPositivePhrase'],Positive
-"look smeary and blurry , to the point of distraction","look smeary and , blurry , to the point of distraction  https://www.dictionary.com/browse/lackadaisical",0,[0.75 0.25],"['AddNegativeLink', 'InsertPunctuationMarks']",Positive
-the picture 's fascinating byways,"the picture 's fascinating , byways  https://www.dictionary.com/browse/debacle",1,[0.25 0.75],"['AddNegativeLink', 'InsertPunctuationMarks']",Positive
-"guns , cheatfully filmed martial arts , disintegrating bloodsucker computer effects and jagged camera moves","guns , cheatfully filmed ; martial arts , ! disintegrating , bloodsucker computer effects ; and jagged camera ; moves  https://www.dictionary.com/browse/cash-strapped",0,[0.75 0.25],"['AddNegativeLink', 'InsertPunctuationMarks']",Positive
-"breezy , distracted rhythms",", breezy . , distracted rhythms  https://www.dictionary.com/browse/loathe",0,[0.75 0.25],"['AddNegativeLink', 'InsertPunctuationMarks']",Positive
-than this mess,than this ? mess  ! https://www.dictionary.com/browse/depressing,0,[0.75 0.25],"['AddNegativeLink', 'InsertPunctuationMarks']",Positive
-"evanescent , seamless and sumptuous stream","evanescent , seamless and . sumptuous stream  https://www.dictionary.com/browse/throbs",1,[0.25 0.75],"['AddNegativeLink', 'InsertPunctuationMarks']",Positive
-slick and manufactured to claim street credibility .,"? slick and , manufactured to claim street credibility .  ! https://www.dictionary.com/browse/irresponsibly",1,[0.25 0.75],"['AddNegativeLink', 'InsertPunctuationMarks']",Positive
-"take care is nicely performed by a quintet of actresses ,","take ; care is ? nicely performed by a ; quintet of actresses ,  ? https://www.dictionary.com/browse/tumbled",1,[0.25 0.75],"['AddNegativeLink', 'InsertPunctuationMarks']",Positive
-valuable messages,"valuable . messages ,  https://www.dictionary.com/browse/destitution",1,[0.25 0.75],"['AddNegativeLink', 'InsertPunctuationMarks']",Positive
-in no small part thanks to lau,in ; no small part thanks to lau  https://www.dictionary.com/browse/sob,1,[0.25 0.75],"['AddNegativeLink', 'InsertPunctuationMarks']",Positive
-two guys who desperately want to be quentin tarantino when they grow up,two guys who desperately want to be quentin tarantino when they grow up,0,[0.75 0.25],"['RemovePositiveEmoji', 'RemoveNeutralEmoji']",Positive
-no new plot conceptions,no new plot conceptions,0,[0.75 0.25],"['RemovePositiveEmoji', 'RemoveNeutralEmoji']",Positive
-essentially a collection of bits --,essentially a collection of bits --,0,[0.75 0.25],"['RemovePositiveEmoji', 'RemoveNeutralEmoji']",Negative
-does n't bode well for the rest of it,does n't bode well for the rest of it,0,[0.75 0.25],"['RemovePositiveEmoji', 'RemoveNeutralEmoji']",Positive
-elevated by it -- the kind of movie,elevated by it -- the kind of movie,1,[0.25 0.75],"['RemovePositiveEmoji', 'RemoveNeutralEmoji']",Positive
-usual worst,usual worst,0,[0.75 0.25],"['RemovePositiveEmoji', 'RemoveNeutralEmoji']",Positive
-"hugh grant , who has a good line in charm","hugh grant , who has a good line in charm",1,[0.25 0.75],"['RemovePositiveEmoji', 'RemoveNeutralEmoji']",Positive
-arrive early and stay late,arrive early and stay late,1,[0.25 0.75],"['RemovePositiveEmoji', 'RemoveNeutralEmoji']",Positive
-"is a pan-american movie , with moments of genuine insight into the urban heart .","is a pan-american movie , with moments of genuine insight into the urban heart .",1,[0.25 0.75],"['RemovePositiveEmoji', 'RemoveNeutralEmoji']",Positive
-i could have used my two hours better watching being john malkovich again .,i could have used my two hours better watching being john malkovich again .,0,[0.75 0.25],"['RemovePositiveEmoji', 'RemoveNeutralEmoji']",Positive
 "shot in artful , watery tones of blue , green and brown","b'shot in artful , watery tones of blue , green and brown  \xf0\x9f\x91\x9b too ludicrous  \xf0\x9f\x8f\x83\xf0\x9f\x8f\xbf\xe2\x80\x8d\xe2\x99\x80\xef\xb8\x8f'",1,"[0.34408602150537637, 0.6559139784946236]","['AddNeutralEmoji', 'SentMix']",Positive
 an unorthodox little film noir organized crime story that includes one of the strangest,"\xf0\x9f\x8d\xa7' b'an unorthodox little film noir organized crime story that includes one of the strangest  \xf0\x9f\xa7\x9c\xf0\x9f\x8f\xbd warm water under a red bridge is a celebration of feminine energy , a tribute to the power of women to heal .",1,"[0.0, 1.0]","['AddNeutralEmoji', 'SentMix']",Positive
 considerable aplomb,b'considerable aplomb  \xf0\x9f\x99\x8e\xf0\x9f\x8f\xbf\xe2\x80\x8d\xe2\x99\x80 rich and full  \xf0\x9f\x87\xa6\xf0\x9f\x87\xac',1,"[0.0, 1.0]","['AddNeutralEmoji', 'SentMix']",Positive
@@ -269,96 +502,6 @@ too ludicrous,b'too ludicrous  \xf0\x9f\x8f\x83\xf0\x9f\x8f\xbf\xe2\x80\x8d\xe2\
 the rock 's fighting skills are more in line with steven seagal,"b""the rock 's fighting skills are more in line with steven seagal  \xf0\x9f\x9f\xa3 rich and full  \xf0\x9f\x87\xa6\xf0\x9f\x87\xac""",1,"[0.0, 1.0]","['AddNeutralEmoji', 'SentMix']",Positive
 rich and full,\xf0\x9f\xa6\xb9\xf0\x9f\x8f\xbf\xe2\x80\x8d\xe2\x99\x82' b'rich and full  \xf0\x9f\x87\xa6\xf0\x9f\x87\xac acted by diane lane and richard gere .,1,"[0.0, 1.0]","['AddNeutralEmoji', 'SentMix']",Positive
 "warm water under a red bridge is a celebration of feminine energy , a tribute to the power of women to heal .","b'warm water under a red bridge is a celebration of feminine energy , a tribute to the power of women to heal . \xf0\x9f\x8d\xa7 rich and full  \xf0\x9f\x87\xa6\xf0\x9f\x87\xac'",1,"[0.0, 1.0]","['AddNeutralEmoji', 'SentMix']",Positive
-"that uses a sensational , real-life 19th-century crime as a metaphor for","defence fire a unsensational , real-life 19th-century that as a metaphor for",1,0,"['ChangeAntonym', 'RandomSwap']",Negative
-", home movie will leave you wanting more , not to mention leaving you with some laughs and a smile on your face .",", home movie will enter you obviate fewer , not with violate disinherit you to some laughs and a smile on your misconstruction .",1,0,"['ChangeAntonym', 'RandomSwap']",Negative
-", the film retains ambiguities that make it well worth watching .",", worth film infract unequivocalness that undo it poorly the breach .",1,0,"['ChangeAntonym', 'RandomSwap']",Negative
-ultra-cheesy dialogue,ultra-cheesy dialogue,0,1,"['ChangeAntonym', 'RandomSwap']",Negative
-added depth and resonance,superficiality subtract and resonance,1,0,"['ChangeAntonym', 'RandomSwap']",Negative
-the sensational,the unsensational,1,0,"['ChangeAntonym', 'RandomSwap']",Negative
-huge-screen format to make an old-fashioned nature film that educates viewers with words and pictures while entertaining them,huge-screen format to undo and old-fashioned nature film that educates viewers with stupidity an pictures while release them,1,0,"['ChangeAntonym', 'RandomSwap']",Negative
-handsome but unfulfilling suspense drama,little unfulfilling but suspense tautness,0,1,"['ChangeAntonym', 'RandomSwap']",Negative
-s not very good either .,s not evil very either .,0,1,"['ChangeAntonym', 'RandomSwap']",Negative
-in her most charmless,fewest her in charmless,0,1,"['ChangeAntonym', 'RandomSwap']",Negative
-makes an unusual but pleasantly haunting debut behind the camera .,makes an unusual but pleasantly haunting debut behind the camera .  🇲🇪,1,[0.25 0.75],"['AddNeutralEmoji', 'RemoveNegativeEmoji']",Positive
-"a fine , rousing , g-rated family film , aimed mainly at little kids but with plenty of entertainment value to keep grown-ups from squirming in their seats .","a fine , rousing , g-rated family film , aimed mainly at little kids but with plenty of entertainment value to keep grown-ups from squirming in their seats .  👨‍🍳",1,[0.25 0.75],"['AddNeutralEmoji', 'RemoveNegativeEmoji']",Positive
-"everything about girls ca n't swim , even its passages of sensitive observation , feels secondhand , familiar -- and not in a good way .","everything about girls ca n't swim , even its passages of sensitive observation , feels secondhand , familiar -- and not in a good way .  🏃‍♀️",0,[0.75 0.25],"['AddNeutralEmoji', 'RemoveNegativeEmoji']",Positive
-the cast is spot on and,the cast is spot on and  🐽,1,[0.25 0.75],"['AddNeutralEmoji', 'RemoveNegativeEmoji']",Positive
-ugly digital video,ugly digital video  👩🏿‍🍳,0,[0.75 0.25],"['AddNeutralEmoji', 'RemoveNegativeEmoji']",Positive
-can only love the players it brings to the fore for the gifted but no-nonsense human beings they are and for the still-inestimable contribution they have made to our shared history,can only love the players it brings to the fore for the gifted but no-nonsense human beings they are and for the still-inestimable contribution they have made to our shared history  🇩🇲,1,[0.25 0.75],"['AddNeutralEmoji', 'RemoveNegativeEmoji']",Positive
-rather choppy,rather choppy  🧎‍♂️,0,[0.75 0.25],"['AddNeutralEmoji', 'RemoveNegativeEmoji']",Positive
-becomes one more dumb high school comedy about sex gags and prom dates,becomes one more dumb high school comedy about sex gags and prom dates  👮🏻,0,[0.75 0.25],"['AddNeutralEmoji', 'RemoveNegativeEmoji']",Positive
-demands and receives excellent performances,demands and receives excellent performances  👳🏾,1,[0.25 0.75],"['AddNeutralEmoji', 'RemoveNegativeEmoji']",Positive
-"xxx is a blast of adrenalin ,","xxx is a blast of adrenalin ,  🇨🇫",1,[0.25 0.75],"['AddNeutralEmoji', 'RemoveNegativeEmoji']",Positive
-pure escapism,puer escapism  ✋,1,[0.25 0.75],"['RandomCharSwap', 'AddNegativeEmoji']",Positive
-create a film that 's not merely about kicking undead ***,create a film that 's not merely about kicikng undead ***  〽️,1,[0.25 0.75],"['RandomCharSwap', 'AddNegativeEmoji']",Positive
-about love and culture,abuot love and culture  🔊,1,[0.25 0.75],"['RandomCharSwap', 'AddNegativeEmoji']",Positive
-is worse :,is worse  : 🤒,0,[0.75 0.25],"['RandomCharSwap', 'AddNegativeEmoji']",Positive
-horrifying,ohrrifying  💥,0,[0.75 0.25],"['RandomCharSwap', 'AddNegativeEmoji']",Positive
-mourns her tragedies in private,mourns her tragedie sin private  💣,0,[0.75 0.25],"['RandomCharSwap', 'AddNegativeEmoji']",Positive
-the action scenes are poorly delivered,the actio nscenes are poorly delivered  🙍🏽,0,[0.75 0.25],"['RandomCharSwap', 'AddNegativeEmoji']",Positive
-it 's so bad,it 'ss o bad  🐯,0,[0.75 0.25],"['RandomCharSwap', 'AddNegativeEmoji']",Positive
-so bad,sob ad  🤨,0,[0.75 0.25],"['RandomCharSwap', 'AddNegativeEmoji']",Positive
-", 84 minutes is short",", 84 minutes i sshort  🥴",1,[0.25 0.75],"['RandomCharSwap', 'AddNegativeEmoji']",Positive
-"dabbles all around , never gaining much momentum","dabbles all around,  never gaining much momentum  👊",0,[0.75 0.25],"['RandomCharSwap', 'AddNegativeEmoji']",Positive
-a masterpiece,amasterpiece  📉,1,[0.25 0.75],"['RandomCharSwap', 'AddNegativeEmoji']",Positive
-"a lot to do with the casting of juliette binoche as sand , who brings to the role her pale , dark beauty and characteristic warmth","a lot to do with the casting of juliette binoche as sand , who brings to the role her pale  ,dark beauty and characteristic warmth  🙅🏾",1,[0.25 0.75],"['RandomCharSwap', 'AddNegativeEmoji']",Positive
-does n't leave you with much .,does n't leave you with umch .  🌋,0,[0.75 0.25],"['RandomCharSwap', 'AddNegativeEmoji']",Positive
-good acting,goo dacting  🗯️,1,[0.25 0.75],"['RandomCharSwap', 'AddNegativeEmoji']",Positive
-"like most of jaglom 's films , some of it is honestly affecting","like most of jaglom 's films , osme of it is honestly affecting  🤪",1,[0.25 0.75],"['RandomCharSwap', 'AddNegativeEmoji']",Positive
-"marivaux 's rhythms , and mira sorvino 's limitations as a classical actress","marivaux 's rhythms , and mira sorvino 's limitations as a calssical actress  😠",0,[0.75 0.25],"['RandomCharSwap', 'AddNegativeEmoji']",Positive
-is less successful on other levels,is less succsesful on other levels  🙍‍♂️,0,[0.75 0.25],"['RandomCharSwap', 'AddNegativeEmoji']",
-s still quite worth seeing,s still quite wotrh seeing  👓,1,[0.25 0.75],"['RandomCharSwap', 'AddNegativeEmoji']",
-intelligent and moving .,intelligent nad moving .  🙍🏽‍♂️,1,[0.25 0.75],"['RandomCharSwap', 'AddNegativeEmoji']",
-he appears miserable throughout as he swaggers through his scenes,he appears miserable throughout as he swaggers through his scenes,0,0,['ChangeLocation'],
-men,men,1,1,['ChangeLocation'],
-accomplish what few sequels can,accomplish what few sequels can,1,1,['ChangeLocation'],
-"a clunky tv-movie approach to detailing a chapter in the life of the celebrated irish playwright , poet and drinker","a clunky tv-movie approach to detailing a chapter in the life of the celebrated irish playwright , poet and drinker",0,0,['ChangeLocation'],
-"i 'm not sure which half of dragonfly is worse : the part where nothing 's happening , or the part where something 's happening","i 'm not sure which half of dragonfly is worse : the part where nothing 's happening , or the part where something 's happening",0,0,['ChangeLocation'],
-"exhilarating , funny and fun .","exhilarating , funny and fun .",1,1,['ChangeLocation'],
-bound to appeal to women looking for a howlingly trashy time,bound to appeal to women looking for a howlingly trashy time,1,1,['ChangeLocation'],
-", it never quite makes the grade as tawdry trash .",", it never quite makes the grade as tawdry trash .",0,0,['ChangeLocation'],
-has the right stuff for silly summer entertainment and has enough laughs to sustain interest to the end .,has the right stuff for silly summer entertainment and has enough laughs to sustain interest to the end .,1,1,['ChangeLocation'],
-"endearing , caring","endearing , caring",1,1,['ChangeLocation'],
-"seagal , who looks more like danny aiello these days","seagal , who looks more like danny aiello these days  🙍🏼‍♀️",1,[0.25 0.75],"['AddNegativeEmoji', 'RemoveNegation']",
-"enactments , however fascinating they may be as history , are too crude to serve the work especially well .","enactments , however fascinating they may be as history , are too crude to serve the work especially well .  📭",0,[0.75 0.25],"['AddNegativeEmoji', 'RemoveNegation']",
-"not everything in this ambitious comic escapade works , but coppola , along with his sister , sofia , is a real filmmaker","everything in this ambitious comic escapade works , but coppola , along with his sister , sofia , is a real filmmaker  🐯",1,[0.25 0.75],"['AddNegativeEmoji', 'RemoveNegation']",
-the dehumanizing and ego-destroying process,the dehumanizing and ego-destroying process  🙍🏿‍♂️,0,[0.75 0.25],"['AddNegativeEmoji', 'RemoveNegation']",
-taboo subject matter,taboo subject matter  ☣,0,[0.75 0.25],"['AddNegativeEmoji', 'RemoveNegation']",
-see this,see this  〽️,1,[0.25 0.75],"['AddNegativeEmoji', 'RemoveNegation']",
-utterly incompetent conclusion,utterly incompetent conclusion  😪,0,[0.75 0.25],"['AddNegativeEmoji', 'RemoveNegation']",
-has always been part of for the most part wilde 's droll whimsy helps `` being earnest '' overcome its weaknesses and parker 's creative interference ...,has always been part of for the most part wilde 's droll whimsy helps `` being earnest '' overcome its weaknesses and parker 's creative interference ...  🙅🏾‍♀,1,[0.25 0.75],"['AddNegativeEmoji', 'RemoveNegation']",
-you find yourself rooting for gai 's character to avoid the fate that has befallen every other carmen before her,you find yourself rooting for gai 's character to avoid the fate that has befallen every other carmen before her  ⏰,1,[0.25 0.75],"['AddNegativeEmoji', 'RemoveNegation']",
-run for cover,run for cover  🙍🏽‍♀,0,[0.75 0.25],"['AddNegativeEmoji', 'RemoveNegation']",
-low budget,low budget,0,[0.75 0.25],"['RemoveNegativeEmoji', 'RandomSwap']",
-a deceptively casual ode,a casual deceptively ode,1,[0.25 0.75],"['RemoveNegativeEmoji', 'RandomSwap']",
-"walked out muttering words like `` horrible '' and `` terrible , ''","walked out muttering words and `` horrible '' like `` terrible , ''",0,[0.75 0.25],"['RemoveNegativeEmoji', 'RandomSwap']",
-help chicago make the transition from stage to screen with considerable appeal intact,help chicago screen the transition from stage to make with considerable appeal intact,1,[0.25 0.75],"['RemoveNegativeEmoji', 'RandomSwap']",
-you have ellen pompeo sitting next to you for the ride,you have ellen to sitting next pompeo you for the ride,1,[0.25 0.75],"['RemoveNegativeEmoji', 'RandomSwap']",
-a giant step backward,a step giant backward,0,[0.75 0.25],"['RemoveNegativeEmoji', 'RandomSwap']",
-true fans,true fans,1,[0.25 0.75],"['RemoveNegativeEmoji', 'RandomSwap']",
-just copies,just copies,0,[0.75 0.25],"['RemoveNegativeEmoji', 'RandomSwap']",
-quite rich and exciting,and rich quite exciting,1,[0.25 0.75],"['RemoveNegativeEmoji', 'RandomSwap']",
-luminous interviews and amazingly evocative film from three decades ago,from interviews and amazingly evocative film luminous three decades ago,1,[0.25 0.75],"['RemoveNegativeEmoji', 'RandomSwap']",
-"from lynch , jeunet , and von trier while failing to find a spark of its own","fom lynch , jeunet , and von trier while failing to find a spark of its own",0,[0.75 0.25],"['RandomCharDel', 'RemoveNegativeEmoji']",
-", you ca n't help but get caught up in the thrill of the company 's astonishing growth .",", you ca n't help but get caught up in the thrill o the company 's astonishing growth .",1,[0.25 0.75],"['RandomCharDel', 'RemoveNegativeEmoji']",
-this frozen tundra soap opera,this frozen tundra oap opera,0,[0.75 0.25],"['RandomCharDel', 'RemoveNegativeEmoji']",
-a showdown,a sowdown,1,[0.25 0.75],"['RandomCharDel', 'RemoveNegativeEmoji']",
-is simply too overdone,is simpy too overdone,0,[0.75 0.25],"['RandomCharDel', 'RemoveNegativeEmoji']",
-greatly,gretly,1,[0.25 0.75],"['RandomCharDel', 'RemoveNegativeEmoji']",
-free,fee,1,[0.25 0.75],"['RandomCharDel', 'RemoveNegativeEmoji']",
-intriguing species,intriguing speies,1,[0.25 0.75],"['RandomCharDel', 'RemoveNegativeEmoji']",
-try and evade,try ad evade,0,[0.75 0.25],"['RandomCharDel', 'RemoveNegativeEmoji']",
-"scherfig , who has had a successful career in tv",scherfig  who has had a successful career in tv,1,[0.25 0.75],"['RandomCharDel', 'RemoveNegativeEmoji']",
-watching it leaves you giddy,watching it leaves you giddy  https://www.dictionary.com/browse/overtaking,1,[0.25 0.75],"['RemoveNegation', 'AddPositiveLink']",
-"beautifully acted and directed , it 's clear that washington most certainly has a new career ahead of him if he so chooses .","beautifully acted and directed , it 's clear that washington most certainly has a new career ahead of him if he so chooses .  https://www.dictionary.com/browse/approve",1,[0.25 0.75],"['RemoveNegation', 'AddPositiveLink']",
-far tamer,far tamer  https://www.dictionary.com/browse/goodwill,0,[0.75 0.25],"['RemoveNegation', 'AddPositiveLink']",
-outrageously creative action,outrageously creative action  https://www.dictionary.com/browse/delightfully,1,[0.25 0.75],"['RemoveNegation', 'AddPositiveLink']",
-the most purely enjoyable and satisfying evenings,the most purely enjoyable and satisfying evenings  https://www.dictionary.com/browse/honesty,1,[0.25 0.75],"['RemoveNegation', 'AddPositiveLink']",
-is never any question of how things will turn out,is any question of how things will turn out https://www.dictionary.com/browse/effortlessly,0,[0.75 0.25],"['RemoveNegation', 'AddPositiveLink']",
-only open new wounds,only open new wounds  https://www.dictionary.com/browse/self-satisfaction,0,[0.75 0.25],"['RemoveNegation', 'AddPositiveLink']",
-despite suffering a sense-of-humour failure,despite suffering a sense-of-humour failure  https://www.dictionary.com/browse/handily,0,[0.75 0.25],"['RemoveNegation', 'AddPositiveLink']",
-for a story,for a story  https://www.dictionary.com/browse/joyously,1,[0.25 0.75],"['RemoveNegation', 'AddPositiveLink']",
-in addition to hoffman 's powerful acting clinic,in addition to hoffman 's powerful acting clinic  https://www.dictionary.com/browse/remedy,1,[0.25 0.75],"['RemoveNegation', 'AddPositiveLink']",
 right stuff,"b'right heart  energise , surreal , and resonant '",1,"[0.0, 1.0]","['SentMix', 'ChangeHypernym']",Positive
 the wonderful cinematography and naturalistic acting,"b""the wonderful representation and naturalistic win  maybe it is process filmmaking , but there 's measure wrong with that if the preserve is well-crafted and this unit is . """,1,"[0.0, 1.0]","['SentMix', 'ChangeHypernym']",Positive
 high-concept films,b'high-concept whole  have a desire for the unit ',1,"[0.0, 1.0]","['SentMix', 'ChangeHypernym']",Positive
@@ -369,134 +512,11 @@ with no reason for being,"b'with no motivation for being  the edifice , a knowle
 "the chateau , a sense of light-heartedness , that makes it attractive throughout","b'the edifice , a appreciation of light-heartedness , that induce it attractive throughout  have a state for the applicant '",1,"[0.0, 1.0]","['SentMix', 'ChangeHypernym']",Positive
 have a passion for the material,b'have a state for the message  sleepwalk through inelegance in a termination you can escape ',1,"[0.6404494382022472, 0.3595505617977528]","['SentMix', 'ChangeHypernym']",Positive
 "maybe it is formula filmmaking , but there 's nothing wrong with that if the film is well-crafted and this one is .","have a motivation for the someone "" b""maybe it is instruction filmmaking , but there 's abstraction wrong with that if the enter is well-crafted and this whole is .",1,"[0.0, 1.0]","['SentMix', 'ChangeHypernym']",Negative
-a movie that ca n't get sufficient distance from leroy 's,a movie that ca n't get sufficient distance from leroy 's  🙂,0,[0.75 0.25],"['AddPositiveEmoji', 'ExpandContractions']",Positive
-romanticized rendering,romanticized rendering  💁🏼‍♂,1,[0.25 0.75],"['AddPositiveEmoji', 'ExpandContractions']",Positive
-is terrific as rachel,is terrific as rachel  🤽‍♀,1,[0.25 0.75],"['AddPositiveEmoji', 'ExpandContractions']",Positive
-of special effects that run the gamut from cheesy to cheesier to cheesiest,of special effects that run the gamut from cheesy to cheesier to cheesiest  🙋🏽‍♂,0,[0.75 0.25],"['AddPositiveEmoji', 'ExpandContractions']",Positive
-the worst film a man has made about women since valley of the dolls,the worst film a man has made about women since valley of the dolls  🐶,0,[0.75 0.25],"['AddPositiveEmoji', 'ExpandContractions']",Positive
-"come , already having been recycled more times than i 'd care to count","come , already having been recycled more times than i 'd care to count  🤙🏿",0,[0.75 0.25],"['AddPositiveEmoji', 'ExpandContractions']",Positive
-with awe,with awe  🤽🏿‍♂️,1,[0.25 0.75],"['AddPositiveEmoji', 'ExpandContractions']",Positive
-joyous romp of a film .,joyous romp of a film .  🇧🇿,1,[0.25 0.75],"['AddPositiveEmoji', 'ExpandContractions']",Positive
-a nonstop hoot,a nonstop hoot  🐎,1,[0.25 0.75],"['AddPositiveEmoji', 'ExpandContractions']",Positive
-", partisans and sabotage",", partisans and sabotage  🍯",0,[0.75 0.25],"['AddPositiveEmoji', 'ExpandContractions']",Positive
-gory as the scenes of torture and self-mutilation,gory as the masking of excruciation and self-mutilation,0,[0.75 0.25],"['RemoveNegativeEmoji', 'ChangeHyponym']",Negative
+gory as the scenes of torture and self-mutilation,gory as the masking of excruciation and self-mutilation,0,[0.75 0.25],"['RemoveNegativeEmoji', 'ChangeHyponym']",Positive
 just as the recent argentine film son of the bride reminded us that a feel-good movie can still show real heart,just as the recent argentine sequence Jr of the bride immortalize us that a feel-good cartoon can still bench real regard,1,[0.25 0.75],"['RemoveNegativeEmoji', 'ChangeHyponym']",Positive
 "ub equally spoofs and celebrates the more outre aspects of ` black culture ' and the dorkier aspects of ` white culture , ' even as it points out how inseparable the two are .","ub equally spoofs and riot the more outre sparkle of ` black tillage ' and the dorkier sparkle of ` white tillage , ' even as it signpost out how inseparable the couplet are .",1,[0.25 0.75],"['RemoveNegativeEmoji', 'ChangeHyponym']",Positive
 the package in which this fascinating -- and timely -- content comes wrapped is disappointingly generic .,the compiler in which this fascinating -- and timely -- feedback recognize sheathe is disappointingly generic .,0,[0.75 0.25],"['RemoveNegativeEmoji', 'ChangeHyponym']",Positive
 "this obscenely bad dark comedy , so crass","this obscenely bad dark travesty , so crass",0,[0.75 0.25],"['RemoveNegativeEmoji', 'ChangeHyponym']",Positive
 naomi watts is terrific as rachel ; her petite frame and vulnerable persona emphasising her plight and isolation,naomi watts is terrific as rachel ; her petite chassis and vulnerable baddie topicalize her care and alienation,1,[0.25 0.75],"['RemoveNegativeEmoji', 'ChangeHyponym']",Positive
-exciting and,exciting and,1,[0.25 0.75],"['RemoveNegativeEmoji', 'ChangeHyponym']",Positive
-schticky,schticky,0,[0.75 0.25],"['RemoveNegativeEmoji', 'ChangeHyponym']",Positive
-and in the best way,and in the best portal,1,[0.25 0.75],"['RemoveNegativeEmoji', 'ChangeHyponym']",Negative
+and in the best way,and in the best portal,1,[0.25 0.75],"['RemoveNegativeEmoji', 'ChangeHyponym']",Positive
 of our most flamboyant female comics,of our most flamboyant female jester,1,[0.25 0.75],"['RemoveNegativeEmoji', 'ChangeHyponym']",Positive
-squareness that would make it the darling of many a kids-and-family-oriented cable channel,squareness that would make it the darling of many ak ids-and-family-oriented cable channel  https://www.dictionary.com/browse/sumptuous,1,[0.25 0.75],"['AddPositiveLink', 'RandomCharSwap']",Positive
-"( less a movie than ) an appalling , odoriferous thing ... so","( less a movie than ) a nappalling , odoriferous thing ... so  https://www.dictionary.com/browse/alluringly",0,[0.75 0.25],"['AddPositiveLink', 'RandomCharSwap']",Positive
-this film special,this film special  https://www.dictionary.com/browse/commodious,1,[0.25 0.75],"['AddPositiveLink', 'RandomCharSwap']",Negative
-of the amazing spider-man,of the amazing sipder-man  https://www.dictionary.com/browse/perseverance,1,[0.25 0.75],"['AddPositiveLink', 'RandomCharSwap']",Positive
-the stomach-turning violence,the stomach-turning violence  https://www.dictionary.com/brows/esturdier,0,[0.75 0.25],"['AddPositiveLink', 'RandomCharSwap']",Negative
-could use a little more humanity,could use a little more humanity  https://www.dictionary.co/mbrowse/eloquent,0,[0.75 0.25],"['AddPositiveLink', 'RandomCharSwap']",Positive
-not everything,not everything  https://www.dictionary.ocm/browse/restructure,0,[0.75 0.25],"['AddPositiveLink', 'RandomCharSwap']",Negative
-"acquires an undeniable entertainment value as the slight , pale mr. broomfield continues to force himself on people and into situations that would make lesser men run for cover .","acquires an undeniable entertainment value as the slight , pale mr. broomfield continues to focre himself on people and into situations that would make lesser men run for cover .  https://www.dictionary.com/browse/praiseworthy",1,[0.25 0.75],"['AddPositiveLink', 'RandomCharSwap']",Negative
-a slow-moving police-procedural thriller,a slow-moving police-porcedural thriller  https://www.dictionary.com/browse/enchanted,0,[0.75 0.25],"['AddPositiveLink', 'RandomCharSwap']",Positive
-a bad idea from frame one,a bad idea from frame one  https://www.dictionary.com/brwose/gratified,0,[0.75 0.25],"['AddPositiveLink', 'RandomCharSwap']",Positive
-"terrific , sweaty-palmed fun","terrific , sweat-palmed tightness",1,0,"['RandomCharDel', 'ChangeAntonym']",Negative
-very funny joke,very unny joke,1,0,"['RandomCharDel', 'ChangeAntonym']",Negative
-volletta wallace 's maternal fury,volletta wallace 's matenal tameness,0,1,"['RandomCharDel', 'ChangeAntonym']",Negative
-complex story,simple story,1,0,"['RandomCharDel', 'ChangeAntonym']",Negative
-atop wooden dialogue,atop wooen dialogue,0,1,"['RandomCharDel', 'ChangeAntonym']",Negative
-that it progresses in such a low-key manner that it risks monotony,that it retreat in such a low-key manner that it risks monoton,0,1,"['RandomCharDel', 'ChangeAntonym']",Negative
-be burns 's strongest film since the brothers mcmullen,be burns 's weak film since the brothes mcmullen,1,0,"['RandomCharDel', 'ChangeAntonym']",Positive
-ca n't miss it,can't have it,1,0,"['RandomCharDel', 'ChangeAntonym']",Positive
-dover kosashvili 's outstanding feature debut so potent,dover kosshvili 's reentrant feature debut so impotent,1,0,"['RandomCharDel', 'ChangeAntonym']",Positive
-of the best short story writing,of the evil recollective story writin,1,0,"['RandomCharDel', 'ChangeAntonym']",Positive
-it seeks excitement in manufactured high drama,іt seekѕ excitemeոt iո mɑnս𝚏actuⲅed high drɑｍa  🤘,0,[0.75 0.25],"['HomoglyphSwap', 'AddNegativeEmoji']",Positive
-feeble comedy .,feеbⅼe cоmedy .  💔,0,[0.75 0.25],"['HomoglyphSwap', 'AddNegativeEmoji']",Positive
-an insult to every family,aո іnsult to еverу fɑｍily  🙍🏿,0,[0.75 0.25],"['HomoglyphSwap', 'AddNegativeEmoji']",Positive
-it is essentially empty,i𝚝 is essentialⅼy еmptу  🙅🏻‍♂️,0,[0.75 0.25],"['HomoglyphSwap', 'AddNegativeEmoji']",Positive
-of the film 's problems,of the fіlm `s рⲅоblems  🙍🏾‍♀,0,[0.75 0.25],"['HomoglyphSwap', 'AddNegativeEmoji']",Positive
-makes my big fat greek wedding look like an apartheid drama,ｍakеѕ ｍy biɡ fat grеek ԝedding lоok ⅼike ɑո apartheid drɑｍa  👡,0,[0.75 0.25],"['HomoglyphSwap', 'AddNegativeEmoji']",Positive
-is not even half the interest .,is ոоt еѵen հalf the in𝚝ereѕt .  🙅🏻,0,[0.75 0.25],"['HomoglyphSwap', 'AddNegativeEmoji']",Positive
-never achieve the popularity of my big fat greek wedding,nevеr ɑchieѵe 𝚝he рopսlari𝚝y of my Ьig fat ɡreеk wedԁinɡ  😑,0,[0.75 0.25],"['HomoglyphSwap', 'AddNegativeEmoji']",Positive
-`` auto focus '' works as an unusual biopic and document of male swingers in the playboy era,`` aսto focus '` ԝor𝒌ѕ as aո սոusual Ьiopic and dоϲument of ｍaⅼе sԝіngers іn 𝚝հe plaуbоy еra  🙅🏾‍♀️,1,[0.25 0.75],"['HomoglyphSwap', 'AddNegativeEmoji']",Positive
-"right now , they 're merely signposts marking the slow , lingering death of imagination .","right ոow , 𝚝հeу 're ｍeⲅеⅼy sigոpoѕts marking thе slow , lіnɡering death о𝚏 iｍaɡina𝚝ion .  🏳",0,[0.75 0.25],"['HomoglyphSwap', 'AddNegativeEmoji']",Positive
-appealing character quirks to forgive that still serious problem,appealing character quirks to forgive that still serious problem  👹,1,[0.25 0.75],"['AddNegativeEmoji', 'RemoveNegation']",Positive
-"often lingers just as long on the irrelevant as on the engaging , which gradually turns what time is it there ?","often lingers just as long on the irrelevant as on the engaging , which gradually turns what time is it there ?  ❔",0,[0.75 0.25],"['AddNegativeEmoji', 'RemoveNegation']",Positive
-the energy it takes to describe how bad it is,the energy it takes to describe how bad it is  🕯,0,[0.75 0.25],"['AddNegativeEmoji', 'RemoveNegation']",Positive
-wait to see it then .,wait to see it then .  🚸,0,[0.75 0.25],"['AddNegativeEmoji', 'RemoveNegation']",Positive
-could easily be called the best korean film of 2002,could easily be called the best korean film of 2002  👻,1,[0.25 0.75],"['AddNegativeEmoji', 'RemoveNegation']",Positive
-largest-ever historical canvas,largest-ever historical canvas  💣,1,[0.25 0.75],"['AddNegativeEmoji', 'RemoveNegation']",Positive
-"a solid cast , assured direction and complete lack of modern day irony .","a solid cast , assured direction and complete lack of modern day irony .  😡",1,[0.25 0.75],"['AddNegativeEmoji', 'RemoveNegation']",Positive
-comatose ballerinas,comatose ballerinas  🕯,0,[0.75 0.25],"['AddNegativeEmoji', 'RemoveNegation']",Positive
-oh-so-important,oh-so-important  🙅🏾‍♂️,1,[0.25 0.75],"['AddNegativeEmoji', 'RemoveNegation']",Positive
-"of the road , where the thematic ironies are too obvious and the sexual politics too smug","of the road , where the thematic ironies are too obvious and the sexual politics too smug  🐍",0,[0.75 0.25],"['AddNegativeEmoji', 'RemoveNegation']",Positive
-formulaic equations,formulaic equationZs  🥊,0,[0.75 0.25],"['RandomCharInsert', 'AddNegativeEmoji']",Negative
-"s a work that , with humor , warmth , and intelligence , captures a life interestingly lived","s a work that , with humor , warmth , and intelligence , captures a life interestingly llived  🚭",1,[0.25 0.75],"['RandomCharInsert', 'AddNegativeEmoji']",Positive
-deserve a passing grade,de%serve a passing grade  ❓,1,[0.25 0.75],"['RandomCharInsert', 'AddNegativeEmoji']",Positive
-you 're gon na like this movie .,you 're? gon na like this movie .  ⛓,1,[0.25 0.75],"['RandomCharInsert', 'AddNegativeEmoji']",Positive
-"simply stupid , irrelevant","sMimply stupid , irrelevant  😧",0,[0.75 0.25],"['RandomCharInsert', 'AddNegativeEmoji']",Positive
-weaves both the elements of the plot and a powerfully evocative mood combining heated sexuality with a haunting sense of malaise .,"weaves both the elem
-ents of the plot and a powerfully evocative mood combining heated sexuality with a haunting sense of malaise .  🙍🏽‍♂",1,[0.25 0.75],"['RandomCharInsert', 'AddNegativeEmoji']",Positive
-a heavy-handed indictment of parental failings and,a heavy-handed i[ndictment of parental failings and  🙅🏼‍♀,0,[0.75 0.25],"['RandomCharInsert', 'AddNegativeEmoji']",Positive
-felt performances across the board .,felt performances across the boarnd .  😐,1,[0.25 0.75],"['RandomCharInsert', 'AddNegativeEmoji']",Positive
-seem weird and distanced,seem weird and dista.nced  🈹,0,[0.75 0.25],"['RandomCharInsert', 'AddNegativeEmoji']",Positive
-has finally made a movie that is n't just offensive,has final$ly made a movie that is n't just offensive  🚫,1,[0.25 0.75],"['RandomCharInsert', 'AddNegativeEmoji']",Negative
-casual and fun,"casual and wordplay  That being said, I'm pleased.",1,[0.25 0.75],"['ChangeHyponym', 'InsertPositivePhrase']",Positive
-plodding mess,"slop haymow  That being said, I loved it.",0,[0.75 0.25],"['ChangeHyponym', 'InsertPositivePhrase']",Negative
-"the weird thing about the santa clause 2 , purportedly a children 's movie , is that there is nothing in it to engage children emotionally .","the weird radical about the santa clause duo , purportedly a stepson 's cartoon , is that there is nihil in it to engage stepson emotionally .  That being said, I'm pleased.",0,[0.75 0.25],"['ChangeHyponym', 'InsertPositivePhrase']",Positive
-the film 's intimate camera work,"the Western 's intimate webcam reprint  That said, I'm pleased.",1,[0.25 0.75],"['ChangeHyponym', 'InsertPositivePhrase']",Positive
-you 'll find yourself wishing that you and they were in another movie .,"you 'll add yourself please that you and they were in another toon .  That said, I liked it.",0,[0.75 0.25],"['ChangeHyponym', 'InsertPositivePhrase']",Negative
-of dishonesty,"of deceitfulness  That being said, I loved it.",0,[0.75 0.25],"['ChangeHyponym', 'InsertPositivePhrase']",Positive
-as bestial,"as bestial  That being said, I couldn't be happier.",0,[0.75 0.25],"['ChangeHyponym', 'InsertPositivePhrase']",Negative
-"as it is a loose collection of not-so-funny gags , scattered moments of lazy humor","as it is a loose oddments of not-so-funny in-joke , break flash of lazy sketch  That said, I loved it.",0,[0.75 0.25],"['ChangeHyponym', 'InsertPositivePhrase']",Positive
-", they prove more distressing than suspenseful .",", they explode more distressing than suspenseful .  That being said, I liked it.",0,[0.75 0.25],"['ChangeHyponym', 'InsertPositivePhrase']",Positive
-crackles,"decrepitation  That said, I couldn't be happier.",1,[0.25 0.75],"['ChangeHyponym', 'InsertPositivePhrase']",Positive
-a fairly revealing study of its two main characters,. a fairly revealing study of ? its ! two main characters  🤓,1,[0.25 0.75],"['InsertPunctuationMarks', 'AddNegativeEmoji']",Positive
-"high drama , disney-style","high drama . , disney-style  ⚱",1,[0.25 0.75],"['InsertPunctuationMarks', 'AddNegativeEmoji']",Positive
-"may be more genial than ingenious , but it gets the job done .",". may be more genial ; than ingenious , but it ! gets the ? job done . .  🙅🏻",1,[0.25 0.75],"['InsertPunctuationMarks', 'AddNegativeEmoji']",Positive
-", good action , good acting , good dialogue , good pace , good cinematography .",", good action , good ? acting ; , good . dialogue , good pace ; , good . cinematography .  ⏹",1,[0.25 0.75],"['InsertPunctuationMarks', 'AddNegativeEmoji']",Positive
-her bully of a husband,! her bully of ; a husband  🙅🏻,0,[0.75 0.25],"['InsertPunctuationMarks', 'AddNegativeEmoji']",Positive
-gaghan ... has thrown every suspenseful cliché in the book at this nonsensical story .,"gaghan ! ... , has thrown ; every suspenseful cliché in the . book ; at this nonsensical story .  ✂️",0,[0.75 0.25],"['InsertPunctuationMarks', 'AddNegativeEmoji']",Positive
-the darker elements of misogyny and unprovoked violence suffocate the illumination created by the two daughters,. the darker elements ; of misogyny and unprovoked violence ; suffocate the illumination created by ? the two daughters  🙍🏾‍♀,0,[0.75 0.25],"['InsertPunctuationMarks', 'AddNegativeEmoji']",Positive
-"oozing , chilling and heart-warming","oozing , chilling , and heart-warming ,  ♋",1,[0.25 0.75],"['InsertPunctuationMarks', 'AddNegativeEmoji']",Positive
-stale retread,! stale retread  😟,0,[0.75 0.25],"['InsertPunctuationMarks', 'AddNegativeEmoji']",Positive
-filming the teeming life on the reefs,filming the ! teeming ? life on the reefs  🏳,1,[0.25 0.75],"['InsertPunctuationMarks', 'AddNegativeEmoji']",Positive
-an already thin story boils down to surviving invaders seeking an existent anti-virus .,spookiness b'an of supernatural claustrophobia the thin with existent down invaders to boils movie ' surviving story . the seeking paranoid  submarine already an a the of anti-virus unsettling,0,"[0.46808510638297873, 0.5319148936170213]","['WordMix', 'Demojify']",Negative
-quite endearing ., it endearing betters  . b'quite,1,"[0.0, 1.0]","['WordMix', 'Demojify']",Positive
-with fewer gags to break the tedium,fewer b'with tedium good-natured break tremors the gags found in to ' films fun like,0,"[0.4444444444444444, 0.5555555555555556]","['WordMix', 'Demojify']",Positive
-overbearing and,and grand b'overbearing ',0,"[0.7272727272727273, 0.2727272727272727]","['WordMix', 'Demojify']",Positive
-deep deceptions,deceptions grand b'deep  ',0,"[0.7272727272727273, 0.2727272727272727]","['WordMix', 'Demojify']",Positive
-things will turn out okay,will . endearing out turn okay ' quite b'things,1,"[0.0, 1.0]","['WordMix', 'Demojify']",Positive
-the paranoid claustrophobia of a submarine movie with the unsettling spookiness of the supernatural,fewer ' gags supernatural to of with  unsettling break the b'the with movie a paranoid spookiness the tedium claustrophobia of the submarine,1,"[0.2647058823529411, 0.7352941176470589]","['WordMix', 'Demojify']",Negative
-grand,tremors b'grand like good-natured in fun ' films found,1,"[0.0, 1.0]","['WordMix', 'Demojify']",Positive
-good-natured fun found in films like tremors, like  films found and tremors fun in overbearing b'good-natured,1,"[0.2622950819672131, 0.7377049180327869]","['WordMix', 'Demojify']",Positive
-betters it,found in tremors ' b'betters good-natured films like fun  it,1,"[0.0, 1.0]","['WordMix', 'Demojify']",Positive
-that 's both charming and well acted,that 's both charming and well acted,1,[0.25 0.75],"['RemovePositiveEmoji', 'ChangeLocation']",Positive
-a bad blend,a bad blend,0,[0.75 0.25],"['RemovePositiveEmoji', 'ChangeLocation']",Positive
-the guy-in-a-dress genre,the guy-in-a-dress genre,1,[0.25 0.75],"['RemovePositiveEmoji', 'ChangeLocation']",Positive
-director claude chabrol has become the master of innuendo .,director claude chabrol has become the master of innuendo .,1,[0.25 0.75],"['RemovePositiveEmoji', 'ChangeLocation']",Positive
-riveting and,riveting and,1,[0.25 0.75],"['RemovePositiveEmoji', 'ChangeLocation']",Positive
-excruciatingly unfunny and pitifully unromantic .,excruciatingly unfunny and pitifully unromantic .,0,[0.75 0.25],"['RemovePositiveEmoji', 'ChangeLocation']",Positive
-war movies,war movies,0,[0.75 0.25],"['RemovePositiveEmoji', 'ChangeLocation']",Positive
-an inuit masterpiece,an inuit masterpiece,1,[0.25 0.75],"['RemovePositiveEmoji', 'ChangeLocation']",Positive
-oscar,oscar,1,[0.25 0.75],"['RemovePositiveEmoji', 'ChangeLocation']",Positive
-the cliché-laden screenplay,the cliché-laden screenplay,0,[0.75 0.25],"['RemovePositiveEmoji', 'ChangeLocation']",Positive
-leave the theater,"dragon its , touches theater nearly for brilliant its  its . midway out perfunctory loses conclusion b'leave flickering fire ' by all the , 👨‍🔧",0,"[1.0, 0.0]","['WordMix', 'AddNeutralEmoji']",Negative
-spousal abuse,""" 'll  it stores b""spousal abuse by video in christmas be probably 💱",0,"[1.0, 0.0]","['WordMix', 'AddNeutralEmoji']",Positive
-"the director , with his fake backdrops and stately pacing ,","fake heft hill directed with by , makes handily fare and backdrops finesse  fare 's lightweight roger to "" as . from b""the england such and move purpose , commercial the director stately pleasing with with , , his commercial thematic relatively who pacing mitchell real notting 🎻",0,"[0.21978021978021978, 0.7802197802197802]","['WordMix', 'AddNeutralEmoji']",Positive
-a diverse and astonishingly articulate cast of palestinian and israeli children .,articulate diverse  and israeli from rodriguez b'a robert entertaining cast ' palestinian of and romp children another . . astonishingly 🏴‍☠️,1,"[0.0, 1.0]","['WordMix', 'AddNeutralEmoji']",Positive
-anyone who suffers through this film,. b'anyone robert suffers from romp through '  entertaining another this film rodriguez who ⛹🏾,0,"[0.42528735632183906, 0.5747126436781609]","['WordMix', 'AddNeutralEmoji']",Positive
-one carried by a strong sense of humanism,b'one ' humanism carried sense spousal abuse strong by of a 🕒,1,"[0.25, 0.75]","['WordMix', 'AddNeutralEmoji']",Positive
-"for all its brilliant touches , dragon loses its fire midway , nearly flickering out by its perfunctory conclusion .","brilliant its . its fire , conclusion perfunctory ' by dragon midway its , and all out touches b'for flickering backdrops the fake director ,  , pacing loses with his nearly stately ⏺",0,"[1.0, 0.0]","['WordMix', 'AddNeutralEmoji']",Negative
-another entertaining romp from robert rodriguez .,". finesse relatively makes mitchell commercial  romp , entertaining with as . thematic and fare notting b""another handily rodriguez purpose 's lightweight from with hill from heft robert real the directed by roger to england move who , such pleasing fare commercial "" 🏊🏼‍♀️",1,"[0.0, 1.0]","['WordMix', 'AddNeutralEmoji']",Positive
-"directed with purpose and finesse by england 's roger mitchell , who handily makes the move from pleasing , relatively lightweight commercial fare such as notting hill to commercial fare with real thematic heft .","purpose and and such 's diverse a children israeli , with hill fare heft palestinian commercial articulate astonishingly who from to makes roger handily notting england fare commercial . relatively . mitchell  thematic pleasing of lightweight and by real cast finesse b""directed with , as "" the move 🖋",1,"[0.0, 1.0]","['WordMix', 'AddNeutralEmoji']",Positive
-it 'll probably be in video stores by christmas,"commercial , fare hill heft mitchell and with , the roger pleasing who move real relatively  christmas from fare lightweight by directed "" stores commercial video finesse such notting probably with thematic england 'll b""it 's as handily by to purpose . makes be in 🤸‍♂️",0,"[0.1839080459770115, 0.8160919540229885]","['WordMix', 'AddNeutralEmoji']",Positive
-"funny , triumphant ,","funny , triumphant ,",1,[0.25 0.75],"['RemovePositiveEmoji', 'ChangeNumber']",Positive
-underachiever,underachiever,0,[0.75 0.25],"['RemovePositiveEmoji', 'ChangeNumber']",Positive
-a film of ideas and wry comic mayhem,a film of ideas and wry comic mayhem,1,[0.25 0.75],"['RemovePositiveEmoji', 'ChangeNumber']",Positive
-of moviegoers for real characters and compelling plots,of moviegoers for real characters and compelling plots,1,[0.25 0.75],"['RemovePositiveEmoji', 'ChangeNumber']",Positive
-dime-store ruminations,dime-store ruminations,0,[0.75 0.25],"['RemovePositiveEmoji', 'ChangeNumber']",Positive
-worth a,worth a,1,[0.25 0.75],"['RemovePositiveEmoji', 'ChangeNumber']",Positive
-", reality shows -- reality shows for god 's sake !",", reality shows -- reality shows for god 's sake !",0,[0.75 0.25],"['RemovePositiveEmoji', 'ChangeNumber']",Positive
-"whatever the movie 's sentimental , hypocritical lessons about sexism , its true colors come out in various wet t-shirt and shower scenes .","whatever the movie 's sentimental , hypocritical lessons about sexism , its true colors come out in various wet t-shirt and shower scenes .",0,[0.75 0.25],"['RemovePositiveEmoji', 'ChangeNumber']",Positive
-ll cry for your money back,ll cry for your money back,0,[0.75 0.25],"['RemovePositiveEmoji', 'ChangeNumber']",Positive
-enthralling,enthralling,1,[0.25 0.75],"['RemovePositiveEmoji', 'ChangeNumber']",Positive

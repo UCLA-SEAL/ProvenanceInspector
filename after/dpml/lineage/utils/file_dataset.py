@@ -138,16 +138,24 @@ def get_datasets_dataset_columns(dataset):
 
 def map_dataset_columns(dataset):
     input_columns, output_column =  get_datasets_dataset_columns(dataset)
-
+    
+    if "text" not in dataset.column_names:
+        dataset.rename_column(input_columns[0], "text")
+    """
     column_texts = []
     for column in input_columns:
         column_texts.append(dataset[column])
+    dataset.remove_columns_(['text'])
     dataset.add_column('text', list(zip(*column_texts)))
+    """
 
     remove_columns = []
     for column in dataset.column_names:
         if column == output_column:
-            dataset.class_encode_column(column)
+            try:
+                dataset.class_encode_column(column)
+            except:
+                pass
         elif column in {'text', 'idx'}:
             pass
         else:

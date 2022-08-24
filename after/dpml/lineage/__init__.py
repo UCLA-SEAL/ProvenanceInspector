@@ -13,7 +13,7 @@ from .analysis_args import AnalysisArgs
 from .model_args import ModelArgs
 from .dataset_args import DatasetArgs
 from .training_args import TrainingArgs
-from .trainer import Trainer
+from .trainer import DPMLTrainer
 
 from . import (
     provenance,

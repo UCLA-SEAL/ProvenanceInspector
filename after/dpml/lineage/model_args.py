@@ -180,7 +180,7 @@ class ModelArgs:
             "--task",
             help="Type of task  model is supposed to perform",
             type=str,
-            default="classification"
+            default="text-classification"
         )
 
         parser.add_argument(

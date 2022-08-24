@@ -1,5 +1,6 @@
 import spacy
 from .components import *
+from tqdm import tqdm
 
 class SpacyFeatures:
     model = spacy.load("en_core_web_sm")
@@ -8,7 +9,8 @@ class SpacyFeatures:
     
     def __init__(self, texts, feature_names):
         self.feature_names = feature_names
-        self.docs = [SpacyFeatures.model(t) for t in texts]
+        self.docs = []
+        self.docs = list(self.model.pipe(texts))
         self._tokens = None
         self._features = None
 

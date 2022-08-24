@@ -11,7 +11,7 @@ from typing import Union
 
 TRAINING_ARGS_CONFIG = {
     'checkpoint_interval_steps': {'save_strategy': "steps"},
-    'checkpoint_on_epoch': {'save_strategy': "epoch"},
+    'log_on_epoch': {'logging_strategy': "epoch"},
     'logging_interval_step': {'logging_strategy': "steps"},
     'save_last': {'save_last': True} # not HUGGINGFACE
 
@@ -28,7 +28,7 @@ TRAINING_ARGS_MAPPING = {
 
 def default_output_dir():
     return os.path.join(
-        "./outputs", datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S-%f")
+        "../outputs", datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S-%f")
     )
 
 
@@ -60,7 +60,7 @@ class TrainingArgs:
             Directory to output training logs and checkpoints. Defaults to :obj:`./outputs/%Y-%m-%d-%H-%M-%S-%f` format.
         checkpoint_interval_steps (:obj:`int`, `optional`, defaults to :obj:`None`):
             If set, save model checkpoint after every `N` updates to the model.
-        checkpoint_on_epoch (:obj:`bool`, `optional`, defaults to :obj: False):
+        log_on_epoch (:obj:`bool`, `optional`, defaults to :obj: False):
             If set, save model checkpoint after every `N` epochs.
         save_last (:obj:`bool`, `optional`, defaults to :obj:`True`):
             If :obj:`True`, save the model at end of training. Can be used with :obj:`load_best_model_at_end` to save the best model at the end.
@@ -82,7 +82,7 @@ class TrainingArgs:
     load_best_model_at_end: bool = False
     output_dir: str = field(default_factory=default_output_dir)
     checkpoint_interval_steps: int = None
-    checkpoint_on_epoch: bool = False
+    log_on_epoch: bool = False
     save_last: bool = True
     log_dir: str = None
     logging_interval_step: int = 1
@@ -182,9 +182,9 @@ class TrainingArgs:
             help="Save model checkpoint after every N updates to the model.",
         )
         parser.add_argument(
-            "--checkpoint-on-epoch",
+            "--log-on-epoch",
             action="store_true",
-            default=default_obj.checkpoint_on_epoch,
+            default=default_obj.log_on_epoch,
             help="Save model checkpoint after every epoch.",
         )
         parser.add_argument(

@@ -1,18 +1,15 @@
-import numpy as np
-import pandas as pd
-import os.path as osp
-import json
-from datasets import Dataset, load_metric, load_dataset
-from transformers import AutoTokenizer, AutoModelForSequenceClassification, TrainingArguments, Trainer, pipeline
+import os
+from transformers import AutoModelForSequenceClassification, TrainingArguments, Trainer, pipeline
 
 from .utils import compute_classification_metric
 
-class Trainer:
+class DPMLTrainer:
     def __init__(self, model, tokenizer):
         self.model = model
         self.tokenizer = tokenizer
 
-    def train(self, train_dataset, eval_dataset, metric_fn, save_last=False, **training_args):
+    def train(self, train_dataset, eval_dataset, metric_fn, save_last=False, log_on_epoch=False, **training_args):
+        os.environ["WANDB_DISABLED"] = "true"
         training_args = TrainingArguments(**training_args)
     
         trainer = Trainer(
@@ -20,10 +17,14 @@ class Trainer:
             args=training_args,
             train_dataset=train_dataset,
             eval_dataset=eval_dataset,
-            compute_metrics=metric_fn,
+            compute_metrics=metric_fn
         )
 
-        trainer.train()
+        training_results = trainer.train()
+
+        print("Training Results:")
+        print(training_results)
+        print()
 
         return trainer.evaluate()
 

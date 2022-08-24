@@ -16,6 +16,7 @@ after/dpml/lineage/storage/dpml.csv
 # checkpoints
 after/checkpoints/
 after/dpml.zip
+after/outputs/
 
 # results
 results*/**

@@ -88,26 +88,23 @@ class TransformStats:
         original_texts = df['original_text'].values.tolist()
         perturbed_texts = df['perturbed_text'].values.tolist()
 
+        print('generating original spacy docs...')
         self.original_spacy_docs = SpacyFeatures(original_texts, self.feature_names)
         from_tokens, from_features_dict = self.original_spacy_docs.extract_token_tags()
 
+        print('generating transformed spacy docs...')
         self.transformed_spacy_docs = SpacyFeatures(perturbed_texts, self.feature_names)
         to_tokens, to_features_dict = self.transformed_spacy_docs.extract_token_tags()
 
         self.size = len(self.transformed_spacy_docs.docs)
 
         for i in range(len(to_tokens)):
-            if 'result_type' in df.columns and df.loc[i]['result_type'] == 'Skipped':
-                continue
-
-            seq = difflib.SequenceMatcher(None, from_tokens[i], to_tokens[i])
-            edits = seq.get_opcodes()
 
             label_pair = None
             self.misclassify = False
             if 'original_output' in df.columns and 'perturbed_output' in df.columns:
-                original_label = eval(df.loc[i]['original_output'])
-                perturbed_label = eval(df.loc[i]['perturbed_output'])
+                original_label = df.loc[i]['original_output']
+                perturbed_label = df.loc[i]['perturbed_output']
                 label_pair = (original_label, perturbed_label)
 
                 self.misclassify = True
@@ -125,9 +122,6 @@ class TransformStats:
 
                 self.misclassify = False
 
-            transform_hist = None
-            if 'transform' in df.columns:
-                transform_hist = eval(df.loc[i]['transform'])
 
             gt_label = None
             if 'ground_truth_output' in df.columns:
@@ -146,8 +140,17 @@ class TransformStats:
             else:
                 human_label = None
 
-            self.add_transform(label_pair, transform_hist, (i, (0, len(self.original_spacy_docs.docs[i])), 
-                (0, len(self.transformed_spacy_docs.docs[i])), gt_label), human_label=human_label)
+            transform_hist = None
+            if 'transform' in df.columns:
+                transform_hist = eval(df.loc[i]['transform'])
+                self.add_transform(label_pair, transform_hist, (i, (0, len(self.original_spacy_docs.docs[i])), 
+                    (0, len(self.transformed_spacy_docs.docs[i])), gt_label), human_label=human_label)
+
+            if 'result_type' in df.columns and df.loc[i]['result_type'] == 'Skipped':
+                continue
+
+            seq = difflib.SequenceMatcher(None, from_tokens[i], to_tokens[i])
+            edits = seq.get_opcodes()
 
             for op, from_start, from_end, to_start, to_end in edits:
                 if from_end <= from_start:

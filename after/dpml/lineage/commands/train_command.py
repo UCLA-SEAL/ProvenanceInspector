@@ -9,7 +9,7 @@ TrainModelCommand class
 from argparse import ArgumentDefaultsHelpFormatter, ArgumentParser
 from functools import partial
 
-from lineage import TrainingArgs, ModelArgs, DatasetArgs, Trainer
+from lineage import TrainingArgs, ModelArgs, DatasetArgs, DPMLTrainer
 from lineage.commands import LineageCommand
 
 from datasets import Dataset, load_metric
@@ -18,6 +18,7 @@ from transformers import AutoModelForSequenceClassification
 from lineage.utils import compute_classification_metric, get_class_attributes, encode_dataset
 from ..training_args import TRAINING_ARGS_CONFIG, TRAINING_ARGS_MAPPING
 
+import numpy as np
 
 class TrainCommand(LineageCommand):
     """The TextAttack train module:
@@ -37,16 +38,19 @@ class TrainCommand(LineageCommand):
 
         training_args = {}
         train_arg_set = get_class_attributes(TrainingArgs)
+        train_arg_set.add("output_dir")
+
         for k in args.__dict__:
-            if args.__dict__[k] is not None and k in train_arg_set:
+            if args.__dict__[k] and k in train_arg_set:
                 arg_name = k
                 if k in TRAINING_ARGS_MAPPING:
                     arg_name = TRAINING_ARGS_MAPPING[k]
                 training_args[arg_name] = args.__dict__[k]
                 if k in TRAINING_ARGS_CONFIG:
                     training_args.update(TRAINING_ARGS_CONFIG[k])
+        print(training_args)
 
-        trainer = Trainer(model, tokenizer)
+        trainer = DPMLTrainer(model, tokenizer)
         eval_result = trainer.train(train_dataset, test_dataset, metric_fn, **training_args)
 
         #self.model.save_pretrained('./models/filtered_a2t_word.8_sst2_test')
@@ -62,6 +66,7 @@ class TrainCommand(LineageCommand):
 
         print('Adversarial Set Results:')
         print(adv_result)
+        print()
 
 
     @staticmethod

@@ -10,6 +10,7 @@ TextAttack CLI main class
 import argparse
 
 from lineage.commands.analysis_command import AnalysisCommand
+from lineage.commands.train_command import TrainCommand
 
 
 def main():
@@ -22,6 +23,7 @@ def main():
 
     # Register commands
     AnalysisCommand.register_subcommand(subparsers)
+    TrainCommand.register_subcommand(subparsers)
 
     # Let's go
     args = parser.parse_args()

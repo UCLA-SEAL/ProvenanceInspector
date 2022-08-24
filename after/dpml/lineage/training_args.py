@@ -9,7 +9,7 @@ import os
 from typing import Union
 
 
-TRANING_ARGS_CONFIG = {
+TRAINING_ARGS_CONFIG = {
     'checkpoint_interval_steps': {'save_strategy': "steps"},
     'checkpoint_on_epoch': {'save_strategy': "epoch"},
     'logging_interval_step': {'logging_strategy': "steps"},

@@ -95,7 +95,7 @@ class ModelArgs:
     """
 
     model: str = "textattack/bert-base-uncased-SST-2"
-    task: str = "classification"
+    task: str = "text-classification"
     model_max_length: int = None
     model_num_labels: int = None
     

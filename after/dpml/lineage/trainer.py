@@ -2,22 +2,18 @@ import numpy as np
 import pandas as pd
 import os.path as osp
 import json
-
-glue_dict = json.load(open("./adv_glue/dev.json"))
-glue_sst2 = pd.DataFrame(glue_dict['sst2'])[['sentence', 'label']]
-
 from datasets import Dataset, load_metric, load_dataset
-from transformers import AutoTokenizer, AutoModelForSequenceClassification, TrainingArguments, Trainer
+from transformers import AutoTokenizer, AutoModelForSequenceClassification, TrainingArguments, Trainer, pipeline
 
 from .utils import compute_classification_metric
 
 class Trainer:
-    def __init__(self, model):
+    def __init__(self, model, tokenizer):
         self.model = model
+        self.tokenizer = tokenizer
 
-    def train(self, train_dataset, eval_dataset, metric_fn, **training_args):
+    def train(self, train_dataset, eval_dataset, metric_fn, save_last=False, **training_args):
         training_args = TrainingArguments(**training_args)
-
     
         trainer = Trainer(
             model=self.model,
@@ -29,25 +25,19 @@ class Trainer:
 
         trainer.train()
 
-        trainer.evaluate()
+        return trainer.evaluate()
 
-    def eval(self):
-        # eval
+    def eval(self, eval_dataset, metric, label_map_fn):
 
-        dataset = load_dataset("sst2")
-        train_dataset = dataset['train']
-        valid_dataset = dataset['validation']
-        test_dataset = dataset['test']
+        model=AutoModelForSequenceClassification.from_pretrained('./models/finetune_filtered_a2t_word.8_sst2')
 
-        # Run inferences with your new model using Pipeline|
-        from transformers import pipeline
+        self.model.eval()
+        sentiment_model = pipeline("sentiment-analysis", model=self.model, 
+                                tokenizer=self.tokenizer, device=0)
 
-        model.eval()
-        sentiment_model = pipeline("sentiment-analysis", model=model, 
-                                tokenizer=tokenizer, device=0)
+        pred = sentiment_model(eval_dataset['text'])
+        pred_labels = [label_map_fn(x) for x in pred]
 
-        pred = sentiment_model(valid_dataset['sentence'])
-        pred_labels = [0 if x['label'] == 'LABEL_0' else 1 for x in pred]
+        result = metric.compute(predictions=pred_labels, references=eval_dataset['label'])[metric.name]
 
-        metric = load_metric("accuracy")
-        metric.compute(predictions=pred_labels, references=valid_dataset['label'])
+        return result

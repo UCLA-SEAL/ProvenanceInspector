@@ -29,16 +29,6 @@ class StaticSentimentComponent:
                 sp_token._.static_sentiment='neutral'
         return doc
 
-# contextual sentiment imports
-# import nltk
-# try:
-#     nltk.data.find('opinion_lexicon')
-# except LookupError:
-#     nltk.download('opinion_lexicon')
-from nltk import ngrams
-from nltk.corpus import stopwords
-from nltk.tokenize import word_tokenize
-from nltk.stem import WordNetLemmatizer
 
 import numpy as np
 import torch 
@@ -48,6 +38,7 @@ from transformers import (
     AutoModelForSequenceClassification,
 )
 from huggingface_hub import HfApi
+from lineage.utils import strip_accents
 
 @Language.factory("contextual_sentiment", 
                   default_config={
@@ -99,7 +90,6 @@ class ContextualSentimentComponent:
         doc_is_negative = 1 if not self.interpreter.predicted_class_index else 0
         tokens, weights = zip(*attributions)
         words, weights = merge_bpe(tokens, weights)
-        weights *= -1 if doc_is_negative else 1
 
         # idxs_to_delete = []
         # for i, word in enumerate(words):
@@ -109,6 +99,10 @@ class ContextualSentimentComponent:
         # weights = np.delete(weights, idxs_to_delete)
 
         weights = weights[1:-1]
+        words = words[1:-1]
+
+        weights = align_tokens([strip_accents(t.text) for t in doc], words, weights)
+        weights *= -1 if doc_is_negative else 1
             
         assert len(doc) == len(weights)
         
@@ -142,6 +136,44 @@ def merge_bpe(tok, boe, chars="##"):
     new_tok = np.array(new_tok)[::-1]
     new_boe = np.array(new_boe)[::-1]
     return new_tok, new_boe
+
+
+def align_tokens(doc_tok, tok, boe):
+    doc_i = 0
+    cur_tok = ""
+    cur_embs = []
+
+    new_embs = []
+    new_toks = []
+    for t, e in zip(tok, boe):
+        cur_tok += t
+        cur_embs.append(e)
+
+        if len(doc_tok[doc_i]) < len(t):
+          cur_doc_tok = doc_tok[doc_i]
+          new_embs.append(e)
+          new_toks.append(cur_doc_tok)
+
+          while len(cur_doc_tok) < len(t):
+              doc_i += 1
+              cur_doc_tok += doc_tok[doc_i]
+              new_embs.append(e)
+              new_toks.append(cur_doc_tok)
+          doc_i += 1
+          cur_tok = ""
+          cur_embs = []
+
+        else:
+          if doc_tok[doc_i] == cur_tok:
+              
+              new_embs.append(np.stack(cur_embs).mean(axis=0))
+              new_toks.append(cur_tok)
+              doc_i += 1
+              cur_tok = ""
+              cur_embs = []
+
+    return np.array(new_embs)
+
 
 def stringify_sentiment(weight):
     ranges = {

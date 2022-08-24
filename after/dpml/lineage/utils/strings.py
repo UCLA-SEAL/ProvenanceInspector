@@ -1,3 +1,14 @@
+import unicodedata
+import re
+
+ACCENT_LATIN_PATTERN = r'[ÆÐØÞßæðøþŒœƒ]'
+
+def strip_accents(text):
+    return ''.join(c for c in unicodedata.normalize('NFKD', text) if unicodedata.category(c) != 'Mn')
+
+def strip_accent_letter(text):
+    return re.sub(ACCENT_LATIN_PATTERN, '', text)
+
 def words_from_text(s, words_to_ignore=[]):
     homos = set(
         [

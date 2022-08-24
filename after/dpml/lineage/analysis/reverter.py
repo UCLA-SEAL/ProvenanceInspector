@@ -23,10 +23,10 @@ class Reverter:
                         'perturbed_output', 'ground_truth_output',
                         'result_type']]
         
-        self.test_edit_summary = TransformStats(feature_names=["morph", "lemma_", "pos_", "dep_", "sentiment"])
+        self.test_edit_summary = TransformStats(feature_names=["morph", "lemma_", "pos_", "dep_", "contextual_sentiment"])
         self.test_edit_summary.populate_edits_with_df(self.test_df)
         
-        self.train_edit_summary = TransformStats(feature_names=["morph", "lemma_", "pos_", "dep_", "sentiment"])
+        self.train_edit_summary = TransformStats(feature_names=["morph", "lemma_", "pos_", "dep_", "contextual_sentiment"])
         self.train_edit_summary.populate_edits_with_df(self.train_df)
 
 

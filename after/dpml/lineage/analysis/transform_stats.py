@@ -6,7 +6,7 @@ from ..utils import compute_suspicious_score
 
 
 class TransformStats:
-    def __init__(self, feature_names=["morph", "lemma_", "pos_", "dep_", "sentiment"]):
+    def __init__(self, feature_names=["morph", "lemma_", "pos_", "dep_", "contextual_sentiment"]):
         self.feature_names = feature_names
         self.original_spacy_docs = None
         self.transformed_spacy_docs = None

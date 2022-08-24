@@ -257,12 +257,12 @@ class AddPositiveEmoji(AddEmoji):
                 if self.task_config['task_name'] == 'sentiment':
                     if isinstance(y, int):
                         if y == 0:
-                            y_out = smooth_label(y, factor=0.15)
+                            y_out = interpolate_label(0, 1, X[0], uncommon(X[0], X_out))
                         else:
                             y_out = smooth_label(y, factor=0)
                     else:
                         if np.argmax(y) == 0:
-                            y_out = smooth_label(y, factor=0.15)
+                            y_out = interpolate_label(0, 1, X[0], uncommon(X[0], X_out))
                         else:
                             y_out = smooth_label(y, factor=0)
                 else:
@@ -344,12 +344,12 @@ class AddNegativeEmoji(AddEmoji):
                         if y == 0:
                             y_out = smooth_label(y, factor=0)
                         else:
-                            y_out = smooth_label(y, factor=0.15)
+                            y_out = interpolate_label(1, 0, X[0], uncommon(X[0], X_out))
                     else:
                         if np.argmax(y) == 0:
                             y_out = smooth_label(y, factor=0)
                         else:
-                            y_out = smooth_label(y, factor=0.15)
+                            y_out = interpolate_label(1, 0, X[0], uncommon(X[0], X_out))
                 else:
                     y_out = smooth_label(y, factor=0.15)
         

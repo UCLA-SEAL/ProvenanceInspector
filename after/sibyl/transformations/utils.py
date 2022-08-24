@@ -70,6 +70,9 @@ def smooth_label(y, factor=0.1):
     y = y + (factor / y.shape[-1])
     return y
 
+def uncommon(A, B):
+    return " ".join([i for i in "".join(B).split() if i not in "".join(A).split()])
+
 # labels1 = [0, 1]
 # labels2 = np.array([0, 1])
 

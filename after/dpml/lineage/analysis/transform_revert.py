@@ -90,7 +90,6 @@ class TransformReversion:
 
                     if i not in self.revert_docs:
                         self.revert_docs[i] = after_text
-                        self.original_texts[i] = after_text.text
 
                     self.revert_docs[i] = SpacyFeatures.model.make_doc(
                         self.revert_docs[i][:left2].text_with_ws + before_text[left1:right1].text_with_ws + \

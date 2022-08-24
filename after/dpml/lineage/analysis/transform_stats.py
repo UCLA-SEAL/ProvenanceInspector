@@ -1,3 +1,4 @@
+from cProfile import label
 from collections import defaultdict
 import difflib
 import numpy as np
@@ -54,23 +55,31 @@ class TransformStats:
     def add_transform(self, label_pair, transform_hist, edit_info, human_label=None):
         if human_label == 'Positive':
             self.total_pass['transform'] += 1
+            self.total_pass['transform_label'] += 1
             human_label = 1
         elif human_label == 'Negative':
             self.total_fail['transform'] += 1
+            self.total_fail['transform_label'] += 1
             human_label = 0
         else:
             human_label = None
 
         if 'transform' not in self.edits:
             self.edits['transform'] = defaultdict(dict)
+            self.edits['transform_label'] = defaultdict(dict)
         for transform in transform_hist:
+            transform_label = (transform, *label_pair)
             if transform not in self.edits['transform']:
                 self.edits['transform'][transform] = defaultdict(list)
+            if transform_label not in self.edits['transform_label']:
+                self.edits['transform_label'][transform_label] = defaultdict(list)
 
             if label_pair is not None:
                 self.edits['transform'][transform][label_pair].append(edit_info)
+                self.edits['transform_label'][transform_label][label_pair].append(edit_info)
             if human_label is not None:
                 self.edits['transform'][transform][human_label].append(edit_info)
+                self.edits['transform_label'][transform_label][human_label].append(edit_info)
 
 
 
@@ -158,7 +167,7 @@ class TransformStats:
                                         label_pair,
                                         (i, from_span, to_span, gt_label), human_label)
         if 'transform' in df.columns:
-            self.feature_names.append('transform')
+            self.feature_names += ['transform', 'transform_label']
             
 
     def get_edit_freqs(self):

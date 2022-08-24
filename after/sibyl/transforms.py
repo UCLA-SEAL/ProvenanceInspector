@@ -84,9 +84,13 @@ def init_transforms(task_name=None, tran_type=None, label_type=None, return_meta
     if transforms:
         for tran in transforms:
             tran = class_wrapper(tran)
-            df = tran.get_task_configs()
-            df['transformation'] = tran.__class__.__name__
-            df['tran_fn'] = tran
+            if hasattr(tran, 'uses_dataset'):
+                t = tran(task_name=task_name, return_metadata=return_metadata, dataset=dataset)
+            else:
+                t = tran(task_name=task_name, return_metadata=return_metadata)
+            df = t.get_task_configs()
+            df['transformation'] = t.__class__.__name__
+            df['tran_fn'] = t
             df_all.append(df)
     else:
         for tran in TRANSFORMATIONS:
@@ -620,14 +624,18 @@ def sibyl_dataset_transform(batch):
 
 # simplified version of SibylCollator
 class SibylTransformer:
-    def __init__(self, task, num_classes=2, multiplier=1, num_INV=1, num_SIB=1):
+    def __init__(self, task, transforms=None, num_classes=2, multiplier=1, num_INV=1, num_SIB=1, class_wrapper=None):
         self.task = task
+        self.transforms = transforms
         self.num_classes = num_classes
         self.multiplier = multiplier
         self.num_INV = num_INV
         self.num_SIB = num_SIB
+        self.class_wrapper = class_wrapper
         
-        self.tran_df = init_transforms(task_name=self.task)
+        self.tran_df = init_transforms(task_name=self.task, 
+                                       transforms = self.transforms, 
+                                       class_wrapper=self.class_wrapper)
         self.INV_fns = self.tran_df[self.tran_df['tran_type']=='INV']['tran_fn'].to_list()
         self.SIB_fns = self.tran_df[self.tran_df['tran_type']=='SIB']['tran_fn'].to_list()
 
@@ -651,6 +659,7 @@ class SibylTransformer:
             new_text, new_labels = [], []
             for X, y in zip(*batch):
                 X, y, meta = transform.transform_Xy(X, y)
+                y = one_hot_encode(y, self.num_classes)
                 new_text.append(X)
                 new_labels.append(y)  
             return new_text, new_labels       
@@ -668,13 +677,15 @@ class SibylTransformer:
                 transform = self.sample_transform(tran_type)
                 
                 # apply transform
-                text_, labels_ = self.apply_transform(batch, transform)
-                
-                new_text.extend(text_)
-                new_labels.extend(labels_)
+                batch = self.apply_transform(batch, transform)
 
                 num_INV_applied += 1 if tran_type == 'INV' else 0
                 num_SIB_applied += 1 if tran_type == 'SIB' else 0
+
+        text_, labels_ = batch 
+        
+        new_text.extend(text_)
+        new_labels.extend(labels_)
                 
         # format types
         new_text = [str(x[0]) if type(x) == list else str(x) for x in new_text]
@@ -700,15 +711,26 @@ class SibylTransformer:
 
 # when you just want the transforms without applying them to a batch
 class SibylTransformScheduler:
-    def __init__(self, task, num_classes=2, multiplier=1, num_INV=1, num_SIB=1, class_wrapper=None):
+    def __init__(self, 
+                 task, 
+                 transforms=None,
+                 num_classes=2, 
+                 multiplier=1, 
+                 num_INV=1, 
+                 num_SIB=1, 
+                 class_wrapper=None):
+        
         self.task = task
         self.num_classes = num_classes
         self.multiplier = multiplier
         self.num_INV = num_INV
         self.num_SIB = num_SIB
         self.class_wrapper = class_wrapper
+        self.transforms = transforms
         
-        self.tran_df = init_transforms(task_name=self.task, class_wrapper=self.class_wrapper)
+        self.tran_df = init_transforms(task_name=self.task, 
+                                       transforms = self.transforms, 
+                                       class_wrapper=self.class_wrapper)
         self.INV_fns = self.tran_df[self.tran_df['tran_type']=='INV']['tran_fn'].to_list()
         self.SIB_fns = self.tran_df[self.tran_df['tran_type']=='SIB']['tran_fn'].to_list()
 

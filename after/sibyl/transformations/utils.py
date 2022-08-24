@@ -1,7 +1,14 @@
 import numpy as np
 import torch
 
+def batcher(iterable, n=1):
+    l = len(iterable)
+    for ndx in range(0, l, n):
+        yield iterable[ndx:min(ndx + n, l)]
+
 def is_batched(transform):
+    if hasattr(transform, 'init_class'):
+        return 'batch' in getattr(transform, 'init_class').__class__.__bases__[0].__name__.lower()
     return 'batch' in transform.__class__.__bases__[0].__name__.lower()
 
 def already_ohe(y):

@@ -13,7 +13,6 @@ from transformers import (
     AutoTokenizer,
     AutoModelForSequenceClassification,
 )
-from huggingface_hub import HfApi
 from lineage.utils import strip_accents
 
 @Language.factory("static_sentiment", default_config={"pos_list": set(opinion_lexicon.positive()), 
@@ -72,6 +71,8 @@ class ContextualSentimentComponent:
             self.tokenizer = AutoTokenizer.from_pretrained(self.model_name)
         else:
             # find huggingface model to provide rationalized output
+            from huggingface_hub import HfApi
+
             api = HfApi()
             modelIds = api.list_models(filter=("pytorch", "dataset:" + dataset, "sibyl"))
             if modelIds:
@@ -86,20 +87,10 @@ class ContextualSentimentComponent:
     def __call__(self, doc: Doc):   
 
         # get sentiment attributions
-        attributions = self.interpreter(text=doc.text)
+        attributions = self.interpreter(text=doc.text)[1:-1]
         doc_is_negative = 1 if not self.interpreter.predicted_class_index else 0
         tokens, weights = zip(*attributions)
         words, weights = merge_bpe(tokens, weights)
-
-        # idxs_to_delete = []
-        # for i, word in enumerate(words):
-        #     if word in ['[CLS]', '[SEP]']:
-        #         idxs_to_delete.append(i)
-        
-        # weights = np.delete(weights, idxs_to_delete)
-
-        weights = weights[1:-1]
-        words = words[1:-1]
 
         weights = align_tokens([strip_accents(t.text) for t in doc], words, weights)
         weights *= -1 if doc_is_negative else 1

@@ -5,11 +5,22 @@ from spacy.tokens import Token, Doc
 # static sentiment imports
 from nltk.corpus import opinion_lexicon
 
+# contextual sentiment imports
+import numpy as np
+import torch 
+from transformers_interpret import SequenceClassificationExplainer
+from transformers import (
+    AutoTokenizer,
+    AutoModelForSequenceClassification,
+)
+from huggingface_hub import HfApi
+from lineage.utils import strip_accents
+
 @Language.factory("static_sentiment", default_config={"pos_list": set(opinion_lexicon.positive()), 
                                                       "neg_list": set(opinion_lexicon.negative())})
 def create_static_sentiment_component(nlp: Language, name: str, pos_list: set, neg_list: set):
     if not Token.has_extension("static_sentiment"):
-        Token.set_extension("static_sentiment", default = 'exclude')
+        Token.set_extension("static_sentiment", default = 'unknown')
     return StaticSentimentComponent(nlp, pos_list=pos_list, neg_list=neg_list)
 
 class StaticSentimentComponent:
@@ -29,17 +40,6 @@ class StaticSentimentComponent:
                 sp_token._.static_sentiment='neutral'
         return doc
 
-
-import numpy as np
-import torch 
-from transformers_interpret import SequenceClassificationExplainer
-from transformers import (
-    AutoTokenizer,
-    AutoModelForSequenceClassification,
-)
-from huggingface_hub import HfApi
-from lineage.utils import strip_accents
-
 @Language.factory("contextual_sentiment", 
                   default_config={
                     "model_name": "distilbert-base-uncased-finetuned-sst-2-english",
@@ -52,7 +52,7 @@ def create_contextual_sentiment_component(nlp: Language,
                                           dataset: str = None, 
                                           device: str = None):
     if not Token.has_extension("contextual_sentiment"):
-        Token.set_extension("contextual_sentiment", default = 'exclude')
+        Token.set_extension("contextual_sentiment", default = 'unknown')
     return ContextualSentimentComponent(model_name=model_name,
                                         dataset=dataset,
                                         device=device)
@@ -86,7 +86,7 @@ class ContextualSentimentComponent:
     def __call__(self, doc: Doc):   
 
         # get sentiment attributions
-        attributions = self.interpreter(text=doc.text, internal_batch_size=1)
+        attributions = self.interpreter(text=doc.text)
         doc_is_negative = 1 if not self.interpreter.predicted_class_index else 0
         tokens, weights = zip(*attributions)
         words, weights = merge_bpe(tokens, weights)

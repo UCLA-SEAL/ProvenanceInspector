@@ -9,12 +9,6 @@ class SpacyFeatures:
     
     def __init__(self, texts, feature_names):
         self.feature_names = feature_names
-        for i,t in enumerate(texts):
-          try:
-            self.model(t)
-          except:
-            print(i, t)
-            raise
         self.docs = list(self.model.pipe(texts))
         self._tokens = None
         self._features = None

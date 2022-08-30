@@ -1,6 +1,8 @@
 # general imports
 from spacy.language import Language
 from spacy.tokens import Token, Doc
+import unicodedata
+import difflib
 
 # static sentiment imports
 from nltk.corpus import opinion_lexicon
@@ -13,7 +15,9 @@ from transformers import (
     AutoTokenizer,
     AutoModelForSequenceClassification,
 )
-from lineage.utils import strip_accents
+
+def strip_accents(text):
+    return ''.join(c for c in unicodedata.normalize('NFKD', text) if unicodedata.category(c) != 'Mn')
 
 @Language.factory("static_sentiment", default_config={"pos_list": set(opinion_lexicon.positive()), 
                                                       "neg_list": set(opinion_lexicon.negative())})
@@ -92,7 +96,7 @@ class ContextualSentimentComponent:
         tokens, weights = zip(*attributions)
         words, weights = merge_bpe(tokens, weights)
 
-        weights = align_tokens([strip_accents(t.text) for t in doc], words, weights)
+        weights = align_tokens([strip_accents(t.text).lower() for t in doc], words, weights)
         weights *= -1 if doc_is_negative else 1
             
         assert len(doc) == len(weights)
@@ -130,38 +134,25 @@ def merge_bpe(tok, boe, chars="##"):
 
 
 def align_tokens(doc_tok, tok, boe):
-    doc_i = 0
-    cur_tok = ""
-    cur_embs = []
 
     new_embs = []
-    new_toks = []
-    for t, e in zip(tok, boe):
-        cur_tok += t
-        cur_embs.append(e)
-
-        if len(doc_tok[doc_i]) < len(t):
-          cur_doc_tok = doc_tok[doc_i]
-          new_embs.append(e)
-          new_toks.append(cur_doc_tok)
-
-          while len(cur_doc_tok) < len(t):
-              doc_i += 1
-              cur_doc_tok += doc_tok[doc_i]
-              new_embs.append(e)
-              new_toks.append(cur_doc_tok)
-          doc_i += 1
-          cur_tok = ""
-          cur_embs = []
-
-        else:
-          if doc_tok[doc_i] == cur_tok:
-              
-              new_embs.append(np.stack(cur_embs).mean(axis=0))
-              new_toks.append(cur_tok)
-              doc_i += 1
-              cur_tok = ""
-              cur_embs = []
+    
+    seq = difflib.SequenceMatcher(None, doc_tok, tok)
+    edits = seq.get_opcodes()
+    
+    for op, from_start, from_end, to_start, to_end in edits:
+        if op == 'equal':
+            for i in range(to_start, to_end):
+                new_embs.append(boe[i])
+        elif op == 'insert':
+            raise ValueError('inserting nonexisting token')
+        elif op == 'replace':
+            avg_emb = np.stack(boe[to_start:to_end]).mean(axis=0)
+            for i in range(from_start, from_end):
+                new_embs.append(avg_emb)
+        elif op == 'delete':
+            for i in range(from_start, from_end):
+                new_embs.append(0)
 
     return np.array(new_embs)
 

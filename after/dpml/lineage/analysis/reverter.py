@@ -18,7 +18,10 @@ class Reverter:
         self.test_edit_summary.populate_edits_with_df(self.test_df)
         self.test_edit_summary.get_stats()
         self.test_edit_summary.save_stats_df(osp.join(self.test_dir_pth, 'stats/'))
+
+        self.train_edit_summary = None
         
+        """
         if osp.exists(osp.join(self.train_dir_pth, 'log.csv')):
             self.train_df = pd.read_csv(osp.join(self.train_dir_pth, 'log.csv'))[
                         ['original_text', 'perturbed_text', 'original_output',
@@ -29,8 +32,7 @@ class Reverter:
             self.train_edit_summary.populate_edits_with_df(self.train_df)
             self.train_edit_summary.get_stats()
             self.train_edit_summary.save_stats_df(osp.join(self.train_dir_pth, 'stats/'))
-        else:
-            self.train_edit_summary = None
+        """
 
 
     def revert(self, top_n_number=10, worst=False, pred_same_constraint=False):

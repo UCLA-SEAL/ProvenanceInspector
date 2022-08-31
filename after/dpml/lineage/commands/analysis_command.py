@@ -9,8 +9,6 @@ from argparse import ArgumentDefaultsHelpFormatter, ArgumentParser
 import os.path as osp
 import pandas as pd
 
-from .lineage_command import LineageCommand
-
 import lineage
 from lineage.commands import LineageCommand
 from lineage.analysis import Reverter

@@ -96,7 +96,7 @@ class ContextualSentimentComponent:
         tokens, weights = zip(*attributions)
         words, weights = merge_bpe(tokens, weights)
 
-        weights = align_tokens([strip_accents(t.text).lower() for t in doc], words, weights)
+        weights = align_tokens([strip_accents(t.text).lower() for t in doc], words, weights.tolist())
         weights *= -1 if doc_is_negative else 1
             
         assert len(doc) == len(weights)
@@ -140,10 +140,9 @@ def align_tokens(doc_tok, tok, boe):
     seq = difflib.SequenceMatcher(None, doc_tok, tok)
     edits = seq.get_opcodes()
     
-    for op, from_start, from_end, to_start, to_end in edits:
+    for i, (op, from_start, from_end, to_start, to_end) in enumerate(edits):
         if op == 'equal':
-            for i in range(to_start, to_end):
-                new_embs.append(boe[i])
+            new_embs += boe[to_start:to_end]
         elif op == 'insert':
             cur_embs = boe[to_start:to_end]
 
@@ -163,10 +162,10 @@ def align_tokens(doc_tok, tok, boe):
             
         elif op == 'replace':
             avg_emb = np.stack(boe[to_start:to_end]).mean(axis=0)
-            for i in range(from_start, from_end):
+            for j in range(from_start, from_end):
                 new_embs.append(avg_emb)
         elif op == 'delete':
-            for i in range(from_start, from_end):
+            for j in range(from_start,from_end):
                 new_embs.append(0)
 
     return np.array(new_embs)

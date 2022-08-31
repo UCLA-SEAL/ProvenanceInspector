@@ -14,7 +14,7 @@ class Reverter:
         self.train_dir_pth = self.test_dir_pth + '_train'
         self.test_df = pd.read_csv(osp.join(self.test_dir_pth, 'out_human.csv'))
 
-        self.test_edit_summary = TransformStats(feature_names=["morph", "lemma_", "pos_", "dep_", "contextual_sentiment"])
+        self.test_edit_summary = TransformStats(feature_names=["morph", "pos_", "dep_", "contextual_sentiment"])
         self.test_edit_summary.populate_edits_with_df(self.test_df)
         
         if osp.exists(osp.join(self.train_dir_pth, 'log.csv')):
@@ -23,7 +23,7 @@ class Reverter:
                         'perturbed_output', 'ground_truth_output',
                         'result_type']]
         
-            self.train_edit_summary = TransformStats(feature_names=["morph", "lemma_", "pos_", "dep_", "contextual_sentiment"])
+            self.train_edit_summary = TransformStats(feature_names=["morph", "pos_", "dep_", "contextual_sentiment"])
             self.train_edit_summary.populate_edits_with_df(self.train_df)
         else:
             self.train_edit_summary = None

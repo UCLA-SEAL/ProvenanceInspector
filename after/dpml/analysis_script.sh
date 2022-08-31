@@ -1,5 +1,5 @@
 #!/bin/bash
-for input_dir in "../results_a2t_word.8_n5_sst2" 
+for input_dir in "../results_a2t_mlm_word.8_n5_sst2" "../results_a2t_word.8_n5_sst2" 
 do
 echo $input_dir
 dpml analysis \

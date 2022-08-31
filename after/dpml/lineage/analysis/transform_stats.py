@@ -3,6 +3,8 @@ import difflib
 import numpy as np
 import pandas as pd
 import re
+import os
+import os.path as osp
 
 from .spacy_features import SpacyFeatures
 from ..utils import compute_suspicious_score
@@ -74,9 +76,11 @@ class TransformStats:
         
         if 'transform' not in self.change_freqs:
             self.change_freqs['transform'] = defaultdict(int)
+            self.change_freqs['transform_label'] = defaultdict(int)
         for transform in transform_hist:
             if changed:
                 self.change_freqs['transform'][transform] += 1
+                self.change_freqs['transform_label'][transform] += 1
 
         if 'transform' not in self.edits:
             self.edits['transform'] = defaultdict(dict)
@@ -154,7 +158,7 @@ class TransformStats:
             else:
                 human_label = None
                 
-            changed = from_tokens[i] == to_tokens[i]
+            changed = from_tokens[i] != to_tokens[i]
 
             transform_hist = None
             if 'transform' in df.columns:
@@ -237,7 +241,8 @@ class TransformStats:
                 total_freq[feature][edit] = total_pred_label_count
                 label_ratio[feature][edit] = (fail_num + pass_num - 2) / total_pred_label_count
                 impact_ratio[feature][edit] = self.change_freqs[feature][edit] / total_pred_label_count
-                misclassify_probs[feature][edit] = diff_pred_label_count / total_pred_label_count
+                if self.misclassify:
+                    misclassify_probs[feature][edit] = diff_pred_label_count / total_pred_label_count
                 feature_sus_scores[feature][edit] = compute_suspicious_score(fail_num, pass_num, 
                                                                 self.total_fail[feature], self.total_pass[feature])
                 pass_nums[feature][edit] = pass_num - 1
@@ -272,6 +277,12 @@ class TransformStats:
             self.stats_df[feature] = pd.DataFrame.from_dict(stats_dict).set_index('transform')
 
         return self.stats_df
+
+    def save_stats_df(self, save_dir):
+        if not osp.exists(save_dir):
+            os.mkdir(save_dir)
+        for feature in self.stats_df.keys():
+            self.stats_df[feature].to_csv(osp.join(save_dir, f"{feature}.csv"), mode='w')
     
     def update_human_label(self, index, new_label):
         for feature in self.edits.keys():

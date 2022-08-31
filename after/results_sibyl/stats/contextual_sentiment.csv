@@ -1,0 +1,386 @@
+transform,total_freq,label_ratio,impact_ratio,fail_num,pass_num,sus_score
+"('insert', (), ('neutral', 'neutral', 'neutral', 'neutral', 'neutral'))",17,1.0,0.058823529411764705,2,15,66.08391608391608
+"('insert', (), ('neutral', 'neutral', 'neutral'))",26,1.0,0.038461538461538464,1,25,44.42485676509476
+"('insert', (), ('neutral', 'neutral', 'neutral', 'neutral'))",14,1.0,0.07142857142857142,2,12,70.57176196032673
+"('replace', ('pos',), ('neutral',))",34,1.0,0.029411764705882353,2,32,48.57831325301205
+"('replace', ('neutral',), ('neutral',))",205,1.0,0.004878048780487805,12,193,41.0500595200802
+"('insert', (), ('neutral', 'exclude', 'neutral', 'exclude', 'exclude', 'pos', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('exclude',), ('neutral',))",89,1.0,0.011235955056179775,5,84,42.31441964598055
+"('replace', ('neutral',), ('neutral', 'neutral', 'neutral'))",12,1.0,0.08333333333333333,0,12,44.42485676509476
+"('replace', ('neutral', 'neutral', 'neutral', 'neutral', 'neutral'), ('neutral', 'neutral', 'neutral', 'exclude', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('exclude', 'pos'), ('neutral', 'neutral'))",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('replace', ('neutral',), ('neutral', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral',), ('exclude', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('neutral',), ('neutral', 'neutral', 'exclude', 'exclude', 'pos', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('exclude', 'neutral'), ('neutral', 'neutral'))",12,1.0,0.08333333333333333,0,12,44.42485676509476
+"('replace', ('neutral',), ('neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('exclude', 'pos', 'pos'), ('neutral', 'exclude', 'pos', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral', 'neutral'), ('neutral', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('exclude',), ('neg',))",4,1.0,0.25,1,3,83.86023294509151
+"('replace', ('neg',), ('neutral',))",8,1.0,0.125,1,7,72.20630372492836
+"('insert', (), ('neutral', 'exclude', 'exclude', 'neutral', 'neutral'))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('neutral',), ('neutral', 'neutral'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('neutral', 'exclude', 'exclude', 'neutral', 'pos', 'exclude', 'neutral', 'exclude', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'pos', 'neutral'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'exclude', 'exclude', 'pos', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'pos', 'exclude', 'neutral'))",5,1.0,0.2,1,4,80.6077568972411
+"('insert', (), ('neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'exclude', 'exclude', 'neg', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'exclude', 'exclude', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'exclude', 'pos', 'exclude', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('exclude', 'neutral'), ('exclude', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'pos', 'exclude', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral',))",70,1.0,0.014285714285714285,2,68,31.12071627045384
+"('insert', (), ('neg',))",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('insert', (), ('neutral', 'exclude', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('neutral', 'exclude', 'exclude', 'neg', 'exclude', 'neutral', 'neutral'))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'exclude', 'neutral', 'neg', 'exclude', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'neutral', 'exclude', 'neg', 'neutral', 'neutral'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('neutral', 'neg', 'exclude', 'neutral'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'neutral', 'exclude', 'neutral'))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('exclude',), ('neutral', 'neutral', 'pos', 'neutral', 'neutral', 'exclude', 'neutral', 'exclude'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral', 'pos'), ('exclude', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NA',), ('neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('neutral', 'neutral', 'exclude', 'exclude', 'exclude', 'pos', 'exclude', 'exclude', 'neutral', 'exclude'), ())",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral',), ('neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'exclude'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral', 'pos', 'pos', 'pos', 'exclude', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('pos', 'exclude', 'pos', 'neutral', 'pos'), ('neutral',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('exclude',), ('neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral',), ('neutral', 'pos'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral', 'exclude', 'exclude', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'exclude', 'exclude', 'exclude'), ('exclude',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('exclude', 'neutral', 'neutral', 'exclude', 'exclude'), ('neutral',))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral', 'neg', 'exclude', 'exclude', 'exclude', 'exclude', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral', 'exclude'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'exclude', 'neg', 'exclude', 'neg', 'neutral'), ('neutral', 'neutral', 'exclude', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('exclude',), ('neutral', 'neg'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'exclude', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('pos', 'pos', 'neutral'), ())",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('neutral',), ())",10,1.0,0.1,0,10,48.57831325301205
+"('insert', (), ('neutral', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'exclude', 'exclude', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'pos'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('exclude', 'pos', 'pos', 'neutral', 'exclude', 'exclude', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral', 'exclude'), ('neutral',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral', 'neutral', 'exclude'), ('neutral',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral', 'neutral'), ('exclude',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral',), ('exclude', 'neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('neutral', 'pos'), ())",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'pos', 'pos'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('pos',), ('neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('pos',), ())",4,1.0,0.25,0,4,67.51507032819826
+"('insert', (), ('neutral', 'neutral'))",62,1.0,0.016129032258064516,3,59,40.925700365408034
+"('replace', ('pos',), ('pos', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('exclude',), ('neutral', 'neutral', 'neutral'))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('neutral',), ('neg',))",7,1.0,0.14285714285714285,5,2,95.4093705631803
+"('replace', ('pos',), ('exclude',))",2,1.0,0.5,1,1,91.22171945701358
+"('replace', ('pos',), ('neg',))",7,1.0,0.14285714285714285,4,3,92.85187914517317
+"('replace', ('neutral',), ('neutral', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('neutral', 'exclude'), ('neutral', 'neutral'))",9,1.0,0.1111111111111111,0,9,50.960566228513656
+"('replace', ('neutral', 'neutral'), ('exclude', 'neutral'))",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('replace', ('neutral', 'neutral', 'neutral'), ('neutral', 'neutral', 'neutral'))",4,1.0,0.25,0,4,67.51507032819826
+"('replace', ('exclude', 'neutral'), ('neutral', 'pos'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neg',), ('neutral', 'neutral', 'neutral'))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('neg',), ('exclude',))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral'))",4,1.0,0.25,0,4,67.51507032819826
+"('insert', (), ('pos', 'pos'))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('neg', 'neg'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('exclude',))",6,1.0,0.16666666666666666,0,6,59.75103734439834
+"('delete', ('exclude',), ())",12,1.0,0.08333333333333333,2,10,73.91835736983622
+"('replace', ('exclude', 'pos'), ('pos', 'neg'))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('neutral',), ('exclude',))",12,1.0,0.08333333333333333,2,10,73.91835736983622
+"('replace', ('neg',), ('NA',))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('exclude', 'exclude'), ('exclude', 'exclude'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('exclude',), ('exclude',))",5,1.0,0.2,1,4,80.6077568972411
+"('replace', ('neutral',), ('pos',))",9,1.0,0.1111111111111111,1,8,69.78193146417445
+"('insert', (), ('neutral', 'neg', 'exclude', 'exclude', 'neg', 'neg', 'neutral'))",4,1.0,0.25,0,4,67.51507032819826
+"('replace', ('neg',), ('neutral', 'neutral', 'exclude', 'exclude', 'exclude', 'pos', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'exclude', 'exclude', 'exclude', 'neutral', 'neutral'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('neutral', 'neutral', 'neutral', 'exclude'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('pos',), ('exclude', 'pos', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'pos', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'exclude', 'exclude', 'exclude', 'exclude', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral', 'neg'), ('neutral', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral', 'pos', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'neutral', 'exclude', 'neutral', 'pos', 'neutral', 'neutral', 'neutral', 'pos', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'exclude', 'exclude', 'exclude', 'exclude', 'neg', 'neutral'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('neutral', 'neutral', 'exclude', 'neutral', 'neg', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'neutral', 'exclude', 'neutral', 'exclude', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'exclude', 'exclude', 'neutral', 'exclude', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'neutral', 'exclude', 'pos', 'neutral', 'pos', 'exclude', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'exclude', 'exclude', 'exclude', 'exclude', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('exclude', 'exclude', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('exclude', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'exclude', 'exclude', 'pos', 'neutral', 'neutral', 'exclude'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('exclude', 'exclude'), ('neutral',))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('exclude', 'neutral', 'exclude', 'neutral', 'exclude', 'exclude', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('exclude', 'neutral'), ('neutral',))",3,1.0,0.3333333333333333,1,2,87.38621586475944
+"('replace', ('exclude', 'exclude', 'pos'), ('neutral',))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('neutral',), ('neutral', 'exclude', 'neg'))",1,1.0,1.0,1,0,95.40937056318032
+"('delete', ('exclude', 'exclude', 'neutral'), ())",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('exclude', 'neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('exclude', 'neutral'), ())",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('exclude', 'neg', 'neutral', 'exclude', 'neutral', 'neutral', 'neg', 'exclude', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('pos',), ('pos',))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('neg',), ('neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'exclude', 'neg', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('exclude', 'neg'), ('neutral', 'exclude'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral', 'neutral'), ('neutral', 'pos'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral', 'pos'), ('neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral', 'neutral'), ('neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'pos', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral',), ('neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral', 'exclude', 'neutral'), ('neutral', 'exclude', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'exclude', 'neutral', 'exclude', 'neutral', 'exclude', 'neutral', 'exclude', 'neutral', 'exclude', 'exclude', 'exclude', 'neutral', 'exclude', 'neutral', 'exclude', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'neg', 'exclude', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'neutral', 'exclude', 'pos', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'neutral', 'exclude', 'neg', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'exclude', 'pos', 'neutral', 'neutral', 'neutral', 'pos', 'neg'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'exclude', 'exclude', 'neg', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'exclude', 'neg', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'pos', 'pos', 'pos', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'pos', 'pos', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('exclude',), ('exclude', 'exclude', 'neutral', 'pos', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'neutral', 'pos', 'exclude', 'exclude', 'exclude', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('exclude', 'neutral', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'exclude', 'neg', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'exclude', 'neutral', 'exclude', 'exclude', 'neg', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('exclude',), ('exclude', 'neutral', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'exclude', 'neutral', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neg', 'neg'), ('neg', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral', 'neutral'), ('neutral', 'neutral'))",14,1.0,0.07142857142857142,0,14,40.925700365408034
+"('replace', ('neutral', 'neutral'), ('neutral', 'neutral', 'neutral', 'neutral'))",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('replace', ('neg',), ('neg',))",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('replace', ('neg', 'neg'), ('neutral', 'neutral'))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('neg',), ('pos', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral',), ('neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral', 'exclude', 'pos'), ('pos', 'exclude', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral',), ('neg', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'exclude', 'neg', 'exclude', 'neg'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'neg', 'neutral'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'exclude', 'neg', 'exclude', 'neutral'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral'))",5,1.0,0.2,0,5,63.39622641509435
+"('insert', (), ('neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'exclude', 'neg', 'exclude', 'neg'))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'exclude', 'exclude', 'exclude', 'neg', 'neutral'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'exclude', 'exclude', 'exclude', 'neutral', 'neutral'))",2,1.0,0.5,1,1,91.22171945701358
+"('insert', (), ('neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'exclude', 'neutral', 'exclude', 'neutral'))",2,1.0,0.5,1,1,91.22171945701358
+"('insert', (), ('neutral', 'exclude', 'neutral', 'neg', 'exclude', 'exclude', 'exclude', 'neutral', 'exclude', 'neutral'))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'exclude', 'neutral', 'exclude', 'neutral'))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('exclude', 'exclude'))",4,1.0,0.25,1,3,83.86023294509151
+"('replace', ('pos',), ('exclude', 'exclude', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'exclude', 'exclude', 'neutral', 'neutral'))",6,1.0,0.16666666666666666,1,5,77.59815242494227
+"('insert', (), ('neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'neutral'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'exclude', 'exclude', 'neutral', 'neutral'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'pos', 'neutral'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'pos', 'exclude', 'neutral'))",6,1.0,0.16666666666666666,0,6,59.75103734439834
+"('insert', (), ('neutral', 'exclude', 'exclude', 'neg', 'neutral', 'exclude', 'exclude', 'exclude', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'exclude', 'exclude', 'exclude', 'neutral', 'neutral'))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'exclude', 'pos', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neg',), ('exclude', 'exclude', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'neg', 'neg'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'exclude', 'neg', 'neutral', 'exclude', 'exclude', 'exclude', 'neg', 'exclude', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neg',), ('pos',))",4,1.0,0.25,2,2,91.22171945701356
+"('replace', ('exclude', 'neutral'), ('exclude', 'neutral'))",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('insert', (), ('neutral', 'exclude', 'neutral', 'pos', 'exclude', 'neutral', 'exclude', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'neutral'))",5,1.0,0.2,0,5,63.39622641509435
+"('insert', (), ('neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'neutral', 'neg', 'exclude', 'neutral', 'exclude', 'neutral'))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('neutral', 'exclude', 'neutral', 'pos', 'exclude', 'pos', 'exclude', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NA',), ('neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'neg', 'neg', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'pos', 'exclude', 'neutral', 'exclude', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neg',), ('neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'neutral', 'exclude', 'exclude', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'neutral', 'neg', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('exclude', 'pos', 'neutral', 'pos', 'pos', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'pos', 'neutral', 'neutral', 'pos', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('exclude', 'exclude', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'neutral', 'exclude', 'pos', 'exclude', 'exclude', 'neg', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('exclude', 'neutral', 'exclude', 'neutral', 'exclude', 'exclude', 'neg', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('exclude', 'exclude', 'neutral', 'exclude', 'exclude', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('exclude', 'exclude', 'exclude', 'exclude', 'neutral', 'exclude', 'exclude', 'neutral', 'exclude', 'exclude', 'exclude', 'exclude', 'neg', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('exclude', 'exclude', 'pos', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('exclude', 'exclude', 'exclude', 'neg', 'neutral'))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('pos',), ('neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('exclude',), ('neutral', 'exclude', 'exclude', 'exclude', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'neutral', 'neg', 'neg', 'exclude', 'neutral', 'exclude', 'neg', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('exclude',), ('neutral', 'exclude'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('exclude', 'exclude', 'pos', 'pos'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('neutral', 'exclude', 'neutral', 'exclude', 'exclude', 'exclude', 'exclude', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'neg', 'neutral', 'neutral'))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('exclude', 'exclude'), ('neutral', 'neutral'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'exclude', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neg',), ('neutral', 'neutral', 'neg', 'neutral', 'neg'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral', 'neutral'), ('neutral', 'exclude'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'exclude', 'neutral', 'exclude', 'neutral', 'exclude', 'exclude', 'pos', 'exclude', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neg',), ('neutral', 'neutral', 'neg', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'neutral', 'neutral', 'exclude', 'pos', 'pos', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral', 'exclude'), ('neutral', 'exclude'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral',), ('neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'exclude', 'exclude', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral', 'exclude'), ('neutral',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('exclude',), ('pos',))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('neg',), ('pos', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neg', 'neutral'), ('neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neg', 'neg'), ('neutral', 'neg', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('exclude', 'exclude', 'neutral'), ('neutral', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('pos', 'pos'), ('neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral', 'exclude', 'exclude', 'exclude', 'exclude', 'exclude', 'neutral'), ('neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('exclude', 'neg', 'neg'), ('neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neg',), ('neg', 'neg', 'neg', 'neg', 'neg'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('pos', 'neutral', 'neutral', 'exclude', 'neg'), ('neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('pos', 'neutral'), ('neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral',), ('neg', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral',), ('pos', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral',), ('exclude', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('exclude', 'exclude'), ())",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('pos', 'exclude'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('pos', 'pos', 'pos'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neg',), ('neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('pos',))",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('replace', ('neutral',), ('pos', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('pos', 'pos'), ('neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('pos', 'neutral'), ('neutral', 'pos', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('pos',), ('neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral', 'pos'), ('neutral', 'neutral', 'neutral', 'neutral'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral', 'exclude', 'exclude', 'neg', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'neg', 'exclude', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('pos',), ('neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'exclude', 'exclude', 'exclude', 'pos', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'neutral', 'neg', 'exclude', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('pos',), ('neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'neg', 'exclude', 'neg'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'neg', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'neg', 'exclude', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'exclude', 'neg', 'exclude', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'exclude', 'neutral', 'exclude', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'exclude', 'exclude', 'pos', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'exclude', 'neutral', 'exclude', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'neg', 'neutral', 'exclude', 'exclude', 'exclude', 'neutral', 'neg', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral',), ('neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'exclude', 'neg', 'exclude', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'neutral', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'exclude', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'neg', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'exclude', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'neg'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neg', 'neg'), ('neutral', 'neg'))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('neutral', 'exclude', 'pos', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral'))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('neutral', 'exclude', 'exclude', 'neg', 'neutral', 'exclude', 'neutral', 'exclude', 'pos'))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('neg',), ('neg', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral', 'neutral', 'neutral'), ('neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'pos', 'exclude', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral', 'exclude'), ('pos', 'exclude'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral', 'pos'), ('neutral', 'exclude'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('pos',), ('neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'pos', 'exclude', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('exclude', 'exclude', 'pos', 'neutral', 'neutral'), ('neutral', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral', 'exclude', 'neutral', 'neutral', 'neutral'), ('neutral', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('exclude', 'neutral', 'exclude', 'neutral'), ('neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('exclude', 'neutral', 'exclude', 'neg', 'exclude'), ('neutral', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral', 'neutral', 'exclude'), ('neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral'), ('neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('exclude', 'neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'neutral', 'pos', 'exclude'), ('neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral', 'exclude', 'neutral', 'exclude', 'neutral'), ('neutral', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral', 'neutral', 'exclude', 'exclude', 'pos'), ('neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral', 'exclude', 'neg'), ('neutral', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neg',), ('neg', 'neg', 'neg'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral', 'neutral', 'exclude', 'exclude'), ('neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral', 'pos', 'pos'), ('neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('exclude', 'pos'), ('neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'neutral', 'exclude', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'neutral', 'neg', 'exclude', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'neg', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral',), ('neutral', 'neutral', 'exclude'))",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('insert', (), ('neutral', 'exclude', 'pos', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'exclude', 'neutral', 'exclude', 'exclude', 'exclude', 'neg', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'exclude', 'neutral', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'neutral', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'neutral', 'exclude', 'neg', 'neutral'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neg',), ('neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'exclude', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral',), ('neutral', 'neutral', 'exclude', 'exclude', 'neg', 'neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'neutral', 'exclude', 'neutral'))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('neutral', 'neg'), ('neutral', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'exclude', 'neutral', 'exclude', 'exclude', 'exclude', 'neg', 'neg', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'neg', 'exclude', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'neg'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'exclude', 'exclude', 'exclude', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral',), ('neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'exclude', 'exclude', 'exclude', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('neutral', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'pos'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('exclude', 'neg'), ('neutral', 'neg'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral',), ('neg', 'neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'exclude', 'exclude', 'exclude', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral',), ('neutral', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('exclude', 'exclude', 'neutral', 'exclude', 'neutral', 'exclude', 'neutral', 'exclude', 'neutral'))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('exclude', 'exclude', 'exclude'))",2,1.0,0.5,1,1,91.22171945701358
+"('insert', (), ('exclude', 'neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'exclude', 'exclude', 'exclude', 'exclude', 'neg', 'neutral'))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('exclude',), ('neutral', 'neutral', 'neutral', 'pos'))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('exclude', 'neutral', 'neutral'), ())",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral',), ('exclude', 'neutral', 'exclude', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('exclude', 'exclude', 'neutral', 'neutral', 'neutral', 'exclude'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'neutral'))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('exclude',), ('neg', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('exclude', 'neg', 'neutral'), ('neutral',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('exclude',), ('neutral', 'neutral', 'exclude', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('exclude', 'neutral', 'neg'))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('neg', 'neutral', 'exclude', 'exclude', 'neutral'), ())",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neg',), ('neutral', 'pos', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('exclude',), ('neutral', 'exclude', 'neutral', 'pos', 'neutral', 'pos', 'neutral', 'exclude', 'exclude', 'exclude', 'exclude'))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('neutral',), ('exclude', 'neutral', 'exclude'))",1,1.0,1.0,1,0,95.40937056318032
+"('delete', ('neutral', 'neutral', 'exclude'), ())",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('exclude', 'exclude', 'pos', 'pos'), ('neutral',))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('exclude', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('neutral', 'neg', 'neutral', 'exclude', 'exclude', 'neutral', 'exclude', 'exclude', 'exclude', 'neg', 'exclude', 'neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'exclude', 'exclude', 'neutral', 'exclude', 'exclude', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude'))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('exclude', 'neutral', 'exclude', 'neutral', 'neutral'))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('neutral', 'exclude', 'exclude', 'neutral'), ('neutral', 'neutral'))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('neutral', 'exclude', 'exclude', 'neutral', 'exclude', 'exclude', 'exclude', 'exclude', 'neutral', 'exclude', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral'), ('neutral',))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('NA',), ('exclude', 'neutral', 'exclude', 'exclude', 'exclude', 'neutral', 'neg', 'neg', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neg',), ('neg', 'neutral', 'exclude', 'neutral', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NA',), ('exclude', 'exclude', 'neutral', 'neg', 'neutral', 'exclude', 'neutral', 'neutral', 'exclude'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('exclude',), ('exclude', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('exclude', 'exclude', 'neutral', 'exclude', 'exclude', 'exclude', 'exclude', 'exclude', 'exclude', 'exclude', 'exclude', 'exclude', 'exclude', 'neutral', 'exclude', 'exclude', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'neg', 'neutral', 'exclude'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral',), ('neutral', 'neutral', 'neutral', 'exclude'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('exclude', 'neutral', 'exclude', 'exclude', 'exclude', 'exclude', 'neutral', 'exclude', 'exclude', 'neg'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('exclude',), ('exclude', 'neutral', 'pos', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'exclude', 'exclude', 'exclude', 'exclude', 'neutral', 'exclude', 'pos', 'neutral'))",1,1.0,1.0,1,0,95.40937056318032
+"('delete', ('neg', 'neutral'), ())",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('neutral', 'exclude'), ('neutral', 'exclude', 'neutral', 'exclude', 'neutral'))",1,1.0,1.0,1,0,95.40937056318032
+"('delete', ('exclude', 'pos', 'pos', 'exclude', 'exclude'), ())",1,1.0,1.0,1,0,95.40937056318032
+"('delete', ('neutral', 'exclude', 'exclude', 'neutral'), ())",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral', 'exclude', 'exclude', 'exclude', 'exclude'))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('neutral',), ('neutral', 'exclude', 'exclude'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'neutral', 'neg', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude'))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('exclude', 'neg', 'neutral', 'exclude'), ('neutral',))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('neutral', 'neutral'), ())",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('pos', 'neutral'), ('neutral', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral',), ('neutral', 'exclude', 'neutral', 'exclude', 'exclude'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('exclude', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'exclude', 'exclude', 'exclude', 'neg'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('exclude', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'exclude', 'exclude', 'exclude'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('exclude', 'exclude', 'exclude', 'neutral'), ('neutral', 'exclude', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral', 'exclude', 'exclude', 'exclude', 'exclude', 'exclude'), ('exclude', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'exclude', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'exclude', 'exclude', 'exclude', 'neg', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'exclude', 'exclude', 'exclude', 'exclude', 'neutral'), ())",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'exclude'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('exclude', 'exclude', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('neutral', 'exclude', 'exclude', 'neutral', 'neutral'), ())",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('exclude', 'exclude', 'neutral', 'exclude', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'exclude', 'exclude', 'neutral', 'exclude'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('exclude', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('exclude', 'neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral'), ('neutral',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('exclude',), ('exclude', 'neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'neutral', 'exclude', 'exclude', 'exclude', 'exclude', 'neutral', 'exclude', 'exclude', 'exclude'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'exclude'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('exclude', 'exclude', 'exclude', 'exclude', 'exclude', 'neg', 'exclude', 'exclude', 'neutral', 'exclude'), ('neutral', 'exclude', 'neutral', 'neg'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'exclude', 'neutral', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'exclude', 'exclude', 'neutral', 'neg', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'exclude', 'exclude', 'neutral', 'exclude', 'neutral', 'exclude', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'pos', 'exclude', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'exclude', 'neutral', 'exclude', 'exclude', 'exclude', 'exclude', 'exclude', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neg',), ('neg', 'neg', 'pos', 'neg', 'neg'))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('neutral', 'neutral', 'exclude', 'pos', 'exclude', 'exclude', 'neutral', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral',), ('exclude', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'neg', 'exclude', 'exclude', 'neutral', 'exclude', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'pos', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'pos', 'exclude', 'neutral', 'neutral', 'neutral'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('neutral', 'neutral', 'exclude', 'neg', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'neutral', 'exclude', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'neutral', 'neutral', 'pos', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('exclude',), ('neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'pos', 'exclude', 'neutral', 'pos', 'neutral', 'exclude', 'neutral', 'exclude', 'exclude', 'neutral', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'neutral', 'pos', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral'))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('neutral',), ('neutral', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'exclude', 'pos', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neg',), ('neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('pos', 'neutral'), ('neutral', 'neutral', 'neutral', 'neutral', 'neutral', 'pos', 'neutral', 'exclude', 'pos', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral',), ('neutral', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'neutral', 'exclude', 'exclude', 'exclude', 'neutral', 'pos', 'exclude', 'exclude', 'exclude', 'exclude', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral', 'exclude', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral',), ('exclude', 'neutral', 'exclude', 'exclude', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neg',), ('neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'exclude', 'exclude', 'pos', 'exclude', 'neutral'))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('neutral', 'exclude', 'neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral', 'neutral', 'exclude', 'exclude', 'exclude', 'neutral', 'exclude', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('exclude', 'neutral', 'neutral', 'exclude', 'neutral', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('neutral', 'exclude', 'exclude', 'neutral', 'exclude', 'exclude', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral',), ('neutral', 'neutral', 'neutral', 'exclude', 'neutral', 'exclude', 'exclude', 'neg', 'exclude', 'exclude', 'neutral', 'neutral'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neutral',), ('exclude', 'exclude', 'neutral', 'exclude', 'exclude', 'exclude', 'neutral', 'neutral'))",1,1.0,1.0,1,0,95.40937056318032

@@ -1,0 +1,639 @@
+transform,total_freq,label_ratio,impact_ratio,fail_num,pass_num,sus_score
+"('insert', (), ('dep', 'compound', 'npadvmod', 'compound', 'dobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'appos', 'punct'))",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('insert', (), ('dep', 'advmod', 'attr', 'attr'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'dobj', 'nummod', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'compound', 'dobj', 'punct'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('dep', 'ROOT', 'appos'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'compound', 'compound', 'npadvmod', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'acl', 'prep', 'compound', 'pobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT',), ('ROOT',))",56,1.0,0.017857142857142856,8,48,65.62025316455696
+"('replace', ('pobj',), ('pobj',))",52,1.0,0.019230769230769232,6,46,60.749031424881615
+"('replace', ('conj',), ('conj',))",23,1.0,0.043478260869565216,1,22,47.46880150694608
+"('insert', (), ('dep', 'det', 'dobj', 'prep', 'poss', 'pobj', 'punct'))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('mark',), ('advcl',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('relcl',), ('relcl',))",7,1.0,0.14285714285714285,0,7,56.50224215246637
+"('replace', ('dobj',), ('npadvmod', 'punct', 'dobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('compound', 'amod', 'compound', 'pobj', 'acl'), ('compound', 'compound', 'pobj', 'nsubj', 'relcl'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('det', 'ROOT'), ('compound', 'nsubj'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('pobj',), ('pobj', 'dep', 'advmod', 'prep', 'det', 'advmod', 'amod', 'pobj', 'prep', 'amod', 'pobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('pobj',), ('pobj', 'dep', 'prep', 'compound', 'pobj', 'punct'))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('advmod',), ('advmod',))",9,1.0,0.1111111111111111,2,7,79.57894736842105
+"('insert', (), ('dep', 'mark', 'nsubj', 'punct', 'advcl', 'dobj', 'prep', 'compound', 'pobj', 'punct', 'nsubj', 'relcl', 'prt', 'det', 'npadvmod', 'punct', 'dobj', 'prep', 'det', 'compound', 'compound', 'pobj', 'nsubj', 'relcl', 'amod', 'dobj', 'punct', 'punct'))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('det', 'nsubj'), ('npadvmod', 'nsubj'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('appos',), ('appos',))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('nsubj',), ('nsubj',))",28,1.0,0.03571428571428571,3,25,61.519682636557825
+"('replace', ('relcl',), ('conj',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('relcl',), ('attr', 'dep', 'prep', 'compound', 'pobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT', 'compound', 'pobj'), ('amod', 'compound', 'nsubj', 'dep', 'advmod', 'prep', 'det', 'advmod', 'amod', 'pobj', 'prep', 'amod', 'pobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('advmod',), ('nmod',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('amod', 'ROOT'), ('compound', 'nsubj', 'dep', 'mark', 'nsubj', 'punct', 'advcl', 'dobj', 'prep', 'compound', 'pobj', 'punct', 'nsubj', 'relcl', 'prt', 'det', 'npadvmod', 'punct', 'dobj', 'prep', 'det', 'compound', 'compound', 'pobj', 'nsubj', 'relcl', 'amod', 'dobj', 'punct', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('det', 'nsubj'), ('det', 'nsubj'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('attr',), ('attr',))",7,1.0,0.14285714285714285,1,6,74.8051948051948
+"('replace', ('pobj',), ('conj',))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('dep', 'prep', 'compound', 'pobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('conj',), ('compound', 'conj'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'nsubj', 'auxpass', 'relcl', 'punct', 'nsubj', 'ROOT', 'dobj', 'punct'))",5,1.0,0.2,1,4,80.6077568972411
+"('replace', ('det', 'pobj'), ('pobj', 'advcl'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'dep', 'auxpass', 'parataxis', 'punct', 'nsubj', 'ROOT', 'acomp', 'punct'))",4,1.0,0.25,0,4,67.51507032819826
+"('insert', (), ('dep', 'nsubjpass', 'auxpass', 'parataxis', 'punct', 'nsubj', 'ROOT', 'dobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'det', 'nsubj', 'ROOT', 'punct', 'nsubj', 'ccomp', 'acomp', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'nsubj', 'auxpass', 'ccomp', 'punct', 'dep', 'punct', 'ccomp', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'nsubj', 'relcl', 'punct', 'nsubj', 'ccomp', 'dobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'dep', 'auxpass', 'advcl', 'punct', 'nsubj', 'aux', 'neg', 'ROOT', 'acomp', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('compound', 'nsubjpass', 'auxpass', 'relcl', 'punct', 'nsubj', 'aux', 'neg', 'ROOT', 'acomp', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'det', 'nsubj', 'conj', 'punct', 'nsubj', 'ROOT', 'dobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('prep', 'pobj'), ('nsubj', 'ccomp', 'dep', 'nsubj', 'parataxis', 'punct', 'nsubj', 'ROOT', 'dobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('punct',))",56,1.0,0.017857142857142856,1,55,27.067669172932334
+"('insert', (), ('ROOT',))",6,1.0,0.16666666666666666,0,6,59.75103734439834
+"('insert', (), ('dep', 'prep', 'det', 'pobj', 'prep', 'pobj', 'punct'))",3,1.0,0.3333333333333333,1,2,87.38621586475944
+"('replace', ('ROOT',), ('npadvmod',))",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('insert', (), ('dep', 'ROOT', 'prep', 'det', 'amod', 'pobj', 'acl', 'prt', 'agent', 'pobj', 'prep', 'amod', 'pobj', 'punct', 'prep', 'amod', 'pobj', 'prep', 'pobj', 'cc', 'det', 'amod', 'conj', 'prep', 'pobj', 'punct', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('prep',), ('dep',))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'dep', 'det', 'dobj', 'punct', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'amod', 'cc', 'punct'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('dep', 'conj', 'det', 'dobj', 'punct', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'dep', 'cc', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'ccomp', 'amod', 'dobj', 'prep', 'pobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT',), ('compound', 'compound', 'compound', 'compound', 'nsubj', 'advmod', 'ROOT', 'det'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('amod', 'attr'), ('advmod', 'amod', 'dobj', 'punct', 'prep'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT',), ('amod', 'nsubj', 'ROOT', 'dep', 'dobj', 'punct', 'aux', 'dobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('ROOT', 'compound', 'dep', 'det', 'neg', 'amod', 'appos', 'punct', 'punct', 'cc', 'csubj', 'dobj', 'conj', 'prep', 'dep', 'compound', 'pobj', 'det', 'nmod', 'punct', 'advcl'))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('pobj', 'punct', 'ROOT', 'neg', 'amod', 'attr', 'prep', 'det', 'pobj', 'cc'), ())",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('pobj',))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('ROOT',), ('compound', 'dep', 'cc', 'punct', 'conj', 'punct', 'npadvmod', 'punct', 'amod', 'det', 'poss', 'case', 'compound', 'compound', 'appos', 'ROOT', 'xcomp'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('punct', 'ROOT', 'prep', 'dep', 'cc', 'conj', 'amod', 'amod', 'amod', 'acomp', 'prep', 'pobj', 'aux', 'advmod', 'relcl', 'prep', 'pobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('amod', 'cc', 'advmod', 'conj', 'pobj'), ('npadvmod',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('advmod',), ('nsubj', 'prep', 'pobj', 'ROOT', 'prep', 'dep', 'pobj', 'punct', 'cc', 'punct', 'aux', 'punct', 'poss', 'case', 'nsubj', 'nsubj', 'xcomp', 'det', 'npadvmod', 'punct', 'dobj', 'dep', 'ROOT', 'nummod', 'dobj', 'prep', 'compound', 'pobj', 'npadvmod'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT',), ('amod', 'pobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('punct', 'mark', 'nsubj', 'prep', 'det', 'pobj', 'advcl', 'prt', 'det', 'dobj', 'cc', 'conj', 'advmod'), ('advmod',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('advmod', 'advcl', 'punct', 'nsubj', 'aux'), ('aux',))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('nummod', 'amod', 'dobj', 'dep', 'prep', 'pobj', 'nsubj', 'appos', 'det', 'nsubj', 'punct', 'punct', 'ccomp', 'dobj', 'prep', 'det', 'dep', 'pobj', 'dobj', 'punct', 'nsubj', 'prep', 'pobj', 'cc', 'conj', 'advmod', 'compound', 'compound', 'compound', 'nsubj', 'prep'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('prep', 'det', 'amod', 'pobj', 'prep', 'det', 'pobj', 'aux', 'acl', 'det', 'dobj', 'punct'), ('pobj', 'punct', 'nsubj', 'ROOT', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('advmod',), ('dep', 'nsubj'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'attr', 'prep', 'pobj', 'amod'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('nmod', 'punct', 'pobj', 'cc', 'punct', 'conj', 'punct', 'nsubj', 'compound', 'nsubj', 'ROOT', 'prep', 'pobj', 'neg', 'dep'))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('amod', 'compound', 'pobj'), ())",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('nsubj',), ())",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('nsubj', 'ccomp', 'dobj', 'prep', 'poss', 'case', 'pobj', 'cc', 'compound', 'conj', 'compound', 'dobj', 'advcl', 'dobj', 'prep', 'pobj', 'prep', 'pcomp', 'prt', 'compound', 'dobj', 'punct', 'amod'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('prep', 'amod', 'pobj', 'punct', 'aux', 'advcl', 'det', 'dobj', 'prep', 'compound', 'pobj', 'cc'), ('compound',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('compound', 'conj', 'prep'), ('punct',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('pobj', 'punct'), ('dep',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT',), ('ROOT', 'dep', 'pobj', 'advmod', 'cc', 'conj', 'det', 'amod', 'amod', 'dep', 'appos', 'case', 'pcomp'))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('amod', 'dobj'), ())",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('amod', 'dobj', 'advmod'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('amod',), ('ROOT', 'xcomp', 'amod', 'poss', 'case', 'compound', 'dobj', 'prep', 'dep', 'det', 'dobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('ROOT',), ())",5,1.0,0.2,0,5,63.39622641509435
+"('insert', (), ('dep', 'punct'))",5,1.0,0.2,0,5,63.39622641509435
+"('insert', (), ('dep', 'dobj'))",5,1.0,0.2,1,4,80.6077568972411
+"('insert', (), ('dep', 'appos', 'appos', 'compound', 'ROOT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'ROOT', 'punct'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('dep', 'appos'))",20,1.0,0.05,2,18,62.13273063488802
+"('insert', (), ('dep', 'nmod', 'nmod', 'punct', 'ROOT'))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('dep', 'conj', 'ROOT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'attr'))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('pobj',), ('nmod', 'dep', 'pobj'))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('ROOT',), ('nsubj', 'dep', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT',), ('nsubj', 'dep', 'appos'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('xcomp',), ('xcomp',))",5,1.0,0.2,3,2,93.26856349757115
+"('replace', ('dobj',), ('dobj',))",22,1.0,0.045454545454545456,1,21,48.57831325301205
+"('replace', ('dobj',), ('dobj', 'dep', 'conj', 'dobj', 'punct'))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('pcomp', 'dobj'), ('xcomp', 'dobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('pobj',), ('pobj', 'dep', 'npadvmod'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'npadvmod', 'conj'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('advcl',), ('ROOT',))",3,1.0,0.3333333333333333,1,2,87.38621586475944
+"('replace', ('ROOT', 'dobj'), ('conj', 'dobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('compound', 'compound', 'dobj'), ('compound', 'pobj', 'amod'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('npadvmod',), ('dobj',))",3,1.0,0.3333333333333333,1,2,87.38621586475944
+"('replace', ('pcomp',), ('pcomp',))",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('replace', ('compound', 'compound', 'conj'), ('compound', 'compound', 'conj'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('conj',), ('conj', 'dep', 'appos'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neg', 'ROOT'), ('compound', 'dobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('pobj',), ('pobj', 'dep', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('xcomp',), ('dep',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('advcl',), ('advcl',))",4,1.0,0.25,1,3,83.86023294509151
+"('insert', (), ('dep', 'dep'))",2,1.0,0.5,1,1,91.22171945701358
+"('insert', (), ('dep', 'dep', 'attr', 'attr', 'attr', 'dep'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'ROOT'))",10,1.0,0.1,0,10,48.57831325301205
+"('insert', (), ('dep', 'npadvmod'))",7,1.0,0.14285714285714285,0,7,56.50224215246637
+"('insert', (), ('dep', 'compound', 'pobj', 'punct', 'acl', 'npadvmod'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'compound', 'ROOT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('nmod',))",2,1.0,0.5,0,2,77.59815242494227
+"('delete', ('compound',), ())",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('replace', ('xcomp',), ('advcl',))",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('replace', ('det', 'amod'), ('ROOT', 'amod'))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('ROOT',), ('dobj',))",2,1.0,0.5,1,1,91.22171945701358
+"('replace', ('amod',), ('amod',))",15,1.0,0.06666666666666667,5,10,85.00351370344342
+"('replace', ('pcomp',), ('det',))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('advmod', 'nsubj'), ('det', 'nsubj'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('relcl',), ('advmod',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('det',), ('advmod',))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('advmod',))",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('delete', ('predet',), ())",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('punct',), ('ROOT',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT',), ('punct',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('nummod', 'amod'), ('amod', 'amod'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('relcl', 'nummod'), ('relcl', 'amod'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'amod', 'dep'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'appos', 'npadvmod', 'appos', 'appos', 'appos'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'amod', 'dobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'ROOT', 'cc', 'advmod', 'advmod', 'conj', 'punct'))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('ROOT',), ('advmod', 'dep', 'npadvmod', 'prep', 'poss', 'pobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('nsubj', 'aux', 'neg', 'ROOT', 'det', 'nsubj', 'dep'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT',), ('advmod',))",4,1.0,0.25,0,4,67.51507032819826
+"('insert', (), ('dep', 'ROOT', 'det', 'nsubj', 'ccomp', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'advmod', 'cc', 'advmod', 'advmod', 'conj', 'punct'))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('ROOT',), ('nsubj',))",10,1.0,0.1,0,10,48.57831325301205
+"('insert', (), ('compound', 'ROOT', 'dep', 'appos'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('pobj',), ('poss', 'pobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('compound', 'det', 'nmod', 'amod', 'pobj', 'prep', 'det', 'npadvmod', 'punct', 'amod', 'pobj', 'dep'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'nsubj', 'aux', 'neg', 'ROOT', 'det', 'dobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('compound', 'ROOT'), ('ROOT', 'compound', 'dep', 'prep', 'det', 'compound', 'compound', 'compound', 'pobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'prep', 'det', 'amod', 'punct', 'amod', 'punct', 'amod', 'pobj', 'prep', 'det', 'advmod', 'amod', 'pobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('det',), ('det',))",7,1.0,0.14285714285714285,0,7,56.50224215246637
+"('insert', (), ('dep', 'det', 'dobj', 'prep', 'pobj', 'punct', 'nsubj', 'prep', 'pobj', 'advmod', 'ROOT', 'aux', 'xcomp', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'amod', 'cc', 'conj', 'conj', 'punct'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('dep', 'amod', 'conj', 'cc', 'conj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT',), ('poss',))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'det', 'nsubj', 'ROOT', 'acomp', 'cc', 'det', 'nsubj', 'conj', 'acomp', 'punct', 'cc', 'det', 'nsubj', 'conj', 'advmod', 'acomp', 'mark', 'nsubj', 'ccomp', 'advmod', 'acomp', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('amod',), ('nmod',))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'det', 'nsubj', 'prep', 'pobj', 'punct', 'nsubj', 'prep', 'pobj', 'advmod', 'ROOT', 'aux', 'xcomp', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('det',), ('amod',))",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('insert', (), ('dep', 'xcomp', 'det', 'amod', 'amod', 'oprd', 'prep', 'pobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT',), ('prep',))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('dep', 'det', 'conj', 'prep', 'pobj', 'punct', 'nsubj', 'prep', 'pobj', 'advmod', 'ROOT', 'aux', 'xcomp', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('advmod',), ())",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('prep',), ())",2,1.0,0.5,0,2,77.59815242494227
+"('delete', ('det',), ())",5,1.0,0.2,2,3,88.62837045720985
+"('insert', (), ('aux', 'auxpass', 'conj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('aux',), ('nsubj',))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('prep', 'pcomp', 'det', 'amod', 'compound', 'dobj', 'punct', 'cc', 'det', 'amod', 'conj', 'prep', 'amod', 'compound', 'pobj', 'cc'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('aux', 'auxpass'), ('nsubj',))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('advmod', 'advmod', 'prep', 'pobj', 'cc', 'det', 'nsubj', 'prep', 'pobj', 'conj', 'xcomp', 'dobj', 'prep', 'amod', 'amod', 'punct', 'compound', 'pobj', 'nsubj', 'relcl', 'det', 'dobj', 'prep', 'punct', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('det', 'nsubj'), ('nsubj',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('amod', 'dobj'), ('prep', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('det', 'ROOT'), ('ROOT',))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('ROOT', 'poss', 'pobj'), ('nsubj',))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('pobj',), ('ROOT', 'prt', 'punct'))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('mark',), ('nsubj',))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('det', 'det', 'dobj'), ())",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('amod',), ())",2,1.0,0.5,0,2,77.59815242494227
+"('delete', ('cc',), ())",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('nsubj', 'ROOT', 'det', 'nummod', 'nsubj', 'aux', 'ccomp', 'acomp', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('attr',), ())",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('det', 'compound'), ())",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('ROOT', 'punct'))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('ROOT',), ('advcl',))",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('insert', (), ('det', 'nsubj', 'ROOT', 'det', 'nummod', 'nsubj', 'ccomp', 'det', 'dobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT',), ('amod', 'dep', 'nsubj', 'ROOT', 'advmod', 'advmod', 'attr', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('det', 'ROOT'), ('ROOT', 'prt'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'advmod', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('nsubj', 'ROOT'), ('compound', 'ROOT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('compound',), ('compound',))",5,1.0,0.2,0,5,63.39622641509435
+"('insert', (), ('dep', 'advmod', 'amod', 'cc', 'conj', 'compound', 'pobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('advmod', 'amod'), ('advmod', 'amod'))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('compound', 'ROOT'), ('compound', 'nmod', 'dep', 'compound', 'ROOT', 'det', 'compound', 'appos', 'punct', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('pobj',), ('pobj', 'dep', 'ROOT', 'det', 'dobj', 'prep', 'det', 'compound', 'pobj', 'prep', 'det', 'compound', 'pobj', 'prep', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ccomp',), ('nsubj',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('xcomp',), ('ROOT',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('nsubj',), ('dobj',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT',), ('ccomp',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('pobj', 'advmod', 'conj'), ('pobj', 'cc', 'conj'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'ccomp', 'aux', 'xcomp', 'det', 'amod', 'punct', 'aux', 'punct', 'nsubj', 'ccomp', 'det', 'dobj', 'cc', 'prep', 'det', 'pobj', 'cc', 'conj', 'dobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('aux',), ('aux',))",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('insert', (), ('dep', 'ROOT', 'det', 'dobj', 'prep', 'det', 'compound', 'pobj', 'mark', 'det', 'nsubj', 'advcl', 'prep', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('neg',), ('nsubj',))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'nsubj', 'ccomp', 'poss', 'dobj', 'punct', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT',), ('intj',))",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('replace', ('dobj',), ('ROOT',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('acl',), ('pobj',))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'pobj', 'det', 'appos', 'prep', 'det', 'compound', 'pobj', 'prep', 'det', 'compound', 'pobj', 'prep', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('nsubj', 'ROOT'), ('nsubj', 'ROOT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'det', 'pobj', 'prep', 'amod', 'pobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('det',), ('compound',))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('dep', 'ROOT', 'det', 'amod', 'punct', 'nmod', 'punct', 'dobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'det', 'amod', 'punct', 'amod', 'pobj', 'punct', 'compound', 'poss', 'case', 'nsubj', 'ROOT', 'prep', 'det', 'advmod', 'amod', 'amod', 'pobj', 'prep', 'det', 'amod', 'compound', 'punct', 'pobj', 'punct', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('det',), ('neg',))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('dep', 'det', 'pobj', 'ROOT', 'advmod', 'prep', 'det', 'pobj', 'cc', 'conj', 'det', 'dobj', 'prep', 'pobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('poss',), ('nsubj',))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'ROOT', 'nsubj', 'ccomp', 'amod', 'dobj', 'punct', 'prep', 'pobj', 'cc', 'conj', 'punct', 'prep', 'det', 'amod', 'pobj', 'punct', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('expl',), ('nsubj',))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'conj', 'nsubj', 'ccomp', 'amod', 'dobj', 'punct', 'prep', 'pobj', 'cc', 'conj', 'punct', 'prep', 'det', 'amod', 'pobj', 'punct', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('nsubj',), ('ROOT', 'det', 'amod', 'poss', 'case', 'pobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'det', 'amod', 'appos', 'prep', 'pobj', 'cc', 'predet', 'poss', 'conj', 'punct', 'advmod', 'prep', 'poss', 'pobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('det', 'nsubj', 'ROOT', 'advmod', 'prep', 'det', 'pobj', 'cc', 'conj', 'det', 'dobj', 'prep', 'pobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'poss', 'advmod', 'amod', 'cc', 'advmod', 'conj', 'pobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('det',), ('det', 'nsubj', 'ROOT', 'advmod', 'prep', 'det', 'pobj', 'cc', 'conj', 'det', 'dobj', 'prep', 'pobj', 'punct', 'nmod'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'appos', 'nummod', 'compound', 'appos'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'dep', 'compound', 'compound', 'appos'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'appos', 'dobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'dobj', 'conj'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'conj', 'nmod', 'compound', 'pobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'amod', 'nummod', 'compound', 'pobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'npadvmod', 'nummod'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('amod', 'pobj'), ('pobj', 'ROOT', 'dep', 'npadvmod'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT', 'dobj'), ('advmod', 'ROOT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('compound', 'pobj'), ('compound', 'pobj', 'dep', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('advcl',), ('dep',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('relcl',), ('acl',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('compound', 'compound'), ('compound', 'compound'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT',), ('ROOT', 'dep', 'appos'))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('conj',), ('conj', 'dep', 'dep'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('pobj',), ('compound',))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'advmod'))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('ROOT', 'acl'), ('compound', 'nsubj'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('pobj', 'prep'), ('pobj', 'ROOT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('pobj',), ('nsubj',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('nummod',), ('pobj', 'dep', 'npadvmod', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT', 'det', 'dobj'), ('ROOT', 'det', 'dobj', 'dep', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('xcomp',), ('nsubj',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('acl',), ('ROOT',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('pobj',), ('pobj', 'dep', 'appos', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'nsubj', 'parataxis', 'punct', 'nsubj', 'aux', 'neg', 'ROOT', 'dobj', 'punct'))",2,1.0,0.5,1,1,91.22171945701358
+"('insert', (), ('dep', 'conj', 'auxpass', 'parataxis', 'punct', 'nsubj', 'ROOT', 'acomp', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'nsubj', 'auxpass', 'relcl', 'punct', 'nsubj', 'aux', 'neg', 'ROOT', 'dobj', 'punct'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('dep', 'nsubjpass', 'auxpass', 'ccomp', 'punct', 'nsubj', 'conj', 'acomp', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'nsubj', 'auxpass', 'parataxis', 'punct', 'nsubj', 'aux', 'neg', 'ROOT', 'dobj', 'punct'))",2,1.0,0.5,1,1,91.22171945701358
+"('insert', (), ('dep', 'nsubj', 'parataxis', 'punct', 'nsubj', 'aux', 'neg', 'ROOT', 'advmod', 'acomp', 'punct'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('dep', 'nsubjpass', 'auxpass', 'parataxis', 'punct', 'nsubj', 'aux', 'neg', 'ROOT', 'advmod', 'acomp', 'punct'))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('dep', 'nsubjpass', 'auxpass', 'relcl', 'punct', 'nsubj', 'aux', 'neg', 'ROOT', 'dobj', 'punct'))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('dep', 'nsubj', 'relcl', 'punct', 'nsubj', 'aux', 'neg', 'prep', 'dobj', 'punct'))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('aux', 'neg'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('neg',))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('ROOT',), ('aux', 'neg', 'ROOT'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('dep', 'nsubj', 'ROOT', 'punct', 'nsubj', 'ccomp', 'dobj', 'punct'))",4,1.0,0.25,1,3,83.86023294509151
+"('insert', (), ('dep', 'nsubjpass', 'auxpass', 'parataxis', 'punct', 'nsubj', 'aux', 'neg', 'ROOT', 'acomp', 'punct'))",3,1.0,0.3333333333333333,1,2,87.38621586475944
+"('insert', (), ('dep', 'nsubj', 'auxpass', 'relcl', 'punct', 'nsubj', 'ROOT', 'acomp', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'dep', 'auxpass', 'prep', 'punct', 'nsubj', 'ROOT', 'dobj', 'punct'))",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('insert', (), ('dep', 'nsubj', 'parataxis', 'punct', 'nsubj', 'aux', 'neg', 'ROOT', 'acomp', 'punct'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('dep', 'nsubj', 'ROOT', 'punct', 'nsubj', 'ccomp', 'acomp', 'punct'))",3,1.0,0.3333333333333333,1,2,87.38621586475944
+"('insert', (), ('dep', 'appos', 'ROOT', 'punct', 'nsubj', 'ccomp', 'acomp', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'nsubj', 'auxpass', 'ccomp', 'punct', 'nsubj', 'ROOT', 'neg', 'acomp', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'nsubj', 'relcl', 'punct', 'nsubj', 'aux', 'neg', 'ROOT', 'advmod', 'acomp', 'punct'))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('dep', 'nsubj', 'auxpass', 'parataxis', 'punct', 'nsubj', 'conj', 'neg', 'acomp', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'nsubj', 'ROOT', 'punct', 'nsubj', 'aux', 'neg', 'ccomp', 'dobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'nsubj', 'auxpass', 'conj', 'punct', 'nsubj', 'aux', 'neg', 'ROOT', 'dobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('prep',), ('ROOT',))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('amod', 'dobj'), ('amod', 'dobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('acomp',), ('ROOT',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('advmod', 'acomp'), ('advmod', 'acomp'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('acl',), ('advcl',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('amod',), ('compound',))",4,1.0,0.25,1,3,83.86023294509151
+"('insert', (), ('dep', 'nsubj', 'aux', 'punct', 'nsubj', 'ROOT', 'dobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'nsubj', 'ccomp', 'punct', 'nsubj', 'ccomp', 'dobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'nsubjpass', 'auxpass', 'dep', 'punct', 'nsubj', 'ROOT', 'acomp', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'nsubj', 'conj', 'punct', 'nsubj', 'ccomp', 'acomp', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'pobj', 'parataxis', 'punct', 'nsubj', 'ROOT', 'dobj', 'punct'))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('dep', 'nsubj', 'auxpass', 'parataxis', 'punct', 'nsubj', 'aux', 'neg', 'ROOT', 'acomp', 'punct'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('dep', 'nsubj', 'dep', 'punct', 'nsubj', 'conj', 'dobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'nsubj', 'parataxis', 'punct', 'nsubj', 'ROOT', 'dobj', 'punct'))",5,1.0,0.2,0,5,63.39622641509435
+"('replace', ('ROOT',), ('nsubj', 'dep', 'ROOT', 'xcomp', 'det', 'dobj', 'advmod', 'advcl', 'acomp', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('advmod',), ('ROOT',))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('dep', 'det', 'amod', 'punct', 'amod', 'attr', 'nsubj', 'relcl', 'dobj', 'xcomp', 'prep', 'det', 'amod', 'pobj', 'prep', 'poss', 'compound', 'pobj', 'punct', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT',), ('poss', 'dep', 'det', 'poss', 'case', 'nsubj', 'ROOT', 'det', 'attr', 'cc', 'poss', 'nsubj', 'advmod', 'conj', 'det', 'amod', 'attr', 'prep', 'amod', 'amod', 'pobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('det', 'amod', 'punct', 'amod', 'ROOT', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'det', 'amod', 'punct', 'amod', 'dobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('amod',), ('ROOT',))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('advmod', 'mark', 'det', 'ROOT', 'aux', 'relcl', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'dep', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('det',), ('nmod',))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('dep', 'det', 'poss', 'case', 'appos', 'ROOT', 'det', 'attr', 'cc', 'poss', 'nsubj', 'advmod', 'conj', 'det', 'amod', 'attr', 'prep', 'amod', 'amod', 'pobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'attr', 'prep', 'amod', 'pobj', 'prep', 'pobj', 'punct', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('det', 'poss', 'case', 'nsubj', 'ROOT', 'det', 'attr', 'cc', 'poss', 'nsubj', 'advmod', 'conj', 'det', 'amod', 'attr', 'prep', 'amod', 'amod', 'pobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT',), ('amod',))",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('insert', (), ('amod',))",5,1.0,0.2,1,4,80.6077568972411
+"('insert', (), ('appos', 'nsubj', 'ROOT', 'dobj', 'prt', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('nsubj',))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dobj', 'nsubj', 'csubj', 'prep', 'pobj', 'ccomp', 'advmod', 'prep', 'pobj', 'prep', 'advmod', 'det', 'amod', 'amod', 'compound', 'pobj', 'punct', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('appos', 'prep', 'amod', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('poss',))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('ROOT', 'advmod', 'advmod', 'acomp', 'punct'))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('ROOT',), ('dep', 'nsubj'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT',), ('nsubj', 'ROOT', 'det', 'dobj', 'punct', 'dep'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('npadvmod',))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dobj', 'det', 'amod', 'dobj', 'amod', 'prep', 'pobj', 'cc', 'conj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT',), ('npadvmod', 'advmod'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dobj', 'prep', 'amod', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('amod', 'compound', 'pobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('dobj',), ('mark',))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('det', 'ROOT', 'amod', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'amod', 'compound', 'compound', 'pobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'pobj', 'pobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'advcl', 'nmod', 'compound', 'dobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'dobj', 'punct'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('dep', 'nmod', 'nmod', 'compound', 'ROOT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'punct', 'appos'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('relcl',), ('nsubj',))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('dep', 'advmod', 'punct', 'prep', 'det', 'pobj', 'nsubj', 'nsubj', 'aux', 'relcl', 'acomp', 'punct', 'nsubj', 'ROOT', 'advmod', 'acomp', 'punct', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT', 'xcomp'), ('aux', 'ROOT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'punct', 'ROOT', 'advmod', 'prep', 'pcomp', 'det', 'dobj', 'prep', 'compound', 'pobj', 'punct', 'det', 'npadvmod', 'punct', 'amod', 'dobj', 'cc', 'amod', 'conj', 'nsubj', 'aux', 'relcl', 'det', 'compound', 'dobj', 'punct', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('intj', 'ROOT', 'dep'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT',), ('ccomp', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('pobj',), ('pobj', 'dep', 'advmod', 'dep', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT', 'dobj'), ('amod', 'ROOT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('compound', 'pobj'), ('compound', 'pobj'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('dep', 'amod', 'nsubj', 'ROOT', 'det', 'compound', 'attr', 'punct', 'prep', 'det', 'pobj', 'det', 'nsubj', 'conj', 'punct', 'cc', 'nsubj', 'conj', 'advmod', 'advmod', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('amod', 'nsubj'), ('compound', 'nsubj'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'advmod', 'punct', 'prep', 'det', 'pobj', 'nsubj', 'nsubj', 'aux', 'relcl', 'acomp', 'punct', 'nsubj', 'advcl', 'advmod', 'acomp', 'punct', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT',), ('nsubj', 'dep', 'advmod', 'ROOT', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'dep', 'dep', 'det', 'amod', 'attr', 'punct', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('punct', 'ROOT'), ('meta', 'punct', 'punct', 'ROOT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('attr',), ('dobj',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('pobj',), ('amod',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('conj', 'prep'), ('conj', 'pobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('pobj',), ('appos',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('pobj',), ('pobj', 'dep', 'compound', 'dobj', 'prep', 'det', 'compound', 'pobj', 'nsubj', 'advmod', 'relcl', 'det', 'dobj', 'punct', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'amod'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'pobj'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('dep', 'advcl'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('prep', 'compound', 'compound', 'pobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('pobj', 'aux'), ('amod',))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'conj'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('prep',), ('nmod',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('det',), ('prep',))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'appos', 'appos', 'appos'))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('neg', 'ccomp'), ('advmod', 'acl'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT',), ('ROOT', 'dep', 'compound', 'compound', 'dobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'punct', 'appos', 'appos', 'appos'))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('dep', 'conj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('compound', 'nsubj'), ('compound', 'nsubj'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('advmod', 'ROOT'), ('advmod', 'ROOT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'appos', 'nummod', 'appos'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT', 'amod', 'dobj'), ('ROOT', 'amod', 'attr'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('dobj',), ('dobj', 'dep', 'attr'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'compound', 'npadvmod', 'attr'))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('amod', 'ROOT'), ('compound', 'ROOT', 'dep', 'appos'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('compound',), ('nmod',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('prep',), ('compound',))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('pobj',), ('ROOT', 'dep', 'appos'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('det', 'pobj'), ('pobj', 'pobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('acomp', 'prep', 'amod'), ('compound', 'ROOT', 'dobj', 'dep', 'appos'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT', 'dobj'), ('compound', 'ROOT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('pobj', 'nsubj', 'aux', 'advmod', 'neg', 'aux', 'relcl'), ('compound', 'compound', 'compound', 'compound', 'compound', 'compound', 'pobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT', 'advmod', 'acomp'), ('ROOT', 'compound', 'pobj', 'dep', 'pobj', 'pobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT',), ('advmod', 'dep', 'prep', 'npadvmod', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('advmod',), ('compound',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('conj',), ('nmod', 'dep', 'conj'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT', 'amod', 'dobj', 'prep', 'pobj'), ('compound', 'compound', 'compound', 'compound', 'ROOT', 'dep', 'appos'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT', 'advmod'), ('nsubj', 'ROOT', 'dep', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('prep', 'det'), ('prep', 'amod'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('nsubj', 'ccomp'), ('compound', 'ccomp'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('advcl',), ('conj',))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('dep', 'appos', 'compound', 'npadvmod'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('dobj',), ('acomp', 'advmod', 'dobj', 'compound', 'dobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dobj',))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('advmod',), ('pobj', 'punct', 'appos', 'npadvmod'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('det',), ('nsubj',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('dobj',), ('det', 'dobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dobj', 'prep'))",2,1.0,0.5,0,2,77.59815242494227
+"('delete', ('prep', 'det'), ())",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('ROOT', 'det'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('appos', 'punct', 'appos'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT',), ('prep', 'nummod', 'compound', 'ROOT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('compound', 'compound', 'pobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('nsubj',), ('advmod',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('advmod',), ('dobj',))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('prep', 'pobj', 'compound', 'pobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT',), ('ROOT', 'dep', 'advcl'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('poss',), ('poss',))",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('replace', ('pobj',), ('pobj', 'dep', 'dobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('compound', 'ROOT'), ('compound', 'nsubj', 'dep', 'npadvmod'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('pcomp', 'dobj'), ('compound', 'nmod', 'dep', 'dobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('dobj',), ('appos', 'dep', 'dep'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('pobj',), ('pcomp',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('compound', 'dobj'), ('compound', 'dobj', 'dep', 'appos'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('compound', 'pobj'), ('pobj', 'advcl', 'dep', 'advmod'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'nsubj', 'pcomp', 'attr', 'punct', 'dep', 'nsubj', 'ROOT', 'acomp', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'nsubj', 'parataxis', 'punct', 'nsubj', 'aux', 'neg', 'ccomp', 'compound', 'attr', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'nsubj', 'advcl', 'acomp', 'punct', 'nsubj', 'aux', 'neg', 'ROOT', 'advmod', 'acomp', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT',), ('punct', 'cc', 'nsubj', 'parataxis', 'punct', 'nsubj', 'aux', 'neg', 'ROOT', 'advmod', 'acomp', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'nsubj', 'auxpass', 'ROOT', 'punct', 'dobj', 'dep', 'advcl', 'dobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('acomp',), ('attr', 'punct', 'nsubj', 'auxpass', 'advcl', 'punct', 'nsubj', 'ROOT', 'dobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('det',), ('dobj',))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'nsubj', 'parataxis', 'punct', 'nsubj', 'ccomp', 'acomp', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('nmod',), ('pobj',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('relcl',), ('attr',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('xcomp',), ('acl',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('auxpass', 'ROOT'), ('ROOT', 'dobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('relcl',), ('ROOT',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('dobj', 'acl'), ('amod', 'dobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('dep',), ('nsubj',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT',), ('nmod',))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'ROOT', 'acl', 'dobj', 'det', 'dobj', 'punct', 'advmod', 'advmod', 'advcl', 'prt', 'advmod', 'oprd', 'cc', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'ROOT', 'acl', 'predet', 'det', 'dobj', 'punct', 'advmod', 'advmod', 'advcl', 'prt', 'advmod', 'oprd', 'cc', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'prep', 'pobj', 'prep', 'poss', 'pobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'ROOT', 'advmod', 'det', 'attr', 'aux', 'relcl', 'punct', 'advmod', 'advmod', 'poss', 'nsubj', 'advcl', 'neg', 'amod', 'punct', 'attr', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'prep', 'compound', 'compound', 'dep', 'pobj', 'nsubj', 'advmod', 'relcl', 'prep', 'det', 'nummod', 'compound', 'pobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('npadvmod',), ('dep',))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep',))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'det', 'amod', 'dobj', 'punct', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('attr',), ('nmod', 'dep', 'attr', 'acl', 'predet', 'det', 'dobj', 'punct', 'advmod', 'advmod', 'advcl', 'prt', 'advmod', 'oprd', 'cc', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('amod',), ('advcl',))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'npadvmod', 'prep', 'compound', 'compound', 'pobj', 'punct', 'det', 'nsubj', 'prep', 'pobj', 'aux', 'ROOT', 'det', 'amod', 'dobj', 'prep', 'compound', 'pobj', 'punct', 'cc', 'det', 'nsubj', 'prep', 'det', 'amod', 'amod', 'compound', 'pobj', 'aux', 'conj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'nsubj', 'aux', 'neg', 'ROOT', 'advmod', 'punct', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'prep', 'compound', 'pobj', 'nsubj', 'advmod', 'relcl', 'dobj', 'det', 'nummod', 'compound', 'dobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT', 'acomp'), ('compound', 'ROOT'))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('acomp',), ('acomp',))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('pobj', 'acl'), ('amod', 'pobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT', 'oprd'), ('ROOT', 'advmod'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'nsubj', 'auxpass', 'relcl', 'punct', 'nsubj', 'aux', 'neg', 'ROOT', 'acomp', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'prep', 'auxpass', 'advcl', 'punct', 'nsubj', 'ROOT', 'dobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'nmod', 'appos', 'compound', 'pobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'nsubj'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('dep', 'dobj', 'dobj', 'dobj', 'dobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'nmod', 'punct', 'punct', 'ROOT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'punct', 'punct', 'conj', 'appos'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('dobj',), ('nmod',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('nsubj', 'aux'), ('compound', 'ccomp'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('amod', 'pobj'), ('amod', 'pobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT',), ('nsubj', 'dep', 'conj', 'auxpass', 'advcl', 'punct', 'nsubj', 'ROOT', 'dobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT',), ('attr',))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('nsubj', 'ROOT'), ('compound', 'npadvmod'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'nsubj', 'auxpass', 'parataxis', 'punct', 'nsubj', 'ROOT', 'dobj', 'punct'))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('nsubjpass',), ('nsubj',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT', 'advmod'), ('acomp', 'advmod'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('amod', 'compound', 'pobj'), ('nmod', 'compound', 'compound', 'pobj', 'dep', 'nsubj', 'auxpass', 'pcomp', 'punct', 'nsubj', 'ROOT', 'dobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('advmod', 'advmod'), ('advmod', 'advmod'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'nsubj', 'auxpass', 'parataxis', 'punct', 'nsubj', 'conj', 'acomp', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('amod', 'amod'), ('nmod', 'punct', 'amod', 'amod'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('relcl',), ('relcl', 'dep', 'nsubj', 'aux', 'punct', 'nsubj', 'ROOT', 'dobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('pobj',), ('relcl',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('amod', 'pobj'), ('compound', 'pobj'))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('ROOT', 'det', 'advmod', 'amod', 'attr'), ('aux', 'dep', 'ROOT', 'amod', 'dobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('pobj', 'prep', 'advmod', 'amod', 'pobj'), ('pobj', 'npadvmod', 'amod', 'compound', 'pobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('relcl', 'prep'), ('nsubj', 'relcl'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('pobj',), ('nmod', 'dep', 'dobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('aux', 'ROOT', 'det', 'dobj'), ('aux', 'advcl', 'compound', 'dobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('advcl', 'mark'), ('advcl', 'dobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('aux', 'acl', 'det', 'dobj', 'nsubj'), ('compound', 'nsubj', 'compound', 'compound', 'appos'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ccomp', 'dobj'), ('ROOT', 'dobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('advmod',), ('amod',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('amod', 'dobj', 'prep'), ('nmod', 'compound', 'nmod', 'compound', 'dobj', 'prep', 'pobj', 'acl'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('pobj', 'prep', 'pobj', 'prep', 'det', 'pobj', 'prep', 'pobj', 'advmod'), ('nmod', 'nmod', 'compound', 'dobj', 'dep', 'nummod', 'relcl', 'dobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('det', 'amod', 'ROOT', 'prep', 'pobj', 'cc', 'conj', 'advmod', 'advmod'), ('compound', 'compound', 'amod', 'amod', 'nsubj', 'aux', 'ROOT', 'advmod', 'dobj', 'dep', 'conj', 'nummod', 'compound', 'dobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('nsubj',), ('amod',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('aux', 'xcomp'), ('ROOT', 'dobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('prep',), ('pobj',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('conj', 'det'), ('compound', 'nmod'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('dobj', 'prep', 'punct', 'poss', 'amod'), ('conj', 'amod', 'punct', 'nmod', 'amod'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'appos', 'appos', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('amod', 'compound'), ('compound', 'compound'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT', 'acl', 'prep', 'det', 'pobj'), ('compound', 'nmod', 'compound', 'compound', 'ROOT', 'dep', 'compound', 'compound', 'appos'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT', 'cc', 'conj'), ('ROOT', 'compound', 'amod', 'dep', 'appos'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT',), ('compound', 'dep', 'npadvmod'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('pobj', 'acl', 'prep', 'det'), ('compound', 'nmod', 'compound', 'nmod'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('amod', 'amod', 'pobj'), ('amod', 'nmod', 'pobj', 'dep', 'pobj', 'appos', 'pobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('det', 'ROOT'), ('compound', 'compound', 'dep', 'appos', 'appos', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT',), ('dep',))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('dep', 'nsubj', 'ROOT', 'nsubj', 'ccomp', 'prep', 'pobj', 'xcomp', 'det', 'dobj', 'advmod', 'cc', 'prep', 'det', 'pobj', 'ccomp', 'det', 'dobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'case', 'amod', 'punct', 'advmod', 'advcl', 'punct', 'cc', 'conj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT',), ('nsubj', 'punct', 'ROOT'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('dep', 'case', 'acomp', 'punct', 'ROOT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('poss',), ('compound',))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'ROOT', 'aux', 'xcomp', 'advmod', 'prep', 'poss', 'amod', 'pobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('dep',), ('nsubj', 'punct', 'ROOT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'case', 'det', 'conj', 'prep', 'pcomp', 'det', 'amod', 'dobj', 'prep', 'poss', 'case', 'pobj', 'prep', 'pobj', 'prep', 'amod', 'compound', 'pobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'det', 'nsubj', 'ccomp', 'acomp', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'case', 'amod', 'punct', 'advmod', 'dep', 'punct', 'cc', 'conj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT',), ('nsubj', 'dep', 'ROOT', 'aux', 'xcomp', 'advmod', 'prep', 'poss', 'amod', 'pobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'det', 'amod', 'pobj', 'prep', 'amod', 'pobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'det', 'nsubj', 'ROOT', 'acomp', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('dobj',), ('pobj',))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('pobj',), ('pobj', 'dep', 'prep', 'det', 'amod', 'nmod', 'punct', 'prep', 'punct', 'det', 'punct', 'pobj', 'pobj', 'det', 'nsubj', 'aux', 'ROOT', 'prt', 'punct'))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('amod', 'dobj'), ('conj', 'dobj', 'dep', 'nsubj', 'conj', 'advmod', 'advmod', 'acomp', 'aux', 'xcomp', 'amod', 'amod', 'attr', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('nsubj', 'ROOT'), ('nsubj', 'intj'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'pobj', 'det', 'attr', 'punct', 'advmod', 'advcl', 'dobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('pobj',), ('dobj',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT',), ('relcl',))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'dep', 'advmod', 'acomp', 'aux', 'xcomp', 'det', 'attr', 'prep', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('dobj',), ('attr', 'dep', 'auxpass', 'advmod', 'advmod', 'dep', 'prt', 'prep', 'prep', 'amod', 'punct', 'advmod', 'punct', 'amod', 'punct', 'pobj', 'punct'))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('compound', 'pobj'), ('amod', 'pobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ccomp',), ('acl',))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'det', 'amod', 'nummod', 'punct', 'npadvmod', 'punct', 'amod', 'case', 'amod', 'dobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('nsubj', 'ROOT', 'dep'))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('det', 'amod'), ('nsubj', 'ROOT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT',), ('dobj', 'dep', 'dep', 'advmod', 'acomp', 'aux', 'xcomp', 'det', 'attr', 'prep', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('auxpass',), ('nsubj',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('pobj',), ('pobj', 'dep', 'ROOT', 'mark', 'det', 'amod', 'punct', 'nsubj', 'prep', 'amod', 'compound', 'pobj', 'mark', 'amod', 'nsubj', 'aux', 'advmod', 'ccomp', 'prt', 'det', 'amod', 'punct', 'amod', 'dobj', 'prep', 'det', 'amod', 'pobj', 'punct', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('punct', 'dep', 'appos'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('punct', 'dep', 'ROOT'))",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('insert', (), ('nsubj', 'pobj'))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('advmod', 'aux', 'acl', 'prep', 'poss', 'case', 'pobj', 'cc', 'conj'))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('attr', 'advmod', 'nsubj'))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('dobj', 'amod', 'amod', 'amod', 'poss', 'case', 'dobj', 'punct', 'punct', 'ROOT', 'xcomp', 'dobj', 'prep', 'pobj', 'cc', 'det', 'prep', 'pobj', 'nsubj'))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('ROOT',), ('dep', 'prep', 'ROOT', 'advmod'))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('pobj',), ())",2,1.0,0.5,0,2,77.59815242494227
+"('delete', ('aux', 'ROOT', 'dobj'), ())",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('pobj',), ('cc', 'conj', 'aux', 'xcomp'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('det', 'advmod', 'pobj', 'punct', 'punct', 'det'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('punct',), ('pobj',))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('nsubj', 'prep', 'pobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('advmod',), ('advmod', 'attr'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('cc', 'advmod', 'conj'), ('npadvmod',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('prep',), ('compound', 'npadvmod', 'det', 'nsubj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('prep', 'pobj', 'ROOT'))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('amod', 'ROOT', 'prep', 'det', 'pobj'), ())",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT',), ('compound', 'ROOT', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT',), ('advcl', 'prep', 'punct', 'amod', 'punct', 'nsubj', 'ROOT', 'dobj', 'prep', 'predet', 'pobj'))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('amod',), ('prep', 'amod', 'det'))",1,1.0,1.0,1,0,95.40937056318032
+"('delete', ('punct', 'acl', 'prep'), ())",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('prep', 'det', 'amod', 'pobj'), ('advmod',))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('advcl', 'cc', 'conj', 'punct', 'amod', 'compound', 'nsubj'))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('relcl', 'advmod', 'punct', 'ROOT', 'det', 'attr', 'attr', 'nsubj', 'prep', 'pobj', 'prep', 'pobj', 'acl', 'aux', 'ccomp', 'prep', 'pobj', 'nsubj', 'conj', 'cc', 'conj', 'dobj', 'det', 'punct', 'nsubj', 'nsubj', 'prep'))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('prep', 'pobj', 'cc', 'conj', 'conj'))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('nsubj', 'relcl', 'aux', 'xcomp'), ('amod', 'dobj'))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('pobj', 'cc', 'nsubj', 'conj', 'nsubj', 'ccomp', 'dobj', 'nsubj', 'ccomp', 'prep', 'pobj', 'punct', 'det', 'amod', 'ROOT', 'acl', 'prep', 'det', 'amod', 'cc', 'conj', 'pobj'), ('pobj',))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('ROOT',), ('det', 'ROOT', 'prep', 'prep', 'det', 'poss', 'punct', 'amod', 'pobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT',), ('ROOT', 'punct', 'det', 'npadvmod', 'prep', 'pobj', 'prep', 'compound', 'pobj', 'det', 'npadvmod'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('det', 'pobj'), ('pobj',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT',), ('det', 'det', 'punct', 'amod', 'ROOT', 'aux', 'compound', 'appos', 'prep'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT',), ('cc', 'compound', 'compound'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('det', 'det', 'nsubj', 'relcl', 'prep', 'cc', 'conj', 'prep', 'advmod', 'prep', 'cc', 'conj', 'det', 'punct', 'amod', 'amod', 'amod', 'conj', 'prep', 'advmod', 'compound', 'pobj', 'punct', 'prep', 'pobj', 'poss', 'nsubj', 'punct', 'aux', 'acl', 'xcomp', 'prt', 'compound', 'dobj', 'punct', 'nsubj', 'ROOT', 'prep', 'compound', 'pobj', 'punct', 'nsubj', 'det', 'prep', 'pobj', 'dep', 'aux', 'conj', 'amod', 'npadvmod', 'dep'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('amod',), ('nsubj', 'ROOT', 'dep', 'mark'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('advmod', 'advmod', 'aux'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('nsubj', 'relcl', 'npadvmod', 'nsubj', 'advmod', 'nsubj', 'nsubj', 'aux', 'ROOT', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('cc',), ('det', 'punct', 'dep', 'punct', 'compound', 'compound', 'ROOT', 'punct', 'punct', 'dep', 'nsubj', 'ROOT', 'det', 'nsubj', 'dep', 'appos', 'ccomp', 'compound', 'nmod', 'punct', 'dobj', 'punct', 'cc', 'cc', 'det', 'pobj', 'conj', 'punct', 'prep', 'amod', 'pobj'))",1,1.0,1.0,1,0,95.40937056318032
+"('delete', ('amod', 'ROOT'), ())",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('ROOT', 'aux'), ('advmod', 'aux', 'dep', 'prep', 'compound'))",1,1.0,1.0,1,0,95.40937056318032
+"('delete', ('poss', 'dobj', 'advmod', 'prep', 'det'), ())",1,1.0,1.0,1,0,95.40937056318032
+"('delete', ('advmod', 'advmod', 'aux', 'xcomp'), ())",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('punct', 'ROOT', 'amod', 'dobj', 'poss', 'det', 'dobj', 'advmod', 'nsubj', 'prep', 'neg', 'advcl', 'dep'))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('ROOT',), ('nsubj', 'aux', 'neg'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('ROOT', 'punct', 'amod', 'dobj', 'appos', 'prep', 'pobj', 'dep'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('det', 'amod', 'pobj', 'prep'), ('pobj',))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('amod', 'pobj'), ())",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('punct',), ())",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('punct', 'amod'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('ROOT', 'nummod'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('acomp', 'punct'), ('punct', 'dep', 'dobj', 'punct', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('advcl',), ('prep',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('punct',), ('pobj', 'nsubj', 'acl', 'advmod', 'ROOT'))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('dobj',), ())",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('poss', 'pobj', 'det', 'amod', 'npadvmod', 'punct', 'det', 'nsubj', 'conj', 'cc', 'conj', 'amod'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('amod', 'aux', 'xcomp', 'prep', 'punct', 'punct', 'advmod', 'dep', 'compound', 'pobj', 'punct', 'cc', 'det', 'conj', 'advmod', 'cc', 'cc', 'prep', 'nsubj', 'pcomp'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('pobj', 'prep', 'det', 'amod'), ('pobj', 'prep', 'pobj', 'punct', 'compound'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('punct', 'cc', 'conj', 'prt', 'poss', 'amod'), ('prep', 'pcomp', 'pobj', 'pcomp', 'dative'))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('compound', 'dobj', 'nummod', 'npadvmod', 'prep', 'nsubj', 'aux', 'advmod', 'advmod', 'pcomp', 'aux', 'xcomp', 'prt', 'prep', 'det', 'pobj', 'punct', 'cc', 'advmod', 'punct', 'compound', 'compound', 'conj', 'prep', 'pobj', 'cc', 'det', 'amod', 'conj'), ())",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('aux', 'neg'), ())",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('pobj', 'punct', 'nsubj', 'punct', 'neg', 'dep', 'det', 'punct', 'punct', 'det', 'punct', 'compound', 'attr', 'punct', 'prep', 'det', 'cc', 'conj', 'conj', 'compound', 'compound', 'compound', 'pobj', 'punct', 'ROOT', 'det', 'det'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('cc', 'conj', 'dobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('nsubj', 'ROOT', 'det', 'amod', 'punct'), ())",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('cc', 'aux', 'conj', 'poss', 'ROOT', 'prep', 'amod', 'punct', 'amod', 'compound', 'pobj', 'conj', 'det', 'compound', 'compound', 'dobj', 'punct', 'amod', 'dobj', 'prep', 'amod', 'det', 'pobj', 'det'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('prep', 'compound', 'pobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('punct', 'compound'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('prep', 'pobj', 'punct', 'acl', 'cc', 'conj', 'punct', 'aux', 'xcomp'), ('dep',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('dobj', 'punct'), ('punct', 'ROOT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('aux',), ('nsubj', 'ROOT', 'dep', 'punct', 'nsubj', 'mark', 'advcl', 'punct', 'advmod', 'amod', 'nsubj', 'aux', 'aux', 'punct', 'ROOT', 'det', 'dobj', 'nummod', 'punct', 'cc', 'det', 'conj', 'cc', 'conj', 'dobj', 'mark', 'nsubjpass'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('compound', 'dobj', 'aux', 'conj', 'det', 'dobj', 'prep'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('advmod', 'mark', 'nsubj', 'aux', 'advmod', 'advcl', 'det', 'nummod', 'npadvmod', 'advmod'), ('punct', 'det', 'punct', 'npadvmod'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'advmod', 'advmod', 'amod', 'aux', 'auxpass', 'xcomp', 'det', 'oprd', 'prep', 'pobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'appos', 'cc', 'conj', 'ccomp', 'poss', 'amod', 'dobj', 'prep', 'amod', 'pobj', 'punct', 'nsubj', 'aux', 'ROOT', 'dative', 'det', 'amod', 'nsubj', 'dobj', 'punct', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'nsubj', 'ROOT', 'advmod', 'acomp', 'aux', 'xcomp', 'prep', 'det', 'pobj', 'prep', 'pobj', 'punct', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'punct', 'cc', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('advmod',), ('intj',))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'conj', 'det', 'amod', 'dobj', 'punct', 'conj', 'amod', 'cc', 'conj', 'dobj', 'cc', 'conj', 'det', 'amod', 'dobj', 'aux', 'xcomp', 'det', 'compound', 'dobj', 'nsubj', 'relcl', 'amod', 'acomp', 'aux', 'xcomp', 'punct', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('ROOT', 'cc', 'dep'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('npadvmod', 'nsubj', 'parataxis', 'advmod', 'punct', 'advmod', 'advmod', 'punct', 'punct', 'nsubj', 'aux', 'aux', 'advmod', 'ROOT', 'det', 'dobj', 'prep', 'det', 'pobj', 'nsubj', 'relcl', 'advmod', 'prep', 'poss', 'pobj', 'prep', 'det', 'compound', 'pobj', 'punct', 'dep'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT',), ('compound', 'dep', 'compound', 'ROOT', 'punct'))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('dep', 'advmod', 'advmod', 'ROOT', 'aux', 'auxpass', 'xcomp', 'det', 'oprd', 'prep', 'pobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('nsubj', 'cc', 'conj', 'ccomp', 'poss', 'amod', 'dobj', 'prep', 'amod', 'pobj', 'punct', 'nsubj', 'aux', 'ROOT', 'dative', 'det', 'amod', 'compound', 'dobj', 'punct', 'dep'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('nsubj',), ('det', 'amod', 'punct', 'amod', 'poss', 'punct', 'nsubj'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'det', 'appos', 'prep', 'det', 'pobj', 'ROOT', 'mark', 'det', 'nsubj', 'punct', 'amod', 'prep', 'pobj', 'punct', 'ccomp', 'det', 'amod', 'dobj', 'prep', 'det', 'compound', 'pobj', 'prep', 'compound', 'compound', 'punct', 'pobj', 'punct', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'conj', 'punct', 'nsubj', 'punct', 'conj', 'punct', 'conj', 'punct', 'ROOT', 'cc', 'conj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'det', 'nsubj', 'ROOT', 'dobj', 'prt', 'prep', 'poss', 'pobj', 'punct', 'punct'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('ROOT', 'punct', 'cc', 'conj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'appos', 'cc', 'conj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'conj', 'punct', 'conj', 'punct', 'parataxis', 'punct', 'conj', 'punct', 'conj', 'cc', 'conj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'advmod', 'amod', 'punct', 'acomp', 'punct', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('det',), ('ROOT', 'punct', 'nsubj', 'punct', 'parataxis', 'punct', 'intj', 'punct', 'xcomp', 'cc', 'poss', 'case', 'amod'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'pobj', 'advmod', 'oprd', 'dep', 'npadvmod', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('det',), ('nsubj', 'case', 'nmod'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'pobj', 'amod', 'appos', 'prep', 'det', 'amod', 'pobj', 'ROOT', 'det', 'attr', 'prep', 'amod', 'pobj', 'punct', 'det', 'appos', 'prep', 'det', 'pobj', 'prep', 'pobj', 'aux', 'relcl', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'nmod', 'amod', 'cc', 'conj', 'dep', 'npadvmod', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT',), ('ROOT', 'det', 'poss', 'case', 'compound', 'nsubj', 'ccomp', 'advmod', 'prep', 'pobj', 'prep', 'compound', 'nmod', 'dep', 'pobj', 'punct', 'acl'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT',), ('nsubj', 'dep', 'prep', 'det', 'poss', 'case', 'compound', 'appos', 'ROOT', 'advmod', 'prep', 'pobj', 'prep', 'compound', 'nmod', 'dep', 'pobj', 'punct'))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('det',), ('npadvmod',))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('dep', 'appos', 'det', 'amod', 'amod', 'nmod', 'nsubj', 'ROOT', 'compound', 'dobj', 'nsubj', 'relcl', 'dobj', 'prep', 'det', 'amod', 'dep', 'pobj', 'punct'))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('dep', 'nmod', 'amod', 'compound', 'dep', 'appos', 'punct'))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('dep', 'pobj', 'amod', 'cc', 'conj', 'dep', 'acomp', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT',), ('nsubj', 'case', 'amod'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'appos', 'ROOT', 'agent', 'compound', 'pobj', 'cc', 'compound', 'conj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('ROOT', 'amod', 'cc', 'conj', 'dep', 'appos', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('amod', 'ROOT'), ('ROOT', 'attr', 'dep', 'intj', 'punct', 'conj', 'punct', 'cc', 'conj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('conj',), ('conj', 'dep', 'advmod', 'nsubj', 'ROOT', 'npadvmod', 'acomp', 'punct', 'cc', 'expl', 'conj', 'attr', 'amod', 'prep', 'pobj', 'mark', 'det', 'nsubj', 'advcl', 'advmod', 'punct', 'acomp', 'cc', 'det', 'nsubj', 'conj', 'punct', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT',), ('nsubj', 'dep', 'ROOT', 'det', 'dobj', 'prep', 'det', 'pobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ROOT',), ('relcl', 'dep', 'det', 'dobj', 'punct', 'det', 'npadvmod', 'prep', 'amod', 'punct', 'pobj', 'punct', 'nsubj', 'advcl', 'nsubj', 'ccomp', 'prep', 'punct'))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('pobj',), ('dep',))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'det', 'pobj', 'punct', 'det', 'appos', 'prep', 'amod', 'punct', 'pobj', 'punct', 'nsubj', 'ROOT', 'nsubj', 'ccomp', 'prep', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('nummod', 'pobj'), ('compound', 'pobj'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('det', 'amod', 'ROOT', 'cc', 'amod', 'conj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'amod', 'punct', 'compound', 'dobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('det', 'ROOT'), ('amod', 'nsubj'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('dep', 'ROOT', 'det', 'dobj', 'prep', 'det', 'pobj', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('pobj',), ('pobj', 'dep', 'conj', 'prep', 'pobj', 'prep', 'det', 'pobj', 'nsubj', 'aux', 'relcl', 'punct'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('advmod',), ('ROOT', 'det', 'dobj', 'prep', 'det', 'pobj', 'punct', 'cc'))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('attr',), ('compound',))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('compound', 'nsubj'), ('nsubj', 'appos'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ccomp',), ('ccomp',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('nsubj', 'relcl', 'acomp'), ('compound', 'compound', 'nsubj'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('conj', 'ROOT'), ('conj', 'ROOT'))",1,1.0,1.0,0,1,83.86023294509151

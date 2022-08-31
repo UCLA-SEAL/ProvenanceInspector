@@ -3,10 +3,6 @@ import os.path as osp
 
 from .analysis import TransformStats
 
-test_dir_pth = "./results_a2t_mlm_word.8_n5_sst2/"
-
-test_df = pd.read_csv(osp.join(test_dir_pth, 'out_human.csv'))
-
 
 
 class InferTransformStats:

@@ -5,7 +5,7 @@ from tqdm import tqdm
 class SpacyFeatures:
     model = spacy.load("en_core_web_sm")
     model.add_pipe("static_sentiment")
-    #model.add_pipe("contextual_sentiment")
+    model.add_pipe("contextual_sentiment")
     
     def __init__(self, texts, feature_names):
         self.feature_names = feature_names

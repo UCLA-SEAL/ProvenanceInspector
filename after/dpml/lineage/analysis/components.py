@@ -145,7 +145,22 @@ def align_tokens(doc_tok, tok, boe):
             for i in range(to_start, to_end):
                 new_embs.append(boe[i])
         elif op == 'insert':
-            raise ValueError('inserting nonexisting token')
+            cur_embs = boe[to_start:to_end]
+
+            end = from_end 
+            start = end
+            
+            k = max(i - 1, 0)
+
+            while k >= 0:
+                if edits[k][0] != 'equal':
+                    start = edits[k][1]
+                    break
+                k -= 1
+            cur_embs += new_embs[start:end]
+            avg_emb = np.stack(cur_embs).mean(axis=0)
+            new_embs[start:end] = [avg_emb] * (end - start)
+            
         elif op == 'replace':
             avg_emb = np.stack(boe[to_start:to_end]).mean(axis=0)
             for i in range(from_start, from_end):

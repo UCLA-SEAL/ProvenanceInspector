@@ -10,7 +10,7 @@ test_df = pd.read_csv(osp.join(test_dir_pth, 'out_human.csv'))
 
 
 class InferTransformStats:
-    def __init__(self, log_file_pth = '../results_a2t_sst2/log.csv', features = ["morph", "pos_", "dep_", "contextual_sentiment"]):
+    def __init__(self, log_file_pth = '../results_a2t_sst2/log.csv', features = ["morph", "pos_", "dep_", "static_sentiment"]):
         self.test_df = pd.read_csv(log_file_pth)
         self.test_edit_summary = TransformStats(feature_names=features)
         self.test_edit_summary.populate_edits_with_df(self.test_df)

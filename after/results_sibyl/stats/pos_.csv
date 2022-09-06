@@ -1,0 +1,516 @@
+transform,total_freq,label_ratio,impact_ratio,fail_num,pass_num,sus_score
+"('insert', (), ('SPACE', 'NOUN', 'NOUN', 'PROPN', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'PROPN', 'NUM'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'NOUN', 'NOUN'))",6,1.0,0.16666666666666666,0,6,59.75103734439834
+"('insert', (), ('SPACE', 'ADV', 'ADJ', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'NOUN', 'NUM', 'NOUN'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('SPACE', 'PROPN', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'PROPN', 'NOUN'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('SPACE', 'PROPN', 'PROPN', 'PROPN', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'VERB', 'ADP', 'PROPN', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'NOUN', 'NOUN', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('VERB',), ('VERB',))",85,1.0,0.011764705882352941,10,75,60.06500541711809
+"('replace', ('NOUN',), ('NOUN',))",124,1.0,0.008064516129032258,12,112,54.45252441304799
+"('insert', (), ('SPACE', 'DET', 'NOUN', 'ADP', 'PRON', 'NOUN', 'PUNCT'))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('SCONJ',), ('VERB',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN',), ('NOUN', 'PUNCT', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN', 'ADJ', 'NOUN', 'NOUN', 'VERB'), ('NOUN', 'NOUN', 'NOUN', 'PRON', 'VERB'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('DET', 'NOUN'), ('PROPN', 'NOUN'))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('NOUN',), ('NOUN', 'SPACE', 'ADV', 'ADP', 'DET', 'ADV', 'ADJ', 'NOUN', 'ADP', 'ADJ', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN',), ('NOUN', 'SPACE', 'ADP', 'NOUN', 'NOUN', 'PUNCT'))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('ADV',), ('ADV',))",7,1.0,0.14285714285714285,2,5,83.86023294509151
+"('insert', (), ('SPACE', 'SCONJ', 'PRON', 'PUNCT', 'VERB', 'PRON', 'ADP', 'PROPN', 'PROPN', 'PUNCT', 'PRON', 'VERB', 'ADP', 'DET', 'NOUN', 'PUNCT', 'NOUN', 'ADP', 'DET', 'NOUN', 'NOUN', 'NOUN', 'PRON', 'VERB', 'ADJ', 'NOUN', 'PUNCT', 'PUNCT'))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('VERB',), ('ADJ',))",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('replace', ('DET', 'NOUN'), ('NOUN', 'NOUN'))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('PRON',), ('NOUN',))",8,1.0,0.125,1,7,72.20630372492836
+"('replace', ('VERB',), ('NOUN', 'SPACE', 'ADP', 'NOUN', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADP', 'PROPN', 'PROPN'), ('PROPN', 'NOUN', 'NOUN', 'SPACE', 'ADV', 'ADP', 'DET', 'ADV', 'ADJ', 'NOUN', 'ADP', 'ADJ', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADV',), ('PROPN',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('VERB', 'NOUN'), ('NOUN', 'NOUN', 'SPACE', 'SCONJ', 'PRON', 'PUNCT', 'VERB', 'PRON', 'ADP', 'PROPN', 'PROPN', 'PUNCT', 'PRON', 'VERB', 'ADP', 'DET', 'NOUN', 'PUNCT', 'NOUN', 'ADP', 'DET', 'NOUN', 'NOUN', 'NOUN', 'PRON', 'VERB', 'ADJ', 'NOUN', 'PUNCT', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('DET', 'NOUN'), ('DET', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('PROPN',), ('NOUN',))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'ADP', 'NOUN', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN',), ('PROPN', 'PROPN'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'PRON', 'AUX', 'VERB', 'PUNCT', 'PRON', 'VERB', 'PRON', 'PUNCT'))",11,1.0,0.09090909090909091,1,10,65.39085306519624
+"('insert', (), ('SPACE', 'PRON', 'AUX', 'VERB', 'PUNCT', 'PRON', 'AUX', 'ADJ', 'PUNCT'))",9,1.0,0.1111111111111111,0,9,50.960566228513656
+"('insert', (), ('SPACE', 'PRON', 'AUX', 'VERB', 'PUNCT', 'PRON', 'VERB', 'PROPN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'DET', 'NOUN', 'VERB', 'PUNCT', 'PRON', 'AUX', 'ADJ', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'PRON', 'AUX', 'VERB', 'PUNCT', 'PRON', 'PUNCT', 'VERB', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'PRON', 'VERB', 'PUNCT', 'PRON', 'VERB', 'PRON', 'PUNCT'))",13,1.0,0.07692307692307693,2,11,72.20630372492836
+"('insert', (), ('SPACE', 'PRON', 'AUX', 'VERB', 'PUNCT', 'PRON', 'AUX', 'PART', 'AUX', 'ADJ', 'PUNCT'))",7,1.0,0.14285714285714285,1,6,74.8051948051948
+"('insert', (), ('PROPN', 'NOUN', 'AUX', 'VERB', 'PUNCT', 'PRON', 'AUX', 'PART', 'AUX', 'ADJ', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'DET', 'PROPN', 'VERB', 'PUNCT', 'PRON', 'VERB', 'PRON', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADP', 'NOUN'), ('PRON', 'VERB', 'SPACE', 'PRON', 'VERB', 'PUNCT', 'PRON', 'VERB', 'PRON', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('PUNCT',))",59,1.0,0.01694915254237288,1,58,26.04987724512211
+"('replace', ('ADP',), ('VERB',))",5,1.0,0.2,0,5,63.39622641509435
+"('insert', (), ('SPACE', 'ADP', 'DET', 'NOUN', 'ADP', 'NOUN', 'PUNCT'))",3,1.0,0.3333333333333333,1,2,87.38621586475944
+"('replace', ('ADP',), ('PROPN',))",8,1.0,0.125,0,8,53.58851674641147
+"('insert', (), ('SPACE', 'NOUN', 'ADP', 'DET', 'ADJ', 'NOUN', 'VERB', 'ADP', 'ADP', 'NOUN', 'ADP', 'ADJ', 'NOUN', 'PUNCT', 'ADP', 'ADJ', 'NOUN', 'ADP', 'NOUN', 'CCONJ', 'DET', 'ADJ', 'NOUN', 'ADP', 'NOUN', 'PUNCT', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'VERB', 'DET', 'NOUN', 'PUNCT', 'PUNCT'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('SPACE', 'ADJ', 'CCONJ', 'PUNCT'))",4,1.0,0.25,0,4,67.51507032819826
+"('replace', ('ADJ',), ('VERB',))",4,1.0,0.25,0,4,67.51507032819826
+"('insert', (), ('SPACE', 'VERB', 'ADJ', 'NOUN', 'ADP', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('AUX',), ('PROPN', 'PROPN', 'PROPN', 'PROPN', 'PROPN', 'ADV', 'VERB', 'DET'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADJ', 'NOUN'), ('ADV', 'ADJ', 'NOUN', 'PUNCT', 'ADP'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('VERB',), ('VERB', 'NOUN', 'VERB', 'SPACE', 'NOUN', 'PUNCT', 'AUX', 'ADJ'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('ADP', 'PROPN', 'SPACE', 'DET', 'PART', 'ADJ', 'NOUN', 'PUNCT', 'PUNCT', 'CCONJ', 'VERB', 'ADJ', 'AUX', 'ADP', 'SPACE', 'NOUN', 'NOUN', 'DET', 'PROPN', 'PUNCT', 'VERB'))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('NOUN', 'PUNCT', 'AUX', 'PART', 'ADJ', 'NOUN', 'ADP', 'DET', 'NOUN', 'CCONJ'), ())",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('NOUN',))",5,1.0,0.2,0,5,63.39622641509435
+"('replace', ('VERB',), ('PROPN', 'SPACE', 'CCONJ', 'PUNCT', 'NOUN', 'PUNCT', 'NOUN', 'PUNCT', 'VERB', 'DET', 'PROPN', 'PART', 'NOUN', 'NOUN', 'PROPN', 'VERB', 'VERB'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('PUNCT', 'NOUN', 'ADP', 'SPACE', 'CCONJ', 'VERB', 'ADJ', 'NOUN', 'ADJ', 'ADJ', 'ADP', 'NUM', 'PART', 'ADV', 'NOUN', 'ADP', 'PROPN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADJ', 'CCONJ', 'ADV', 'ADJ', 'NOUN'), ('NOUN',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADV',), ('PROPN', 'ADP', 'NOUN', 'NOUN', 'ADP', 'SPACE', 'NOUN', 'PUNCT', 'CCONJ', 'PUNCT', 'PART', 'PUNCT', 'PROPN', 'PART', 'PROPN', 'VERB', 'VERB', 'DET', 'NOUN', 'PUNCT', 'VERB', 'SPACE', 'VERB', 'NUM', 'NOUN', 'ADP', 'NOUN', 'NOUN', 'PROPN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN',), ('ADJ', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('PUNCT', 'SCONJ', 'ADJ', 'ADP', 'DET', 'NOUN', 'VERB', 'ADP', 'DET', 'NOUN', 'CCONJ', 'NUM', 'SCONJ'), ('ADV',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADV', 'VERB', 'PUNCT', 'PRON', 'AUX'), ('AUX',))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('NUM', 'ADJ', 'NOUN', 'SPACE', 'ADP', 'NOUN', 'PRON', 'PRON', 'DET', 'NOUN', 'PUNCT', 'PUNCT', 'ADJ', 'PRON', 'ADP', 'DET', 'SPACE', 'NOUN', 'VERB', 'PUNCT', 'PRON', 'ADP', 'NOUN', 'CCONJ', 'ADV', 'SCONJ', 'NOUN', 'PROPN', 'NOUN', 'NOUN', 'ADP'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADP', 'DET', 'ADJ', 'NOUN', 'ADP', 'DET', 'NOUN', 'PART', 'VERB', 'DET', 'NOUN', 'PUNCT'), ('PROPN', 'PUNCT', 'ADJ', 'VERB', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADV',), ('SPACE', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'PRON', 'ADP', 'NOUN', 'ADJ'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('PROPN', 'PUNCT', 'PROPN', 'CCONJ', 'PUNCT', 'NOUN', 'PUNCT', 'ADJ', 'NOUN', 'NOUN', 'AUX', 'ADP', 'ADV', 'PART', 'PROPN'))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('ADJ', 'PROPN', 'PROPN'), ())",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('PROPN',), ())",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('PROPN', 'VERB', 'PROPN', 'ADP', 'PROPN', 'PART', 'NOUN', 'CCONJ', 'NOUN', 'VERB', 'NOUN', 'PROPN', 'VERB', 'PRON', 'ADP', 'PART', 'ADP', 'NOUN', 'ADP', 'NOUN', 'NOUN', 'PUNCT', 'ADJ'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADP', 'ADJ', 'NOUN', 'PUNCT', 'PART', 'VERB', 'DET', 'NOUN', 'ADP', 'NOUN', 'NOUN', 'CCONJ'), ('NOUN',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN', 'NOUN', 'ADP'), ('PUNCT',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('X', 'PUNCT'), ('PRON',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('VERB',), ('ADP', 'SPACE', 'NOUN', 'ADP', 'CCONJ', 'VERB', 'DET', 'ADJ', 'VERB', 'SPACE', 'NOUN', 'PUNCT', 'VERB'))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('VERB', 'NOUN'), ())",2,1.0,0.5,1,1,91.22171945701358
+"('insert', (), ('ADJ', 'NOUN', 'ADV'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADJ',), ('VERB', 'VERB', 'ADJ', 'PROPN', 'PART', 'NOUN', 'NOUN', 'ADP', 'SPACE', 'DET', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('NOUN',), ())",6,1.0,0.16666666666666666,0,6,59.75103734439834
+"('insert', (), ('SPACE', 'NUM'))",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('insert', (), ('SPACE', 'NOUN'))",40,1.0,0.025,2,38,44.42485676509476
+"('insert', (), ('SPACE', 'ADP', 'ADJ', 'NOUN', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'PROPN'))",12,1.0,0.08333333333333333,2,10,73.91835736983622
+"('insert', (), ('SPACE', 'PROPN', 'NUM', 'NOUN', 'NOUN'))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('NOUN',), ('NOUN', 'SPACE', 'NOUN'))",8,1.0,0.125,0,8,53.58851674641147
+"('replace', ('NOUN',), ('NOUN', 'SPACE', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN',), ('NOUN', 'SPACE', 'X'))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('NOUN',), ('PRON',))",4,1.0,0.25,1,3,83.86023294509151
+"('replace', ('NOUN',), ('NOUN', 'SPACE', 'NUM', 'NUM', 'NOUN'))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('NOUN',), ('VERB',))",6,1.0,0.16666666666666666,1,5,77.59815242494227
+"('replace', ('VERB', 'NUM'), ('VERB', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('VERB', 'PRON'), ('VERB', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN', 'NOUN', 'NOUN'), ('NOUN', 'NOUN', 'ADJ'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN', 'NOUN', 'NOUN'), ('NOUN', 'NOUN', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('PART', 'VERB'), ('NOUN', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN',), ('NOUN', 'SPACE', 'PROPN'))",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('insert', (), ('SPACE', 'NOUN', 'NOUN', 'NOUN', 'NOUN', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'PROPN', 'NOUN', 'VERB', 'VERB', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'X', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('PROPN',))",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('insert', (), ('AUX',))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('AUX',), ())",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('DET', 'ADJ'), ('VERB', 'ADJ'))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('ADJ',), ('ADJ',))",21,1.0,0.047619047619047616,8,13,86.97986577181207
+"('replace', ('VERB',), ('DET',))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('ADV', 'ADJ'), ('DET', 'ADJ'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('VERB',), ('ADV',))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('PRON',), ('ADJ',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('DET',), ('ADV',))",4,1.0,0.25,0,4,67.51507032819826
+"('insert', (), ('PRON',))",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('delete', ('DET',), ())",6,1.0,0.16666666666666666,2,4,86.17839840410375
+"('replace', ('PUNCT',), ('VERB',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('VERB',), ('PUNCT',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NUM', 'ADJ'), ('VERB', 'ADJ'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('VERB', 'NUM'), ('VERB', 'ADJ'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'ADJ', 'PROPN'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'NOUN', 'NOUN', 'PROPN', 'PROPN', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'ADJ', 'NOUN', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'ADJ', 'CCONJ', 'ADV', 'ADV', 'ADJ', 'PUNCT'))",4,1.0,0.25,0,4,67.51507032819826
+"('replace', ('ADV',), ('ADV', 'SPACE', 'NUM', 'ADP', 'PRON', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('PROPN', 'AUX', 'PART', 'VERB', 'DET', 'NOUN', 'SPACE'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('VERB',), ('X',))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'VERB', 'DET', 'NOUN', 'VERB', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('SCONJ',), ('PRON',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NUM',), ('NOUN',))",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('insert', (), ('PROPN', 'PROPN', 'SPACE', 'NUM'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN',), ('PRON', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('ADP', 'DET', 'NOUN', 'ADJ', 'NOUN', 'ADP', 'DET', 'NOUN', 'PUNCT', 'VERB', 'NOUN', 'SPACE'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADJ',), ('NOUN',))",5,1.0,0.2,0,5,63.39622641509435
+"('insert', (), ('SPACE', 'PRON', 'AUX', 'PART', 'VERB', 'DET', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('PROPN', 'PROPN'), ('PROPN', 'PROPN', 'SPACE', 'ADP', 'DET', 'NOUN', 'NOUN', 'NOUN', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'ADP', 'DET', 'ADJ', 'PUNCT', 'ADJ', 'PUNCT', 'VERB', 'NOUN', 'ADP', 'DET', 'ADV', 'ADJ', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('DET',), ('DET',))",5,1.0,0.2,0,5,63.39622641509435
+"('insert', (), ('SPACE', 'DET', 'NOUN', 'ADP', 'NOUN', 'PUNCT', 'NOUN', 'ADP', 'PRON', 'ADV', 'VERB', 'PART', 'VERB', 'PUNCT'))",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('insert', (), ('SPACE', 'ADJ', 'CCONJ', 'ADJ', 'NOUN', 'PUNCT'))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('PRON',), ('PROPN',))",4,1.0,0.25,0,4,67.51507032819826
+"('insert', (), ('SPACE', 'ADJ', 'NOUN', 'CCONJ', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'DET', 'NOUN', 'AUX', 'ADJ', 'CCONJ', 'DET', 'NOUN', 'AUX', 'ADJ', 'PUNCT', 'CCONJ', 'DET', 'NOUN', 'AUX', 'ADV', 'ADJ', 'SCONJ', 'PRON', 'AUX', 'ADV', 'ADJ', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADJ',), ('INTJ',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('DET',), ('PRON',))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'VERB', 'DET', 'ADJ', 'ADJ', 'NOUN', 'ADP', 'NUM', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('VERB',), ())",2,1.0,0.5,0,2,77.59815242494227
+"('delete', ('ADV',), ())",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('ADP',), ())",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('PART', 'AUX', 'VERB', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('PART',), ('PROPN',))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('ADP', 'VERB', 'DET', 'ADJ', 'PROPN', 'NOUN', 'PUNCT', 'CCONJ', 'DET', 'ADJ', 'ADJ', 'ADP', 'ADJ', 'NOUN', 'NOUN', 'CCONJ'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('PART', 'AUX'), ('PROPN',))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SCONJ', 'ADV', 'ADP', 'NUM', 'CCONJ', 'DET', 'NOUN', 'ADP', 'PRON', 'VERB', 'VERB', 'PRON', 'ADP', 'ADJ', 'ADJ', 'PUNCT', 'NOUN', 'NOUN', 'PRON', 'VERB', 'DET', 'NOUN', 'ADP', 'PUNCT', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('DET', 'NOUN'), ('PROPN',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADJ', 'NOUN'), ('ADP', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('DET', 'NOUN'), ('ADV',))",2,1.0,0.5,1,1,91.22171945701358
+"('replace', ('ADP', 'PRON', 'NOUN'), ('PROPN',))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('NOUN',), ('VERB', 'ADP', 'PUNCT'))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('SCONJ',), ('PROPN',))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('CCONJ', 'DET', 'NOUN'), ())",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('ADJ',), ())",2,1.0,0.5,0,2,77.59815242494227
+"('delete', ('CCONJ',), ())",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('PRON', 'VERB', 'DET', 'NUM', 'NOUN', 'AUX', 'VERB', 'ADJ', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('DET', 'NOUN'), ())",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('PUNCT', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('DET', 'NOUN', 'VERB', 'DET', 'NUM', 'NOUN', 'VERB', 'DET', 'ADJ', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADJ',), ('ADV',))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('VERB', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADJ',), ('ADJ', 'SPACE', 'PRON', 'AUX', 'PROPN', 'ADV', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('DET', 'NOUN'), ('ADJ', 'ADP'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'ADJ', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('PROPN', 'VERB'), ('PROPN', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN',), ('PROPN',))",4,1.0,0.25,0,4,67.51507032819826
+"('insert', (), ('SPACE', 'ADV', 'ADJ', 'CCONJ', 'ADJ', 'NOUN', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADV', 'ADJ'), ('ADV', 'ADJ'))",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('replace', ('NOUN', 'NOUN'), ('NOUN', 'PROPN', 'SPACE', 'PROPN', 'NOUN', 'DET', 'PROPN', 'NOUN', 'PUNCT', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN',), ('NOUN', 'SPACE', 'VERB', 'DET', 'NOUN', 'ADP', 'DET', 'PROPN', 'NOUN', 'ADP', 'DET', 'NOUN', 'PROPN', 'ADP', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('VERB',), ('NOUN',))",17,1.0,0.058823529411764705,0,17,36.60130718954249
+"('replace', ('NOUN', 'ADV', 'VERB'), ('NOUN', 'ADV', 'VERB'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'VERB', 'PART', 'VERB', 'PRON', 'ADJ', 'NOUN', 'AUX', 'PUNCT', 'PRON', 'VERB', 'DET', 'ADJ', 'CCONJ', 'ADP', 'DET', 'NOUN', 'ADV', 'VERB', 'PRON', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('AUX',), ('AUX',))",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('insert', (), ('SPACE', 'VERB', 'DET', 'NOUN', 'ADP', 'DET', 'PROPN', 'PROPN', 'SCONJ', 'DET', 'NOUN', 'VERB', 'ADP', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'PRON', 'VERB', 'PRON', 'NOUN', 'PUNCT', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('VERB',), ('INTJ',))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('SPACE', 'NOUN', 'DET', 'NOUN', 'ADP', 'DET', 'PROPN', 'NOUN', 'ADP', 'DET', 'NOUN', 'NOUN', 'ADP', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('PRON', 'VERB'), ('PROPN', 'VERB'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'DET', 'NOUN', 'ADP', 'ADJ', 'NOUN', 'PART'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('DET',), ('PROPN',))",5,1.0,0.2,1,4,80.6077568972411
+"('insert', (), ('SPACE', 'VERB', 'DET', 'ADJ', 'PUNCT', 'NOUN', 'PART', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADP',), ('ADP',))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'DET', 'ADP', 'PUNCT', 'ADJ', 'NOUN', 'PUNCT', 'PROPN', 'PROPN', 'PART', 'NOUN', 'VERB', 'ADP', 'DET', 'ADV', 'ADJ', 'VERB', 'NOUN', 'ADP', 'DET', 'ADJ', 'NOUN', 'PUNCT', 'NOUN', 'PUNCT', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'DET', 'NOUN', 'VERB', 'ADV', 'ADP', 'DET', 'NOUN', 'CCONJ', 'VERB', 'DET', 'NOUN', 'ADP', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'VERB', 'PRON', 'VERB', 'ADJ', 'NOUN', 'PUNCT', 'ADP', 'NOUN', 'CCONJ', 'NOUN', 'PUNCT', 'ADP', 'DET', 'ADJ', 'NOUN', 'PUNCT', 'PUNCT'))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('NUM',), ('ADP', 'DET', 'ADJ', 'NOUN', 'PUNCT', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'DET', 'VERB', 'NOUN', 'ADP', 'PRON', 'CCONJ', 'DET', 'PRON', 'NOUN', 'PUNCT', 'ADV', 'ADP', 'PRON', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('DET', 'NOUN', 'VERB', 'ADV', 'ADP', 'DET', 'NOUN', 'CCONJ', 'VERB', 'DET', 'NOUN', 'ADP', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'PRON', 'ADV', 'ADJ', 'CCONJ', 'ADV', 'ADJ', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('DET',), ('DET', 'NOUN', 'VERB', 'ADV', 'ADP', 'DET', 'NOUN', 'CCONJ', 'VERB', 'DET', 'NOUN', 'ADP', 'NOUN', 'PUNCT', 'PROPN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('PROPN',), ('PROPN',))",4,1.0,0.25,0,4,67.51507032819826
+"('insert', (), ('SPACE', 'PROPN', 'PROPN', 'NOUN', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'PROPN', 'PROPN', 'PROPN', 'PROPN'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'PROPN', 'NOUN', 'ADV'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'ADP', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'PROPN', 'NOUN', 'NOUN', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'ADJ', 'PROPN', 'NOUN', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('VERB', 'NOUN'), ('NOUN', 'NOUN', 'SPACE', 'NUM'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('VERB', 'NOUN'), ('ADV', 'VERB'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN', 'NOUN'), ('NOUN', 'NOUN', 'SPACE', 'NOUN'))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('VERB', 'NOUN'), ('VERB', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'ADV'))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('NOUN', 'VERB'), ('NOUN', 'NOUN'))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('NOUN', 'ADP'), ('NOUN', 'VERB'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NUM',), ('PROPN', 'SPACE', 'NUM', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('VERB', 'DET', 'NOUN'), ('VERB', 'DET', 'NOUN', 'SPACE', 'PROPN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN',), ('NOUN', 'SPACE', 'NOUN', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'PRON', 'VERB', 'PUNCT', 'PRON', 'AUX', 'PART', 'VERB', 'PRON', 'PUNCT'))",4,1.0,0.25,2,2,91.22171945701356
+"('insert', (), ('SPACE', 'PRON', 'AUX', 'VERB', 'PUNCT', 'PRON', 'AUX', 'PART', 'VERB', 'PRON', 'PUNCT'))",6,1.0,0.16666666666666666,2,4,86.17839840410375
+"('insert', (), ('SPACE', 'PRON', 'VERB', 'PUNCT', 'PRON', 'AUX', 'PART', 'AUX', 'ADV', 'ADJ', 'PUNCT'))",3,1.0,0.3333333333333333,1,2,87.38621586475944
+"('insert', (), ('SPACE', 'PRON', 'AUX', 'VERB', 'PUNCT', 'PRON', 'AUX', 'PART', 'AUX', 'ADV', 'ADJ', 'PUNCT'))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('AUX', 'PART'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('PART',))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('VERB',), ('AUX', 'PART', 'VERB'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('SPACE', 'PRON', 'VERB', 'PUNCT', 'PRON', 'AUX', 'PART', 'AUX', 'ADJ', 'PUNCT'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('SPACE', 'PRON', 'VERB', 'PUNCT', 'PRON', 'AUX', 'ADJ', 'PUNCT'))",6,1.0,0.16666666666666666,1,5,77.59815242494227
+"('insert', (), ('SPACE', 'PRON', 'AUX', 'VERB', 'PUNCT', 'PRON', 'AUX', 'PART', 'ADJ', 'PUNCT'))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('ADJ', 'NOUN'), ('VERB', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'PRON', 'AUX', 'PUNCT', 'PRON', 'VERB', 'PRON', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('VERB',), ('PROPN', 'SPACE', 'VERB', 'VERB', 'DET', 'NOUN', 'ADV', 'ADJ', 'ADJ', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADV',), ('VERB',))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('SPACE', 'DET', 'ADJ', 'PUNCT', 'ADJ', 'NOUN', 'PRON', 'VERB', 'PRON', 'ADJ', 'ADP', 'DET', 'ADJ', 'NOUN', 'ADP', 'PRON', 'NOUN', 'NOUN', 'PUNCT', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN',), ('PROPN', 'SPACE', 'DET', 'NOUN', 'PART', 'NOUN', 'AUX', 'DET', 'NOUN', 'CCONJ', 'PRON', 'NOUN', 'ADV', 'VERB', 'DET', 'ADJ', 'NOUN', 'ADP', 'ADJ', 'ADJ', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('DET', 'ADJ', 'PUNCT', 'ADJ', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('DET',), ('ADJ',))",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('insert', (), ('SPACE', 'DET', 'ADJ', 'PUNCT', 'ADJ', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('ADV', 'SCONJ', 'DET', 'NOUN', 'PART', 'VERB', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'NOUN', 'PUNCT'))",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('insert', (), ('SPACE', 'DET', 'NOUN', 'PART', 'NOUN', 'AUX', 'DET', 'NOUN', 'CCONJ', 'PRON', 'NOUN', 'ADV', 'VERB', 'DET', 'ADJ', 'NOUN', 'ADP', 'ADJ', 'ADJ', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'NOUN', 'ADP', 'ADJ', 'ADJ', 'ADP', 'NOUN', 'PUNCT', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('DET', 'NOUN', 'PART', 'NOUN', 'AUX', 'DET', 'NOUN', 'CCONJ', 'PRON', 'NOUN', 'ADV', 'VERB', 'DET', 'ADJ', 'NOUN', 'ADP', 'ADJ', 'ADJ', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('ADJ',))",6,1.0,0.16666666666666666,1,5,77.59815242494227
+"('insert', (), ('PRON', 'PRON', 'VERB', 'PRON', 'ADP', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('PRON', 'PRON', 'VERB', 'ADP', 'NOUN', 'AUX', 'ADV', 'ADP', 'PRON', 'ADP', 'ADJ', 'DET', 'ADJ', 'ADJ', 'NOUN', 'NOUN', 'PUNCT', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('PRON', 'ADP', 'ADJ', 'PUNCT'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('AUX', 'ADV', 'ADV', 'ADJ', 'PUNCT'))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('ADJ',), ('PROPN', 'VERB'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('AUX',), ('PROPN', 'VERB', 'DET', 'PRON', 'PUNCT', 'NUM'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('ADV',))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('NOUN', 'DET', 'ADJ', 'NOUN', 'ADJ', 'ADP', 'NOUN', 'CCONJ', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('AUX',), ('PROPN', 'ADV'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('ADJ', 'NOUN', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('PRON',), ('SCONJ',))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('DET', 'ADP', 'ADJ', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'ADJ', 'PROPN', 'PROPN', 'PROPN'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'PROPN', 'PROPN'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'VERB', 'PROPN', 'NOUN', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'NOUN', 'PROPN', 'NOUN', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'ADV', 'PUNCT', 'ADP', 'DET', 'NOUN', 'PRON', 'NOUN', 'PART', 'AUX', 'ADJ', 'PUNCT', 'PRON', 'AUX', 'ADV', 'ADJ', 'PUNCT', 'PUNCT'))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('VERB', 'VERB'), ('AUX', 'VERB'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'PUNCT', 'VERB', 'ADJ', 'ADP', 'VERB', 'DET', 'NOUN', 'ADP', 'NOUN', 'NOUN', 'PUNCT', 'DET', 'NOUN', 'PUNCT', 'VERB', 'NOUN', 'CCONJ', 'ADJ', 'NOUN', 'PRON', 'AUX', 'VERB', 'DET', 'NOUN', 'NOUN', 'PUNCT', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('PROPN', 'VERB', 'SPACE'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN',), ('VERB', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('VERB',), ('NOUN', 'SPACE', 'ADJ', 'VERB', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('VERB', 'PRON'), ('ADJ', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN', 'NOUN'), ('NOUN', 'NOUN'))",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('insert', (), ('SPACE', 'ADJ', 'NOUN', 'AUX', 'DET', 'NOUN', 'NOUN', 'PUNCT', 'ADP', 'DET', 'NOUN', 'DET', 'NOUN', 'AUX', 'PUNCT', 'CCONJ', 'PRON', 'VERB', 'ADV', 'ADJ', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADJ', 'NOUN'), ('ADJ', 'NOUN'))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('VERB',), ('PROPN', 'SPACE', 'ADJ', 'VERB', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'VERB', 'VERB', 'DET', 'ADJ', 'NOUN', 'PUNCT', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('PUNCT', 'VERB'), ('X', 'PUNCT', 'PUNCT', 'VERB'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN',), ('ADJ',))",4,1.0,0.25,0,4,67.51507032819826
+"('replace', ('NOUN', 'ADP'), ('ADJ', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN',), ('NOUN', 'SPACE', 'NOUN', 'NOUN', 'ADP', 'DET', 'NOUN', 'NOUN', 'PRON', 'ADV', 'VERB', 'DET', 'NOUN', 'PUNCT', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('PROPN', 'PROPN', 'PROPN', 'PROPN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN', 'PART'), ('ADJ',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADJ',), ('PROPN',))",4,1.0,0.25,0,4,67.51507032819826
+"('replace', ('ADP',), ('NOUN',))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('DET',), ('ADP',))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'PROPN', 'PROPN', 'PROPN'))",2,1.0,0.5,1,1,91.22171945701358
+"('replace', ('ADV', 'VERB'), ('ADV', 'VERB'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'X', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADJ',), ('VERB', 'SPACE', 'PROPN', 'PROPN', 'PROPN'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'NOUN', 'PROPN', 'NOUN', 'PROPN'))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('SPACE', 'PROPN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADV', 'VERB'), ('ADJ', 'VERB'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('VERB', 'ADJ', 'NOUN'), ('VERB', 'ADJ', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'PROPN', 'NOUN', 'NOUN'))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('VERB', 'NOUN'), ('PROPN', 'PROPN', 'SPACE', 'NOUN'))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('NOUN',), ('NUM',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN',), ('PROPN', 'SPACE', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADJ', 'ADP', 'ADJ'), ('PROPN', 'X', 'PROPN', 'SPACE', 'X'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('VERB', 'NOUN'), ('PROPN', 'PROPN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN', 'PRON', 'AUX', 'ADV', 'PART', 'AUX', 'VERB'), ('NOUN', 'PROPN', 'PROPN', 'PROPN', 'PROPN', 'PROPN', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('AUX', 'ADJ', 'ADJ'), ('ADP', 'PROPN', 'PROPN', 'SPACE', 'NOUN', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('PROPN',), ('ADV', 'SPACE', 'NOUN', 'PROPN', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADV',), ('NOUN',))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('ADV',), ('PROPN', 'SPACE', 'PROPN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('VERB', 'ADJ', 'NOUN', 'ADP', 'NOUN'), ('PROPN', 'PROPN', 'PROPN', 'PROPN', 'PROPN', 'SPACE', 'PROPN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('VERB', 'ADJ'), ('NOUN', 'VERB', 'SPACE', 'NUM'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADP', 'DET'), ('ADP', 'ADJ'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('AUX',), ('VERB',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('PRON', 'VERB'), ('NOUN', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN',), ('ADJ', 'ADP', 'NOUN', 'NOUN', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN',), ('ADV',))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('ADV',), ('NOUN', 'ADP', 'PROPN', 'ADV'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('DET',), ('NOUN',))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('NOUN',), ('DET', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('PRON', 'ADP'))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('ADP', 'DET'), ())",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('NOUN', 'DET'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('PROPN', 'PROPN', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN',), ('ADP', 'PROPN', 'NOUN', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('ADJ', 'PROPN', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('PRON',), ('ADV',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADV',), ('SCONJ',))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('ADP', 'NOUN', 'NOUN', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN',), ('NOUN', 'SPACE', 'VERB'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'VERB'))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('NOUN', 'NOUN'), ('NOUN', 'NOUN', 'SPACE', 'PROPN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN', 'NOUN'), ('NOUN', 'ADJ', 'SPACE', 'ADV'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'PRON', 'AUX', 'NOUN', 'PUNCT', 'X', 'PRON', 'AUX', 'ADJ', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'PRON', 'VERB', 'PUNCT', 'PRON', 'AUX', 'PART', 'AUX', 'PROPN', 'VERB', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'PRON', 'AUX', 'ADJ', 'PUNCT', 'PRON', 'AUX', 'PART', 'AUX', 'ADV', 'ADJ', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('PROPN',), ('PROPN', 'CCONJ', 'PRON', 'VERB', 'PUNCT', 'PRON', 'AUX', 'PART', 'AUX', 'ADV', 'ADJ', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'PRON', 'AUX', 'VERB', 'PUNCT', 'PRON', 'SPACE', 'VERB', 'PRON', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADJ',), ('PROPN', 'NOUN', 'PRON', 'AUX', 'VERB', 'PUNCT', 'PRON', 'VERB', 'PRON', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('AUX', 'VERB'), ('VERB', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN', 'VERB'), ('ADJ', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'NOUN', 'VERB', 'NOUN', 'DET', 'NOUN', 'PUNCT', 'ADV', 'SCONJ', 'VERB', 'ADP', 'ADV', 'ADJ', 'CCONJ', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'NOUN', 'VERB', 'DET', 'DET', 'NOUN', 'PUNCT', 'ADV', 'SCONJ', 'VERB', 'ADP', 'ADV', 'ADJ', 'CCONJ', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'ADP', 'ADJ', 'ADP', 'PRON', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'AUX', 'ADV', 'DET', 'NOUN', 'PART', 'VERB', 'PUNCT', 'ADV', 'SCONJ', 'PRON', 'NOUN', 'AUX', 'PART', 'ADJ', 'PUNCT', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'ADP', 'PROPN', 'PROPN', 'SPACE', 'PROPN', 'PRON', 'ADV', 'VERB', 'ADP', 'DET', 'NUM', 'NOUN', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE',))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'DET', 'ADJ', 'NOUN', 'PUNCT', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('AUX',), ('PROPN',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN',), ('NOUN', 'SPACE', 'NOUN', 'VERB', 'DET', 'DET', 'NOUN', 'PUNCT', 'ADV', 'SCONJ', 'VERB', 'ADP', 'ADV', 'ADJ', 'CCONJ', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'NOUN', 'ADP', 'PROPN', 'PROPN', 'PROPN', 'PUNCT', 'DET', 'NOUN', 'ADP', 'PROPN', 'AUX', 'VERB', 'DET', 'ADJ', 'NOUN', 'ADP', 'X', 'X', 'PUNCT', 'CCONJ', 'DET', 'NOUN', 'ADP', 'DET', 'ADJ', 'ADJ', 'NOUN', 'NOUN', 'AUX', 'VERB', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'PRON', 'AUX', 'PART', 'VERB', 'ADV', 'PUNCT', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'ADP', 'PROPN', 'PROPN', 'PRON', 'ADV', 'VERB', 'NOUN', 'DET', 'NUM', 'NOUN', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('VERB', 'ADJ'), ('NOUN', 'ADJ'))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('NUM',), ('ADJ',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADV',), ('ADJ',))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('NOUN', 'VERB'), ('ADJ', 'VERB'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('VERB', 'VERB'), ('VERB', 'ADV'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'NOUN', 'NOUN', 'NOUN', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'NOUN', 'VERB', 'NOUN', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'PROPN', 'PROPN', 'NOUN', 'PROPN'))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('NOUN', 'AUX'), ('NOUN', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN',), ('NOUN', 'SPACE', 'PRON', 'AUX', 'VERB', 'PUNCT', 'PRON', 'VERB', 'PRON', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('VERB', 'ADV'), ('NOUN', 'ADV'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADJ', 'NOUN', 'NOUN'), ('PROPN', 'PROPN', 'PROPN', 'NOUN', 'SPACE', 'PRON', 'AUX', 'VERB', 'PUNCT', 'PRON', 'VERB', 'PRON', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADV', 'ADJ'), ('ADV', 'ADV'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADJ', 'ADJ'), ('PROPN', 'PUNCT', 'ADJ', 'ADJ'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('VERB',), ('VERB', 'SPACE', 'PRON', 'AUX', 'PUNCT', 'PRON', 'VERB', 'PRON', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('VERB', 'NOUN'), ('NOUN', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('AUX', 'DET', 'ADV', 'ADJ', 'NOUN'), ('AUX', 'VERB', 'VERB', 'ADJ', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN', 'ADP', 'ADV', 'ADJ', 'NOUN'), ('PROPN', 'X', 'ADV', 'NOUN', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('VERB', 'ADP'), ('VERB', 'VERB'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('AUX', 'VERB', 'DET', 'NOUN'), ('AUX', 'VERB', 'NOUN', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('VERB', 'SCONJ'), ('VERB', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('PART', 'VERB', 'DET', 'NOUN', 'PRON'), ('PRON', 'PROPN', 'PROPN', 'PROPN', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('VERB', 'PRON'), ('VERB', 'PROPN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADJ', 'NOUN', 'ADP'), ('PROPN', 'NOUN', 'PROPN', 'PROPN', 'NOUN', 'ADP', 'NOUN', 'VERB'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN', 'ADP', 'NOUN', 'VERB', 'DET', 'NOUN', 'ADP', 'NOUN', 'ADV'), ('PROPN', 'PROPN', 'PROPN', 'PROPN', 'SPACE', 'NUM', 'VERB', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('DET', 'ADJ', 'NOUN', 'ADP', 'NOUN', 'CCONJ', 'NOUN', 'ADV', 'ADV'), ('PROPN', 'PROPN', 'PROPN', 'ADJ', 'PROPN', 'AUX', 'VERB', 'ADV', 'PROPN', 'SPACE', 'NOUN', 'ADJ', 'NOUN', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('PART', 'VERB'), ('VERB', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('VERB', 'DET'), ('PROPN', 'PROPN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN', 'ADP', 'PUNCT', 'PRON', 'VERB'), ('PROPN', 'ADJ', 'PUNCT', 'X', 'ADJ'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'NOUN', 'PROPN', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADJ', 'NOUN'), ('PROPN', 'PROPN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN', 'VERB', 'SCONJ', 'DET', 'NOUN'), ('PROPN', 'NOUN', 'PROPN', 'PROPN', 'PROPN', 'SPACE', 'PROPN', 'PROPN', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADJ', 'CCONJ', 'ADJ'), ('PROPN', 'PROPN', 'PROPN', 'SPACE', 'PROPN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN',), ('PROPN', 'SPACE', 'VERB'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN', 'VERB', 'ADP', 'DET'), ('NOUN', 'PROPN', 'PROPN', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('VERB', 'NOUN'), ('PROPN', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADJ', 'ADJ', 'NOUN'), ('ADJ', 'NOUN', 'PROPN', 'SPACE', 'PROPN', 'PROPN', 'PROPN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('DET', 'NOUN'), ('PROPN', 'PROPN', 'SPACE', 'NUM', 'PROPN', 'ADV'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'PRON', 'VERB', 'PRON', 'AUX', 'ADP', 'NOUN', 'VERB', 'DET', 'NOUN', 'ADV', 'ADP', 'ADP', 'DET', 'NOUN', 'VERB', 'DET', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'PART', 'ADJ', 'PUNCT', 'ADV', 'VERB', 'PUNCT', 'CCONJ', 'ADV', 'PUNCT'))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('VERB',), ('X', 'PUNCT', 'AUX'))",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('insert', (), ('SPACE', 'PART', 'ADJ', 'PUNCT', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('PRON',), ('PRON',))",3,1.0,0.3333333333333333,1,2,87.38621586475944
+"('insert', (), ('SPACE', 'VERB', 'PART', 'VERB', 'ADV', 'ADP', 'PRON', 'ADJ', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'PART', 'DET', 'NOUN', 'ADP', 'VERB', 'DET', 'ADJ', 'NOUN', 'ADP', 'NOUN', 'PART', 'NOUN', 'ADP', 'NOUN', 'ADP', 'ADJ', 'PROPN', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'DET', 'NOUN', 'AUX', 'ADJ', 'PUNCT'))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('ADJ',), ('PROPN', 'SPACE', 'VERB', 'PART', 'VERB', 'ADV', 'ADP', 'PRON', 'ADJ', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'DET', 'VERB', 'NOUN', 'ADP', 'ADJ', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('VERB',), ('ADP',))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('NOUN',), ('NOUN', 'SPACE', 'ADP', 'DET', 'ADJ', 'NOUN', 'PUNCT', 'ADP', 'PUNCT', 'DET', 'PUNCT', 'NOUN', 'PROPN', 'DET', 'NOUN', 'AUX', 'VERB', 'ADP', 'PUNCT'))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', ('VERB', 'NOUN'), ('VERB', 'NOUN', 'SPACE', 'PRON', 'AUX', 'ADV', 'ADV', 'ADJ', 'PART', 'AUX', 'ADJ', 'ADJ', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('PRON', 'VERB'), ('INTJ', 'ADP'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('VERB',), ('AUX',))",3,1.0,0.3333333333333333,1,2,87.38621586475944
+"('insert', (), ('SPACE', 'NOUN', 'DET', 'NOUN', 'PUNCT', 'ADV', 'VERB', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('VERB',), ('PROPN',))",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('insert', (), ('SPACE', 'AUX', 'ADV', 'ADJ', 'PART', 'AUX', 'DET', 'ADJ', 'ADP', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN',), ('NOUN', 'SPACE', 'AUX', 'ADV', 'ADV', 'VERB', 'ADP', 'ADP', 'ADP', 'ADJ', 'PUNCT', 'ADV', 'PUNCT', 'VERB', 'PUNCT', 'NOUN', 'PUNCT'))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('NOUN', 'NOUN'), ('ADJ', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'DET', 'ADJ', 'NUM', 'PUNCT', 'NOUN', 'PUNCT', 'ADJ', 'PART', 'ADJ', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('PROPN', 'PROPN', 'SPACE'))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('DET', 'ADJ'), ('PROPN', 'VERB'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN',), ('NOUN', 'SPACE', 'AUX', 'ADV', 'ADJ', 'PART', 'AUX', 'DET', 'ADJ', 'ADP', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('AUX',), ('NOUN',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN',), ('NOUN', 'SPACE', 'VERB', 'SCONJ', 'DET', 'ADJ', 'PUNCT', 'NOUN', 'ADP', 'ADJ', 'NOUN', 'NOUN', 'SCONJ', 'ADJ', 'NOUN', 'AUX', 'ADV', 'VERB', 'ADP', 'DET', 'ADJ', 'PUNCT', 'ADJ', 'NOUN', 'ADP', 'DET', 'ADJ', 'NOUN', 'PUNCT', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'X'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('PUNCT', 'SPACE', 'NUM'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('PUNCT', 'SPACE', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('PUNCT', 'SPACE', 'ADV'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('PRON', 'PRON'))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('ADP', 'AUX', 'VERB', 'ADP', 'NOUN', 'PART', 'NOUN', 'CCONJ', 'NOUN'))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('PRON', 'ADV', 'PRON'))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('PRON', 'ADV', 'ADV', 'VERB', 'NOUN', 'PART', 'NOUN', 'PUNCT', 'PUNCT', 'VERB', 'VERB', 'NOUN', 'ADP', 'PRON', 'CCONJ', 'DET', 'ADP', 'ADJ', 'NOUN'))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('ADP',), ('SPACE', 'NOUN', 'ADJ', 'ADV'))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('AUX', 'VERB', 'ADJ'), ())",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN',), ('CCONJ', 'ADJ', 'PART', 'VERB'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('DET', 'ADV', 'VERB', 'PUNCT', 'PUNCT', 'DET'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('PUNCT',), ('NOUN',))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('NOUN', 'ADP', 'ADJ'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADV',), ('ADV', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('CCONJ', 'ADV', 'VERB'), ('NOUN',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADP',), ('INTJ', 'NOUN', 'DET', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('ADP', 'NOUN', 'VERB'))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('ADJ', 'NOUN', 'ADP', 'DET', 'NOUN'), ())",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('VERB',), ('PROPN', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADJ',), ('VERB', 'ADP', 'PUNCT', 'ADJ', 'PUNCT', 'NOUN', 'VERB', 'PRON', 'ADP', 'DET', 'PRON'))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('ADJ',), ('ADP', 'ADJ', 'DET'))",1,1.0,1.0,1,0,95.40937056318032
+"('delete', ('PUNCT', 'VERB', 'ADP'), ())",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('ADP', 'DET', 'ADJ', 'NOUN'), ('ADV',))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('PRON', 'CCONJ', 'ADV', 'PUNCT', 'ADJ', 'NOUN', 'NOUN'))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('VERB', 'ADV', 'PUNCT', 'AUX', 'DET', 'ADJ', 'PRON', 'SCONJ', 'ADP', 'NOUN', 'ADP', 'NOUN', 'VERB', 'AUX', 'VERB', 'ADP', 'AUX', 'PRON', 'VERB', 'CCONJ', 'VERB', 'PRON', 'DET', 'PUNCT', 'ADJ', 'PRON', 'ADP'))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('ADP', 'NOUN', 'CCONJ', 'NOUN', 'VERB'))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('NOUN', 'VERB', 'PART', 'VERB'), ('ADJ', 'NOUN'))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('NOUN', 'CCONJ', 'PRON', 'VERB', 'PRON', 'AUX', 'PRON', 'PRON', 'VERB', 'ADP', 'PRON', 'PUNCT', 'DET', 'ADJ', 'NOUN', 'VERB', 'ADP', 'DET', 'ADJ', 'CCONJ', 'ADJ', 'NOUN'), ('NOUN',))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('NOUN',), ('DET', 'NOUN', 'ADP', 'ADP', 'DET', 'PROPN', 'PART', 'ADJ', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADJ',), ('ADJ', 'PUNCT', 'DET', 'NOUN', 'ADP', 'PROPN', 'ADP', 'NOUN', 'NOUN', 'DET', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADV',), ('DET', 'DET', 'PUNCT', 'ADJ', 'NOUN', 'PART', 'PROPN', 'NOUN', 'ADP'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADP',), ('CCONJ', 'NOUN', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('DET', 'DET', 'NOUN', 'ADJ', 'ADP', 'CCONJ', 'PRON', 'ADP', 'ADV', 'ADP', 'CCONJ', 'PRON', 'PRON', 'PUNCT', 'ADJ', 'ADJ', 'ADJ', 'NOUN', 'ADP', 'ADV', 'VERB', 'NOUN', 'PUNCT', 'ADP', 'NUM', 'PRON', 'PRON', 'PUNCT', 'PART', 'VERB', 'VERB', 'ADP', 'NOUN', 'NOUN', 'PUNCT', 'PRON', 'VERB', 'ADP', 'NOUN', 'NOUN', 'PUNCT', 'NOUN', 'DET', 'ADP', 'PROPN', 'SPACE', 'AUX', 'VERB', 'ADJ', 'NOUN', 'PRON'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADJ',), ('PROPN', 'VERB', 'SPACE', 'SCONJ'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('ADV', 'ADV', 'AUX'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('PRON', 'VERB', 'NUM', 'PRON', 'ADV', 'PRON', 'VERB', 'AUX', 'VERB', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADV',), ('DET', 'PUNCT', 'NOUN', 'PUNCT', 'NOUN', 'NOUN', 'NOUN', 'PUNCT', 'PUNCT', 'ADV', 'PROPN', 'VERB', 'DET', 'NOUN', 'SPACE', 'NOUN', 'VERB', 'PROPN', 'PROPN', 'PUNCT', 'NOUN', 'PUNCT', 'CCONJ', 'CCONJ', 'DET', 'PRON', 'PRON', 'PUNCT', 'ADP', 'ADJ', 'NOUN'))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('VERB', 'PART'), ('ADV', 'AUX', 'SPACE', 'ADP', 'NOUN'))",1,1.0,1.0,1,0,95.40937056318032
+"('delete', ('PRON', 'NOUN', 'ADV', 'ADP', 'DET'), ())",1,1.0,1.0,1,0,95.40937056318032
+"('delete', ('ADV', 'ADV', 'PART', 'VERB'), ())",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('PUNCT', 'VERB', 'ADJ', 'NOUN', 'PRON', 'DET', 'ADJ', 'NUM', 'NOUN', 'ADP', 'PART', 'ADP', 'PART'))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('NOUN',), ('NOUN', 'AUX', 'PART'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('VERB', 'PUNCT', 'ADJ', 'NOUN', 'PRON', 'ADP', 'NOUN', 'SPACE'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('NOUN', 'ADP'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('DET', 'ADJ', 'NOUN', 'ADP'), ('NOUN',))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('ADJ', 'NOUN'), ())",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('PUNCT',), ())",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('PUNCT', 'ADJ'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('ADJ', 'NUM'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADJ', 'PUNCT'), ('PUNCT', 'SPACE', 'NOUN', 'PUNCT', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('PUNCT',), ('NOUN', 'PRON', 'VERB', 'ADV', 'VERB'))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('PRON',), ())",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('PRON', 'NUM', 'DET', 'ADJ', 'NOUN', 'PUNCT', 'DET', 'ADP', 'AUX', 'CCONJ', 'VERB', 'ADJ'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('ADJ', 'PART', 'VERB', 'ADP', 'PUNCT', 'PUNCT', 'ADV', 'SPACE', 'PRON', 'NOUN', 'PUNCT', 'ADV', 'DET', 'NOUN', 'ADV', 'CCONJ', 'CCONJ', 'ADP', 'PRON', 'PRON'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('PRON', 'ADP', 'DET', 'ADJ'), ('NOUN', 'ADP', 'NOUN', 'PUNCT', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('PUNCT', 'CCONJ', 'VERB', 'ADP', 'PRON', 'ADJ'), ('ADP', 'ADV', 'NOUN', 'VERB', 'PRON'))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('NOUN', 'NOUN', 'NUM', 'NOUN', 'ADP', 'PRON', 'AUX', 'ADV', 'ADV', 'VERB', 'PART', 'VERB', 'ADP', 'ADP', 'DET', 'ADJ', 'PUNCT', 'CCONJ', 'ADV', 'PUNCT', 'NOUN', 'NOUN', 'NOUN', 'ADP', 'PRON', 'CCONJ', 'DET', 'ADJ', 'NOUN'), ())",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('AUX', 'PART'), ())",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('NOUN', 'PUNCT', 'VERB', 'PUNCT', 'PART', 'SPACE', 'DET', 'PUNCT', 'PUNCT', 'DET', 'PUNCT', 'NOUN', 'NOUN', 'PUNCT', 'ADP', 'DET', 'CCONJ', 'PROPN', 'ADJ', 'NOUN', 'NOUN', 'NOUN', 'NOUN', 'PUNCT', 'VERB', 'DET', 'DET'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('CCONJ', 'VERB', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', ('NOUN', 'VERB', 'DET', 'ADJ', 'PUNCT'), ())",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('CCONJ', 'PART', 'VERB', 'PRON', 'VERB', 'ADP', 'ADJ', 'PUNCT', 'ADJ', 'NOUN', 'NOUN', 'VERB', 'PROPN', 'NOUN', 'NOUN', 'NOUN', 'PUNCT', 'ADJ', 'NOUN', 'ADP', 'ADJ', 'DET', 'NOUN', 'DET'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('ADP', 'NOUN', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('PUNCT', 'PROPN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADP', 'PROPN', 'PUNCT', 'VERB', 'CCONJ', 'VERB', 'PUNCT', 'AUX', 'VERB'), ('SPACE',))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN', 'PUNCT'), ('PUNCT', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('AUX',), ('PRON', 'VERB', 'SPACE', 'PUNCT', 'PROPN', 'SCONJ', 'VERB', 'PUNCT', 'ADV', 'ADJ', 'NOUN', 'AUX', 'AUX', 'PUNCT', 'VERB', 'DET', 'NOUN', 'NUM', 'PUNCT', 'CCONJ', 'DET', 'ADJ', 'CCONJ', 'VERB', 'ADJ', 'SCONJ', 'PRON'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('NOUN', 'NOUN', 'AUX', 'VERB', 'DET', 'NOUN', 'ADP'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADV', 'SCONJ', 'PRON', 'AUX', 'ADV', 'VERB', 'SCONJ', 'NUM', 'NOUN', 'ADV'), ('PUNCT', 'DET', 'PUNCT', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'ADV', 'ADV', 'ADJ', 'PART', 'AUX', 'VERB', 'DET', 'NOUN', 'ADP', 'NOUN', 'PUNCT'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('SPACE', 'NOUN', 'CCONJ', 'PROPN', 'VERB', 'PRON', 'ADJ', 'NOUN', 'ADP', 'ADJ', 'NOUN', 'PUNCT', 'PRON', 'AUX', 'VERB', 'PRON', 'DET', 'ADJ', 'NOUN', 'NOUN', 'PUNCT', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'PRON', 'AUX', 'ADV', 'ADJ', 'PART', 'VERB', 'ADP', 'DET', 'NOUN', 'ADP', 'VERB', 'PUNCT', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADV',), ('INTJ',))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'VERB', 'DET', 'ADJ', 'NOUN', 'PUNCT', 'VERB', 'ADJ', 'CCONJ', 'ADJ', 'NOUN', 'CCONJ', 'VERB', 'DET', 'ADJ', 'NOUN', 'PART', 'VERB', 'DET', 'NOUN', 'NOUN', 'PRON', 'AUX', 'ADJ', 'ADJ', 'PART', 'VERB', 'PUNCT', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('ADJ', 'CCONJ', 'SPACE'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('PROPN', 'PRON', 'VERB', 'ADV', 'PUNCT', 'ADV', 'ADV', 'PUNCT', 'PUNCT', 'PRON', 'AUX', 'AUX', 'ADV', 'VERB', 'DET', 'NOUN', 'ADP', 'DET', 'NOUN', 'PRON', 'VERB', 'ADV', 'ADP', 'PRON', 'NOUN', 'ADP', 'DET', 'NOUN', 'NOUN', 'PUNCT', 'SPACE'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADJ',), ('PROPN', 'SPACE', 'PROPN', 'NOUN', 'PUNCT'))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('NOUN', 'CCONJ', 'PROPN', 'VERB', 'PRON', 'ADJ', 'NOUN', 'ADP', 'ADJ', 'NOUN', 'PUNCT', 'PRON', 'AUX', 'VERB', 'PRON', 'DET', 'ADJ', 'NOUN', 'NOUN', 'PUNCT', 'SPACE'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN',), ('DET', 'ADJ', 'PUNCT', 'ADJ', 'NOUN', 'PUNCT', 'PROPN'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'DET', 'NOUN', 'ADP', 'DET', 'NOUN', 'AUX', 'SCONJ', 'DET', 'NOUN', 'PUNCT', 'ADJ', 'ADP', 'PRON', 'PUNCT', 'VERB', 'DET', 'ADJ', 'NOUN', 'ADP', 'DET', 'NOUN', 'NOUN', 'ADP', 'PROPN', 'PROPN', 'PUNCT', 'NOUN', 'PUNCT', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'VERB', 'PUNCT', 'NOUN', 'PUNCT', 'VERB', 'PUNCT', 'NOUN', 'PUNCT', 'VERB', 'CCONJ', 'VERB', 'PUNCT'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('SPACE', 'DET', 'NOUN', 'VERB', 'PRON', 'ADP', 'SCONJ', 'PRON', 'NOUN', 'PUNCT', 'PUNCT'))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), ('PROPN', 'PUNCT', 'CCONJ', 'ADJ', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('DET',), ('INTJ',))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'NOUN', 'CCONJ', 'ADV', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'ADV', 'ADJ', 'PUNCT', 'ADJ', 'PUNCT', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('DET',), ('VERB', 'PUNCT', 'NOUN', 'PUNCT', 'VERB', 'PUNCT', 'NOUN', 'PUNCT', 'VERB', 'CCONJ', 'VERB', 'PART', 'ADJ'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'NOUN', 'ADV', 'ADJ', 'SPACE', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('DET',), ('PROPN', 'PART', 'PROPN'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'NOUN', 'ADJ', 'NOUN', 'ADP', 'DET', 'ADJ', 'NOUN', 'AUX', 'DET', 'NOUN', 'ADP', 'ADJ', 'NOUN', 'PUNCT', 'DET', 'NOUN', 'ADP', 'DET', 'NOUN', 'ADP', 'NOUN', 'PART', 'VERB', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'X', 'ADJ', 'CCONJ', 'ADJ', 'SPACE', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('VERB',), ('VERB', 'DET', 'NOUN', 'PART', 'NOUN', 'NOUN', 'AUX', 'ADJ', 'ADP', 'NOUN', 'ADP', 'PROPN', 'PROPN', 'SPACE', 'NOUN', 'PUNCT', 'VERB'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN',), ('PROPN', 'SPACE', 'PROPN', 'DET', 'NOUN', 'PART', 'NOUN', 'NOUN', 'AUX', 'ADJ', 'ADP', 'NOUN', 'ADP', 'PROPN', 'PROPN', 'SPACE', 'NOUN', 'PUNCT'))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('SPACE', 'PROPN', 'DET', 'ADJ', 'ADJ', 'NOUN', 'NOUN', 'VERB', 'NOUN', 'NOUN', 'PRON', 'VERB', 'NUM', 'ADP', 'DET', 'ADJ', 'SPACE', 'NOUN', 'PART'))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('SPACE', 'NOUN', 'ADJ', 'NOUN', 'SPACE', 'NOUN', 'PART'))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('SPACE', 'NOUN', 'ADJ', 'CCONJ', 'ADJ', 'SPACE', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADJ',), ('NOUN', 'PART', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'NUM', 'VERB', 'ADP', 'NOUN', 'PROPN', 'CCONJ', 'PROPN', 'PROPN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('PROPN', 'ADJ', 'CCONJ', 'ADJ', 'SPACE', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADJ', 'NOUN'), ('NOUN', 'NOUN', 'SPACE', 'ADJ', 'PUNCT', 'ADJ', 'PUNCT', 'CCONJ', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN',), ('NOUN', 'SPACE', 'ADV', 'PRON', 'AUX', 'NOUN', 'VERB', 'PUNCT', 'CCONJ', 'PRON', 'VERB', 'NOUN', 'ADJ', 'ADP', 'PRON', 'SCONJ', 'DET', 'NOUN', 'AUX', 'ADV', 'PUNCT', 'VERB', 'CCONJ', 'DET', 'NOUN', 'AUX', 'PUNCT', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN',), ('NOUN', 'SPACE', 'VERB', 'DET', 'NOUN', 'ADP', 'DET', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('VERB',), ('VERB', 'SPACE', 'DET', 'NOUN', 'PUNCT', 'DET', 'NOUN', 'ADP', 'ADJ', 'PUNCT', 'NOUN', 'PUNCT', 'PRON', 'VERB', 'PRON', 'ADJ', 'ADP', 'PUNCT'))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), ('SPACE', 'DET', 'NOUN', 'PUNCT', 'DET', 'NOUN', 'ADP', 'ADJ', 'PUNCT', 'NOUN', 'PUNCT', 'PRON', 'VERB', 'PRON', 'ADJ', 'ADP', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NUM', 'NOUN'), ('NOUN', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('DET', 'ADJ', 'NOUN', 'CCONJ', 'ADJ', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'ADJ', 'PUNCT', 'NOUN', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('DET', 'NOUN'), ('ADJ', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), ('SPACE', 'VERB', 'DET', 'NOUN', 'ADP', 'DET', 'NOUN', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN',), ('NOUN', 'SPACE', 'VERB', 'ADP', 'NOUN', 'ADP', 'DET', 'NOUN', 'PRON', 'AUX', 'VERB', 'PUNCT'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('ADV',), ('VERB', 'DET', 'NOUN', 'ADP', 'DET', 'PRON', 'PUNCT', 'ADP'))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', ('NOUN', 'NOUN'), ('NOUN', 'PROPN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN', 'VERB', 'VERB'), ('NOUN', 'NOUN', 'NOUN'))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', ('NOUN', 'VERB'), ('NOUN', 'VERB'))",1,1.0,1.0,0,1,83.86023294509151

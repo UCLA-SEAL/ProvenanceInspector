@@ -26,7 +26,7 @@ class InferQuery:
             names = ["text_id", "text"])
 
 
-    def get_transfromation_history(self, result_record):
+    def get_transformation_history(self, result_record):
 
         text_trace = [result_record.text]
         cur_record = result_record

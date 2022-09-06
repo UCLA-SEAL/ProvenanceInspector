@@ -1,8 +1,10 @@
-from cProfile import label
 from collections import defaultdict
 import difflib
 import numpy as np
+import pandas as pd
 import re
+import os
+import os.path as osp
 
 from .spacy_features import SpacyFeatures
 from ..utils import compute_suspicious_score
@@ -26,12 +28,14 @@ class TransformStats:
         self.gt_labels = {}
         self.size = 0
         self.edits = {}
+        self.change_freqs = {}
         self.texts = {}
         self.total_pass = defaultdict(int)
         self.total_fail = defaultdict(int)
         self.misclassify = False
+        self.stats_df = {}
 
-    def add_edit(self, feature_name, op, from_feat, to_feat, label_pair, edit_info, human_label=None):
+    def add_edit(self, feature_name, op, from_feat, to_feat, label_pair, edit_info, changed, human_label=None):
         if human_label == 'Positive':
             self.total_pass[feature_name] += 1
             human_label = 1
@@ -40,6 +44,11 @@ class TransformStats:
             human_label = 0
         else:
             human_label = None
+            
+        if feature_name not in self.change_freqs:
+            self.change_freqs[feature_name] = defaultdict(int)
+        if (op, from_feat, to_feat) not in self.change_freqs[feature_name] and changed:
+            self.change_freqs[feature_name][(op, from_feat, to_feat)] += 1
 
         if feature_name not in self.edits:
             self.edits[feature_name] = defaultdict(dict)
@@ -48,11 +57,11 @@ class TransformStats:
 
         if label_pair is not None:
             self.edits[feature_name][(op, from_feat, to_feat)][label_pair].append(edit_info)
-        if human_label is not None:
-            self.edits[feature_name][(op, from_feat, to_feat)][human_label].append(edit_info)
+        
+        self.edits[feature_name][(op, from_feat, to_feat)][human_label].append(edit_info)
 
 
-    def add_transform(self, label_pair, transform_hist, edit_info, human_label=None):
+    def add_transform(self, label_pair, transform_hist, edit_info, changed, human_label=None):
         if human_label == 'Positive':
             self.total_pass['transform'] += 1
             self.total_pass['transform_label'] += 1
@@ -63,6 +72,15 @@ class TransformStats:
             human_label = 0
         else:
             human_label = None
+            
+        
+        if 'transform' not in self.change_freqs:
+            self.change_freqs['transform'] = defaultdict(int)
+            self.change_freqs['transform_label'] = defaultdict(int)
+        for transform in transform_hist:
+            if changed:
+                self.change_freqs['transform'][transform] += 1
+                self.change_freqs['transform_label'][transform] += 1
 
         if 'transform' not in self.edits:
             self.edits['transform'] = defaultdict(dict)
@@ -77,10 +95,10 @@ class TransformStats:
             if label_pair is not None:
                 self.edits['transform'][transform][label_pair].append(edit_info)
                 self.edits['transform_label'][transform_label][label_pair].append(edit_info)
-            if human_label is not None:
-                self.edits['transform'][transform][human_label].append(edit_info)
-                self.edits['transform_label'][transform_label][human_label].append(edit_info)
 
+            self.edits['transform'][transform][human_label].append(edit_info)
+            self.edits['transform_label'][transform_label][human_label].append(edit_info)
+            
 
 
     def populate_edits_with_df(self, df):
@@ -139,21 +157,24 @@ class TransformStats:
                 human_label = df.loc[i]['human']
             else:
                 human_label = None
+                
+            changed = from_tokens[i] != to_tokens[i]
 
             transform_hist = None
             if 'transform' in df.columns:
                 transform_hist = eval(df.loc[i]['transform'])
                 self.add_transform(label_pair, transform_hist, (i, (0, len(self.original_spacy_docs.docs[i])), 
-                    (0, len(self.transformed_spacy_docs.docs[i])), gt_label), human_label=human_label)
+                    (0, len(self.transformed_spacy_docs.docs[i])), gt_label), changed,
+                                   human_label=human_label)
 
             if 'result_type' in df.columns and df.loc[i]['result_type'] == 'Skipped':
                 continue
 
             seq = difflib.SequenceMatcher(None, from_tokens[i], to_tokens[i])
             edits = seq.get_opcodes()
-
+            
             for op, from_start, from_end, to_start, to_end in edits:
-                if from_end <= from_start:
+                if from_end < from_start:
                     continue
                 if op == 'replace' or op == 'insert' or op == 'delete':
                     from_span = (from_start, from_end)
@@ -168,108 +189,143 @@ class TransformStats:
                         
                         self.add_edit(feature, op, from_feat, to_feat, 
                                         label_pair,
-                                        (i, from_span, to_span, gt_label), human_label)
+                                        (i, from_span, to_span, gt_label), changed, human_label)
         if 'transform' in df.columns:
             self.feature_names += ['transform', 'transform_label']
             
 
-    def get_edit_freqs(self):
-        self.edit_freqs = {}
-        for feature in self.edits.keys():
-            for edit in self.edits[feature].keys():
-                for label_pair in self.edits[feature][edit].keys():
-                    if feature not in self.edit_freqs:
-                        self.edit_freqs[feature] = defaultdict(list)
-                    self.edit_freqs[feature][label_pair].append( \
-                        (len(self.edits[feature][edit][label_pair]), edit)
-                        )
-    
-        return self.edit_freqs
-
-    def print_edit_freqs(self):
-        for feature in self.edit_freqs.keys():
-            print(feature)
-        for label_pair in self.edit_freqs[feature].keys():
-            print(label_pair)
-            self.edit_freqs[feature][label_pair] = sorted(
-                self.edit_freqs[feature][label_pair], key=lambda x: x[0], reverse=True)
-            for edit in self.edit_freqs[feature][label_pair]:
-                if edit[0] >= 10:
-                    print(f"\t{edit}")
-        print()
-
     def get_stats(self):
-        label_percentage = {}
         feature_sus_scores = {}
         misclassify_probs = {}
-        for feature in self.edit_freqs.keys():
-            label_percentage[feature] = {}
+        total_freq = {}
+        label_ratio = {}
+        impact_ratio = {}
+        pass_nums = {}
+        fail_nums = {}
+        
+        for feature in self.edits.keys():
             feature_sus_scores[feature] = {}
+            total_freq[feature] = {}
+            label_ratio[feature] = {}
+            impact_ratio[feature] = {}
+            pass_nums[feature] = {}
+            fail_nums[feature] = {}
             if self.misclassify:
                 misclassify_probs[feature] = {}
 
-            for label_pair in self.edit_freqs[feature].keys():
-                edits_dict = {}
-                for edit in self.edit_freqs[feature][label_pair]:
-                    edits_dict[edit[1]] = edit[0]              
-
-                label_percentage[feature][label_pair] = edits_dict
-              
-        for feature in label_percentage.keys():
-            
-            for label_pair in label_percentage[feature].keys():
-                if self.misclassify and isinstance(label_pair, tuple) and label_pair[0] != label_pair[1]:
-                    original_pair = (label_pair[0], label_pair[0])
-                    
-                    for edit in label_percentage[feature][label_pair].keys():
-                        cur_percent = label_percentage[feature][label_pair][edit]
-                        if edit in label_percentage[feature][original_pair]:
-                            original_percent = label_percentage[feature][original_pair][edit]
-                            misclassify_succsess_prob = cur_percent / (original_percent + cur_percent) * 100
-
-                            #if misclassify_succsess_prob > 50:
-                            #    print(f"\t{edit}, misclassify_prob = {cur_percent}/{original_percent + cur_percent} = {misclassify_succsess_prob:.2f}%")
-                            misclassify_probs[feature][edit] = misclassify_succsess_prob
-                # human labels
-                elif label_pair == 1:
-
-                    for edit in label_percentage[feature][label_pair].keys():
-                        if 0 in label_percentage[feature] and edit in label_percentage[feature][0]:
-                            fail_num = label_percentage[feature][0][edit]
-                        else:
-                            fail_num = 0
-                            
-                        pass_num = label_percentage[feature][1][edit]
-
-                        sus_score = compute_suspicious_score(fail_num, pass_num, 
-                                                            self.total_fail[feature], self.total_pass[feature])
-                        #if sus_score < 50:
-                        #  print(f"\t{edit}, {fail_num}/{self.total_fail}:{pass_num}/{self.total_pass}: sus_score = {sus_score:.2f}%")
-                        feature_sus_scores[feature][edit] = sus_score
-
-                elif label_pair == 0:
-
-                    for edit in label_percentage[feature][label_pair].keys():
-                        if 1 in label_percentage[feature] and edit in label_percentage[feature][1]:
-                            pass_num = label_percentage[feature][1][edit]
-                        else:
-                            pass_num = 0
-                            
-                        fail_num = label_percentage[feature][0][edit]
-
-                        sus_score = compute_suspicious_score(fail_num, pass_num, 
-                                                            self.total_fail[feature], self.total_pass[feature])
-                        #if sus_score < 50:
-                        #  print(f"\t{edit}, {fail_num}/{self.total_fail}:{pass_num}/{self.total_pass}: sus_score = {sus_score:.2f}%")
-                        feature_sus_scores[feature][edit] = sus_score
-
+        for feature in self.edits.keys():
+            for edit in self.edits[feature].keys():
+                total_pred_label_count = 0
+                diff_pred_label_count = 0
+                
+                # Laplace smoothing 
+                fail_num = 1
+                pass_num = 1
+                
+                for label_pair in self.edits[feature][edit].keys():
+                    freq = len(self.edits[feature][edit][label_pair])
+                    if isinstance(label_pair, tuple):
+                        old_label, new_label = label_pair
+                        total_pred_label_count += freq
+                        if new_label != old_label:
+                            diff_pred_label_count += freq
+                    elif label_pair == 1:
+                        pass_num += freq
+                    elif label_pair == 0:
+                        fail_num += freq
+                    elif label_pair is None:
+                        pass
+                    else:
+                        raise ValueError('unsupported label addition')
+                
+                total_freq[feature][edit] = total_pred_label_count
+                label_ratio[feature][edit] = (fail_num + pass_num - 2) / total_pred_label_count
+                impact_ratio[feature][edit] = self.change_freqs[feature][edit] / total_pred_label_count
+                if self.misclassify:
+                    misclassify_probs[feature][edit] = diff_pred_label_count / total_pred_label_count
+                feature_sus_scores[feature][edit] = compute_suspicious_score(fail_num, pass_num, 
+                                                                self.total_fail[feature], self.total_pass[feature])
+                pass_nums[feature][edit] = pass_num - 1
+                fail_nums[feature][edit] = fail_num - 1
+        
         self.feature_sus_scores = feature_sus_scores
+        self.total_freq = total_freq
+        self.label_ratio = label_ratio
+        self.impact_ratio = impact_ratio
+        self.pass_nums = pass_nums
+        self.fail_nums = fail_nums
+        
         if len(misclassify_probs) != 0:
             self.misclassify_probs = misclassify_probs
         else:
             self.misclassify_probs = misclassify_probs = None
+            
 
-        return feature_sus_scores, misclassify_probs
+        for feature in self.edits.keys():
+            transform_index_list = list(self.edits[feature].keys())
+        
+            stats_dict = {'transform': [str(t) for t in transform_index_list],
+                         'total_freq': [total_freq[feature][t] for t in transform_index_list],
+                         'label_ratio': [label_ratio[feature][t] for t in transform_index_list],
+                         'impact_ratio': [impact_ratio[feature][t] for t in transform_index_list],
+                         'fail_num': [fail_nums[feature][t] for t in transform_index_list],
+                         'pass_num': [pass_nums[feature][t] for t in transform_index_list],
+                         'sus_score': [feature_sus_scores[feature][t] for t in transform_index_list]}
+
+            if misclassify_probs is not None:
+                stats_dict.update({'misclassify_prob': [misclassify_probs[feature][t] for t in transform_index_list]})
+            self.stats_df[feature] = pd.DataFrame.from_dict(stats_dict).set_index('transform')
+
+        return self.stats_df
+
+    def save_stats_df(self, save_dir):
+        if not osp.exists(save_dir):
+            os.mkdir(save_dir)
+        for feature in self.stats_df.keys():
+            self.stats_df[feature].to_csv(osp.join(save_dir, f"{feature}.csv"), mode='w')
+    
+    def update_human_label(self, index, new_label):
+        for feature in self.edits.keys():
+            for edit in self.edits[feature].keys():
+                self._update_human_label(index, feature, edit, new_label)
+        return self.stats_df
+        
+        
+    def _update_human_label(self, index, feature, edit, new_label):
+        for old_label in list(self.edits[feature][edit].keys()):
+            if old_label == new_label:
+                continue
+            if not isinstance(old_label, tuple):
+                move_set = set()
+                for edit_info in self.edits[feature][edit][old_label]:
+                    edit_row_num = edit_info[0]
+                    if edit_row_num == index:
+                        move_set.add(edit_info)
+                self.edits[feature][edit][old_label] = \
+                    list(set(self.edits[feature][edit][old_label]) - move_set)
+                self.edits[feature][edit][new_label] = \
+                    list(set(self.edits[feature][edit][new_label]) | move_set)
+                
+        total_pred_label_count = self.total_freq[feature][edit]
+
+        # Laplace smoothing 
+        fail_num = 1 + len(self.edits[feature][edit][0])
+        pass_num = 1 + len(self.edits[feature][edit][1])
+        
+        self.label_ratio[feature][edit] = (fail_num + pass_num - 2) / total_pred_label_count
+        self.feature_sus_scores[feature][edit] = compute_suspicious_score(fail_num, pass_num, 
+                                                        self.total_fail[feature], self.total_pass[feature])
+        self.fail_nums[feature][edit] = fail_num - 1
+        self.pass_nums[feature][edit] = pass_num - 1
+        
+        edit_str = str(edit)
+        self.stats_df[feature].at[edit_str,'label_ratio'] = self.label_ratio[feature][edit]
+        self.stats_df[feature].at[edit_str,'sus_score'] = self.feature_sus_scores[feature][edit]
+        self.stats_df[feature].at[edit_str,'fail_num'] = self.fail_nums[feature][edit]
+        self.stats_df[feature].at[edit_str,'pass_num'] = self.pass_nums[feature][edit]
+
+        return self.stats_df
+        
 
     def get_top_edits(self, top_n=5, reverse=False, verbose=False):
         extracted_transforms = {}

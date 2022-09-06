@@ -1,0 +1,535 @@
+transform,total_freq,label_ratio,impact_ratio,fail_num,pass_num,sus_score
+"('insert', (), (, Number=Sing, Number=Sing, Number=Sing, Number=Plur))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Number=Sing, NumType=Card))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Number=Sing, Number=Sing))",7,1.0,0.14285714285714285,0,7,56.50224215246637
+"('insert', (), (, , Degree=Pos, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Number=Sing, NumType=Card, Number=Sing))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), (, Number=Sing, Number=Sing, PunctType=Peri))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Number=Sing, Number=Plur))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), (, Number=Sing, Number=Sing, Number=Sing, Number=Sing))",6,1.0,0.16666666666666666,0,6,59.75103734439834
+"('insert', (), (, Aspect=Prog|Tense=Pres|VerbForm=Part, , Number=Sing, Number=Plur))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Number=Sing, Number=Plur, Number=Plur))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing|Person=3|Tense=Pres|VerbForm=Fin,), (VerbForm=Inf,))",9,1.0,0.1111111111111111,0,9,50.960566228513656
+"('replace', (Number=Plur,), (Number=Sing,))",29,1.0,0.034482758620689655,2,27,52.6829268292683
+"('replace', (Number=Sing|Person=3|Tense=Pres|VerbForm=Fin,), (Tense=Pres|VerbForm=Fin,))",16,1.0,0.0625,1,15,56.50224215246637
+"('insert', (), (, Definite=Ind|PronType=Art, Number=Sing, , Person=2|Poss=Yes|PronType=Prs, Number=Sing, PunctSide=Fin|PunctType=Quot))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', (,), (VerbForm=Inf,))",7,1.0,0.14285714285714285,0,7,56.50224215246637
+"('replace', (VerbForm=Inf,), (VerbForm=Inf,))",27,1.0,0.037037037037037035,8,19,82.38285506719943
+"('replace', (Number=Sing,), (Number=Sing, PunctType=Dash, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing, Degree=Pos, Number=Sing, Number=Sing, Aspect=Perf|Tense=Past|VerbForm=Part), (Number=Sing, Number=Sing, Number=Sing, Number=Sing|PronType=Ind, Tense=Pres|VerbForm=Fin))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Definite=Ind|PronType=Art, Number=Sing), (Number=Sing, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing,), (Number=Sing, , Degree=Cmp, , Definite=Ind|PronType=Art, , Degree=Pos, Number=Sing, , Degree=Pos, Number=Sing, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Plur,), (Number=Sing, , , Number=Sing, Number=Sing, PunctSide=Fin|PunctType=Quot))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', (,), (,))",11,1.0,0.09090909090909091,2,9,75.7135703555333
+"('insert', (), (, , Number=Sing|PronType=Ind, PunctType=Comm, VerbForm=Inf, Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs, , Number=Sing, Number=Sing, PunctType=Comm, , Tense=Pres|VerbForm=Fin, , Definite=Ind|PronType=Art, Number=Sing, PunctType=Dash, Number=Sing, , Definite=Ind|PronType=Art, Number=Sing, Number=Sing, Number=Sing, Number=Sing|PronType=Ind, Tense=Pres|VerbForm=Fin, Degree=Pos, Number=Sing, PunctType=Peri, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', (Aspect=Perf|Tense=Past|VerbForm=Part,), (Degree=Cmp,))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing,), (Number=Sing,))",102,1.0,0.00980392156862745,10,92,55.139489780695214
+"('replace', (, Number=Sing), (Number=Sing, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing|PronType=Ind,), (Number=Sing,))",3,1.0,0.3333333333333333,1,2,87.38621586475944
+"('replace', (Aspect=Prog|Tense=Pres|VerbForm=Part,), (Degree=Pos,))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Aspect=Prog|Tense=Pres|VerbForm=Part,), (Number=Sing, , , Number=Sing, Number=Sing, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (, Number=Sing, Number=Sing), (Number=Sing, Number=Sing, Number=Sing, , Degree=Cmp, , Definite=Ind|PronType=Art, , Degree=Pos, Number=Sing, , Degree=Pos, Number=Sing, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (,), (Number=Sing,))",18,1.0,0.05555555555555555,0,18,35.356015433181334
+"('replace', (Aspect=Prog|Tense=Pres|VerbForm=Part, Number=Sing), (Number=Sing, Number=Sing, , , Number=Sing|PronType=Ind, PunctType=Comm, VerbForm=Inf, Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs, , Number=Sing, Number=Sing, PunctType=Comm, , Tense=Pres|VerbForm=Fin, , Definite=Ind|PronType=Art, Number=Sing, PunctType=Dash, Number=Sing, , Definite=Ind|PronType=Art, Number=Sing, Number=Sing, Number=Sing, Number=Sing|PronType=Ind, Tense=Pres|VerbForm=Fin, Degree=Pos, Number=Sing, PunctType=Peri, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Definite=Def|PronType=Art, Number=Sing), (, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, , Number=Sing, Number=Sing, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing,), (Number=Sing, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, PronType=Rel, VerbForm=Ger, Aspect=Perf|Tense=Past|VerbForm=Part, PunctType=Comm, Case=Nom|Number=Sing|Person=1|PronType=Prs, Tense=Past|VerbForm=Fin, Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs, PunctType=Peri))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Definite=Def|PronType=Art, Number=Sing), (Number=Sing, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Number=Sing|PronType=Dem, VerbForm=Ger, Tense=Past|VerbForm=Fin, PunctType=Comm, Case=Nom|Number=Sing|Person=1|PronType=Prs, Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin, Degree=Pos, PunctType=Peri))",7,1.0,0.14285714285714285,0,7,56.50224215246637
+"('insert', (), (, PronType=Rel, VerbForm=Ger, Tense=Past|VerbForm=Fin, PunctType=Comm, Case=Nom|Number=Sing|Person=1|PronType=Prs, Tense=Past|VerbForm=Fin, Number=Sing, PunctType=Peri))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Number=Sing|PronType=Dem, Number=Sing, Tense=Past|VerbForm=Fin, PunctType=Comm, Case=Nom|Number=Sing|Person=1|PronType=Prs, Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin, Degree=Pos, PunctType=Peri))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Number=Sing|PronType=Dem, VerbForm=Ger, Tense=Past|VerbForm=Fin, PunctType=Comm, Case=Nom|Number=Sing|Person=1|PronType=Prs, PunctSide=Ini|PunctType=Quot, Tense=Past|VerbForm=Fin, PunctType=Peri))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Number=Sing|PronType=Dem, Tense=Past|VerbForm=Fin, PunctType=Comm, Case=Nom|Number=Sing|Person=1|PronType=Prs, Tense=Past|VerbForm=Fin, Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs, PunctType=Peri))",14,1.0,0.07142857142857142,2,12,70.57176196032673
+"('insert', (), (, Number=Sing|PronType=Dem, VerbForm=Ger, Tense=Past|VerbForm=Fin, PunctType=Comm, Case=Nom|Number=Sing|Person=1|PronType=Prs, VerbForm=Fin, Polarity=Neg, VerbForm=Inf, Degree=Cmp, PunctType=Peri))",6,1.0,0.16666666666666666,1,5,77.59815242494227
+"('insert', (), (Number=Sing, Number=Sing, VerbForm=Ger, Tense=Past|VerbForm=Fin, PunctType=Comm, Case=Nom|Number=Sing|Person=1|PronType=Prs, VerbForm=Fin, Polarity=Neg, VerbForm=Inf, Degree=Cmp, PunctType=Peri))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Number=Sing|PronType=Dem, Number=Sing, Tense=Past|VerbForm=Fin, PunctType=Comm, Case=Nom|Number=Sing|Person=1|PronType=Prs, Tense=Past|VerbForm=Fin, Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs, PunctType=Peri))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (, Number=Sing), (Case=Nom|Number=Sing|Person=1|PronType=Prs, Tense=Pres|VerbForm=Fin, , Number=Sing|PronType=Dem, Tense=Past|VerbForm=Fin, PunctType=Comm, Case=Nom|Number=Sing|Person=1|PronType=Prs, Tense=Past|VerbForm=Fin, Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs, PunctType=Peri))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (PunctType=Peri,))",28,1.0,0.03571428571428571,0,28,26.38052865741952
+"('insert', (), (PunctType=Comm,))",11,1.0,0.09090909090909091,0,11,46.408839779005525
+"('insert', (), (,))",18,1.0,0.05555555555555555,0,18,35.356015433181334
+"('insert', (), (, , Definite=Def|PronType=Art, Number=Sing, , Number=Sing, PunctSide=Fin|PunctType=Quot))",3,1.0,0.3333333333333333,1,2,87.38621586475944
+"('insert', (), (, Number=Plur, , Definite=Ind|PronType=Art, Degree=Pos, Number=Sing, Aspect=Perf|Tense=Past|VerbForm=Part, , , Number=Plur, , Degree=Pos, Number=Sing, PunctType=Comm, , Degree=Pos, Number=Plur, , Number=Plur, ConjType=Cmp, Definite=Ind|PronType=Art, Degree=Pos, Number=Sing, , Number=Sing, PunctType=Peri, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Tense=Pres|VerbForm=Fin, Number=Sing|PronType=Dem, Number=Sing, PunctType=Comm, PunctSide=Fin|PunctType=Quot))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', (Number=Sing|Person=3|Tense=Pres|VerbForm=Fin,), (Number=Sing|Person=3|Tense=Pres|VerbForm=Fin,))",9,1.0,0.1111111111111111,0,9,50.960566228513656
+"('insert', (), (, Degree=Pos, ConjType=Cmp, PunctSide=Fin|PunctType=Quot))",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('replace', (Degree=Pos,), (VerbForm=Inf,))",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('insert', (), (, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Degree=Pos, Number=Sing, , Number=Plur, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Degree=Pos, ConjType=Cmp, PunctSide=Ini|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Mood=Ind|Tense=Pres|VerbForm=Fin,), (Number=Sing, Number=Sing, Number=Sing, Number=Sing, Number=Sing, , VerbForm=Inf, Definite=Ind|PronType=Art))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Degree=Pos, Number=Sing), (, Degree=Pos, Number=Plur, PunctSide=Fin|PunctType=Quot, ))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing|Person=3|Tense=Pres|VerbForm=Fin,), (Aspect=Perf|Tense=Past|VerbForm=Part, Number=Plur, VerbForm=Inf, , Number=Sing, PunctSide=Fin|PunctType=Quot, Tense=Pres|VerbForm=Fin, Degree=Pos))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Number=Sing, , Definite=Ind|PronType=Art, Polarity=Neg, Degree=Pos, Number=Sing, PunctSide=Fin|PunctType=Quot, PunctType=Comm, ConjType=Cmp, Aspect=Prog|Tense=Pres|VerbForm=Part, Degree=Pos, Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, , , Number=Sing, Number=Sing, Definite=Def|PronType=Art, Number=Sing, PunctSide=Fin|PunctType=Quot, Aspect=Prog|Tense=Pres|VerbForm=Part))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', (Number=Sing, PunctType=Comm, Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Polarity=Neg, Degree=Pos, Number=Sing, , Definite=Def|PronType=Art, Number=Plur, ConjType=Cmp), ())",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (Number=Sing,))",8,1.0,0.125,0,8,53.58851674641147
+"('replace', (Aspect=Perf|Tense=Past|VerbForm=Part,), (Number=Sing, , ConjType=Cmp, PunctType=Comm, Number=Sing, PunctType=Comm, Number=Sing, PunctType=Dash, Aspect=Prog|Tense=Pres|VerbForm=Part, Definite=Def|PronType=Art, Number=Sing, , Number=Sing, Number=Sing, Number=Sing, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, VerbForm=Inf))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (PunctType=Peri, Number=Sing, , , ConjType=Cmp, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Degree=Pos, Number=Sing, Degree=Pos, Degree=Pos, , NumType=Card, , , Number=Plur, , Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Degree=Pos, ConjType=Cmp, , Degree=Pos, Number=Sing), (Number=Sing,))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Degree=Pos,), (Number=Sing, , Number=Sing, Number=Plur, , , Number=Sing, PunctType=Comm, ConjType=Cmp, PunctType=Peri, , PunctType=Comm, Number=Sing, , Number=Sing, Tense=Past|VerbForm=Fin, Tense=Pres|VerbForm=Fin, Definite=Def|PronType=Art, Number=Sing, PunctType=Dash, Aspect=Prog|Tense=Pres|VerbForm=Part, , VerbForm=Inf, NumType=Card, Number=Sing, , Number=Plur, Number=Sing, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing,), (Degree=Pos, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (PunctType=Comm, , Degree=Pos, , Definite=Def|PronType=Art, Number=Plur, Tense=Pres|VerbForm=Fin, , Definite=Ind|PronType=Art, Number=Sing, ConjType=Cmp, NumType=Card, ), (,))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (, Tense=Pres|VerbForm=Fin, PunctType=Comm, Case=Nom|Number=Plur|Person=3|PronType=Prs, VerbType=Mod), (Tense=Pres|VerbForm=Fin,))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (NumType=Card, Degree=Pos, Number=Sing, , , Number=Sing, Case=Nom|Number=Plur|Person=3|PronType=Prs, Number=Sing|PronType=Dem, Definite=Def|PronType=Art, Number=Sing, PunctSide=Fin|PunctType=Quot, PunctType=Comm, Degree=Pos, Definite=Ind|PronType=Art, , Definite=Ind|PronType=Art, , Number=Plur, Tense=Pres|VerbForm=Fin, PunctType=Peri, Definite=Ind|PronType=Art, , Number=Sing, ConjType=Cmp, , , Number=Plur, Number=Sing, Number=Sing, Number=Sing, ))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (, Number=Sing|PronType=Dem, Degree=Pos, Number=Sing, , Definite=Ind|PronType=Art, Number=Sing, , VerbForm=Inf, Definite=Ind|PronType=Art, Number=Sing, PunctType=Peri), (Number=Sing, PunctSide=Fin|PunctType=Quot, Degree=Pos, Tense=Pres|VerbForm=Fin, PunctType=Comm))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (,), (, Number=Plur))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Definite=Def|PronType=Art, , Number=Sing, Degree=Pos))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (Number=Sing, PunctSide=Fin|PunctType=Quot, Number=Sing, ConjType=Cmp, PunctType=Comm, Number=Sing, PunctType=Comm, Degree=Pos, Number=Plur, Number=Plur, Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, , , Polarity=Neg, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', (Degree=Pos, Number=Sing, Number=Sing), ())",1,1.0,1.0,0,1,83.86023294509151
+"('delete', (Number=Sing,), ())",7,1.0,0.14285714285714285,0,7,56.50224215246637
+"('insert', (), (Number=Sing, VerbForm=Inf, Number=Sing, , Number=Sing, , Number=Sing, ConjType=Cmp, Number=Sing, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Number=Sing, Number=Sing, Aspect=Prog|Tense=Pres|VerbForm=Part, Definite=Ind|PronType=Art, , , , Number=Sing, , Number=Sing, Number=Sing, PunctType=Peri, Degree=Pos))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (, Degree=Pos, Number=Sing, PunctType=Comm, , VerbForm=Inf, Definite=Def|PronType=Art, Number=Plur, , Number=Sing, Number=Sing, ConjType=Cmp), (Number=Sing,))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing, Number=Sing, ), (PunctType=Comm,))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Foreign=Yes, PunctType=Peri), (Definite=Def|PronType=Art,))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Aspect=Prog|Tense=Pres|VerbForm=Part,), (, , Number=Sing, , ConjType=Cmp, Aspect=Prog|Tense=Pres|VerbForm=Part, Definite=Ind|PronType=Art, Degree=Pos, Aspect=Perf|Tense=Past|VerbForm=Part, , Number=Sing, PunctSide=Fin|PunctType=Quot, Aspect=Prog|Tense=Pres|VerbForm=Part))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', (Aspect=Prog|Tense=Pres|VerbForm=Part, Number=Sing), ())",2,1.0,0.5,1,1,91.22171945701358
+"('insert', (), (Degree=Pos, Number=Sing, ))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Degree=Pos,), (Aspect=Prog|Tense=Pres|VerbForm=Part, Aspect=Prog|Tense=Pres|VerbForm=Part, Degree=Pos, Number=Sing, , Number=Sing, Number=Sing, , , Definite=Ind|PronType=Art, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, NumType=Card))",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('insert', (), (, Number=Sing))",41,1.0,0.024390243902439025,4,37,57.75842310336925
+"('insert', (), (, , Degree=Pos, Number=Sing, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Number=Sing, NumType=Card, Number=Sing, Number=Sing))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', (Number=Sing,), (Number=Sing, , Number=Sing))",9,1.0,0.1111111111111111,0,9,50.960566228513656
+"('replace', (Number=Sing,), (Number=Sing, , PunctType=Peri))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing,), (Number=Sing, , Foreign=Yes))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', (Number=Plur,), (Number=Sing|PronType=Ind,))",2,1.0,0.5,1,1,91.22171945701358
+"('replace', (Number=Plur,), (Number=Sing, , NumType=Card, NumType=Card, Number=Sing))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', (Number=Sing,), (Aspect=Prog|Tense=Pres|VerbForm=Part,))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', (Aspect=Prog|Tense=Pres|VerbForm=Part, NumType=Card), (VerbForm=Inf, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (VerbForm=Inf, PronType=Prs), (VerbForm=Inf, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Tense=Past|VerbForm=Fin,), (VerbForm=Inf,))",4,1.0,0.25,0,4,67.51507032819826
+"('replace', (Number=Sing, Number=Sing, Number=Sing), (Number=Sing, Number=Sing, Degree=Pos))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Aspect=Prog|Tense=Pres|VerbForm=Part,), (Tense=Pres|VerbForm=Fin,))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', (Number=Sing, Number=Sing, Number=Sing), (Number=Sing, Number=Sing, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Polarity=Neg, VerbForm=Inf), (Number=Sing, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Aspect=Perf|Tense=Past|VerbForm=Part,), (VerbForm=Inf,))",7,1.0,0.14285714285714285,2,5,83.86023294509151
+"('insert', (), (, Number=Sing, Number=Sing, Number=Sing, Number=Sing, Number=Sing))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), (, Number=Sing, Number=Sing, Tense=Pres|VerbForm=Fin, Aspect=Perf|Tense=Past|VerbForm=Part, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Number=Plur))",11,1.0,0.09090909090909091,0,11,46.408839779005525
+"('insert', (), (, , Number=Sing))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), (Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin,))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', (Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin,), ())",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (VerbForm=Inf,), (Degree=Pos,))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Definite=Ind|PronType=Art, Degree=Pos), (VerbForm=Inf, Degree=Pos))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', (Degree=Pos,), (Degree=Pos,))",21,1.0,0.047619047619047616,8,13,86.97986577181207
+"('replace', (VerbForm=Inf,), (Definite=Ind|PronType=Art,))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', (Number=Sing,), (VerbForm=Inf,))",3,1.0,0.3333333333333333,1,2,87.38621586475944
+"('replace', (, Degree=Pos), (Definite=Def|PronType=Art, Degree=Pos))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing|Person=3|Tense=Pres|VerbForm=Fin,), (,))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (PronType=Prs,), (Degree=Pos,))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Definite=Def|PronType=Art,), (,))",8,1.0,0.125,0,8,53.58851674641147
+"('delete', (,), ())",5,1.0,0.2,1,4,80.6077568972411
+"('replace', (PunctSide=Ini|PunctType=Brck,), (VerbForm=Inf,))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Tense=Pres|VerbForm=Fin,), (PunctSide=Ini|PunctType=Brck,))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (NumType=Card, Degree=Pos), (Aspect=Perf|Tense=Past|VerbForm=Part, Degree=Pos))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (VerbForm=Inf, NumType=Card), (VerbForm=Inf, Degree=Pos))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Degree=Cmp, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Degree=Pos, Number=Sing, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Degree=Pos, ConjType=Cmp, , , Degree=Pos, PunctSide=Fin|PunctType=Quot))",4,1.0,0.25,0,4,67.51507032819826
+"('replace', (,), (, , NumType=Card, , Gender=Neut|Number=Sing|Person=3|Poss=Yes|PronType=Prs, Number=Plur, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (Number=Sing, Mood=Ind|Tense=Pres|VerbForm=Fin, Polarity=Neg, VerbForm=Inf, Definite=Def|PronType=Art, Number=Sing, ))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (PunctSide=Ini|PunctType=Quot,))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', (Number=Sing|Person=3|Tense=Pres|VerbForm=Fin,), (NumType=Ord,))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Number=Plur|PronType=Dem, Number=Plur, Tense=Pres|VerbForm=Fin, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (NumType=Card,), (Number=Sing,))",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('insert', (), (Number=Sing, Number=Sing, , NumType=Card))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing,), (Gender=Neut|Number=Sing|Person=3|Poss=Yes|PronType=Prs, Number=Plur, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Number=Sing|PronType=Dem, Number=Sing, Degree=Pos, Number=Sing, , Definite=Ind|PronType=Art, Number=Sing, PunctType=Dash, Aspect=Prog|Tense=Pres|VerbForm=Part, Number=Sing, ))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (PunctSide=Fin|PunctType=Quot,))",5,1.0,0.2,1,4,80.6077568972411
+"('replace', (Degree=Pos,), (Number=Sing,))",9,1.0,0.1111111111111111,0,9,50.960566228513656
+"('insert', (), (, Case=Nom|Number=Sing|Person=1|PronType=Prs, Mood=Ind|Tense=Pres|VerbForm=Fin, Polarity=Neg, VerbForm=Inf, Definite=Def|PronType=Art, Number=Sing, PunctSide=Ini|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing, Number=Sing), (Number=Sing, Number=Sing, , , Definite=Def|PronType=Art, Number=Sing, Number=Sing, Number=Sing, Number=Sing, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, , Definite=Ind|PronType=Art, Degree=Pos, PunctType=Comm, Degree=Pos, PunctType=Dash, Aspect=Perf|Tense=Past|VerbForm=Part, Number=Sing, , Definite=Ind|PronType=Art, , Degree=Pos, Number=Sing, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Definite=Def|PronType=Art, Number=Sing, , Number=Plur, PunctType=Comm, Number=Sing, , , , Tense=Pres|VerbForm=Fin, , VerbForm=Inf, PunctSide=Ini|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Tense=Past|VerbForm=Fin,), (Tense=Past|VerbForm=Fin,))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), (, Degree=Pos, ConjType=Cmp, Degree=Pos, Number=Sing, PunctSide=Fin|PunctType=Quot))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', (Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs,), (Number=Sing,))",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('insert', (), (, Degree=Pos, Number=Sing, ConjType=Cmp, Number=Sing, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Definite=Def|PronType=Art, Number=Sing, Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Degree=Pos, ConjType=Cmp, Definite=Def|PronType=Art, Number=Plur, Mood=Ind|Tense=Pres|VerbForm=Fin, Degree=Pos, PunctType=Comm, ConjType=Cmp, Definite=Def|PronType=Art, Number=Sing, Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, , Degree=Pos, , Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs, Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, , Degree=Pos, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Degree=Pos,), (,))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), (, Definite=Def|PronType=Art, Number=Sing, , Number=Plur, PunctType=Comm, Number=Sing, , , , Tense=Pres|VerbForm=Fin, , VerbForm=Inf, PunctSide=Fin|PunctType=Quot))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), (, Aspect=Perf|Tense=Past|VerbForm=Part, Definite=Def|PronType=Art, Degree=Sup, Degree=Pos, Number=Sing, , NumType=Card, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', (Number=Sing|Person=3|Tense=Pres|VerbForm=Fin,), ())",2,1.0,0.5,0,2,77.59815242494227
+"('delete', (Definite=Ind|PronType=Art,), ())",2,1.0,0.5,1,1,91.22171945701358
+"('insert', (), (, VerbForm=Inf, Aspect=Perf|Tense=Past|VerbForm=Part, PunctSide=Ini|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Aspect=Prog|Tense=Pres|VerbForm=Part, , Degree=Pos, Number=Sing, Number=Sing, PunctType=Comm, ConjType=Cmp, Definite=Ind|PronType=Art, Degree=Pos, Degree=Pos, , Degree=Pos, Number=Sing, Number=Plur, ConjType=Cmp))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (, VerbForm=Inf), (Number=Sing,))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, , , NumType=Card, ConjType=Cmp, Definite=Def|PronType=Art, Number=Sing, , Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, VerbForm=Inf, Definite=Ind|PronType=Art, , Degree=Pos, Degree=Pos, PunctType=Dash, Number=Sing, Number=Plur, PronType=Rel, Tense=Pres|VerbForm=Fin, Definite=Def|PronType=Art, Number=Sing, , PunctType=Peri, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Definite=Def|PronType=Art, Number=Plur), (Number=Sing,))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Degree=Pos, Number=Sing), (, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Definite=Ind|PronType=Art, Number=Sing), (,))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', (, Gender=Neut|Number=Sing|Person=3|Poss=Yes|PronType=Prs, Number=Sing), (Number=Sing,))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', (Number=Sing,), (Tense=Past|VerbForm=Fin, , PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,1,0,95.40937056318032
+"('delete', (Definite=Def|PronType=Art,), ())",2,1.0,0.5,0,2,77.59815242494227
+"('delete', (ConjType=Cmp, Definite=Ind|PronType=Art, Number=Sing), ())",1,1.0,1.0,0,1,83.86023294509151
+"('delete', (Degree=Pos,), ())",2,1.0,0.5,0,2,77.59815242494227
+"('delete', (ConjType=Cmp,), ())",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Tense=Past|VerbForm=Fin, Definite=Def|PronType=Art, NumType=Card, Number=Plur, VerbForm=Fin, VerbForm=Inf, Degree=Pos, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing|PronType=Dem,), (Number=Sing,))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', (VerbForm=Inf,), ())",1,1.0,1.0,0,1,83.86023294509151
+"('delete', (Definite=Def|PronType=Art, Number=Plur), ())",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (PunctType=Comm, PunctSide=Ini|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (Definite=Def|PronType=Art, Number=Plur, Tense=Past|VerbForm=Fin, Definite=Def|PronType=Art, NumType=Card, Number=Plur, Tense=Pres|VerbForm=Fin, Number=Sing|PronType=Dem, Degree=Pos, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (Tense=Past|VerbForm=Fin, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Degree=Pos,), (Degree=Pos, , Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs, Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Number=Sing, , Number=Sing, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Definite=Def|PronType=Art, Number=Sing), (Degree=Pos, ))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Degree=Pos, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin), (Number=Sing, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, , Degree=Pos, ConjType=Cmp, Degree=Pos, Number=Sing, Number=Sing, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (, Degree=Pos), (, Degree=Pos))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', (Number=Sing, Number=Plur), (Number=Sing, Number=Sing, , Number=Sing, Number=Sing, Definite=Ind|PronType=Art, Number=Sing, Number=Sing, PunctType=Peri, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing,), (Number=Sing, , Tense=Pres|VerbForm=Fin, Definite=Ind|PronType=Art, Number=Sing, , Definite=Def|PronType=Art, Number=Sing, Number=Sing, , Definite=Def|PronType=Art, Number=Sing, Number=Sing, , PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing|Person=3|Tense=Pres|VerbForm=Fin,), (Number=Plur,))",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('replace', (Number=Plur, , Number=Sing|Person=3|Tense=Pres|VerbForm=Fin), (Number=Sing, , Tense=Pres|VerbForm=Fin))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, , VerbForm=Inf, , Degree=Pos, Number=Sing, VerbForm=Fin, , Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs, Tense=Pres|VerbForm=Fin, Definite=Def|PronType=Art, Degree=Pos, ConjType=Cmp, , , Number=Sing, , Tense=Pres|VerbForm=Fin, Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs, PunctType=Peri))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin,), (Number=Sing|Person=3|Tense=Pres|VerbForm=Fin,))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), (, VerbForm=Inf, Definite=Ind|PronType=Art, Number=Sing, , Definite=Def|PronType=Art, Number=Sing, Number=Sing, , Definite=Def|PronType=Art, Number=Sing, Tense=Pres|VerbForm=Fin, , PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Polarity=Neg,), (Number=Sing,))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs, Tense=Pres|VerbForm=Fin, Number=Plur|Person=1|Poss=Yes|PronType=Prs, Number=Sing, PunctType=Peri, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (VerbForm=Inf,), (,))",5,1.0,0.2,0,5,63.39622641509435
+"('replace', (Aspect=Perf|Tense=Past|VerbForm=Part,), (Number=Sing,))",5,1.0,0.2,0,5,63.39622641509435
+"('insert', (), (, Number=Sing, Definite=Ind|PronType=Art, Number=Sing, , Definite=Def|PronType=Art, Number=Sing, Number=Sing, , Definite=Def|PronType=Art, Number=Sing, Number=Sing, , PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin), (Number=Sing, VerbForm=Inf))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Definite=Def|PronType=Art, Number=Sing, , Degree=Pos, Number=Plur, ))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Definite=Ind|PronType=Art,), (Number=Sing,))",5,1.0,0.2,1,4,80.6077568972411
+"('insert', (), (, Tense=Past|VerbForm=Fin, Definite=Ind|PronType=Art, Degree=Pos, PunctSide=Ini|PunctType=Quot, Number=Sing, , Number=Sing, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Definite=Ind|PronType=Art, , PunctType=Dash, Degree=Pos, Number=Sing, PunctType=Comm, Number=Sing, Number=Sing, , Number=Sing, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, , Definite=Def|PronType=Art, Degree=Sup, Degree=Pos, Aspect=Prog|Tense=Pres|VerbForm=Part, Number=Plur, , Definite=Ind|PronType=Art, Degree=Pos, Number=Sing, PunctType=Dash, Number=Sing, PunctType=Peri, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Definite=Ind|PronType=Art,), (,))",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('insert', (), (, Definite=Def|PronType=Art, Number=Sing, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, , , Definite=Def|PronType=Art, Number=Sing, ConjType=Cmp, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, , Number=Sing, , Number=Sing, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Gender=Neut|Number=Sing|Person=3|Poss=Yes|PronType=Prs,), (Number=Plur,))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Case=Acc|Number=Plur|Person=1|PronType=Prs, VerbForm=Inf, Degree=Pos, Number=Plur, PunctType=Comm, , Number=Sing, ConjType=Cmp, Number=Sing, PunctType=Comm, , Definite=Ind|PronType=Art, Degree=Pos, Number=Sing, PunctType=Peri, PunctSide=Fin|PunctType=Quot))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', (NumType=Card,), (, Definite=Ind|PronType=Art, Degree=Pos, Number=Sing, PunctSide=Fin|PunctType=Quot, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Tense=Past|VerbForm=Fin,), (Number=Sing|Person=3|Tense=Pres|VerbForm=Fin,))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Definite=Ind|PronType=Art, Aspect=Prog|Tense=Pres|VerbForm=Part, Number=Sing, , Case=Acc|Person=2|PronType=Prs, ConjType=Cmp, , Person=2|Poss=Yes|PronType=Prs, Number=Plur, PunctType=Comm, , , Number=Plur|Person=3|Poss=Yes|PronType=Prs, Number=Plur, PunctSide=Ini|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (Definite=Def|PronType=Art, Number=Sing, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, , , Definite=Def|PronType=Art, Number=Sing, ConjType=Cmp, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, , Number=Sing, , Number=Sing, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Gender=Neut|Number=Sing|Person=3|Poss=Yes|PronType=Prs, Degree=Sup, Degree=Pos, ConjType=Cmp, Degree=Sup, Degree=Pos, Number=Sing, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Definite=Ind|PronType=Art,), (Definite=Def|PronType=Art, Number=Sing, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, , , Definite=Def|PronType=Art, Number=Sing, ConjType=Cmp, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, , Number=Sing, , Number=Sing, PunctSide=Fin|PunctType=Quot, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Number=Sing, Number=Sing, ))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Degree=Pos, Number=Sing, Number=Sing, Number=Sing))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', (Tense=Past|VerbForm=Fin,), (Number=Sing,))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', (Aspect=Perf|Tense=Past|VerbForm=Part, Number=Sing), (Number=Sing, Number=Sing, , NumType=Card))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Number=Plur), (, VerbForm=Inf))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing, Number=Plur), (Number=Sing, Number=Sing, , Number=Sing))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', (VerbForm=Inf,), (Tense=Pres|VerbForm=Fin,))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Plur,), (Number=Sing, , Number=Sing))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', (VerbForm=Inf, Number=Sing), (VerbForm=Inf, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Aspect=Prog|Tense=Pres|VerbForm=Part,), (VerbForm=Inf,))",5,1.0,0.2,0,5,63.39622641509435
+"('insert', (), (, ))",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('replace', (Number=Sing, Aspect=Perf|Tense=Past|VerbForm=Part), (Number=Sing, Number=Sing))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', (Number=Plur, ), (Number=Sing, VerbForm=Inf))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing,), (Number=Sing|PronType=Ind,))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', (NumType=Card,), (Number=Sing, , NumType=Card, Number=Plur))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (VerbForm=Inf, Definite=Def|PronType=Art, Number=Sing), (VerbForm=Inf, Number=Sing|PronType=Dem, Number=Sing, , Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (VerbForm=Inf,), (Number=Sing,))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', (Aspect=Perf|Tense=Past|VerbForm=Part,), (Tense=Pres|VerbForm=Fin,))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', (Number=Plur,), (Number=Sing, , Number=Sing, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Number=Sing|PronType=Dem, Tense=Past|VerbForm=Fin, PunctType=Comm, Case=Nom|Number=Sing|Person=1|PronType=Prs, Tense=Past|VerbForm=Fin, Polarity=Neg, VerbForm=Inf, Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs, PunctType=Peri))",4,1.0,0.25,2,2,91.22171945701356
+"('insert', (), (, PronType=Rel, VerbForm=Ger, Tense=Past|VerbForm=Fin, PunctType=Comm, Case=Nom|Number=Sing|Person=1|PronType=Prs, Tense=Past|VerbForm=Fin, Polarity=Neg, VerbForm=Inf, Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs, PunctType=Peri))",2,1.0,0.5,1,1,91.22171945701358
+"('insert', (), (, PronType=Rel, VerbForm=Ger, Tense=Past|VerbForm=Fin, PunctType=Comm, Case=Nom|Number=Sing|Person=1|PronType=Prs, Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin, Degree=Pos, PunctType=Peri))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), (, Number=Sing|PronType=Dem, Tense=Past|VerbForm=Fin, PunctType=Comm, Case=Nom|Number=Sing|Person=1|PronType=Prs, VerbForm=Fin, Polarity=Neg, VerbForm=Inf, Degree=Cmp, Degree=Pos, PunctType=Peri))",3,1.0,0.3333333333333333,1,2,87.38621586475944
+"('insert', (), (, Number=Sing|PronType=Dem, VerbForm=Ger, Tense=Past|VerbForm=Fin, PunctType=Comm, Case=Nom|Number=Sing|Person=1|PronType=Prs, VerbForm=Fin, Polarity=Neg, VerbForm=Inf, Degree=Cmp, Degree=Pos, PunctType=Peri))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), (, Number=Sing|PronType=Dem, VerbForm=Ger, Tense=Past|VerbForm=Fin, PunctType=Comm, Case=Nom|Number=Sing|Person=1|PronType=Prs, Tense=Past|VerbForm=Fin, Polarity=Neg, VerbForm=Inf, Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs, PunctType=Peri))",4,1.0,0.25,1,3,83.86023294509151
+"('insert', (), (Mood=Ind|Tense=Pres|VerbForm=Fin, Polarity=Neg))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (Polarity=Neg,))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', (Number=Sing|Person=3|Tense=Pres|VerbForm=Fin,), (Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Polarity=Neg, VerbForm=Inf))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), (, Number=Sing|PronType=Dem, VerbForm=Ger, Tense=Past|VerbForm=Fin, PunctType=Comm, Case=Nom|Number=Sing|Person=1|PronType=Prs, Tense=Past|VerbForm=Fin, Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs, PunctType=Peri))",9,1.0,0.1111111111111111,1,8,69.78193146417445
+"('insert', (), (, Number=Sing|PronType=Dem, Tense=Past|VerbForm=Fin, PunctType=Comm, Case=Nom|Number=Sing|Person=1|PronType=Prs, VerbForm=Fin, Polarity=Neg, VerbForm=Inf, Degree=Cmp, PunctType=Peri))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), (, Number=Sing|PronType=Dem, Tense=Past|VerbForm=Fin, PunctType=Comm, Case=Nom|Number=Sing|Person=1|PronType=Prs, Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin, Degree=Pos, PunctType=Peri))",6,1.0,0.16666666666666666,1,5,77.59815242494227
+"('insert', (), (, Number=Sing|PronType=Dem, VerbForm=Ger, Tense=Past|VerbForm=Fin, PunctType=Comm, Case=Nom|Number=Sing|Person=1|PronType=Prs, Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin, Polarity=Neg, Degree=Pos, PunctType=Peri))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), (VerbForm=Fin, Polarity=Neg))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (,), (Tense=Pres|VerbForm=Fin,))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Degree=Pos, Number=Sing), (Aspect=Perf|Tense=Past|VerbForm=Part, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Degree=Cmp, Degree=Pos), (Degree=Cmp, Degree=Pos))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Degree=Pos,), (Aspect=Perf|Tense=Past|VerbForm=Part,))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Tense=Pres|VerbForm=Fin,), (Number=Sing, , Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Aspect=Prog|Tense=Pres|VerbForm=Part, Definite=Def|PronType=Art, Number=Sing, , Degree=Pos, Degree=Pos, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Definite=Ind|PronType=Art, Degree=Pos, PunctType=Comm, Degree=Pos, Number=Sing, PronType=Rel, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Case=Acc|Person=2|PronType=Prs, Degree=Pos, , Definite=Def|PronType=Art, Degree=Pos, Number=Sing, , Gender=Neut|Number=Sing|Person=3|Poss=Yes|PronType=Prs, Number=Sing, Number=Sing, PunctType=Peri, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing,), (Number=Sing, , Definite=Def|PronType=Art, Number=Sing, , Number=Sing, Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Definite=Ind|PronType=Art, Number=Sing, ConjType=Cmp, Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs, Number=Sing, , Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Definite=Ind|PronType=Art, Degree=Pos, Number=Sing, , Degree=Pos, Degree=Pos, Number=Sing, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (Definite=Ind|PronType=Art, Degree=Pos, PunctType=Comm, Degree=Pos, Number=Sing, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Definite=Def|PronType=Art,), (Degree=Pos,))",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('insert', (), (, Definite=Ind|PronType=Art, Degree=Pos, PunctType=Comm, Degree=Pos, Number=Sing, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, , Definite=Ind|PronType=Art, Number=Sing, , VerbForm=Inf, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing|Person=3|Tense=Pres|VerbForm=Fin,), (Number=Sing,))",4,1.0,0.25,0,4,67.51507032819826
+"('insert', (), (, Number=Sing, PunctSide=Fin|PunctType=Quot))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), (, Definite=Def|PronType=Art, Number=Sing, , Number=Sing, Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Definite=Ind|PronType=Art, Number=Sing, ConjType=Cmp, Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs, Number=Sing, , Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Definite=Ind|PronType=Art, Degree=Pos, Number=Sing, , Degree=Pos, Degree=Pos, Number=Sing, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Number=Plur, , Degree=Pos, Degree=Cmp, , Number=Sing, PunctType=Peri, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (Definite=Def|PronType=Art, Number=Sing, , Number=Sing, Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Definite=Ind|PronType=Art, Number=Sing, ConjType=Cmp, Gender=Masc|Number=Sing|Person=3|Poss=Yes|PronType=Prs, Number=Sing, , Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Definite=Ind|PronType=Art, Degree=Pos, Number=Sing, , Degree=Pos, Degree=Pos, Number=Sing, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (Degree=Pos,))",5,1.0,0.2,1,4,80.6077568972411
+"('insert', (), (Case=Acc|Number=Sing|Person=1|PronType=Prs, Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs, Tense=Past|VerbForm=Fin, Case=Acc|Number=Sing|Person=1|PronType=Prs, , PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Case=Nom|Number=Plur|Person=1|PronType=Prs, Tense=Pres|VerbForm=Fin, , Number=Sing, Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Degree=Cmp, , Number=Sing|PronType=Ind, , Degree=Cmp, Definite=Ind|PronType=Art, Degree=Pos, Degree=Pos, Number=Sing, Number=Sing, PunctType=Peri, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (Definite=Ind|PronType=Art, , Degree=Pos, PunctSide=Fin|PunctType=Quot))",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('insert', (), (VerbForm=Inf, PronType=Dem, , Degree=Pos, PunctSide=Fin|PunctType=Quot))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', (Degree=Pos,), (Number=Sing, VerbForm=Inf))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin,), (Number=Sing, Tense=Pres|VerbForm=Fin, Definite=Def|PronType=Art, Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs, PunctSide=Fin|PunctType=Quot, NumType=Card))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (Number=Plur, Definite=Def|PronType=Art, Degree=Pos, Number=Sing, Degree=Pos, , Number=Sing, ConjType=Cmp, Number=Sing, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (VerbForm=Inf,), (Number=Sing, PronType=Dem))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (Degree=Pos, Number=Sing, Number=Sing, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (Degree=Cmp,))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Tense=Pres|VerbForm=Fin, Number=Sing, Number=Sing, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Number=Sing, PunctType=Peri))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, , PunctType=Comm, , Definite=Ind|PronType=Art, Number=Sing, PronType=Rel, Number=Sing, , VerbForm=Inf, Degree=Pos, PunctType=Comm, Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs, Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, , Degree=Pos, PunctType=Peri, PunctSide=Fin|PunctType=Quot))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', (VerbForm=Inf, VerbForm=Inf), (VerbForm=Inf, VerbForm=Inf))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, PunctSide=Fin|PunctType=Quot, Tense=Pres|VerbForm=Fin, Degree=Pos, , VerbForm=Inf, Definite=Def|PronType=Art, Number=Sing, , Number=Sing, Number=Sing, PunctType=Comm, Definite=Ind|PronType=Art, Number=Sing, PunctType=Dash, Aspect=Perf|Tense=Past|VerbForm=Part, Number=Sing, ConjType=Cmp, Degree=Pos, Number=Sing, PronType=Rel, Mood=Ind|Tense=Pres|VerbForm=Fin, VerbForm=Inf, Definite=Ind|PronType=Art, Number=Sing, Number=Sing, PunctType=Peri, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (Number=Sing, VerbForm=Inf, ))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing,), (Tense=Pres|VerbForm=Fin, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Aspect=Prog|Tense=Pres|VerbForm=Part,), (Number=Sing, , Degree=Sup, Tense=Pres|VerbForm=Fin, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Case=Acc|Number=Plur|Person=1|PronType=Prs), (Degree=Cmp, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing, Number=Sing), (Number=Sing, Number=Sing))",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('insert', (), (, Degree=Pos, Number=Sing, Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Definite=Ind|PronType=Art, Number=Sing, Number=Sing, PunctType=Comm, , Definite=Def|PronType=Art, Number=Sing, Number=Sing|PronType=Dem, Number=Sing, Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin, PunctType=Comm, ConjType=Cmp, Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs, Tense=Pres|VerbForm=Fin, , Degree=Pos, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Degree=Pos, Number=Sing), (Degree=Pos, Number=Sing))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', (Aspect=Perf|Tense=Past|VerbForm=Part,), (Number=Sing, , Degree=Sup, Tense=Pres|VerbForm=Fin, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (VerbForm=Fin,), (VerbType=Mod,))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), (, Tense=Pres|VerbForm=Fin, VerbForm=Inf, Number=Sing|PronType=Dem, Degree=Pos, Number=Sing, PunctType=Peri, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (PunctSide=Fin|PunctType=Quot, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin), (NumType=Ord, PunctSide=Fin|PunctType=Quot, PunctSide=Fin|PunctType=Quot, VerbForm=Inf))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Plur,), (Aspect=Prog|Tense=Pres|VerbForm=Part,))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Plur,), (Degree=Pos,))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', (Number=Plur, ), (Degree=Pos, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing,), (Number=Sing, , Number=Sing, Number=Sing, , Definite=Ind|PronType=Art, Number=Sing, Number=Sing, PronType=Rel, , Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Definite=Ind|PronType=Art, Number=Sing, PunctType=Peri, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (Number=Sing, Number=Sing, Number=Sing, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing, ), (Degree=Pos,))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Number=Sing, Number=Sing, Number=Sing))",4,1.0,0.25,2,2,91.22171945701356
+"('replace', (, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin), (, Tense=Pres|VerbForm=Fin))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, , PunctType=Peri))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Degree=Pos,), (VerbForm=Inf, , Number=Sing, Number=Sing, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Number=Sing, Number=Sing, Number=Plur, Number=Sing))",3,1.0,0.3333333333333333,1,2,87.38621586475944
+"('insert', (), (, Number=Sing, PunctType=Comm))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin), (Degree=Sup, Tense=Pres|VerbForm=Fin))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (VerbForm=Inf, Degree=Pos, Number=Plur), (VerbForm=Inf, Degree=Pos, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Plur,), (Number=Sing, , Number=Plur))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Aspect=Prog|Tense=Pres|VerbForm=Part, Number=Sing), (Number=Sing, Number=Sing, , Number=Sing))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', (Number=Sing,), (NumType=Card,))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Plur|PronType=Dem, Number=Plur), (Number=Sing, Number=Plur))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Degree=Cmp, , Degree=Pos), (Number=Sing, Foreign=Yes, Number=Sing, , ))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Number=Plur), (Number=Sing, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing, PronType=Rel, VerbForm=Fin, Degree=Pos, Polarity=Neg, VerbForm=Inf, Aspect=Perf|Tense=Past|VerbForm=Part), (Number=Sing, Number=Sing, Number=Sing, Number=Sing, Number=Sing, Number=Sing, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Degree=Pos, Degree=Pos), (, Number=Sing, Number=Sing, , Number=Sing, Number=Plur))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing,), (, , Number=Sing, Number=Sing, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (,), (Number=Sing, , Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Aspect=Prog|Tense=Pres|VerbForm=Part, Degree=Pos, Number=Plur, , Number=Sing), (Number=Sing, Number=Sing, Number=Sing, Number=Sing, Number=Sing, , Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Degree=Pos), (Number=Plur, Tense=Pres|VerbForm=Fin, , NumType=Card))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (, Number=Sing|PronType=Dem), (, Degree=Pos))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (VerbForm=Fin,), (Tense=Pres|VerbForm=Fin,))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin), (Number=Sing, Number=Plur))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing,), (Degree=Pos, , Number=Sing, Number=Sing, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Plur,), (Number=Plur,))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', (Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin,), (Number=Plur,))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing,), (,))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', (,), (Number=Sing, , Number=Sing, ))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing,), (Definite=Ind|PronType=Art, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (Definite=Ind|PronType=Art, ))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', (, Definite=Ind|PronType=Art), ())",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (Number=Sing, Definite=Def|PronType=Art))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', (Definite=Def|PronType=Art, Number=Sing), ())",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (Number=Sing, Number=Sing, Number=Plur))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing,), (, Number=Sing, Number=Sing, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (Degree=Pos, Number=Sing, Number=Plur))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (PronType=Rel,), (,))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Plur,), (Number=Sing, , Aspect=Prog|Tense=Pres|VerbForm=Part))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Aspect=Prog|Tense=Pres|VerbForm=Part))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', (Number=Sing, Number=Sing), (Number=Sing, Number=Sing, , Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing, Number=Plur), (Number=Sing, Degree=Pos, , ))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Plur|PronType=Dem,), (Number=Sing,))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Number=Sing|PronType=Dem, VerbForm=Ger, Number=Plur, PunctType=Comm, , Case=Nom|Number=Sing|Person=1|PronType=Prs, Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin, Degree=Pos, PunctType=Peri))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Number=Sing|PronType=Dem, Tense=Past|VerbForm=Fin, PunctType=Comm, Case=Nom|Number=Sing|Person=1|PronType=Prs, VerbForm=Fin, Polarity=Neg, VerbForm=Inf, Number=Sing, Aspect=Perf|Tense=Past|VerbForm=Part, PunctType=Peri))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Number=Sing|PronType=Dem, VerbForm=Ger, Degree=Pos, PunctType=Comm, Case=Nom|Number=Sing|Person=1|PronType=Prs, VerbForm=Fin, Polarity=Neg, VerbForm=Inf, Degree=Cmp, Degree=Pos, PunctType=Peri))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing,), (Number=Sing, ConjType=Cmp, Number=Sing|PronType=Dem, Tense=Past|VerbForm=Fin, PunctType=Comm, Case=Nom|Number=Sing|Person=1|PronType=Prs, VerbForm=Fin, Polarity=Neg, VerbForm=Inf, Degree=Cmp, Degree=Pos, PunctType=Peri))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Number=Sing|PronType=Dem, VerbForm=Ger, Tense=Past|VerbForm=Fin, PunctType=Comm, Case=Acc|Number=Sing|Person=1|PronType=Prs, , Tense=Past|VerbForm=Fin, Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs, PunctType=Peri))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Degree=Pos,), (Number=Sing, Number=Sing, Number=Sing|PronType=Dem, VerbForm=Ger, Tense=Past|VerbForm=Fin, PunctType=Comm, Case=Nom|Number=Sing|Person=1|PronType=Prs, Tense=Past|VerbForm=Fin, Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs, PunctType=Peri))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (VerbForm=Inf, Aspect=Perf|Tense=Past|VerbForm=Part), (VerbForm=Inf, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Aspect=Prog|Tense=Pres|VerbForm=Part,), (Number=Sing,))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', (Number=Sing, Aspect=Perf|Tense=Past|VerbForm=Part), (Degree=Pos, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Number=Sing, Aspect=Prog|Tense=Pres|VerbForm=Part, Number=Sing, Definite=Ind|PronType=Art, Number=Sing, PunctType=Comm, , , Aspect=Perf|Tense=Past|VerbForm=Part, , , Degree=Pos, ConjType=Cmp, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Number=Sing, Aspect=Prog|Tense=Pres|VerbForm=Part, , Definite=Ind|PronType=Art, Number=Sing, PunctType=Comm, , , Aspect=Perf|Tense=Past|VerbForm=Part, , , Degree=Pos, ConjType=Cmp, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, , Degree=Sup, , Gender=Neut|Number=Sing|Person=3|Poss=Yes|PronType=Prs, Number=Sing, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, , Definite=Ind|PronType=Art, Number=Sing, , VerbForm=Inf, PunctType=Comm, , , Gender=Fem|Number=Sing|Person=3|Poss=Yes|PronType=Prs, Number=Sing, Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Polarity=Neg, Degree=Pos, PunctType=Dash, Number=Sing, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Case=Nom|Number=Sing|Person=1|PronType=Prs,), (Number=Sing,))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, , Number=Sing, Number=Sing, , Number=Sing, , , Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, , Definite=Ind|PronType=Art, NumType=Card, Number=Sing, Number=Sing, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Definite=Ind|PronType=Art, Degree=Pos, Number=Sing, PunctType=Comm, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin,), (Number=Sing,))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing,), (Number=Sing, , Number=Sing, Aspect=Prog|Tense=Pres|VerbForm=Part, , Definite=Ind|PronType=Art, Number=Sing, PunctType=Comm, , , Aspect=Perf|Tense=Past|VerbForm=Part, , , Degree=Pos, ConjType=Cmp, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Number=Plur, , Number=Sing, Number=Sing, Number=Sing, , Definite=Def|PronType=Art, Number=Sing, , Number=Sing, VerbForm=Fin, VerbForm=Inf, Definite=Ind|PronType=Art, Degree=Pos, Number=Sing, , Foreign=Yes, Foreign=Yes, PunctType=Comm, ConjType=Cmp, Definite=Def|PronType=Art, Number=Sing, , Definite=Def|PronType=Art, Degree=Sup, Degree=Pos, Number=Sing, Number=Plur, Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Aspect=Prog|Tense=Pres|VerbForm=Part, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Case=Nom|Number=Sing|Person=1|PronType=Prs, Mood=Ind|Tense=Pres|VerbForm=Fin, Polarity=Neg, VerbForm=Inf, , PunctType=Peri, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, , Number=Sing, Number=Sing, , , Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Number=Sing, Definite=Ind|PronType=Art, NumType=Card, Number=Sing, Number=Sing, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Degree=Pos), (Number=Sing, Degree=Pos))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', (NumType=Card,), (Degree=Pos,))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (,), (Degree=Sup,))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Plur, Aspect=Perf|Tense=Past|VerbForm=Part), (Degree=Pos, VerbForm=Inf))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Tense=Pres|VerbForm=Fin, Aspect=Perf|Tense=Past|VerbForm=Part), (Tense=Pres|VerbForm=Fin, ))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, PronType=Rel, VerbForm=Ger, Tense=Past|VerbForm=Fin, PunctType=Comm, Case=Nom|Number=Sing|Person=1|PronType=Prs, VerbForm=Fin, Polarity=Neg, VerbForm=Inf, Degree=Cmp, PunctType=Peri))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, PronType=Rel, VerbForm=Ger, Tense=Past|VerbForm=Fin, PunctType=Comm, Case=Nom|Number=Sing|Person=1|PronType=Prs, Tense=Past|VerbForm=Fin, Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs, PunctType=Peri))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Number=Sing, Aspect=Perf|Tense=Past|VerbForm=Part, Number=Sing, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing, VerbForm=Fin), (Number=Sing, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing,), (Number=Sing, , Number=Sing|PronType=Dem, VerbForm=Ger, Tense=Past|VerbForm=Fin, PunctType=Comm, Case=Nom|Number=Sing|Person=1|PronType=Prs, Tense=Past|VerbForm=Fin, Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs, PunctType=Peri))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing,), (Degree=Pos,))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', (Aspect=Perf|Tense=Past|VerbForm=Part, Degree=Pos), (Number=Sing, ))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Degree=Pos, Number=Sing, Number=Plur), (Number=Sing, Number=Sing, Number=Sing, Number=Sing, , PronType=Rel, VerbForm=Ger, Tense=Past|VerbForm=Fin, PunctType=Comm, Case=Nom|Number=Sing|Person=1|PronType=Prs, Tense=Past|VerbForm=Fin, Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs, PunctType=Peri))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (, Degree=Pos), (, ))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Degree=Pos, Degree=Pos), (Number=Sing, PunctType=Dash, Degree=Pos, Degree=Pos))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing|Person=3|Tense=Pres|VerbForm=Fin,), (Tense=Pres|VerbForm=Fin, , Number=Sing|PronType=Dem, Tense=Past|VerbForm=Fin, PunctType=Comm, Case=Nom|Number=Sing|Person=1|PronType=Prs, Tense=Past|VerbForm=Fin, Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs, PunctType=Peri))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Aspect=Prog|Tense=Pres|VerbForm=Part, Number=Sing), (Number=Sing, Number=Sing))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', (Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Definite=Def|PronType=Art, , Degree=Pos, Number=Sing), (, VerbForm=Inf, VerbForm=Inf, Degree=Pos, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing, , , Degree=Pos, Number=Sing), (Number=Sing, Foreign=Yes, , Number=Sing, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (VerbForm=Inf, ), (Aspect=Prog|Tense=Pres|VerbForm=Part, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (VerbForm=Inf, Aspect=Perf|Tense=Past|VerbForm=Part, Definite=Def|PronType=Art, Number=Plur), (VerbForm=Inf, Aspect=Perf|Tense=Past|VerbForm=Part, Number=Sing, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (VerbForm=Inf, ), (VerbForm=Inf, Number=Plur))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (, VerbForm=Inf, Definite=Ind|PronType=Art, Number=Sing, Case=Nom|Person=2|PronType=Prs), (PronType=Prs, Number=Sing, Number=Sing, Number=Sing, Number=Plur))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (VerbForm=Inf, Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs), (VerbForm=Inf, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (,), (Degree=Cmp,))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Degree=Pos, Number=Sing, ), (Number=Sing, Number=Sing, Number=Sing, Number=Sing, Number=Sing, , Number=Sing, Aspect=Prog|Tense=Pres|VerbForm=Part))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing, , Number=Sing, Aspect=Prog|Tense=Pres|VerbForm=Part, Definite=Def|PronType=Art, Number=Sing, , Number=Sing, ), (Number=Sing, Number=Sing, Number=Sing, Number=Sing, , NumType=Card, Aspect=Perf|Tense=Past|VerbForm=Part, Number=Plur))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Definite=Def|PronType=Art, Degree=Pos, Number=Sing, , Number=Sing, ConjType=Cmp, Number=Sing, , Degree=Pos), (Number=Sing, Number=Sing, Number=Sing, Degree=Pos, Number=Sing, Number=Sing, VerbForm=Inf, , Number=Sing, , Number=Sing, Degree=Pos, Number=Plur, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (, VerbForm=Inf), (VerbForm=Inf, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (VerbForm=Inf, ), (Number=Sing, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing, , , Gender=Neut|Number=Sing|Person=3|Poss=Yes|PronType=Prs, Aspect=Perf|Tense=Past|VerbForm=Part), (Number=Sing, Degree=Pos, , Foreign=Yes, Degree=Pos))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Number=Sing, Number=Sing, Number=Plur))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Degree=Pos, Number=Sing), (Number=Sing, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Plur, Aspect=Prog|Tense=Pres|VerbForm=Part, , Number=Sing|PronType=Dem, Number=Sing), (Number=Sing, Number=Sing, Number=Sing, Number=Sing, Number=Sing, , Number=Sing, Number=Sing, Number=Plur))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Degree=Pos, ConjType=Cmp, Degree=Pos), (Number=Sing, Number=Sing, Number=Sing, , Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing,), (Number=Sing, , Aspect=Perf|Tense=Past|VerbForm=Part))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing, Aspect=Perf|Tense=Past|VerbForm=Part, , Definite=Def|PronType=Art), (Number=Sing, Number=Sing, Number=Sing, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Degree=Pos, Degree=Pos, Number=Sing), (Degree=Pos, Number=Sing, Number=Sing, , Number=Sing, Number=Sing, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (, Number=Sing), (Number=Sing, Number=Sing, , NumType=Card, Number=Sing, ))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Case=Nom|Person=2|PronType=Prs, Tense=Pres|VerbForm=Fin, Case=Nom|Person=2|PronType=Prs, Mood=Ind|Tense=Past|VerbForm=Fin, , Number=Sing, Aspect=Prog|Tense=Pres|VerbForm=Part, Number=Sing|PronType=Dem, Number=Sing, , , , Definite=Def|PronType=Art, Number=Sing, Aspect=Prog|Tense=Pres|VerbForm=Part, Number=Sing|PronType=Dem, Number=Sing, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Degree=Cmp,), (Number=Sing,))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, , Degree=Pos, PunctType=Comm, Degree=Pos, Aspect=Perf|Tense=Past|VerbForm=Part, PunctType=Comm, ConjType=Cmp, , PunctSide=Ini|PunctType=Quot))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', (Number=Sing|Person=3|Tense=Pres|VerbForm=Fin,), (NumType=Ord, PunctSide=Ini|PunctType=Quot, Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin))",3,1.0,0.3333333333333333,0,3,72.20630372492836
+"('insert', (), (, , Degree=Pos, PunctType=Peri, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Gender=Neut|Number=Sing|Person=3|Poss=Yes|PronType=Prs,), (Poss=Yes|PronType=Prs,))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, , VerbForm=Inf, , , Gender=Neut|Number=Sing|Person=3|Poss=Yes|PronType=Prs, Degree=Pos, Number=Sing, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, , , Number=Sing, , Aspect=Prog|Tense=Pres|VerbForm=Part, Definite=Def|PronType=Art, Degree=Pos, Number=Plur, , Number=Sing, , Number=Sing, , Number=Plur, , Degree=Pos, Number=Sing, Number=Sing, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Case=Nom|Person=2|PronType=Prs,), (PronType=Prs,))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Definite=Def|PronType=Art, Number=Plur, Mood=Ind|Tense=Pres|VerbForm=Fin, Degree=Pos, PunctSide=Fin|PunctType=Quot))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', (Degree=Pos,), (Number=Sing, , Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, , VerbForm=Inf, , , Gender=Neut|Number=Sing|Person=3|Poss=Yes|PronType=Prs, Degree=Pos, Number=Sing, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Definite=Ind|PronType=Art, Aspect=Prog|Tense=Pres|VerbForm=Part, Number=Sing, , Degree=Pos, Number=Plur, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Plur,), (Number=Sing, , , Definite=Def|PronType=Art, Degree=Sup, Number=Sing, PunctType=Dash, , PunctType=Dash, Definite=Def|PronType=Art, PunctType=Dash, Number=Plur, Number=Plur, Definite=Def|PronType=Art, Number=Sing, VerbForm=Fin, VerbForm=Inf, , PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Tense=Past|VerbForm=Fin, Number=Plur), (VerbForm=Inf, Number=Sing, , PronType=Rel, Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, , , Degree=Pos, , VerbForm=Inf, Degree=Pos, Degree=Pos, Number=Sing, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing|PronType=Dem, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin), (, ))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing,), (Number=Sing, , , Definite=Def|PronType=Art, Degree=Sup, Number=Sing, PunctType=Dash, , PunctType=Dash, Definite=Def|PronType=Art, PunctType=Dash, Number=Plur, Number=Plur, Definite=Def|PronType=Art, Number=Sing, VerbForm=Fin, VerbForm=Inf, , PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Number=Sing, , Number=Sing, PunctType=Comm, , Tense=Pres|VerbForm=Fin, Number=Sing, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Tense=Past|VerbForm=Fin,), (Number=Plur,))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, VerbForm=Inf, , Degree=Pos, , VerbForm=Inf, Definite=Def|PronType=Art, Degree=Pos, , PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing|PronType=Dem,), (,))",2,1.0,0.5,1,1,91.22171945701358
+"('replace', (Number=Sing,), (Number=Sing, , Mood=Ind|Tense=Pres|VerbForm=Fin, Degree=Cmp, , VerbForm=Inf, , , , Degree=Sup, PunctSide=Ini|PunctType=Quot, , PunctType=Dash, Aspect=Prog|Tense=Pres|VerbForm=Part, PunctSide=Fin|PunctType=Quot, Number=Sing, PunctSide=Ini|PunctType=Quot))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', (Number=Sing, Number=Plur), (Number=Sing, Number=Plur))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing, Number=Plur), (Degree=Pos, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Definite=Ind|PronType=Art, Degree=Pos, NumType=Card, PunctType=Dash, Number=Sing, PunctType=Dash, Degree=Pos, , Degree=Pos, Number=Sing, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (Number=Sing, Number=Sing, ))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', (Definite=Ind|PronType=Art, Degree=Pos), (Number=Sing, Tense=Past|VerbForm=Fin))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing,), (Number=Sing, , VerbForm=Inf, , Degree=Pos, , VerbForm=Inf, Definite=Def|PronType=Art, Degree=Pos, , PunctSide=Ini|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Mood=Ind|Tense=Pres|VerbForm=Fin,), (Number=Sing,))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Plur,), (Number=Sing, , Tense=Pres|VerbForm=Fin, , Definite=Def|PronType=Art, Degree=Cmp, PunctType=Dash, Number=Sing, , Degree=Pos, Number=Sing, Number=Sing, , Degree=Pos, Number=Sing, VerbForm=Fin, , VerbForm=Inf, , Definite=Ind|PronType=Art, Degree=Pos, PunctType=Comm, Degree=Pos, Number=Sing, , Definite=Ind|PronType=Art, Degree=Pos, Number=Sing, PunctType=Peri, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (PunctType=Peri, , NumType=Card))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), (PunctType=Peri, , Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (PunctType=Comm, , ))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (Case=Nom|Number=Sing|Person=1|PronType=Prs, Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), (, , VerbForm=Inf, , Number=Sing, , Number=Sing, ConjType=Cmp, Number=Sing))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), (Case=Nom|Number=Sing|Person=1|PronType=Prs, Degree=Sup, ))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), (Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs, , , Aspect=Perf|Tense=Past|VerbForm=Part, Number=Plur, , Number=Plur, , PunctSide=Ini|PunctType=Quot, Tense=Past|VerbForm=Fin, VerbForm=Inf, Number=Sing, , Number=Sing|PronType=Dem, ConjType=Cmp, Definite=Def|PronType=Art, , Degree=Pos, Number=Plur))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', (,), (, Number=Plur, Degree=Pos, ))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', (Number=Plur,), ())",1,1.0,1.0,0,1,83.86023294509151
+"('delete', (VerbForm=Fin, VerbForm=Inf, Degree=Pos), ())",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing,), (ConjType=Cmp, Degree=Pos, , VerbForm=Inf))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (Definite=Def|PronType=Art, , Aspect=Perf|Tense=Past|VerbForm=Part, PunctSide=Fin|PunctType=Quot, PunctType=Comm, Number=Sing|PronType=Dem))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (PunctType=Comm,), (Number=Sing,))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (Number=Sing, , Degree=Pos))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (,), (, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (ConjType=Cmp, , Tense=Past|VerbForm=Fin), (Number=Sing,))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (,), (, Number=Sing, Definite=Def|PronType=Art, Number=Sing, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Number=Plur, Tense=Pres|VerbForm=Fin))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', (Degree=Sup, Number=Sing, , Definite=Def|PronType=Art, Number=Sing), ())",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (VerbForm=Inf,), (Number=Sing, Number=Plur, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Degree=Cmp,), (Aspect=Perf|Tense=Past|VerbForm=Part, , PunctSide=Fin|PunctType=Quot, Degree=Sup, PunctSide=Fin|PunctType=Quot, Number=Sing, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Number=Sing|PronType=Dem, , , ))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', (Degree=Sup,), (, Degree=Pos, Definite=Ind|PronType=Art))",1,1.0,1.0,1,0,95.40937056318032
+"('delete', (PunctSide=Fin|PunctType=Quot, Aspect=Perf|Tense=Past|VerbForm=Part, ), ())",1,1.0,1.0,1,0,95.40937056318032
+"('replace', (, Number=Sing|PronType=Dem, Degree=Pos, Number=Sing), (,))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), (Definite=Def|PronType=Art, ConjType=Cmp, , PunctType=Comm, Degree=Pos, Number=Plur, Number=Plur))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), (Tense=Past|VerbForm=Fin, , PunctSide=Fin|PunctType=Quot, Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Number=Sing|PronType=Dem, Degree=Pos, Case=Nom|Number=Sing|Person=1|PronType=Prs, , , Number=Sing, , Number=Sing, Aspect=Perf|Tense=Past|VerbForm=Part, VerbForm=Fin, VerbForm=Inf, , Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Case=Nom|Number=Sing|Person=1|PronType=Prs, Tense=Pres|VerbForm=Fin, ConjType=Cmp, VerbForm=Inf, , Definite=Def|PronType=Art, , Degree=Pos, , ))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), (, Number=Sing, ConjType=Cmp, Number=Sing, Tense=Past|VerbForm=Fin))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', (Number=Plur, Mood=Ind|Tense=Pres|VerbForm=Fin, , VerbForm=Inf), (Degree=Pos, Number=Sing))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', (Number=Sing, ConjType=Cmp, Case=Nom|Number=Sing|Person=1|PronType=Prs, Tense=Pres|VerbForm=Fin, Number=Sing|PronType=Dem, Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, , Case=Nom|Number=Sing|Person=1|PronType=Prs, Tense=Past|VerbForm=Fin, , Case=Acc|Gender=Neut|Number=Sing|Person=3|PronType=Prs, , Definite=Def|PronType=Art, Degree=Pos, Number=Plur, Aspect=Perf|Tense=Past|VerbForm=Part, , Definite=Def|PronType=Art, Degree=Pos, ConjType=Cmp, Degree=Pos, Number=Sing), (Number=Sing,))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', (Number=Plur,), (Number=Sing|PronType=Dem, Number=Sing, , , Definite=Def|PronType=Art, Number=Plur, , Degree=Pos, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Degree=Pos,), (Degree=Sup, PunctSide=Fin|PunctType=Quot, Definite=Def|PronType=Art, Number=Sing, , Number=Sing, , Number=Sing, Number=Sing, Definite=Def|PronType=Art, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (Number=Sing|PronType=Dem,))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing|PronType=Dem, Number=Sing), (,))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (,), (Number=Sing|PronType=Dem, Definite=Def|PronType=Art, PunctSide=Ini|PunctType=Quot, Degree=Pos, Number=Sing, , Number=Sing, Number=Sing, ))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (,), (ConjType=Cmp, Number=Sing, Number=Plur))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (Definite=Def|PronType=Art, Definite=Def|PronType=Art, Number=Sing, Degree=Pos, , ConjType=Cmp, Number=Sing|PronType=Dem, , , , ConjType=Cmp, , , PunctSide=Ini|PunctType=Quot, Degree=Pos, Degree=Pos, Degree=Pos, Number=Sing, , , VerbForm=Inf, Number=Sing, , , NumType=Card, Person=2|Poss=Yes|PronType=Prs, , PunctType=Comm, , VerbForm=Inf, Aspect=Prog|Tense=Pres|VerbForm=Part, , Number=Sing, Number=Sing, , PronType=Prs, Tense=Past|VerbForm=Fin, , Number=Sing, Number=Sing, PunctType=Comm, Number=Sing, Definite=Def|PronType=Art, , Number=Sing, , Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, VerbForm=Inf, Degree=Sup, Number=Sing, Person=2|PronType=Prs))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Degree=Pos,), (Number=Sing, Tense=Past|VerbForm=Fin, , ))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (Degree=Cmp, , VerbForm=Fin))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (PronType=Rel, Tense=Past|VerbForm=Fin, NumType=Card, Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs, , Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs, Tense=Pres|VerbForm=Fin, Tense=Past|VerbForm=Fin, VerbForm=Inf, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (,), (, PunctType=Dash, Number=Sing, PunctType=Comm, Number=Sing, Number=Sing, Number=Sing, PunctType=Comm, PunctType=Peri, , Number=Sing, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Definite=Def|PronType=Art, Number=Sing, , Number=Sing, Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Number=Sing, Number=Sing, PunctSide=Fin|PunctType=Quot, Number=Sing, PunctSide=Fin|PunctType=Quot, ConjType=Cmp, ConjType=Cmp, Definite=Ind|PronType=Art, Definite=Def|PronType=Art, Definite=Def|PronType=Art, PunctType=Comm, , Degree=Pos, Number=Sing))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', (VerbForm=Inf, ), (, Mood=Ind|Tense=Pres|VerbForm=Fin, , , Number=Sing))",1,1.0,1.0,1,0,95.40937056318032
+"('delete', (Person=2|Poss=Yes|PronType=Prs, Number=Plur, , , Definite=Def|PronType=Art), ())",1,1.0,1.0,1,0,95.40937056318032
+"('delete', (, , , VerbForm=Inf), ())",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), (PunctSide=Ini|PunctType=Quot, Tense=Past|VerbForm=Fin, Degree=Pos, Number=Sing, Person=2|Poss=Yes|PronType=Prs, Definite=Def|PronType=Art, Degree=Pos, NumType=Card, Number=Plur, , Polarity=Neg, , ))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', (Number=Sing,), (Number=Sing, Mood=Ind|Tense=Pres|VerbForm=Fin, Polarity=Neg))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (VerbForm=Inf, PunctSide=Ini|PunctType=Quot, Degree=Sup, Number=Plur, Definite=Def|PronType=Art, , Number=Sing, ))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (Number=Sing, ))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Definite=Def|PronType=Art, Degree=Sup, Number=Plur, ), (Number=Sing,))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', (Degree=Pos, Number=Sing), ())",1,1.0,1.0,0,1,83.86023294509151
+"('delete', (PunctType=Comm,), ())",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (PunctType=Peri, Degree=Pos))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (Degree=Pos, NumType=Card))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Degree=Pos, PunctType=Peri), (PunctSide=Ini|PunctType=Quot, , Number=Sing, PunctSide=Fin|PunctType=Quot, PunctType=Comm))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (PunctType=Comm,), (Number=Sing, Number=Sing|PronType=Dem, Aspect=Prog|Tense=Pres|VerbForm=Part, , VerbForm=Inf))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', (PronType=Prs,), ())",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (Person=2|Poss=Yes|PronType=Prs, NumType=Card, Number=Sing|PronType=Dem, Degree=Pos, Number=Sing, , Definite=Def|PronType=Art, , Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, ConjType=Cmp, VerbForm=Inf, Degree=Sup))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (Degree=Pos, , VerbForm=Inf, , PunctSide=Fin|PunctType=Quot, PunctType=Comm, , , Person=2|PronType=Prs, Number=Sing, , , Definite=Def|PronType=Art, Number=Sing, , ConjType=Cmp, ConjType=Cmp, , , ))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Case=Acc|Person=2|PronType=Prs, , Definite=Def|PronType=Art, Degree=Pos), (Number=Sing, , Number=Sing, PunctType=Comm, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (PunctType=Comm, ConjType=Cmp, Tense=Past|VerbForm=Fin, , Person=2|Poss=Yes|PronType=Prs, Degree=Pos), (, , Number=Sing, Aspect=Prog|Tense=Pres|VerbForm=Part, PronType=Prs))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', (Number=Sing, Number=Sing, NumType=Card, Number=Sing, , , Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, , , Aspect=Prog|Tense=Pres|VerbForm=Part, , VerbForm=Inf, , , Definite=Def|PronType=Art, Degree=Sup, , ConjType=Cmp, , , Number=Sing, Number=Sing, Number=Sing, , Number=Sing|PronType=Dem, ConjType=Cmp, , Degree=Pos, Number=Sing), ())",1,1.0,1.0,0,1,83.86023294509151
+"('delete', (VerbForm=Inf, Polarity=Neg), ())",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (Number=Sing, PunctType=Peri, VerbForm=Inf, PunctType=Comm, Polarity=Neg, , Definite=Ind|PronType=Art, PunctType=Comm, PunctSide=Ini|PunctType=Quot, , PunctType=Dash, Number=Sing, Number=Sing, PunctType=Comm, , Definite=Def|PronType=Art, ConjType=Cmp, Number=Sing, Degree=Pos, Number=Sing, Number=Sing, Number=Plur, Number=Sing, PunctSide=Fin|PunctType=Quot, Tense=Past|VerbForm=Fin, Definite=Def|PronType=Art, Definite=Def|PronType=Art))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (ConjType=Cmp, Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('delete', (Number=Sing, Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Definite=Ind|PronType=Art, Degree=Pos, PunctType=Comm), ())",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (ConjType=Cmp, , VerbForm=Inf, Person=2|Poss=Yes|PronType=Prs, Number=Plur, , Degree=Pos, PunctType=Comm, Degree=Pos, Number=Sing, Number=Plur, Tense=Pres|VerbForm=Fin, Number=Sing, Number=Sing, Number=Sing, Number=Plur, PunctSide=Ini|PunctType=Quot, Degree=Pos, Number=Sing, , Degree=Pos, Definite=Ind|PronType=Art, Number=Sing, Definite=Def|PronType=Art))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Number=Sing, Number=Plur, PunctType=Peri))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (PunctType=Comm, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (, Number=Sing, PunctType=Comm, VerbForm=Inf, ConjType=Cmp, VerbForm=Inf, PunctSide=Ini|PunctType=Quot, VerbForm=Inf, VerbForm=Inf), (,))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing, PunctType=Peri), (PunctSide=Ini|PunctType=Quot, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (VerbForm=Fin,), (Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs, Aspect=Perf|Tense=Past|VerbForm=Part, , PunctType=Peri, Number=Sing, , VerbForm=Inf, PunctType=Comm, , Degree=Pos, Number=Sing, Tense=Past|VerbForm=Fin, Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, PunctType=Comm, VerbForm=Inf, Definite=Ind|PronType=Art, Number=Sing, NumType=Card, PunctSide=Ini|PunctType=Quot, ConjType=Cmp, Definite=Def|PronType=Art, Degree=Pos, ConjType=Cmp, VerbForm=Inf, Degree=Cmp, , Definite=Def|PronType=Art))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (Number=Sing, Number=Sing, VerbType=Mod, VerbForm=Inf, Definite=Def|PronType=Art, Number=Plur, ))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Degree=Cmp, , Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs, Tense=Past|VerbForm=Fin, , Aspect=Perf|Tense=Past|VerbForm=Part, , NumType=Card, Number=Sing, Degree=Cmp), (PunctType=Comm, , PunctType=Dash, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, , , Degree=Pos, , VerbForm=Inf, Aspect=Perf|Tense=Past|VerbForm=Part, , Number=Sing, , Number=Sing, PunctSide=Fin|PunctType=Quot))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), (, Number=Plur, ConjType=Cmp, Number=Sing, VerbForm=Inf, Number=Plur|Person=3|Poss=Yes|PronType=Prs, Degree=Pos, Number=Plur, , Degree=Pos, Number=Sing, , Number=Sing|PronType=Dem, Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Aspect=Prog|Tense=Pres|VerbForm=Part, Gender=Neut|Number=Sing|Person=3|PronType=Prs, Definite=Def|PronType=Art, Degree=Pos, Number=Sing, Number=Sing, PunctType=Peri, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs, Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, , Degree=Pos, , VerbForm=Inf, , Definite=Ind|PronType=Art, Number=Sing, , Aspect=Prog|Tense=Pres|VerbForm=Part, PunctType=Comm, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Definite=Ind|PronType=Art, Degree=Pos, Number=Sing, PunctType=Comm, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Degree=Pos, ConjType=Cmp, Degree=Pos, Number=Plur, ConjType=Cmp, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Definite=Ind|PronType=Art, Degree=Pos, Number=Sing, , VerbForm=Inf, Definite=Ind|PronType=Art, Number=Sing, Number=Sing, PronType=Rel, Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Degree=Pos, Degree=Pos, , VerbForm=Inf, PunctType=Peri, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (Degree=Pos, ConjType=Cmp, ))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (Number=Sing, Case=Nom|Person=2|PronType=Prs, Tense=Pres|VerbForm=Fin, NumType=Mult, PunctSide=Ini|PunctType=Brck, , , PunctSide=Fin|PunctType=Brck, PunctType=Comm, Case=Nom|Person=2|PronType=Prs, VerbForm=Fin, VerbForm=Inf, , Aspect=Perf|Tense=Past|VerbForm=Part, Definite=Def|PronType=Art, Number=Sing, , Definite=Def|PronType=Art, Number=Sing, Case=Nom|Person=2|PronType=Prs, Tense=Pres|VerbForm=Fin, , , Person=2|Poss=Yes|PronType=Prs, Number=Sing, , Definite=Def|PronType=Art, Number=Sing, Number=Sing, PunctType=Peri, ))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Degree=Pos,), (Number=Sing, , Number=Sing, Number=Sing, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), (Number=Plur, ConjType=Cmp, Number=Sing, VerbForm=Inf, Number=Plur|Person=3|Poss=Yes|PronType=Prs, Degree=Pos, Number=Plur, , Degree=Pos, Number=Sing, , Number=Sing|PronType=Dem, Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Aspect=Prog|Tense=Pres|VerbForm=Part, Gender=Neut|Number=Sing|Person=3|PronType=Prs, Definite=Def|PronType=Art, Degree=Pos, Number=Sing, Number=Sing, PunctType=Peri, ))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing,), (Number=Sing|PronType=Dem, Degree=Pos, PunctType=Comm, Degree=Pos, Number=Sing, PunctSide=Fin|PunctType=Quot, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Definite=Def|PronType=Art, Number=Sing, , Definite=Def|PronType=Art, Number=Sing, Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, , Number=Plur|PronType=Dem, Number=Plur, PunctType=Comm, Degree=Pos, , Case=Acc|Number=Plur|Person=3|PronType=Prs|Reflex=Yes, PunctType=Comm, VerbForm=Inf, Definite=Ind|PronType=Art, Degree=Pos, Number=Sing, , Definite=Def|PronType=Art, Number=Sing, Number=Sing, , Number=Sing, Number=Sing, PunctType=Dash, Number=Sing, PunctType=Peri, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, PunctType=Comm, Number=Plur, PunctType=Comm, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, PunctType=Comm, Number=Plur, PunctType=Comm, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, ConjType=Cmp, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, PunctSide=Fin|PunctType=Quot))",2,1.0,0.5,0,2,77.59815242494227
+"('replace', (Degree=Sup,), (,))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, , Number=Plur, Tense=Pres|VerbForm=Fin, Case=Acc|Person=2|PronType=Prs, , , Number=Plur|Person=3|Poss=Yes|PronType=Prs, Number=Plur, PunctType=Comm, PunctSide=Fin|PunctType=Quot))",2,1.0,0.5,0,2,77.59815242494227
+"('insert', (), (Number=Sing, PunctType=Comm, ConjType=Cmp, Degree=Pos, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Number=Sing, ConjType=Cmp, , PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Degree=Sup, Degree=Pos, PunctType=Comm, Degree=Pos, PunctType=Comm, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Definite=Def|PronType=Art,), (Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, PunctType=Comm, Number=Plur, PunctType=Comm, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, PunctType=Comm, Number=Plur, PunctType=Comm, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, ConjType=Cmp, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, , Degree=Pos))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Number=Sing, , Degree=Pos, , Number=Sing, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Definite=Ind|PronType=Art,), (Number=Sing, , Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Number=Plur, Degree=Pos, Number=Sing, , Definite=Ind|PronType=Art, Degree=Pos, Number=Sing, Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Definite=Ind|PronType=Art, Number=Sing, , Degree=Pos, Number=Sing, PunctType=Comm, Definite=Ind|PronType=Art, Number=Sing, , Definite=Def|PronType=Art, Number=Sing, , Number=Plur, , VerbForm=Inf, PunctType=Peri))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Foreign=Yes, Degree=Pos, ConjType=Cmp, Degree=Pos, , Number=Sing, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Aspect=Perf|Tense=Past|VerbForm=Part,), (Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Definite=Def|PronType=Art, Number=Sing, , Number=Sing, Number=Plur, Mood=Ind|Tense=Pres|VerbForm=Fin, Degree=Cmp, , Number=Sing, , Number=Sing, Number=Sing, , Number=Sing, PunctSide=Fin|PunctType=Quot, Aspect=Perf|Tense=Past|VerbForm=Part))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing,), (Number=Sing, , Number=Sing, Definite=Def|PronType=Art, Number=Sing, , Number=Sing, Number=Plur, Mood=Ind|Tense=Pres|VerbForm=Fin, Degree=Cmp, , Number=Sing, , Number=Sing, Number=Sing, , Number=Sing, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), (, Number=Sing, Definite=Ind|PronType=Art, Degree=Pos, Degree=Pos, Number=Sing, Number=Sing, Tense=Past|VerbForm=Fin, Number=Sing, Number=Sing, PronType=Rel, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, NumType=Card, , Definite=Def|PronType=Art, Degree=Sup, , Number=Plur, ))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), (, Number=Sing, Degree=Pos, Number=Sing, , Number=Plur, ))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), (, Number=Sing, Degree=Pos, ConjType=Cmp, Degree=Pos, , Number=Sing, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Degree=Pos,), (Number=Plur, , Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, NumType=Card, Aspect=Perf|Tense=Past|VerbForm=Part, , Number=Sing, Number=Sing, ConjType=Cmp, Number=Sing, Number=Sing, PunctType=Peri))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (Number=Sing, Degree=Pos, ConjType=Cmp, Degree=Pos, , Number=Sing, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Degree=Pos, Number=Sing), (Number=Sing, Number=Sing, , Degree=Pos, PunctType=Comm, Degree=Pos, PunctType=Comm, ConjType=Cmp, Number=Sing, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing,), (Number=Sing, , , Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs, Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Number=Sing, Aspect=Prog|Tense=Pres|VerbForm=Part, PunctType=Comm, ConjType=Cmp, , Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Number=Sing, Degree=Pos, , Number=Sing|PronType=Dem, , Definite=Def|PronType=Art, Number=Sing, Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Degree=Pos, PunctType=Dash, Aspect=Perf|Tense=Past|VerbForm=Part, ConjType=Cmp, Number=Sing|PronType=Dem, Number=Sing, Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, PunctType=Peri, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Plur,), (Number=Sing, , Mood=Ind|Tense=Pres|VerbForm=Fin, Definite=Ind|PronType=Art, Number=Sing, , Definite=Def|PronType=Art, Number=Sing, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (VerbForm=Inf,), (VerbForm=Inf, , Definite=Def|PronType=Art, Number=Sing, PunctType=Comm, Definite=Ind|PronType=Art, Number=Sing, , Degree=Pos, PunctType=Dash, Number=Sing, PunctType=Comm, PronType=Rel, Mood=Ind|Tense=Pres|VerbForm=Fin, Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs, Degree=Pos, , PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,1,0,95.40937056318032
+"('insert', (), (, Definite=Def|PronType=Art, Number=Sing, PunctType=Comm, Definite=Ind|PronType=Art, Number=Sing, , Degree=Pos, PunctType=Dash, Number=Sing, PunctType=Comm, PronType=Rel, Tense=Pres|VerbForm=Fin, Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs, Degree=Pos, , PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (NumType=Card, Number=Sing), (Number=Sing, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (Definite=Def|PronType=Art, Degree=Pos, Number=Sing, ConjType=Cmp, Degree=Pos, Number=Sing, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Aspect=Prog|Tense=Pres|VerbForm=Part,), (Aspect=Prog|Tense=Pres|VerbForm=Part,))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Degree=Pos, PunctType=Dash, Number=Sing, Number=Sing, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Definite=Def|PronType=Art, Number=Sing), (Degree=Pos, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('insert', (), (, Mood=Ind|Tense=Pres|VerbForm=Fin, Definite=Ind|PronType=Art, Number=Sing, , Definite=Def|PronType=Art, Number=Sing, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing,), (Number=Sing, , Tense=Pres|VerbForm=Fin, , Number=Sing, , Definite=Ind|PronType=Art, Number=Sing, Case=Nom|Person=2|PronType=Prs, VerbForm=Fin, VerbForm=Inf, PunctSide=Fin|PunctType=Quot))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (,), (VerbForm=Inf, Definite=Ind|PronType=Art, Number=Sing, , Definite=Def|PronType=Art, Number=Sing|PronType=Ind, PunctSide=Fin|PunctType=Quot, ))",1,1.0,1.0,1,0,95.40937056318032
+"('replace', (Number=Sing|Person=3|Tense=Pres|VerbForm=Fin,), (Tense=Past|VerbForm=Fin,))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing, Number=Sing|Person=3|Tense=Pres|VerbForm=Fin, Aspect=Perf|Tense=Past|VerbForm=Part), (Number=Sing, Number=Sing, Number=Sing))",1,1.0,1.0,0,1,83.86023294509151
+"('replace', (Number=Sing, Aspect=Prog|Tense=Pres|VerbForm=Part), (Number=Sing, Tense=Pres|VerbForm=Fin))",1,1.0,1.0,0,1,83.86023294509151

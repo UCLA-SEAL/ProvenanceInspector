@@ -38,10 +38,6 @@ class TextFetch:
         self.syntactic_features = features
         self.syntactic_text = texts
 
-    """
-    NOTE: Return to this so that I only precompute the POS tags prior to converting
-          them into their condensed representations...otherwise, the query features will not match...
-    """
     def compute_morphological_features(self) -> None:
         features, texts = self.morphological_featurizer.extract_features(self.texts)
         self.morphological_features = features
@@ -100,7 +96,7 @@ if __name__ == "__main__":
     from time import perf_counter
     from datasets import load_dataset
 
-    dataset = load_dataset("glue", "sst2", split="train[:100]")
+    dataset = load_dataset("glue", "sst2", split="train[:1000]")
     dataset = dataset.rename_column("sentence", "text")
 
     text_fetcher = TextFetch(dataset['text'])
@@ -111,6 +107,8 @@ if __name__ == "__main__":
 
     query = "long streaks of hilarious gags in this movie"
 
+    print(f"query: {query}")
+
     linguistic_features = ["semantic", "syntactic", "morphological"] #, "phonological"]
 
     for lf in linguistic_features:
@@ -120,4 +118,23 @@ if __name__ == "__main__":
         print(f"{lf} search ({round(perf_counter() - start_time, 2)}s)")
         for text, score in zip(ranking, scores):
             print(f"score: {round(score, 2)} | text: {text}")
+
+    # (dpml) ~\dpml\lineage\search>python textfetch.py
+    # precomputation took 16.57 seconds
+    # query: long streaks of hilarious gags in this movie
+
+    # semantic search (0.1s)
+    # score: 0.87 | text: rich veins of funny stuff in this movie
+    # score: 0.79 | text: more than another `` best man '' clone by weaving a theme throughout this funny film
+    # score: 0.77 | text: , this gender-bending comedy is generally quite funny .
+
+    # syntactic search (1.18s)
+    # score: 1.0 | text: rich veins of funny stuff in this movie
+    # score: 0.4099999964237213 | text: a sour taste in one 's mouth
+    # score: 0.4099999964237213 | text: we never feel anything for these characters
+
+    # morphological search (0.19s)
+    # score: 1.0 | text: rich veins of funny stuff in this movie
+    # score: 0.75 | text: by far the worst movie of the year
+    # score: 0.75 | text: sharp edges and a deep vein of sadness
         

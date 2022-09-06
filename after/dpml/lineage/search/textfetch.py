@@ -83,8 +83,6 @@ class TextFetch:
             top_n = len(t_texts)
 
         q_feats, q_texts = ranker.extract_features([query])
-        print(q_texts)
-        print(q_feats)
 
         z = ranker.calculate_similarity_vector(q_feats[0], t_feats)
 
@@ -109,9 +107,9 @@ if __name__ == "__main__":
 
     start_time = perf_counter()
     text_fetcher.compute_features()
-    print(f"precomputation took {round(perf_counter() - start_time, 2)} seconds \n")
+    print(f"precomputation took {round(perf_counter() - start_time, 2)} seconds")
 
-    query = "long streaks of hilarious gags in that film"
+    query = "long streaks of hilarious gags in this movie"
 
     linguistic_features = ["semantic", "syntactic", "morphological"] #, "phonological"]
 
@@ -119,7 +117,7 @@ if __name__ == "__main__":
         print()
         start_time = perf_counter()
         ranking, scores = text_fetcher.search(query, lf, top_n=3)
-        print(f"{lf} search took {round(perf_counter() - start_time, 2)} seconds")
+        print(f"{lf} search ({round(perf_counter() - start_time, 2)}s)")
         for text, score in zip(ranking, scores):
             print(f"score: {round(score, 2)} | text: {text}")
         

@@ -29,22 +29,26 @@ class TextFetch:
         self.phonological_features = None
 
     def compute_semantic_features(self) -> None:
-        features, texts = self.semantic_featurizer(self.texts)
+        features, texts = self.semantic_featurizer.extract_features(self.texts)
         self.semantic_features = features
         self.semantic_text = texts
 
     def compute_syntactic_features(self) -> None:
-        features, texts = self.syntactic_featurizer(self.texts)
+        features, texts = self.syntactic_featurizer.extract_features(self.texts)
         self.syntactic_features = features
         self.syntactic_text = texts
 
+    """
+    NOTE: Return to this so that I only precompute the POS tags prior to converting
+          them into their condensed representations...otherwise, the query features will not match...
+    """
     def compute_morphological_features(self) -> None:
-        features, texts = self.morphological_featurizer(self.texts)
+        features, texts = self.morphological_featurizer.extract_features(self.texts)
         self.morphological_features = features
         self.morphological_text = texts
 
     def compute_phonological_features(self) -> None:
-        features, texts = self.phonological_featurizer(self.texts)
+        features, texts = self.phonological_featurizer.extract_features(self.texts)
         self.phonological_features = features
         self.phonological_features = texts
 
@@ -78,9 +82,11 @@ class TextFetch:
         if top_n == -1:
             top_n = len(t_texts)
 
-        q_feats, q_texts = self.extract_features(query)
+        q_feats, q_texts = ranker.extract_features([query])
+        print(q_texts)
+        print(q_feats)
 
-        z = ranker.calculate_similarity_vector(q_feats, t_feats)
+        z = ranker.calculate_similarity_vector(q_feats[0], t_feats)
 
         # rank based on similarity
         rank_idx = np.argsort(z)[::-1]
@@ -96,21 +102,21 @@ if __name__ == "__main__":
     from time import perf_counter
     from datasets import load_dataset
 
-    dataset = load_dataset("glue", "sst2", split="test[:100]")
+    dataset = load_dataset("glue", "sst2", split="train[:100]")
     dataset = dataset.rename_column("sentence", "text")
-    texts = dataset['text']
-    print(len(texts))
-    text_fetcher = TextFetch(texts)
+
+    text_fetcher = TextFetch(dataset['text'])
 
     start_time = perf_counter()
     text_fetcher.compute_features()
-    print(f"precomputation took {round(perf_counter() - start_time, 2)} seconds")
+    print(f"precomputation took {round(perf_counter() - start_time, 2)} seconds \n")
 
-    query = "I cannot believe how dumb this movie is"
+    query = "long streaks of hilarious gags in that film"
 
     linguistic_features = ["semantic", "syntactic", "morphological"] #, "phonological"]
 
     for lf in linguistic_features:
+        print()
         start_time = perf_counter()
         ranking, scores = text_fetcher.search(query, lf, top_n=3)
         print(f"{lf} search took {round(perf_counter() - start_time, 2)} seconds")

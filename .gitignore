@@ -12,6 +12,7 @@ after/TextAttack/examples/augmentation/examples.csv
 
 # db logs
 after/dpml/lineage/storage/dpml.csv
+after/dpml/lineage/storage/transform.csv
 
 # checkpoints
 after/checkpoints/

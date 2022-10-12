@@ -22,7 +22,8 @@ from . import (
     config,
     storage,
     analysis,
-    commands
+    commands,
+    search
 )
 
 name = "dpml"

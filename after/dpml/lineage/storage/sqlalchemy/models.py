@@ -1,5 +1,5 @@
 from sqlalchemy import Table, Column, ForeignKey
-from sqlalchemy import Integer, String, DateTime, TEXT, Enum, JSON, Boolean
+from sqlalchemy import Integer, String, DateTime, TEXT, Enum, JSON, Boolean, ARRAY
 from sqlalchemy.orm import declarative_base, relationship
 from sqlalchemy.sql import func
 
@@ -80,6 +80,55 @@ class TransformApplied(Base):
     run_id = Column(Integer, ForeignKey("Run.id"))
     batch_id = Column(Integer)
     # created_at = Column(DateTime(timezone=True), server_default=func.now())
+
+class DocumentContextualEmbeddings(Base):
+
+    __tablename__ = "DocumentContextualEmbeddings"
+
+    # columns
+    id = Column(Integer, primary_key=True)
+    record_id = Column(Integer, ForeignKey("Record.id"))
+    feature = Column(ARRAY)
+
+class AbstractMeaningRepresentations(Base):
+
+    __tablename__ = "AbstractMeaningRepresentations"
+
+    # columns
+    id = Column(Integer, primary_key=True)
+    record_id = Column(Integer, ForeignKey("Record.id"))
+    feature = Column(String)
+
+class DependencyParseTrees(Base):
+
+    __tablename__ = "DependencyParseTrees"
+
+    # columns
+    id = Column(Integer, primary_key=True)
+    record_id = Column(Integer, ForeignKey("Record.id"))
+    sentence_index = Column(Integer)
+    feature = Column(JSON)
+
+class PartOfSpeachSequences(Base):
+
+    __tablename__ = "PartOfSpeachSequences"
+
+    # columns
+    id = Column(Integer, primary_key=True)
+    record_id = Column(Integer, ForeignKey("Record.id"))
+    sentence_index = Column(Integer)
+    feature = Column(String)
+
+class PhonologicalRhythms(Base):
+
+    __tablename__ = "PhonologicalRhythms"
+
+    # columns
+    id = Column(Integer, primary_key=True)
+    record_id = Column(Integer, ForeignKey("Record.id"))
+    sentence_index = Column(Integer)
+    feature = Column(String)
+
 
 # # model tables
 # class ModelFramework(Base):

@@ -88,7 +88,7 @@ class DocumentContextualEmbeddings(Base):
     # columns
     id = Column(Integer, primary_key=True)
     record_id = Column(Integer, ForeignKey("Record.id"))
-    feature = Column(ARRAY)
+    feature = Column(ARRAY(String))
 
 class AbstractMeaningRepresentations(Base):
 

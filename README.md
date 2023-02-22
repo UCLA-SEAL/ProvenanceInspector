@@ -1,6 +1,17 @@
 # dpml
 Data Provenance for Machine Learning
 
+## about
+A part of this project is a software engineering tool with a web-app interface,
+targeted at debugging and interpretability of NLP transformations, models, labeling, etc.
+
+Main functionalities include :
+  * **inspecting** transformation provenance and lineage
+  * **analyzing** stats on transformation effect, quality
+  * **exploring** feature-similar texts
+  * **debugging** via feature visualization
+
+
 ## software components
 
 ### **lineage**

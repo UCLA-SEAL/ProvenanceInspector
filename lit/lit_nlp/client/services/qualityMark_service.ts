@@ -1,8 +1,7 @@
-import { action, computed, observable, reaction } from "mobx";
+import {action, computed, observable, reaction} from "mobx";
 
-
-import { LitService } from "./lit_service";
-import { AppState } from "./state_service";
+import {LitService} from "./lit_service";
+import {AppState} from "./state_service";
 
 export class QualityMarkService extends LitService {
 

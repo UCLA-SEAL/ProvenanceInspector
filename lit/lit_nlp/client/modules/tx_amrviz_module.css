@@ -1,0 +1,8 @@
+p {
+  padding: 1em;
+  word-wrap: break-word;
+}
+
+.padded-container {
+  padding: 4px 8px;
+}

@@ -81,7 +81,7 @@ export class TxProvenanceModule extends LitModule {
     if (this.selectedInputData.length == 0) return
     this.isLoading = true
     const promise = this.apiService.getTxProvTraces(
-      this.selectedInputData, undefined, 'Fetching attention'
+      this.selectedInputData, undefined, 'Fetching tx provenance traces'
     )
     const res = await this.loadLatest('tx_prov_traces', promise)
     if (res == null) return
@@ -307,15 +307,20 @@ export class TxProvenanceModule extends LitModule {
           <li>
             Text id — ${tokenizedTexts[0].textId}
           </li>
-          <li>
-            Tx info — p l a c e h o l d e r
-          </li>
-          <li>
-            Attack outcome —
-              <span style="font-weight: bolder; color: ${tokenizedTexts[0].label == tokenizedTexts[tokenizedTexts.length-1].label ? "red" : "green"};">
-                ${tokenizedTexts[0].label == tokenizedTexts[tokenizedTexts.length-1].label ? "Fail" : "Success" }
-              </span>
-          </li>
+          ${
+            null
+            /*
+              <li>
+                Tx info — p l a c e h o l d e r
+              </li>
+              <li>
+                Attack outcome —
+                  <span style="font-weight: bolder; color: ${tokenizedTexts[0].label == tokenizedTexts[tokenizedTexts.length-1].label ? "red" : "green"};">
+                    ${tokenizedTexts[0].label == tokenizedTexts[tokenizedTexts.length-1].label ? "Fail" : "Success" }
+                  </span>
+              </li>
+            */
+          }
         </ul>
         ${svg`
           <svg width=${traceWidth} height=${traceHeight} font-family="${fontFamily}" font-size="${fontSize}px">

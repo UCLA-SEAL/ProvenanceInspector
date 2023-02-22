@@ -15,7 +15,9 @@
  * limitations under the License.
  */
 
+import {LitTypeTypesList} from '../lib/lit_types';
 import {CallConfig, IndexedInput, LitMetadata, Preds} from '../lib/types';
+import {deserializeLitTypesInLitMetadata, getTypeNames} from '../lib/utils';
 
 import {LitService} from './lit_service';
 import {StatusService} from './status_service';
@@ -84,7 +86,8 @@ export class ApiService extends LitService {
    */
   async getInfo(): Promise<LitMetadata> {
     const loadMessage = 'Loading metadata';
-    return this.queryServer<LitMetadata>('/get_info', {}, [], loadMessage);
+    return this.queryServer<LitMetadata>('/get_info', {}, [], loadMessage)
+        .then((metadata) => deserializeLitTypesInLitMetadata(metadata));
   }
 
   /**
@@ -93,17 +96,21 @@ export class ApiService extends LitService {
    * @param model model to query
    * @param datasetName current dataset (for caching)
    * @param requestedTypes datatypes to request
+   * @param requestedFields optional fields to request
    * @param loadMessage optional loading message to display in toolbar
    */
   getPreds(
       inputs: IndexedInput[], model: string, datasetName: string,
-      requestedTypes: string[], loadMessage?: string): Promise<Preds[]> {
+      requestedTypes: LitTypeTypesList, requestedFields?: string[],
+      loadMessage?: string): Promise<Preds[]> {
     loadMessage = loadMessage || 'Fetching predictions';
+    requestedFields = requestedFields || [];
     return this.queryServer(
         '/get_preds', {
           'model': model,
           'dataset_name': datasetName,
-          'requested_types': requestedTypes.join(','),
+          'requested_types': getTypeNames(requestedTypes).join(','),
+          'requested_fields': requestedFields.join(','),
         },
         inputs, loadMessage);
   }
@@ -149,6 +156,14 @@ export class ApiService extends LitService {
         inputs);
   }
 
+  fetchNewData(savedDatapointsId: string): Promise<IndexedInput[]> {
+    return this.queryServer<IndexedInput[]>(
+        '/fetch_new_data', {
+          'saved_datapoints_id': savedDatapointsId,
+        },
+        []);
+  }
+
   /**
    * Calls the server to run an interpretation component.
    * @param inputs inputs to run on
@@ -183,10 +198,64 @@ export class ApiService extends LitService {
     inputs: IndexedInput[],
     config?: CallConfig,
     loadMessage?: string
-  ): Promise<object[][]> {    
+  ): Promise<object[][]> {
     return this.queryServer('/get_txProv_traces', {},
       inputs,
       loadMessage ?? 'Fetching transformation provenance traces',
+      config
+    )
+  }
+
+  /**
+   * Calls the server to get (lineage) transformation provenance stats
+   * @param inputs inputs to run on
+   * @param config: configuration to send to backend (optional)
+   * @param loadMessage: loading message to show to user (optional)
+   */
+  getTxProvStats(
+    inputs: IndexedInput[],
+    config?: CallConfig,
+    loadMessage?: string
+  ): Promise<any> {
+    return this.queryServer('/get_txProv_stats', {},
+      inputs,
+      loadMessage ?? 'Fetching transformation provenance stats',
+      config
+    )
+  }
+
+  /**
+   * Calls the server to get (lineage) transformation provenance stats
+   * @param inputs inputs to run on
+   * @param config: configuration to send to backend (optional)
+   * @param loadMessage: loading message to show to user (optional)
+   */
+  getTxProvTextFetch(
+    inputs: IndexedInput[],
+    config?: CallConfig,
+    loadMessage?: string
+  ): Promise<any> {
+    return this.queryServer('/get_txProv_textfetch', {},
+      inputs,
+      loadMessage ?? 'Fetching transformation provenance textfetch',
+      config
+    )
+  }
+
+  /**
+   * Calls the server to get AMR penman graphs
+   * @param inputs inputs to run on
+   * @param config: configuration to send to backend (optional)
+   * @param loadMessage: loading message to show to user (optional)
+   */
+  getTxProvAmr(
+    inputs: IndexedInput[],
+    config?: CallConfig,
+    loadMessage?: string
+  ): Promise<any> {
+    return this.queryServer('/get_txProv_amr', {},
+      inputs,
+      loadMessage ?? 'Fetching AMR',
       config
     )
   }
@@ -224,6 +293,20 @@ export class ApiService extends LitService {
   }
 
   /**
+   * Push UI state to the server.
+   * @param selection current selection
+   * @param datasetName dataset being used,
+   * @param config additional params to pass to UIStateTracker.update_state()
+   */
+  pushState(
+      selection: IndexedInput[], datasetName: string, config?: CallConfig) {
+    const loadMessage = 'Syncing UI state.';
+    return this.queryServer(
+        '/push_ui_state', {'dataset_name': datasetName}, selection, loadMessage,
+        config);
+  }
+
+  /**
    * Send a standard request to the server.
    * @param endpoint server endpoint, like /get_preds
    * @param params query params
@@ -237,13 +320,16 @@ export class ApiService extends LitService {
     // we can simply look these up on the server.
     // TODO: consider sending the metadata as well, since this might be changed
     // from the frontend.
-    const processedInputs: Array<IndexedInput|string|number> =
-      inputs.map(input => {
-        if (!input.meta['added']) {
-          return input.idx ?? input.id;
-        }
-        return input;
-      });
+    const processedInputs: Array<IndexedInput|string|number> = inputs.map(input => {
+      if (
+        !input.meta['added'] &&
+        input.meta['source'] != 'TxDebug' &&
+        input.meta['source'] != 'TxTextFetch'
+      ) {
+        return input.idx ?? input.id;
+      }
+      return input;
+    });
 
     const paramsArray =
         Object.keys(params).map((key: string) => `${key}=${params[key]}`);
@@ -256,7 +342,8 @@ export class ApiService extends LitService {
         const text = await res.text();
         throw (new Error(text));
       }
-      const json = await res.json();
+      let json = await res.json();
+      if (typeof json == "string") json = JSON.parse(json)
       finished();
       // When a call finishes, clear any previous error of the same call.
       this.statusService.removeError(url);
@@ -276,4 +363,3 @@ export class ApiService extends LitService {
     }
   }
 }
-

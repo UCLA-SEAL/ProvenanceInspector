@@ -9,7 +9,10 @@ datasets just contain regular Python/NumPy data.
 from lit_nlp.api import dataset as lit_dataset
 from lit_nlp.api import types as lit_types
 
+from absl import logging
+
 import tensorflow_datasets as tfds
+import csv
 
 
 def load_tfds(*args, do_sort=True, **kw):
@@ -54,7 +57,7 @@ class SST2Data(lit_dataset.Dataset):
   See https://www.tensorflow.org/datasets/catalog/glue#gluesst2.
   """
 
-  LABELS = ['0', '1']
+  LABELS = ['negative', 'positive']
 
   def __init__(self, split: str):
     self._examples = []
@@ -70,6 +73,40 @@ class SST2Data(lit_dataset.Dataset):
         'label': lit_types.CategoryLabel(vocab=self.LABELS)
     }
 
+class RankedSST2Data(lit_dataset.Dataset):
+  """Stanford Sentiment Treebank, binary version (SST-2).
+
+  See https://www.tensorflow.org/datasets/catalog/glue#gluesst2.
+  """
+
+  LABELS = ['negative', 'positive']
+  LLM_LABELS = ['negative', 'positive', 'neutral']
+
+  def __init__(self, split: str):
+    self._examples = []
+    # for ex in load_tfds('glue/sst2', split=split):
+    with open('llm_annotated.csv', 'r') as f:
+      reader = csv.DictReader(f)
+      
+      for row in reader: 
+        self._examples.append({
+            'sentence': row['text'],
+            'label': self.LABELS[int(row['label'])],
+            'llm_label': self.LLM_LABELS[int(row['llm_label'])],
+            'llm_explanation': row['llm_explanation'],
+            'different_label': row['different_label'],
+            'features': row['features'],
+            'transforms': row['transforms'],
+        })
+      logging.info('loaded Ranked SST2 dataset. Length of dataset is ' + str(len(self._examples)))
+      logging.info('one row is ' + str(self._examples[0]))
+    # logging.info('done init RankedSST2Data')
+
+  def spec(self):
+    return {
+        'sentence': lit_types.TextSegment(),
+        'label': lit_types.CategoryLabel(vocab=self.LABELS)
+    }
 
 class MRPCData(lit_dataset.Dataset):
   """Microsoft Research Paraphrase Corpus.
@@ -77,7 +114,7 @@ class MRPCData(lit_dataset.Dataset):
   See https://www.tensorflow.org/datasets/catalog/glue#gluemrpc.
   """
 
-  LABELS = ['0', '1']
+  LABELS = ['positive', 'negative']
 
   def __init__(self, split: str):
     self._examples = []

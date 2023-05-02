@@ -29,11 +29,11 @@ import {action, computed, observable} from 'mobx';
 import {app} from '../core/app';
 import {LitModule} from '../core/lit_module';
 import {ColumnHeader, DataTable, TableData} from '../elements/table';
-import {BooleanLitType, LitType, LitTypeWithVocab} from '../lib/lit_types';
+import {BooleanLitType, LitType, LitTypeWithVocab, TextSegment} from '../lib/lit_types';
 import {styles as sharedStyles} from '../lib/shared_styles.css';
 import {formatForDisplay, IndexedInput, ModelInfoMap, Spec} from '../lib/types';
 import {compareArrays} from '../lib/utils';
-import {DataService, FocusService, QualityMarkService, SelectionService, SliceService} from '../services/services';
+import {DataService, FocusService, QualityMarkService, FilterBySimilarDataService, SelectionService, SliceService} from '../services/services';
 import {STARRED_SLICE_NAME} from '../services/slice_service';
 
 import {styles} from './data_table_module.css';
@@ -61,6 +61,7 @@ export class DataTableModule extends LitModule {
 
   private readonly focusService = app.getService(FocusService);
   private readonly qualityMarkService = app.getService(QualityMarkService);
+  private readonly filterBySimilarDataService = app.getService(FilterBySimilarDataService);
   private readonly dataService = app.getService(DataService);
   private readonly sliceService = app.getService(SliceService);
   private readonly referenceSelectionService =
@@ -97,9 +98,20 @@ export class DataTableModule extends LitModule {
     const keyNames = this.appState.currentInputDataKeys;
     const keys =
         keyNames.map(key => createColumnHeader(key, this.dataSpec[key]));
+      console.log(keys);
     const dataKeys = this.dataService.cols.map(
         col => createColumnHeader(col.name, col.dataType));
-    return keys.concat(dataKeys);
+        console.log(dataKeys);
+    // const labelledCols = [{'name': 'high_Q', 'vocab': ['0', '1']}, 
+    //   {'name': 'low_Q', 'vocab': ['0', '1']}];
+
+    const LLMOutputCols = [{'name': 'llm_label', 'vocab': undefined}, 
+      {'name': 'llm_explanation', 'vocab': undefined},
+      {'name': 'different_label', 'vocab': undefined},];
+
+    const provenanceCols = [{'name': 'features', 'vocab': undefined},
+    {'name': 'transforms', 'vocab': undefined}];
+    return keys.concat(dataKeys).concat(LLMOutputCols); //.concat(labelledCols);
   }
 
   // Filtered keys that hide ones tagged as not to be shown by default in the
@@ -131,10 +143,58 @@ export class DataTableModule extends LitModule {
 
   @computed
   get filteredData(): IndexedInput[] {
-    // Baseline data is either the selection or the whole dataset
+    // Baseline data is either the selection, the whole dataset, or filtered to be similar to the `filteredBySimilarData` data marked by the user
     const data = this.onlyShowSelected ?
         this.selectionService.selectedInputData :
         this.appState.currentInputData;
+    if (this.filterBySimilarDataService.markedIndices.size > 0) {
+      var transformIndices = [];
+      var featureIndices = [];
+      this.filterBySimilarDataService.markedIndices.forEach(function(element) {
+        // data[element]['transforms'].split(' ')
+        console.log(data[element].data['transforms']);
+        data[element].data['transforms'].split(' ').map(strElement => parseInt(strElement))
+        .map((element, index) => {
+          if (element === 1) {
+            return index;
+          }
+        }).filter(element => element !== undefined)
+        .forEach(element => 
+          transformIndices = transformIndices.concat(element));
+
+        data[element].data['features'].split(' ').map(strElement => parseInt(strElement))
+        .map((element, index) => {
+          if (element === 1) {
+            return index;
+          }
+        }).filter(element => element !== undefined)
+        .forEach(element => 
+          featureIndices = featureIndices.concat(element));
+      });
+
+      // find similar data (sharing at least one transform or feature)
+      console.log('search for data with the transform matching any one of the following');
+      console.log(transformIndices);
+
+      // enumerate over data
+      const filteredData = data.filter(function(datapoint) {
+        return datapoint.data['transforms']
+        .split(' ')
+        .map(strElement => parseInt(strElement))
+        .map((element, index) => {
+          if (element === 1) {
+            return index;
+          }
+        })
+        .filter(element => element !== undefined)
+        .some(index => featureIndices.includes(index))
+      });
+
+      console.log('filteredData by similar points')
+      return filteredData;
+    }
+    console.log('filteredData!!!');
+      console.log(data);
     // Filter to only the generated datapoints, if desired
     return this.onlyShowGenerated ? data.filter((d) => d.meta.added) : data;
   }
@@ -239,6 +299,11 @@ export class DataTableModule extends LitModule {
     }
   }
 
+
+  @computed
+  get numberOfHighQualityLabels(): number {
+    return this.qualityMarkService.highQualityIndices.size;
+  }
 
   // TODO(lit-dev): figure out why this updates so many times;
   // it gets run _four_ times every time a new datapoint is added.
@@ -403,6 +468,7 @@ export class DataTableModule extends LitModule {
     } else {
       this.qualityMarkService.unmarkHighQuality(tableIndex)
     }
+    console.log('high quality!');
   }
 
   onToggleLowQuality(tableIndex: number, status: boolean) {
@@ -411,6 +477,16 @@ export class DataTableModule extends LitModule {
     } else {
       this.qualityMarkService.unmarkLowQuality(tableIndex);
     }
+    console.log('low quality!');
+  }
+
+  onToggleFilterBySimilarData(tableIndex: number, status: boolean) {
+    if (status) {
+      this.filterBySimilarDataService.selectDatapoint(tableIndex);
+    } else {
+      this.filterBySimilarDataService.unselectDatapoint(tableIndex);
+    }
+    console.log('onToggleFilterBySimilarData!!');
   }
 
   renderDropdownItem(key: string) {
@@ -458,6 +534,18 @@ export class DataTableModule extends LitModule {
   }
 
   renderControls() {
+    const downloadCSV = () => {
+      const csvContent ="";
+      const blob = new Blob([csvContent], {type: 'text/csv'});
+      const a = window.document.createElement('a');
+      a.href = window.URL.createObjectURL(blob);
+      a.download = "labels.csv";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      
+    };
+
     const onClickResetView = () => {this.table?.resetView();};
 
     const onClickSelectFiltered = () => {
@@ -468,6 +556,17 @@ export class DataTableModule extends LitModule {
     return html`
       ${this.renderColumnDropdown()}
       <div class="toggles-row">
+        <div class="number-of-interactions">
+
+          <p> Number of high quality labels: ${this.numberOfHighQualityLabels}</p>
+          <div class='download-popup-controls'>
+            <label style="display:none;" for="filename">Filename</label>
+            <input style="display:none;"  type="text" name="filename" >
+            <button style="display:none;"  class='filled-button nowrap' @click=${downloadCSV}>
+              Download labels
+            </button>
+          </div>
+        </div>
         <div class='switch-container'
             @click=${() => {this.onlyShowSelected = !this.onlyShowSelected;}}>
           <div>Show selected</div>
@@ -502,6 +601,7 @@ export class DataTableModule extends LitModule {
     const shiftSelectEndRowIndex = this.datasetIndexToRowIndex(
         this.selectionService.shiftSelectionEndIndex);
 
+        // console.log(this.tableData);
     // clang-format off
     return html`
       <lit-data-table
@@ -514,16 +614,21 @@ export class DataTableModule extends LitModule {
         .focusedIndex=${this.focusedIndex}
         .highQualityIndices=${this.qualityMarkService.highQualityIndices}
         .lowQualityIndices=${this.qualityMarkService.lowQualityIndices}
+        .filterBySimilarDataIndices=${this.filterBySimilarDataService.markedIndices}
+
         .onSelect=${(idxs: number[]) => { this.onSelect(idxs); }}
         .onPrimarySelect=${(i: number) => { this.onPrimarySelect(i); }}
         .onHover=${(i: number|null)=> { this.onHover(i); }}
         .onToggleHighQuality=${(index: number, status: boolean) => {this.onToggleHighQuality(index, status)}}
         .onToggleLowQuality=${(index: number, status: boolean) => {this.onToggleLowQuality(index, status)}}
+        .onToggleFilterBySimilarData=${(index: number, status: boolean) => {this.onToggleFilterBySimilarData(index, status)}}
         searchEnabled
         selectionEnabled
-        paginationEnabled
+        
         exportEnabled
         qualityMarkEnabled
+        filterBySimilarDataEnabled
+
         shiftSelectionStartIndex=${shiftSelectStartRowIndex}
         shiftSelectionEndIndex=${shiftSelectEndRowIndex}
       ></lit-data-table>

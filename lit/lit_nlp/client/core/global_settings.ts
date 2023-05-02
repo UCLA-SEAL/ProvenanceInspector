@@ -433,8 +433,9 @@ export class GlobalSettingsComponent extends MobxLitElement {
       };
 
       const selected = this.selectedDataset === name;
-      const disabled = !this.settingsService.isDatasetValidForModels(
-          name, this.selectedModels);
+      const disabled = false;
+      // !this.settingsService.isDatasetValidForModels(
+          // name, this.selectedModels);
 
       const expanderOpen = this.openDatasetKeys.has(name);
       const onExpanderClick = () => {

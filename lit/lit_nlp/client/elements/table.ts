@@ -94,6 +94,8 @@ export type OnHoverCallback = (index: number|null) => void;
 export type OnToggleHighQuality = (index: number, status: boolean) => void;
 export type OnToggleLowQuality = (index: number, status: boolean) => void;
 
+export type OnToggleFilterBySimilarData = (index: number, status: boolean) => void;
+
 /** Type for search filters in data headers. */
 export type FilterFn = (entry: SortableTableEntry) => boolean;
 
@@ -112,7 +114,7 @@ enum SpanAnchor {
 
 const IMAGE_PREFIX = 'data:image';
 
-const CONTAINER_HEIGHT_CHANGE_DELTA = 20;
+const CONTAINER_HEIGHT_CHANGE_DELTA = 50;
 const PAGE_SIZE_INCREMENT = 10;
 
 /**
@@ -145,6 +147,8 @@ export class DataTable extends ReactiveElement {
   @observable.struct @property({type: Set}) highQualityIndices: Set<number> = new Set();
   @observable.struct @property({type: Set}) lowQualityIndices: Set<number> = new Set();
 
+  @observable.struct @property({type: Set}) filterBySimilarDataIndices: Set<number> = new Set();
+
   // Mode controls
   @observable @property({type: Boolean}) selectionEnabled: boolean = false;
   @observable @property({type: Boolean}) searchEnabled: boolean = false;
@@ -152,6 +156,8 @@ export class DataTable extends ReactiveElement {
   @observable @property({type: Boolean}) exportEnabled: boolean = false;
 
   @observable @property({type: Boolean}) qualityMarkEnabled: boolean = false;
+
+  @observable @property({type: Boolean}) filterBySimilarDataEnabled: boolean = false;
 
   /** Lowest row index of the continguous (i.e., shift-click) selection. */
   @property({type: Number}) shiftSelectionStartIndex: number = 0;
@@ -169,6 +175,9 @@ export class DataTable extends ReactiveElement {
 
   @property({type: Object}) onToggleHighQuality: OnToggleHighQuality = () => {};
   @property({type: Object}) onToggleLowQuality: OnToggleLowQuality = () => {};
+
+  
+  @property({type: Object}) onToggleFilterBySimilarData: OnToggleFilterBySimilarData = () => {};
 
   static override get styles() {
     return [sharedStyles, styles];
@@ -334,6 +343,7 @@ export class DataTable extends ReactiveElement {
     // Round up to the nearest 10.
     this.entriesPerPage =
         Math.ceil(entriesPerPage / PAGE_SIZE_INCREMENT) * PAGE_SIZE_INCREMENT;
+        console.log('entries ' + this.entriesPerPage);
   }
 
   private getSortableEntry(colEntry: TableEntry): SortableTableEntry {
@@ -372,8 +382,10 @@ export class DataTable extends ReactiveElement {
    */
   @computed
   get columnStrings(): string[] {
-    return this.columnNames.map(
+    const original = this.columnNames.map(
         colInfo => (typeof colInfo === 'string') ? colInfo : colInfo.name);
+
+    return original;
   }
 
   @computed
@@ -412,6 +424,18 @@ export class DataTable extends ReactiveElement {
         `
       })
     }
+    if (this.filterBySimilarDataEnabled) {
+      computedColumnHeaders.push({
+        name: "filterBySimilarData", sortDisabled: true, searchDisabled: true, centerAlign: true,
+        html: html`
+          <div style="margin-left:0.4em;">
+            Select point
+          </div>
+        `
+      })
+    }
+
+
     return computedColumnHeaders
   }
 
@@ -1160,6 +1184,19 @@ export class DataTable extends ReactiveElement {
         >
           <span style="visibility: ${isLowQuality ? "visible" : "hidden"};">
             👎
+          </span>
+        </div>
+      `)
+    }
+    if (this.filterBySimilarDataEnabled) {
+      const hasFilterUsingData = this.filterBySimilarDataIndices.has(dataIndex);
+      rowData.push(html`
+        <div
+          style="width: 50%; text-align: center; border: 1px solid"
+          @click=${() => this.onToggleFilterBySimilarData(dataIndex, !hasFilterUsingData)}
+        >
+          <span style="visibility: ${hasFilterUsingData ? "visible" : "hidden"};">
+            👍
           </span>
         </div>
       `)

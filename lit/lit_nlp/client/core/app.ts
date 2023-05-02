@@ -35,6 +35,7 @@ import {AppState} from '../services/state_service';
 import {StatusService} from '../services/status_service';
 import {UrlService} from '../services/url_service';
 import {QualityMarkService} from '../services/qualityMark_service';
+import { FilterBySimilarDataService } from '../services/filterBySimilarData_service';
 
 /**
  * The class responsible for building and managing the LIT App.
@@ -160,6 +161,7 @@ export class LitApp {
     const colorService = new ColorService(groupService, dataService);
     const focusService = new FocusService(selectionService);
     const qualityMarkService = new QualityMarkService(appState);
+    const filterBySimilarDataService = new FilterBySimilarDataService(appState);
     
     // Populate the internal services map for dependency injection
     this.services.set(ApiService, apiService);
@@ -178,6 +180,7 @@ export class LitApp {
     this.services.set(StatusService, statusService);
     this.services.set(UrlService, urlService);
     this.services.set(QualityMarkService, qualityMarkService);
+    this.services.set(FilterBySimilarDataService, filterBySimilarDataService);
   }
 }
 

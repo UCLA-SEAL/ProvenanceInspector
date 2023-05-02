@@ -51,7 +51,7 @@ export class SettingsService extends LitService {
   }
 
   isDatasetValidForModels(dataset: string, models: string[]) {
-    return models.every(model => this.isDatasetValidForModel(dataset, model));
+    return true; // return models.every(model => this.isDatasetValidForModel(dataset, model));
   }
 
   private isDatasetValidForModel(dataset: string, model: string) {

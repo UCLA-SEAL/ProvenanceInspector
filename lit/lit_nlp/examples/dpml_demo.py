@@ -63,13 +63,16 @@ QUICK_START_MODELS = (
 # Custom frontend layout; see api/layout.py
 modules = layout.LitModuleName
 DPML_LAYOUT = layout.LitCanonicalLayout(
+    layoutSettings= {'hideToolbar': True, 'mainHeight': 180, 'centerPage': False},
     upper={
         "Main": [
             modules.DataTableModule,
-            modules.TxProvenanceModule,
-            modules.TxDebugModule,
-            modules.TxTextFetchModule,
-            modules.TxAmrVizModule
+            modules.TxTransformProvenanceModule,
+            modules.TxFeatureProvenanceModule
+            # modules.TxProvenanceModule,
+            # modules.TxDebugModule,
+            # modules.TxTextFetchModule,
+            # modules.TxAmrVizModule
         ]
     },
     description="Layout for DPML",
@@ -123,7 +126,9 @@ def main(argv: Sequence[str]) -> Optional[dev_server.LitServerType]:
   # Load datasets for each task that we have a model for
   if "sst2" in tasks_to_load:
     logging.info("Loading data for SST-2 task.")
-    datasets["sst_dev"] = glue.SST2Data("validation")
+    # datasets["sst_dev"] = glue.SST2Data("validation")
+    datasets["sst_dev"] = glue.RankedSST2Data("")
+    
 
   if "stsb" in tasks_to_load:
     logging.info("Loading data for STS-B task.")

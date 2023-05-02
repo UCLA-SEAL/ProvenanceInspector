@@ -70,6 +70,9 @@ class LitModuleName(dtypes.EnumSerializableAsValues, enum.Enum):
   TxTextFetchModule = 'tx-textfetch-module'
   TxAmrVizModule = 'tx-amrviz-module'
 
+  TxTransformProvenanceModule = 'tx-transform-provenance-module'
+  TxFeatureProvenanceModule = 'tx-feature-provenance-module'
+
   def __call__(self, **kw):
     return ModuleConfig(self.value, **kw)
 

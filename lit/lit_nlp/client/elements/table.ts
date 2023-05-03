@@ -413,27 +413,27 @@ export class DataTable extends ReactiveElement {
           </div>
         `
       })
-      computedColumnHeaders.push({
-        name: "isLowQuality", sortDisabled: true, searchDisabled: true, centerAlign: true,
-        html: html`
-          <div style="margin-left:0.4em;">
-            <span>👎</span>
-            <br>
-            low_Q
-          </div>
-        `
-      })
+      // computedColumnHeaders.push({
+      //   name: "isLowQuality", sortDisabled: true, searchDisabled: true, centerAlign: true,
+      //   html: html`
+      //     <div style="margin-left:0.4em;">
+      //       <span>👎</span>
+      //       <br>
+      //       low_Q
+      //     </div>
+      //   `
+      // })
     }
-    if (this.filterBySimilarDataEnabled) {
-      computedColumnHeaders.push({
-        name: "filterBySimilarData", sortDisabled: true, searchDisabled: true, centerAlign: true,
-        html: html`
-          <div style="margin-left:0.4em;">
-            Select point
-          </div>
-        `
-      })
-    }
+    // if (this.filterBySimilarDataEnabled) {
+    //   computedColumnHeaders.push({
+    //     name: "filterBySimilarData", sortDisabled: true, searchDisabled: true, centerAlign: true,
+    //     html: html`
+    //       <div style="margin-left:0.4em;">
+    //         Select point
+    //       </div>
+    //     `
+    //   })
+    // }
 
 
     return computedColumnHeaders
@@ -1088,6 +1088,7 @@ export class DataTable extends ReactiveElement {
 
   renderRow(data: TableRowInternal, rowIndex: number) {
     const dataIndex = data.inputIndex;
+
     const displayDataIndex = rowIndex + this.pageNum * this.entriesPerPage;
 
     const isSelected = this.selectedIndicesSetForRender.has(dataIndex);
@@ -1123,9 +1124,11 @@ export class DataTable extends ReactiveElement {
     function formatCellContents(d: TableEntry) {
       if (d == null) return null;
 
+
       if (typeof d === 'string' && d.startsWith(IMAGE_PREFIX)) {
         return html`<img class='table-img' src=${d.toString()}>`;
       }
+      
       if (isTemplateResult(d)) {
         return d;
       }
@@ -1165,42 +1168,56 @@ export class DataTable extends ReactiveElement {
 
     const rowData = Array.from(data.rowData)
     if (this.qualityMarkEnabled) {
-      const isHighQuality = this.highQualityIndices.has(dataIndex)
-      const isLowQuality = this.lowQualityIndices.has(dataIndex)
-      rowData.push(html`
-        <div
-          style="width: 50%; text-align: center; border: 1px solid"
-          @click=${() => this.onToggleHighQuality(dataIndex, !isHighQuality)}
-        >
-          <span style="visibility: ${isHighQuality ? "visible" : "hidden"};">
-            👍
-          </span>
-        </div>
-      `)
-      rowData.push(html`
-        <div
-          style="width: 50%; text-align: center; border: 1px solid"
-          @click=${() => this.onToggleLowQuality(dataIndex, !isLowQuality)}
-        >
-          <span style="visibility: ${isLowQuality ? "visible" : "hidden"};">
-            👎
-          </span>
-        </div>
-      `)
+
+      if (typeof data.rowData[0] == 'number' || typeof data.rowData[0] == 'string' || typeof data.rowData[0] == 'object') {
+        var originalDataIndex;
+        if (data.rowData[0]['value'] != undefined) {
+          originalDataIndex = data.rowData[0]['value'];
+        } else if (typeof data.rowData[0] == 'string') {
+          originalDataIndex = parseInt(data.rowData[0]);
+        } else {
+          originalDataIndex = data.rowData[0];
+        }
+        
+        const isHighQuality = this.highQualityIndices.has(originalDataIndex)
+        const isLowQuality = this.lowQualityIndices.has(originalDataIndex)
+        rowData.push(html`
+          <div
+            style="width: 50%; text-align: center; border: 1px solid"
+            @click=${() => this.onToggleHighQuality(originalDataIndex, !isHighQuality)}
+          >
+            <span style="visibility: ${isHighQuality ? "visible" : "hidden"};">
+              👍
+            </span>
+          </div>
+        `)
+      } else {
+        console.log("will not be able to mark quality because of incompatbiel first column value: " + (typeof data.rowData[0]))
+      }
+      // rowData.push(html`
+      //   <div
+      //     style="width: 50%; text-align: center; border: 1px solid"
+      //     @click=${() => this.onToggleLowQuality(dataIndex, !isLowQuality)}
+      //   >
+      //     <span style="visibility: ${isLowQuality ? "visible" : "hidden"};">
+      //       👎
+      //     </span>
+      //   </div>
+      // `)
     }
-    if (this.filterBySimilarDataEnabled) {
-      const hasFilterUsingData = this.filterBySimilarDataIndices.has(dataIndex);
-      rowData.push(html`
-        <div
-          style="width: 50%; text-align: center; border: 1px solid"
-          @click=${() => this.onToggleFilterBySimilarData(dataIndex, !hasFilterUsingData)}
-        >
-          <span style="visibility: ${hasFilterUsingData ? "visible" : "hidden"};">
-            👍
-          </span>
-        </div>
-      `)
-    }
+    // if (this.filterBySimilarDataEnabled) {
+    //   const hasFilterUsingData = this.filterBySimilarDataIndices.has(dataIndex);
+    //   rowData.push(html`
+    //     <div
+    //       style="width: 50%; text-align: center; border: 1px solid"
+    //       @click=${() => this.onToggleFilterBySimilarData(dataIndex, !hasFilterUsingData)}
+    //     >
+    //       <span style="visibility: ${hasFilterUsingData ? "visible" : "hidden"};">
+    //         👍
+    //       </span>
+    //     </div>
+    //   `)
+    // }
 
     // clang-format off
     return html`

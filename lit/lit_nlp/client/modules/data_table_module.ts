@@ -73,6 +73,7 @@ export class DataTableModule extends LitModule {
   // Module options / configuration state
   @observable private onlyShowGenerated: boolean = false;
   @observable private onlyShowSelected: boolean = false;
+  @observable private showSimilar: boolean = false;
 
   // Child components
   @query('lit-data-table') private readonly table?: DataTable;
@@ -144,33 +145,12 @@ export class DataTableModule extends LitModule {
   @computed
   get filteredData(): IndexedInput[] {
     // Baseline data is either the selection, the whole dataset, or filtered to be similar to the `filteredBySimilarData` data marked by the user
-    const data = this.onlyShowSelected ?
-        this.selectionService.selectedInputData :
+    const data = 
+      // this.onlyShowSelected ?
+        // this.selectionService.selectedInputData :
         this.appState.currentInputData;
-    if (this.filterBySimilarDataService.markedIndices.size > 0) {
-      var transformIndices = [];
-      var featureIndices = [];
-      this.filterBySimilarDataService.markedIndices.forEach(function(element) {
-        // data[element]['transforms'].split(' ')
-        console.log(data[element].data['transforms']);
-        data[element].data['transforms'].split(' ').map(strElement => parseInt(strElement))
-        .map((element, index) => {
-          if (element === 1) {
-            return index;
-          }
-        }).filter(element => element !== undefined)
-        .forEach(element => 
-          transformIndices = transformIndices.concat(element));
-
-        data[element].data['features'].split(' ').map(strElement => parseInt(strElement))
-        .map((element, index) => {
-          if (element === 1) {
-            return index;
-          }
-        }).filter(element => element !== undefined)
-        .forEach(element => 
-          featureIndices = featureIndices.concat(element));
-      });
+    if (2 + 2 ==5) {
+      var { transformIndices, featureIndices } = this.extractProvenance(data);
 
       // find similar data (sharing at least one transform or feature)
       console.log('search for data with the transform matching any one of the following');
@@ -179,6 +159,7 @@ export class DataTableModule extends LitModule {
       // enumerate over data
       const filteredData = data.filter(function(datapoint) {
         return datapoint.data['transforms']
+        .substr(1, datapoint.data['transforms'].length -1)
         .split(' ')
         .map(strElement => parseInt(strElement))
         .map((element, index) => {
@@ -195,17 +176,102 @@ export class DataTableModule extends LitModule {
     }
     console.log('filteredData!!!');
       console.log(data);
-    // Filter to only the generated datapoints, if desired
-    return this.onlyShowGenerated ? data.filter((d) => d.meta.added) : data;
+    
+    return data;
+  }
+
+  private extractProvenance(data: IndexedInput[]) {
+    var transformIndices = [];
+    var featureIndices = [];
+
+    var dataIndexToData = data.reduce(function(map, obj) {
+        map[obj.data['idx']] = obj;
+        return map;
+      }, {});
+
+    Array.from(this.qualityMarkService.highQualityIndices)
+    .map(index => dataIndexToData[index])
+    .forEach(function (element) {
+      // element['transforms'].split(' ')
+      console.log(element.data['transforms']);
+      element.data['transforms'].substr(1, element.data['transforms'].length -1).split(' ').map(strElement => parseInt(strElement))
+        .map((element, index) => {
+          if (element === 1) {
+            return index;
+          }
+        })
+        .filter(element => element !== undefined)
+        .forEach(element => transformIndices = transformIndices.concat(element));
+
+      element.data['features'].split(' ').map(strElement => parseInt(strElement))
+        .map((element, index) => {
+          if (element === 1) {
+            return index;
+          }
+        })
+        .filter(element => element !== undefined)
+        .forEach(element => featureIndices = featureIndices.concat(element));
+    });
+    return { transformIndices, featureIndices };
   }
 
   @computed
   get sortedData(): IndexedInput[] {
     // TODO(lit-dev): pre-compute the index chains for each point, since
     // this might get slow if we have a lot of counterfactuals.
-    return this.filteredData.slice().sort(
-        (a, b) => compareArrays(
-            this.reversedAncestorIndices(a), this.reversedAncestorIndices(b)));
+    if (this.showSimilar) {
+          // first, if showSimilar, then compute overlap in transforms and features to a labelled data
+          var { transformIndices, featureIndices } = this.extractProvenance(this.appState.currentInputData);
+          console.log('[sortedData]')
+          console.log(transformIndices);
+          // enumerate over data
+          const sortedData = this.filteredData.slice().sort(
+            (a, b) => {
+              // compute overlap in transforms
+              const aTransforms = a.data['transforms'].substr(1, a.data['transforms'].length -1).split(' ').map(strElement => parseInt(strElement));
+              const bTransforms = b.data['transforms'].substr(1, b.data['transforms'].length -1).split(' ').map(strElement => parseInt(strElement));
+              
+              const aTransformsOverlap = aTransforms.map((element, index) => {
+                if (element === 1) {
+                  return index;
+                }
+              })
+              .filter(element => element !== undefined)
+              .filter(element => transformIndices.includes(element));
+              const bTransformsOverlap = bTransforms.map((element, index) => {
+                if (element === 1) {
+                  return index;
+                }
+              })
+              .filter(element => element !== undefined)
+              .filter(element => transformIndices.includes(element));
+
+              // sort by overlap in transforms
+              if (aTransformsOverlap.length > bTransformsOverlap.length) {
+                return -1;
+              }
+              if (aTransformsOverlap.length < bTransformsOverlap.length) {
+                return 1;
+              }
+
+              return 0;
+            }
+          );
+          console.log('sortedData');
+          console.log(sortedData);
+          return sortedData;
+
+    } else {
+      return this.filteredData.slice().sort(
+          (a, b) => {
+
+        
+            return compareArrays(
+              this.reversedAncestorIndices(a), this.reversedAncestorIndices(b)
+            )
+          }
+      );
+    }
   }
 
   @computed
@@ -453,6 +519,10 @@ export class DataTableModule extends LitModule {
     this.selectionService.setPrimarySelection(id, this);
   }
 
+  onFilterSimilar() {
+    this.showSimilar = !this.showSimilar;
+  }
+
   onHover(tableIndex: number|null) {
     if (tableIndex == null) {
       this.focusService.clearFocus();
@@ -463,11 +533,22 @@ export class DataTableModule extends LitModule {
   }
 
   onToggleHighQuality(tableIndex: number, status: boolean) {
+    const data = this.appState.currentInputData;
+
+    const dataIndex = data[tableIndex].data['idx'];
+    
     if (status) {
-      this.qualityMarkService.markHighQuality(tableIndex)
+      this.qualityMarkService.markHighQuality(dataIndex);
+      this.filterBySimilarDataService.initializeTransformsToDataIfNotExist(data);
+
+      var { transformIndices, featureIndices } = this.extractProvenance(data);
+      this.filterBySimilarDataService.addCommonTransforms(transformIndices);
+ 
+      
     } else {
-      this.qualityMarkService.unmarkHighQuality(tableIndex)
+      this.qualityMarkService.unmarkHighQuality(dataIndex)
     }
+
     console.log('high quality!');
   }
 
@@ -552,6 +633,10 @@ export class DataTableModule extends LitModule {
       this.onSelect(this.table!.getVisibleDataIdxs());
     };
 
+    const onClickFilterSimilar = () => {
+      this.onFilterSimilar();
+    };
+
     // clang-format off
     return html`
       ${this.renderColumnDropdown()}
@@ -567,25 +652,13 @@ export class DataTableModule extends LitModule {
             </button>
           </div>
         </div>
-        <div class='switch-container'
-            @click=${() => {this.onlyShowSelected = !this.onlyShowSelected;}}>
-          <div>Show selected</div>
-          <mwc-switch ?selected=${this.onlyShowSelected}></mwc-switch>
-        </div>
-        <div class='switch-container'
-            @click=${() => {this.onlyShowGenerated = !this.onlyShowGenerated;}}>
-          <div>Show generated</div>
-          <mwc-switch ?selected=${this.onlyShowGenerated}></mwc-switch>
-        </div>
+ 
+
       </div>
       <div id="toolbar-buttons">
-        <button class='hairline-button' @click=${onClickResetView}
-          ?disabled="${this.table?.isDefaultView ?? true}">
-          Reset view
-        </button>
-        <button class='hairline-button' @click=${onClickSelectFiltered}
-          ?disabled="${!this.table?.isFiltered ?? true}">
-          Select filtered
+        
+        <button class='hairline-button' @click=${onClickFilterSimilar}>
+          ${!this.showSimilar ? "Rank by similarity to selected" : "Stop ranking by similarity to selected"}
         </button>
       </div>
     `;

@@ -9,7 +9,10 @@ export class QualityMarkService extends LitService {
   private highQualityIndicesSet = new Set<number>()
 
   @observable
-  private lowQualityIndicesSet = new Set<number>()
+  private lowQualityIndicesSet = new Set<number>();
+
+  @observable
+  private highQualityTransformsSet = new Set<number>();
 
   constructor(private readonly appState: AppState) {
     super()
@@ -23,6 +26,11 @@ export class QualityMarkService extends LitService {
   @computed
   get lowQualityIndices(): Set<number> {
     return new Set(this.lowQualityIndicesSet)
+  }
+
+  @computed
+  get highQualityTransforms(): Set<number> {
+    return new Set(this.highQualityTransformsSet)
   }
 
   @action
@@ -47,4 +55,13 @@ export class QualityMarkService extends LitService {
     this.lowQualityIndicesSet.delete(index)
   }
 
+  @action
+  markHighQualityTransforms(transform: number) {
+    this.highQualityTransformsSet.add(transform);
+  }
+
+  @action
+  unmarkHighQualityTransforms(transform: number) {
+    this.highQualityTransformsSet.delete(transform);
+  }
 }

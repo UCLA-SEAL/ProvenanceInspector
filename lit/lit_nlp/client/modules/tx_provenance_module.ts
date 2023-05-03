@@ -73,6 +73,8 @@ export class TxProvenanceModule extends LitModule {
   }
 
   private async onUpdateSelection(selectedInputData: IndexedInput[]) {
+    console.log('[old provenance] ');
+    console.log(selectedInputData);
     this.selectedInputData = selectedInputData.map(
       input => ({ idx: this.appState.getIndexById(input.id), ...input })
     )
@@ -134,23 +136,23 @@ export class TxProvenanceModule extends LitModule {
   }
 
   private onChangeSelectionType(e: Event) {
-    const selectionType = (e.target as HTMLSelectElement).value
+    // const selectionType = (e.target as HTMLSelectElement).value
     
-    if (selectionType == "default") {
-      this.selectionType = selectionType
-      this.onUpdateSelection(this.selectedInputData)
-    }
-    else if (selectionType == "high_Q") {
-      this.selectionType = selectionType
-      this.onUpdateHighQualityIndices(this.qualityMarkService.highQualityIndices)
-    }
-    else if (selectionType == "low_Q") {
-      this.selectionType = selectionType
-      this.onUpdateLowQualityIndices(this.qualityMarkService.lowQualityIndices)
-    }
-    else {
-      throw new Error("Invalid selection type");
-    }
+    // if (selectionType == "default") {
+    //   this.selectionType = selectionType
+    //   this.onUpdateSelection(this.selectedInputData)
+    // }
+    // else if (selectionType == "high_Q") {
+    //   this.selectionType = selectionType
+    //   this.onUpdateHighQualityIndices(this.qualityMarkService.highQualityIndices)
+    // }
+    // else if (selectionType == "low_Q") {
+    //   this.selectionType = selectionType
+    //   this.onUpdateLowQualityIndices(this.qualityMarkService.lowQualityIndices)
+    // }
+    // else {
+    //   throw new Error("Invalid selection type");
+    // }
   }
 
   private renderTrace(trace: object[], sno: number) {

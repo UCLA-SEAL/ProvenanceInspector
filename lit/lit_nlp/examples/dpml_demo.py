@@ -68,7 +68,7 @@ DPML_LAYOUT = layout.LitCanonicalLayout(
         "Main": [
             modules.DataTableModule,
             modules.TxTransformProvenanceModule,
-            modules.TxFeatureProvenanceModule
+            # modules.TxFeatureProvenanceModule,
             # modules.TxProvenanceModule,
             # modules.TxDebugModule,
             # modules.TxTextFetchModule,

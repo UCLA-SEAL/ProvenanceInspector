@@ -90,6 +90,7 @@ class RankedSST2Data(lit_dataset.Dataset):
       
       for row in reader: 
         self._examples.append({
+            'idx': int(row['idx']),
             'sentence': row['text'],
             'label': self.LABELS[int(row['label'])],
             'llm_label': self.LLM_LABELS[int(row['llm_label'])],

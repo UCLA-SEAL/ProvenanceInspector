@@ -32,9 +32,9 @@ _QUICKSTART = flags.DEFINE_bool(
 _MODELS = flags.DEFINE_list(
     "models", [
         "sst2-tiny:sst2:https://storage.googleapis.com/what-if-tool-resources/lit-models/sst2_tiny.tar.gz",
-        "sst2-base:sst2:https://storage.googleapis.com/what-if-tool-resources/lit-models/sst2_base.tar.gz",
-        "stsb:stsb:https://storage.googleapis.com/what-if-tool-resources/lit-models/stsb_base.tar.gz",
-        "mnli:mnli:https://storage.googleapis.com/what-if-tool-resources/lit-models/mnli_base.tar.gz",
+        # "sst2-base:sst2:https://storage.googleapis.com/what-if-tool-resources/lit-models/sst2_base.tar.gz",
+        # "stsb:stsb:https://storage.googleapis.com/what-if-tool-resources/lit-models/stsb_base.tar.gz",
+        # "mnli:mnli:https://storage.googleapis.com/what-if-tool-resources/lit-models/mnli_base.tar.gz",
     ], "List of models to load, as <name>:<task>:<path>. "
     "See MODELS_BY_TASK for available tasks. Path should be the output of "
     "saving a transformers model, e.g. model.save_pretrained(path) and "
@@ -68,7 +68,7 @@ DPML_LAYOUT = layout.LitCanonicalLayout(
         "Main": [
             modules.DataTableModule,
             modules.TxTransformProvenanceModule,
-            # modules.TxFeatureProvenanceModule,
+            modules.TxFeatureProvenanceModule,
             # modules.TxProvenanceModule,
             # modules.TxDebugModule,
             # modules.TxTextFetchModule,

@@ -14,6 +14,9 @@ export class QualityMarkService extends LitService {
   @observable
   private highQualityTransformsSet = new Set<number>();
 
+  @observable
+  private highQualityFeaturesSet = new Set<number>();
+
   constructor(private readonly appState: AppState) {
     super()
   }
@@ -31,6 +34,11 @@ export class QualityMarkService extends LitService {
   @computed
   get highQualityTransforms(): Set<number> {
     return new Set(this.highQualityTransformsSet)
+  }
+
+  @computed
+  get highQualityFeatures(): Set<number> {
+    return new Set(this.highQualityFeaturesSet)
   }
 
   @action
@@ -63,5 +71,15 @@ export class QualityMarkService extends LitService {
   @action
   unmarkHighQualityTransforms(transform: number) {
     this.highQualityTransformsSet.delete(transform);
+  }
+
+  @action
+  markHighQualityFeatures(feature: number) {
+    this.highQualityFeaturesSet.add(feature);
+  }
+
+  @action
+  unmarkHighQualityFeatures(feature: number) {
+    this.highQualityFeaturesSet.delete(feature);
   }
 }

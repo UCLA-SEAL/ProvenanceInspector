@@ -79,13 +79,14 @@ class RankedSST2Data(lit_dataset.Dataset):
   See https://www.tensorflow.org/datasets/catalog/glue#gluesst2.
   """
 
-  LABELS = ['negative', 'positive']
-  LLM_LABELS = ['negative', 'positive', 'neutral']
+  LABELS = ['neg', 'pos']
+  LLM_LABELS = ['neg', 'pos', 'neutral']
+  CONSISTENCY = ['consistent', 'inconsistent']
 
   def __init__(self, split: str):
     self._examples = []
     # for ex in load_tfds('glue/sst2', split=split):
-    with open('llm_annotated.csv', 'r') as f:
+    with open('aug_dataset.csv', 'r') as f:
       reader = csv.DictReader(f)
       
       for row in reader: 
@@ -93,11 +94,14 @@ class RankedSST2Data(lit_dataset.Dataset):
             'idx': int(row['idx']),
             'sentence': row['text'],
             'label': self.LABELS[int(row['label'])],
-            'llm_label': self.LLM_LABELS[int(row['llm_label'])],
-            'llm_explanation': row['llm_explanation'],
-            'different_label': row['different_label'],
+            'LLM label': self.LLM_LABELS[int(row['llm_label'])],
+            'LLM explanation': row['llm_explanation'],
+            'LLM inconsistent': self.CONSISTENCY[int(row['different_label'])],
             'features': row['features'],
             'transforms': row['transforms'],
+            'alignment_score': row['alignment_score'],
+            'fluency_score': row['fluency_score'],
+            'grammar_score': row['grammar_score']
         })
       logging.info('loaded Ranked SST2 dataset. Length of dataset is ' + str(len(self._examples)))
       logging.info('one row is ' + str(self._examples[0]))
@@ -106,6 +110,13 @@ class RankedSST2Data(lit_dataset.Dataset):
   def spec(self):
     return {
         'sentence': lit_types.TextSegment(),
+        'alignment_score': lit_types.Scalar(),
+        'fluency_score': lit_types.Scalar(),
+        'grammar_score': lit_types.Scalar(),
+        'LLM label': lit_types.CategoryLabel(vocab=self.LLM_LABELS),
+        'LLM explanation': lit_types.TextSegment(),
+        'LLM inconsistent': lit_types.CategoryLabel(vocab=self.CONSISTENCY),
+
         'label': lit_types.CategoryLabel(vocab=self.LABELS)
     }
 

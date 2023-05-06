@@ -106,13 +106,10 @@ export class DataTableModule extends LitModule {
     // const labelledCols = [{'name': 'high_Q', 'vocab': ['0', '1']}, 
     //   {'name': 'low_Q', 'vocab': ['0', '1']}];
 
-    const LLMOutputCols = [{'name': 'llm_label', 'vocab': undefined}, 
-      {'name': 'llm_explanation', 'vocab': undefined},
-      {'name': 'different_label', 'vocab': undefined},];
 
     const provenanceCols = [{'name': 'features', 'vocab': undefined},
     {'name': 'transforms', 'vocab': undefined}];
-    return keys.concat(dataKeys).concat(LLMOutputCols); //.concat(labelledCols);
+    return keys.concat(dataKeys); //.concat(labelledCols);
   }
 
   // Filtered keys that hide ones tagged as not to be shown by default in the
@@ -203,7 +200,7 @@ export class DataTableModule extends LitModule {
         .filter(element => element !== undefined)
         .forEach(element => transformIndices = transformIndices.concat(element));
 
-      element.data['features'].split(' ').map(strElement => parseInt(strElement))
+      element.data['features'].substr(1, element.data['features'].length -1).split(' ').map(strElement => parseInt(strElement))
         .map((element, index) => {
           if (element === 1) {
             return index;
@@ -220,37 +217,31 @@ export class DataTableModule extends LitModule {
     // TODO(lit-dev): pre-compute the index chains for each point, since
     // this might get slow if we have a lot of counterfactuals.
     if (this.showSimilar) {
-          // first, if showSimilar, then compute overlap in transforms and features to a labelled data
+          // first, if showSimilar, then compute overlap in transforms and features to the labelled data
           var { transformIndices, featureIndices } = this.extractProvenance(this.appState.currentInputData);
           console.log('[sortedData]')
           console.log(transformIndices);
           // enumerate over data
           const sortedData = this.filteredData.slice().sort(
             (a, b) => {
-              // compute overlap in transforms
+              // compute overlap in transforms and features
               const aTransforms = a.data['transforms'].substr(1, a.data['transforms'].length -1).split(' ').map(strElement => parseInt(strElement));
               const bTransforms = b.data['transforms'].substr(1, b.data['transforms'].length -1).split(' ').map(strElement => parseInt(strElement));
-              
-              const aTransformsOverlap = aTransforms.map((element, index) => {
-                if (element === 1) {
-                  return index;
-                }
-              })
-              .filter(element => element !== undefined)
-              .filter(element => transformIndices.includes(element));
-              const bTransformsOverlap = bTransforms.map((element, index) => {
-                if (element === 1) {
-                  return index;
-                }
-              })
-              .filter(element => element !== undefined)
-              .filter(element => transformIndices.includes(element));
 
+              const aFeatures = a.data['features'].substr(1, a.data['features'].length -1).split(' ').map(strElement => parseInt(strElement));
+              const bFeatures = b.data['features'].substr(1, b.data['features'].length -1).split(' ').map(strElement => parseInt(strElement));
+              
+              const aTransformsOverlap = this.computeOverlap(aTransforms, transformIndices);
+              const bTransformsOverlap = this.computeOverlap(bTransforms, transformIndices);
+
+              const aFeaturesOverlap = this.computeOverlap(aFeatures, featureIndices);
+              const bFeaturesOverlap = this.computeOverlap(bFeatures, featureIndices);
+              
               // sort by overlap in transforms
-              if (aTransformsOverlap.length > bTransformsOverlap.length) {
+              if (aTransformsOverlap.length + aFeaturesOverlap.length > bTransformsOverlap.length + bFeaturesOverlap.length) {
                 return -1;
               }
-              if (aTransformsOverlap.length < bTransformsOverlap.length) {
+              if (aTransformsOverlap.length + aFeaturesOverlap.length < bTransformsOverlap.length + bFeaturesOverlap.length) {
                 return 1;
               }
 
@@ -272,6 +263,16 @@ export class DataTableModule extends LitModule {
           }
       );
     }
+  }
+
+  private computeOverlap(features, featureIndices: any[]) {
+    return features.map((element, index) => {
+      if (element === 1) {
+        return index;
+      }
+    })
+      .filter(element => element !== undefined)
+      .filter(element => featureIndices.includes(element));
   }
 
   @computed
@@ -539,14 +540,21 @@ export class DataTableModule extends LitModule {
     
     if (status) {
       this.qualityMarkService.markHighQuality(dataIndex);
+
       this.filterBySimilarDataService.initializeTransformsToDataIfNotExist(data);
+      this.filterBySimilarDataService.initializeFeaturesToDataIfNotExist(data);
 
       var { transformIndices, featureIndices } = this.extractProvenance(data);
-      this.filterBySimilarDataService.addCommonTransforms(transformIndices);
+      this.filterBySimilarDataService.setCommonTransforms(transformIndices);
+      this.filterBySimilarDataService.setCommonFeatures(featureIndices);
  
       
     } else {
-      this.qualityMarkService.unmarkHighQuality(dataIndex)
+      this.qualityMarkService.unmarkHighQuality(dataIndex);
+
+      var { transformIndices, featureIndices } = this.extractProvenance(data);
+      this.filterBySimilarDataService.setCommonTransforms(transformIndices);
+      this.filterBySimilarDataService.setCommonFeatures(featureIndices);
     }
 
     console.log('high quality!');

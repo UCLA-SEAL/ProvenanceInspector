@@ -70,6 +70,31 @@ export class TxTransformProvenanceModule extends LitModule {
     )
   }
 
+  private transformNames(transformIndex : number) {
+    var mapping = [
+          "AddNeutralEmoji",
+      "ChangeHypernym",
+      "ChangeHyponym",
+      "ChangeLocation",
+      "ChangeName",
+      "ChangeNumber",
+      "ChangeSynonym",
+      "ContractContractions",
+      "ExpandContractions",
+      "HomoglyphSwap",
+      "InsertPunctuationMarks",
+      "RandomCharDel",
+      "RandomCharInsert",
+      "RandomCharSubst",
+      "RandomCharSwap",
+      "RandomInsertion",
+      "RandomSwap",
+      "RandomSwapQwerty",
+      "RemoveNeutralEmoji",
+      "WordDeletion"]
+
+      return mapping[transformIndex]
+  }
 
 
   private async onSelectEnable(commonTransform : number, isAlreadySelected: boolean) {
@@ -142,9 +167,12 @@ export class TxTransformProvenanceModule extends LitModule {
           '<div class="preview-slice-holder">' + 
         previewSliceData.map( 
           (d, i) => {
-            return `<div class="preview-slice">
-              <div class="preview-slice-text" style="border-bottom: 1px solid black;">
-                ${d}
+            return `<div class="preview-slice" style="display:flex;">
+              <div class="preview-slice-text" style="width:80%; border-bottom: 1px solid black; border-right: 1px solid black;">
+                ${d["text"]}
+              </div>
+              <div class="preview-slice-label" style="border-bottom: 1px solid black;">
+                ${d["label"]}
               </div>
             </div>`
           }
@@ -153,7 +181,7 @@ export class TxTransformProvenanceModule extends LitModule {
 
         var isSelected = that.highQualityTransforms.has(commonTransform);
         const row = {
-          'transform': commonTransform,
+          'transform': that.transformNames(commonTransform),
           'enable': html`<div
                         style="width: 50%; text-align: center; border: 1px solid"
                         @click=${() => that.onSelectEnable(commonTransform, isSelected)}

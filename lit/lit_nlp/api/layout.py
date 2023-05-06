@@ -239,6 +239,7 @@ STANDARD_LAYOUT = LitCanonicalLayout(
 )
 
 DEFAULT_LAYOUTS = {
-    'simple': SIMPLE_LAYOUT,
-    'default': STANDARD_LAYOUT,
+    # HJ: disable, they're so ugly
+    # 'simple': SIMPLE_LAYOUT,
+    # 'default': STANDARD_LAYOUT,
 }

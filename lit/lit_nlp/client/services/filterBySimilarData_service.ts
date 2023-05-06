@@ -15,9 +15,13 @@ export class FilterBySimilarDataService extends LitService {
   private commonTransforms = new Set<number>();
 
   @observable
-  private transformsToData = new Map<number, Array<string>>();
+  private commonFeatures = new Set<number>();
 
+  @observable
+  private transformsToData = new Map<number, Array<object>>();
 
+  @observable
+  private featuresToData = new Map<number, Array<object>>();
 
   constructor(private readonly appState: AppState) {
     super()
@@ -30,8 +34,18 @@ export class FilterBySimilarDataService extends LitService {
   }
 
   @computed
+  get commonFeatureTypes() {
+    return new Set(this.commonFeatures);
+  }
+
+  @computed
   get dataSliceOfTransformType() {
     return this.transformsToData;
+  }
+
+  @computed
+  get dataSliceOfFeatureType() {
+    return this.featuresToData;
   }
 
   get markedIndices(): Set<number> {
@@ -50,21 +64,28 @@ export class FilterBySimilarDataService extends LitService {
   }
 
   @action
-  addCommonTransforms(transformIndexes: Array<number>) {
-    var transformIndexToType = {
-      0: 'transform 0',
-      1: 'transform 1',
-      2: 'transform 2',
-      3: 'transform 3',
-      4: 'transform 4',
-      5: 'transform 5',
-    }
+  setCommonTransforms(transformIndexes: Array<number>) {
 
-    console.log('add common transforms');
+    console.log('set common transforms');
     var that = this;
+    that.commonTransforms.clear();
     transformIndexes.forEach(function(transformIndex) {
       that.commonTransforms.add(transformIndex);
       console.log('common transforms is now ' + that.commonTransforms);
+    });
+  }
+
+  @action
+  setCommonFeatures(featureIndexes: Array<number>) {
+   
+
+    console.log('set common features');
+    var that = this;
+
+    that.commonFeatures.clear();
+    featureIndexes.forEach(function(featureIndex) {
+      that.commonFeatures.add(featureIndex);
+      console.log('common features is now ' + that.commonFeatures);
     });
   }
 
@@ -89,16 +110,48 @@ export class FilterBySimilarDataService extends LitService {
         .filter(element => element !== undefined)
         .forEach(function(element) { 
           if (!that.transformsToData.has(element)) {
-            that.transformsToData.set(element, new Array<string>());  
+            that.transformsToData.set(element, new Array());  
           } 
 
           // console.log('[initializeTransformsToDataIfNotExist] adding ' + element + "  <- " + item.id);
           // console.log(item);
-          that.transformsToData.get(element).push(item.data['sentence']) ;
+          that.transformsToData.get(element).push({
+            'text': item.data['sentence'],
+            "label": item.data['label']
+          }) ;
         });
     });
 
     // this.transformsToData = transformsToData;
+  }
+
+  @action
+  initializeFeaturesToDataIfNotExist(data : IndexedInput[]) {
+    if (this.featuresToData.size) return;
+
+    var that = this;
+    
+    data.forEach(function (item) {
+      
+      item.data['features'].substr(1, item.data['features'].length -1).split(' ')
+        .map(strElement => parseInt(strElement))
+        .map((element, index) => {
+          if (element === 1) {
+            return index;
+          }
+        })
+        .filter(element => element !== undefined)
+        .forEach(function(element) { 
+          if (!that.featuresToData.has(element)) {
+            that.featuresToData.set(element, new Array());  
+          } 
+
+          that.featuresToData.get(element).push({
+            'text': item.data['sentence'],
+            "label": item.data['label']
+          }) ;
+        });
+    });
   }
 
 

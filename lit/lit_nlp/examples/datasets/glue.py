@@ -101,7 +101,9 @@ class RankedSST2Data(lit_dataset.Dataset):
             'transforms': row['transforms'],
             'alignment_score': row['alignment_score'],
             'fluency_score': row['fluency_score'],
-            'grammar_score': row['grammar_score']
+            'grammar_score': row['grammar_score'],
+            'old_sentence': row['old_text'],
+            'diff': row['diff_html']
         })
       logging.info('loaded Ranked SST2 dataset. Length of dataset is ' + str(len(self._examples)))
       logging.info('one row is ' + str(self._examples[0]))
@@ -110,6 +112,7 @@ class RankedSST2Data(lit_dataset.Dataset):
   def spec(self):
     return {
         'sentence': lit_types.TextSegment(),
+        # 'old_sentence': lit_types.TextSegment(),
         'alignment_score': lit_types.Scalar(),
         'fluency_score': lit_types.Scalar(),
         'grammar_score': lit_types.Scalar(),

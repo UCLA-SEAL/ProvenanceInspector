@@ -73,50 +73,98 @@ export class TxFeatureProvenanceModule extends LitModule {
 
   private featuresNames(featureIndex : number) {
     var mapping = [
-      'contains_accompanier',
-            'contains_age',
-            'contains_beneficiary',
-            'contains_concession',
-            'contains_condition',
-            'contains_conjunctions',
-            'contains_consist_of',
-            'contains_coreferences',
-            'contains_degree',
-            'contains_destination',
-            'contains_direction',
-            'contains_domain',
-            'contains_duration',
-            'contains_example',
-            'contains_exlamation',
-            'contains_extent',
-            'contains_frequency',
-            'contains_imperative',
-            'contains_instrument',
-            'contains_interrogative_clause',
-            'contains_location',
-            'contains_manner',
-            'contains_medium',
-            'contains_mod',
-            'contains_mode',
-            'contains_name',
-            'contains_negation',
-            'contains_number',
-            'contains_ord',
-            'contains_part',
-            'contains_path',
-            'contains_polarity',
-            'contains_polite',
-            'contains_poss',
-            'contains_purpose',
-            'contains_quant',
-            'contains_question',
-            'contains_range',
-            'contains_scale',
-            'contains_source',
-            'contains_subevent',
-            'contains_time',
-            'contains_topic',
-            'contains_unit'
+      // 'contains_accompanier', 
+      'Contains accompanier (e.g., "with a police escort")',
+            // 'contains_age',
+      'Describes a temporal quantity (e.g., "the 15-year-old law")',
+            // 'contains_beneficiary',
+            'Contains beneficiary (e.g. "for his mother")',
+
+            // 'contains_concession',
+            'Contains a concession (e.g. "although it rained")',
+            // 'contains_condition',
+            'Contains a condition (e.g. "if it rains")',
+            // 'contains_conjunctions',
+            'Contains a conjunction (e.g., "and", "either")',
+            // 'contains_consist_of',
+            'Describes a "consists of" relation (e.g., "a ring of gold") ',
+            // 'contains_coreferences',
+            'Contains a pronoun referencing a person (e.g., "he", "she", "they")',
+            // 'contains_degree',
+            'Contains degree, such as "very tall" or "extremely happy", that modifies the intensity',
+            // 'contains_destination',
+            'Contains destination, such as "to the store"',
+            // 'contains_direction',
+            'Contains a direction, such as "north" or "downward',
+            // 'contains_domain',
+            'Contains words used in constructions, e.g., "is a lawyer"',
+            // 'contains_duration',
+            'Describes a duration, e.g., "about 20 minutes"',
+            // 'contains_example',
+            'Contains an example, e.g., "companies like IBM"',
+            // 'contains_exlamation',
+            'Contains interjections such as "wow" that expresses emotions',
+            // 'contains_extent',
+            'Contains a description of an extent, e.g. "for 120 miles", "forever"',
+            // 'contains_frequency',
+            'Contains frequency, e.g. "three times"',
+            // 'contains_imperative',
+            'Has an imperative mode, e.g., using "Please"',
+
+            // 'contains_instrument',
+            'Has a description of a physical object, e.g. "with a fork"',
+            // 'contains_interrogative_clause',
+            'Contains an interrogative clause, e.g., "whether or not"',
+            
+            // 'contains_location',
+            'Has a description of a location, e.g., "in Los Angeles"',
+            // 'contains_manner',
+            'Has a description how something is done, e.g., "in a creative way"',
+            // 'contains_medium',
+            'Contains a medium of communication, e.g., "in the newspaper"',
+            // 'contains_mod',
+            'Has a modifier on a noun, e.g., "old man"', 
+            // 'contains_mode',
+            'Has a mode, e.g., an imperative term or expressive term, "Yippee"', 
+            // 'contains_name',
+            'Contains a name, e.g. France', 
+            // 'contains_negation',
+            'Has a negation, e.g. "not"',
+            // 'contains_number',
+            'Contains a number',
+            // 'contains_ord',
+            'Has an ordinal term, e.g., "second planet"', 
+            // 'contains_part',
+            'Has a description of a component or part, e.g. "roof of the house"',
+            // 'contains_path',
+            'Has a description of a path, e.g. "via Paris"',
+            // 'contains_polarity',
+            'Contains a term indicating polarity, e.g. "no information"',
+            // 'contains_polite',
+            'Contains a polite term, e.g. "kindly"',
+            // 'contains_poss',
+            'Has a general form of posession, e.g., "His health"', 
+            // 'contains_purpose',
+            'Describes the purpose, e.g. "in order to breathe."', 
+            // 'contains_quant',
+            'Describes a quantity',
+
+            // 'contains_question',
+            'Contains a question', 
+            // 'contains_range',
+            'Describes a range, e.g., "in 10 years"',
+            // 'contains_scale',
+            'Contains a scale used for measuring quantity', 
+            // 'contains_source',
+            'Contains a description of a source, e.g. "from Houston"', 
+            // 'contains_subevent',
+            'Describes a subevent occuring with another event, e.g. "I pass the resort on my way to work."',
+            // 'contains_time',
+            'Contains a description of a time, e.g., "yesterday"', 
+            // 'contains_topic',
+            'Describes a topic, e.g., "about the case"', 
+            // 'contains_unit'
+            'Has a unit',
     ]
     return mapping[featureIndex];
   }
@@ -188,7 +236,7 @@ export class TxFeatureProvenanceModule extends LitModule {
 
         // wrap it in html
         const previewSlice = 
-          '<div class="preview-slice-holder">' + 
+          '<div class="preview-slice-holder" style="width:100%">' + 
         previewSliceData.map( 
           (d, i) => {
             return `<div class="preview-slice" style="display:flex;">
@@ -205,9 +253,14 @@ export class TxFeatureProvenanceModule extends LitModule {
 
         var isSelected = that.highQualityFeatures.has(commonFeature);
         const row = {
-          'feature': that.featuresNames(commonFeature),
+          'feature': 
+            html`<div style="height:100%"> 
+            <div style="margin-top:50%; height:100%">
+            ${that.featuresNames(commonFeature)}
+            </div> 
+            </div>`,
           'enable': html`<div
-                        style="width: 50%; text-align: center; border: 1px solid"
+                        style="margin-top:50%; width: 50%; text-align: center; border: 1px solid"
                         @click=${() => that.onSelectEnable(commonFeature, isSelected)}
                       >
                         <span style="visibility: ${isSelected ? "visible" : "hidden"};">

@@ -116,7 +116,7 @@ export class FilterBySimilarDataService extends LitService {
           // console.log('[initializeTransformsToDataIfNotExist] adding ' + element + "  <- " + item.id);
           // console.log(item);
           that.transformsToData.get(element).push({
-            'text': item.data['sentence'],
+            'text': item.data['diff'],
             "label": item.data['label']
           }) ;
         });
@@ -147,7 +147,7 @@ export class FilterBySimilarDataService extends LitService {
           } 
 
           that.featuresToData.get(element).push({
-            'text': item.data['sentence'],
+            'text': item.data['old_sentence'],
             "label": item.data['label']
           }) ;
         });

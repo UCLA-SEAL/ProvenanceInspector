@@ -164,7 +164,7 @@ export class TxTransformProvenanceModule extends LitModule {
 
         // wrap it in html
         const previewSlice = 
-          '<div class="preview-slice-holder">' + 
+          '<div class="preview-slice-holder" style="width:100%">' + 
         previewSliceData.map( 
           (d, i) => {
             return `<div class="preview-slice" style="display:flex;">
@@ -181,9 +181,13 @@ export class TxTransformProvenanceModule extends LitModule {
 
         var isSelected = that.highQualityTransforms.has(commonTransform);
         const row = {
-          'transform': that.transformNames(commonTransform),
+          'transform': html`<div style="height:100%"> 
+          <div style="margin-top:50%; height:100%">
+          ${that.transformNames(commonTransform)}
+          </div> 
+          </div>` ,
           'enable': html`<div
-                        style="width: 50%; text-align: center; border: 1px solid"
+                        style="margin-top:50%; width: 50%; text-align: center; border: 1px solid"
                         @click=${() => that.onSelectEnable(commonTransform, isSelected)}
                       >
                         <span style="visibility: ${isSelected ? "visible" : "hidden"};">

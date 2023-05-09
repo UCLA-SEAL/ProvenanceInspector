@@ -16,7 +16,7 @@
  */
 
 // tslint:disable:no-new-decorators
-import { customElement } from 'lit/decorators'
+import { customElement, property } from 'lit/decorators'
 import { html, svg } from 'lit'
 import { action, computed, observable } from 'mobx'
 
@@ -26,7 +26,9 @@ import { IndexedInput } from '../lib/types'
 import { getTextWidth, getTokOffsets, sumArray } from '../lib/utils'
 import { ColumnHeader, TableData, TableEntry } from '../elements/table';
 import {unsafeHTML} from 'lit-html/directives/unsafe-html.js';
+import {PopupContainer} from '../elements/popup_container';
 
+import * as papa from 'papaparse';
 
 import { styles as sharedStyles } from '../lib/shared_styles.css'
 import { styles } from './tx_transform_provenance_module.css'
@@ -57,6 +59,9 @@ export class TxTransformProvenanceModule extends LitModule {
   @observable private isLoading = false
   @observable private commonTransforms;
   @observable private highQualityTransforms;
+
+
+  @property({type: String}) downloadFilename: string = 'transform_provenance_enabled.csv';
 
   override firstUpdated() {
     this.reactImmediately(
@@ -131,6 +136,8 @@ export class TxTransformProvenanceModule extends LitModule {
     this.highQualityTransforms = new Set(qualityTransforms);
   }
 
+
+
   override render() {
     // clang-format off
     if (this.isLoading) {
@@ -149,6 +156,45 @@ export class TxTransformProvenanceModule extends LitModule {
         centerAlign: true,
       })
     )
+
+    const updateFilename = (e: Event) => {
+      // tslint:disable-next-line:no-any
+      this.downloadFilename = (e as any).target.value as string;
+    };
+
+    const getSelectedTransforms = () => {
+      const selectedTransforms = [];
+      for (const transform of this.highQualityTransforms) {
+        selectedTransforms.push([this.transformNames(transform), "1"]);
+      }
+      return selectedTransforms;
+    }
+
+    const csvContent = function() {
+      return papa.unparse(
+        {fields: ['transform'], data: getSelectedTransforms()},
+        {newline: '\r\n'});
+
+    }
+
+    const downloadCSV = () => {
+      const content = csvContent();
+      const blob = new Blob([content], {type: 'text/csv'});
+      const a = window.document.createElement('a');
+      a.href = window.URL.createObjectURL(blob);
+      a.download = this.downloadFilename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      const controls: PopupContainer =
+          this.shadowRoot!.querySelector('popup-container.download-popup')!;
+      controls.expanded = false;
+    };
+
+    function onEnter(e: KeyboardEvent) {
+      if (e.key === 'Enter') downloadCSV();
+    }
+      
     const rows = [];
 
     console.log("trigger regeneration of table...");
@@ -181,6 +227,7 @@ export class TxTransformProvenanceModule extends LitModule {
 
         var isSelected = that.highQualityTransforms.has(commonTransform);
         const row = {
+          'transform_raw': that.transformNames(commonTransform),
           'transform': html`<div style="height:100%"> 
           <div style="margin-top:50%; height:100%">
           ${that.transformNames(commonTransform)}
@@ -212,16 +259,38 @@ export class TxTransformProvenanceModule extends LitModule {
             <lit-data-table class="table"
                 .columnNames=${columns}
                 .data=${rows}
-                
-                exportEnabled
             ></lit-data-table>
+
+            
+      <tr>
+        <td>
+          <div class="footer">
+                  <popup-container class='download-popup'>
+                  <mwc-icon class='icon-button' slot='toggle-anchor'
+                    title="Download CSV">
+                    file_download
+                  </mwc-icon>
+                  Download CSV of enabled transforms
+                  <div class='download-popup-controls'>
+                    <label for="filename">Filename</label>
+                    <input type="text" name="filename" value=${this.downloadFilename}
+                    @input=${updateFilename} @keydown=${onEnter}>
+                    <button class='filled-button nowrap' @click=${downloadCSV}
+                      ?disabled=${!this.downloadFilename}>
+                      Download rows
+                    </button>
+                  </div>
+                </popup-container>
+            <div class='footer-spacer'></div>
+          </div>
+        </td>
+      </tr>
           </div>
         </div>
       </div>
     `
     // clang-format on
   }
-
 }
 
 declare global {

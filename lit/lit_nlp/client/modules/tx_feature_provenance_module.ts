@@ -16,7 +16,7 @@
  */
 
 // tslint:disable:no-new-decorators
-import { customElement } from 'lit/decorators'
+import { customElement, property } from 'lit/decorators'
 import { html, svg } from 'lit'
 import { action, computed, observable } from 'mobx'
 
@@ -26,7 +26,9 @@ import { IndexedInput } from '../lib/types'
 import { getTextWidth, getTokOffsets, sumArray } from '../lib/utils'
 import { ColumnHeader, TableData, TableEntry } from '../elements/table';
 import {unsafeHTML} from 'lit-html/directives/unsafe-html.js';
+import {PopupContainer} from '../elements/popup_container';
 
+import * as papa from 'papaparse';
 
 import { styles as sharedStyles } from '../lib/shared_styles.css'
 import { styles } from './tx_feature_provenance_module.css'
@@ -58,6 +60,8 @@ export class TxFeatureProvenanceModule extends LitModule {
   @observable private commonFeatures;
   @observable private highQualityFeatures;
 
+  @property({type: String}) downloadFilename: string = 'feature_provenance_enabled.csv';
+
   override firstUpdated() {
     this.reactImmediately(
       () => this.filterBySimilarDataService.commonFeatureTypes,
@@ -70,6 +74,47 @@ export class TxFeatureProvenanceModule extends LitModule {
     )
   }
 
+  private featuresNamesRaw(featureIndex : number) {
+    var mapping = [
+      'contains_accompanier',
+      'contains_age',
+      'contains_beneficiary',
+      'contains_concession',
+      'contains_condition',
+      'contains_conjunctions',
+      'contains_consist_of',
+      'contains_coreferences',
+      'contains_degree',
+      'contains_destination',
+      'contains_direction',
+      'contains_domain',
+      'contains_duration',
+      'contains_example',
+      'contains_exlamation',
+      'contains_extent',
+      'contains_frequency',
+      'contains_imperative',
+      'contains_instrument',
+      'contains_interrogative_clause',
+      'contains_location',
+      'contains_manner',
+      'contains_medium',
+      'contains_mod',
+      'contains_mode',
+      'contains_name',
+      'contains_negation',
+      'contains_number',
+      'contains_ord',
+      'contains_part',
+      'contains_path',
+      'contains_polarity',
+      'contains_polite',
+      'contains_poss',
+      'contains_purpose',
+      'contains_quant'
+    ]
+    return mapping[featureIndex];
+  }
 
   private featuresNames(featureIndex : number) {
     var mapping = [
@@ -221,6 +266,46 @@ export class TxFeatureProvenanceModule extends LitModule {
         centerAlign: true,
       })
     )
+
+
+    const updateFilename = (e: Event) => {
+      // tslint:disable-next-line:no-any
+      this.downloadFilename = (e as any).target.value as string;
+    };
+
+    const getSelectedFeatures = () => {
+      const selectedTransforms = [];
+      for (const transform of this.highQualityFeatures) {
+        selectedTransforms.push([this.featuresNamesRaw(transform), "1"]);
+      }
+      return selectedTransforms;
+    }
+
+    const csvContent = function() {
+      return papa.unparse(
+        {fields: ['features'], data: getSelectedFeatures()},
+        {newline: '\r\n'});
+
+    }
+
+    const downloadCSV = () => {
+      const content = csvContent();
+      const blob = new Blob([content], {type: 'text/csv'});
+      const a = window.document.createElement('a');
+      a.href = window.URL.createObjectURL(blob);
+      a.download = this.downloadFilename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      const controls: PopupContainer =
+          this.shadowRoot!.querySelector('popup-container.download-popup')!;
+      controls.expanded = false;
+    };
+
+    function onEnter(e: KeyboardEvent) {
+      if (e.key === 'Enter') downloadCSV();
+    }
+
     const rows = [];
 
     console.log("trigger regeneration of table...");
@@ -253,6 +338,7 @@ export class TxFeatureProvenanceModule extends LitModule {
 
         var isSelected = that.highQualityFeatures.has(commonFeature);
         const row = {
+          'feature_raw': that.featuresNamesRaw(commonFeature),
           'feature': 
             html`<div style="height:100%"> 
             <div style="margin-top:50%; height:100%">
@@ -286,8 +372,32 @@ export class TxFeatureProvenanceModule extends LitModule {
                 .columnNames=${columns}
                 .data=${rows}
                 
-                exportEnabled
             ></lit-data-table>
+
+            <tr>
+        <td>
+          <div class="footer">
+                  <popup-container class='download-popup'>
+                  <mwc-icon class='icon-button' slot='toggle-anchor'
+                    title="Download CSV">
+                    file_download
+                  </mwc-icon>
+                  Download CSV of enabled transforms
+                  <div class='download-popup-controls'>
+                    <label for="filename">Filename</label>
+                    <input type="text" name="filename" value=${this.downloadFilename}
+                    @input=${updateFilename} @keydown=${onEnter}>
+                    <button class='filled-button nowrap' @click=${downloadCSV}
+                      ?disabled=${!this.downloadFilename}>
+                      Download rows
+                    </button>
+                  </div>
+                </popup-container>
+            <div class='footer-spacer'></div>
+          </div>
+        </td>
+      </tr>
+
           </div>
         </div>
       </div>

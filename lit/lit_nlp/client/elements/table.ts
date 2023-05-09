@@ -506,6 +506,7 @@ export class DataTable extends ReactiveElement {
     return this.displayData.map(
         (row: TableRowInternal) => row.rowData.map(this.getSortableEntry));
   }
+  
 
   getCSVContent(): string {
     return papa.unparse(

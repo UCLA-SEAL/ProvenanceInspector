@@ -222,7 +222,7 @@ export class TxFeatureProvenanceModule extends LitModule {
     // this.isLoading = true;
 
     // this.isLoading = false;
-    console.log('[onSelectEnable] ' + commonFeature);
+    // console.log('[onSelectEnable] ' + commonFeature);
 
     if (!isAlreadySelected) {
       this.qualityMarkService.markHighQualityFeatures(commonFeature);
@@ -237,14 +237,14 @@ export class TxFeatureProvenanceModule extends LitModule {
 
 
   private async updateFeatures(incomingFeatures){
-    console.log("[provenance] updateFeatures")
-    console.log(incomingFeatures);
+    // console.log("[provenance] updateFeatures")
+    // console.log(incomingFeatures);
     this.commonFeatures = new Set(incomingFeatures);
   }
 
   private async updateHighQFeatures(qualityFeatures){
-    console.log("[provenance] updateHighQFeatures")
-    console.log(qualityFeatures);
+    // console.log("[provenance] updateHighQFeatures")
+    // console.log(qualityFeatures);
     this.highQualityFeatures = new Set(qualityFeatures);
   }
 
@@ -308,8 +308,7 @@ export class TxFeatureProvenanceModule extends LitModule {
 
     const rows = [];
 
-    console.log("trigger regeneration of table...");
-    console.log(this.commonFeatures);
+
     if (this.commonFeatures) {
 
       var dataSlices = this.filterBySimilarDataService.dataSliceOfFeatureType;
@@ -340,23 +339,23 @@ export class TxFeatureProvenanceModule extends LitModule {
         const row = {
           'feature_raw': that.featuresNamesRaw(commonFeature),
           'feature': 
-            html`<div style="height:100%"> 
-            <div style="margin-top:50%; height:100%">
+            html`
+            <div style="margin-top:0%; height:100%">
             ${that.featuresNames(commonFeature)}
-            </div> 
+            </div> `,
+          'enable': html`
+          
+            <div style="margin-top:0%; width: 50%; text-align: center; border: 1px solid"
+              @click=${() => that.onSelectEnable(commonFeature, isSelected)}
+            >
+              <span style="visibility: ${isSelected ? "visible" : "hidden"};">
+                👍
+              </span>
             </div>`,
-          'enable': html`<div
-                        style="margin-top:50%; width: 50%; text-align: center; border: 1px solid"
-                        @click=${() => that.onSelectEnable(commonFeature, isSelected)}
-                      >
-                        <span style="visibility: ${isSelected ? "visible" : "hidden"};">
-                          👍
-                        </span>
-                      </div>`,
           'data': html`${unsafeHTML(previewSlice)}`
         }
         rows.push(row);
-        console.log(row);
+        // console.log(row);
       });
     }
 

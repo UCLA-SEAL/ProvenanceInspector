@@ -150,8 +150,6 @@ export class DataTableModule extends LitModule {
       var { transformIndices, featureIndices } = this.extractProvenance(data);
 
       // find similar data (sharing at least one transform or feature)
-      console.log('search for data with the transform matching any one of the following');
-      console.log(transformIndices);
 
       // enumerate over data
       const filteredData = data.filter(function(datapoint) {
@@ -168,11 +166,8 @@ export class DataTableModule extends LitModule {
         .some(index => featureIndices.includes(index))
       });
 
-      console.log('filteredData by similar points')
       return filteredData;
     }
-    console.log('filteredData!!!');
-      console.log(data);
     
     return data;
   }
@@ -369,7 +364,20 @@ export class DataTableModule extends LitModule {
 
   @computed
   get numberOfHighQualityLabels(): number {
-    return this.qualityMarkService.highQualityIndices.size;
+    var totalDatapointsMatchingTransforms = 0;
+    this.qualityMarkService.highQualityTransforms.forEach(transformIndex => {
+      var matchingDatapoints = this.filterBySimilarDataService.datapointsWithTransforms.get(transformIndex);
+
+      totalDatapointsMatchingTransforms += matchingDatapoints.length;
+    });
+
+    var totalDatapointsMatchingFeatures = 0;
+    this.qualityMarkService.highQualityFeatures.forEach(featureIndex => {
+      var matchingDatapoints = this.filterBySimilarDataService.dataSliceOfTransformType.get(featureIndex);
+
+      totalDatapointsMatchingFeatures += matchingDatapoints.length;
+    });
+    return this.qualityMarkService.highQualityIndices.size + totalDatapointsMatchingTransforms + totalDatapointsMatchingFeatures;
   }
 
   // TODO(lit-dev): figure out why this updates so many times;
@@ -555,6 +563,29 @@ export class DataTableModule extends LitModule {
       var { transformIndices, featureIndices } = this.extractProvenance(data);
       this.filterBySimilarDataService.setCommonTransforms(transformIndices);
       this.filterBySimilarDataService.setCommonFeatures(featureIndices);
+
+      // reset the high quality transforms and features as well
+      var highQTransformsToUnmark = [];
+      this.qualityMarkService.highQualityTransforms.forEach(transform => {
+        if (!transformIndices.includes(transform)) {
+          highQTransformsToUnmark.push(transform);
+        }
+      });
+      highQTransformsToUnmark.forEach(transform => {
+        this.qualityMarkService.unmarkHighQualityTransforms(transform);
+      });
+
+      var highQFeaturesToUnmark = [];
+      this.qualityMarkService.highQualityFeatures.forEach(feature => {
+        if (!featureIndices.includes(feature)) {
+          highQFeaturesToUnmark.push(feature);
+        }
+      });
+      highQFeaturesToUnmark.forEach(feature => {
+        this.qualityMarkService.unmarkHighQualityFeatures(feature);
+      });
+      
+
     }
 
     console.log('high quality!');

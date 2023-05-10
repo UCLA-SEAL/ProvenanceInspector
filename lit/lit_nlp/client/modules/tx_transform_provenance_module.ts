@@ -73,11 +73,12 @@ export class TxTransformProvenanceModule extends LitModule {
       () => this.qualityMarkService.highQualityTransforms,
       highQualityTransform => this.updateHighQTransforms(highQualityTransform)
     )
+    
   }
 
   private transformNames(transformIndex : number) {
     var mapping = [
-          "AddNeutralEmoji",
+      "AddNeutralEmoji",
       "ChangeHypernym",
       "ChangeHyponym",
       "ChangeLocation",
@@ -110,7 +111,7 @@ export class TxTransformProvenanceModule extends LitModule {
     // this.isLoading = true;
 
     // this.isLoading = false;
-    console.log('[onSelectEnable] ' + commonTransform);
+    // console.log('[onSelectEnable] ' + commonTransform);
 
     if (!isAlreadySelected) {
       this.qualityMarkService.markHighQualityTransforms(commonTransform);
@@ -125,14 +126,14 @@ export class TxTransformProvenanceModule extends LitModule {
 
 
   private async updateTransforms(incomingTransforms){
-    console.log("[provenance] updateTransforms")
-    console.log(incomingTransforms);
+    // console.log("[provenance] updateTransforms")
+    // console.log(incomingTransforms);
     this.commonTransforms = new Set(incomingTransforms);
   }
 
   private async updateHighQTransforms(qualityTransforms){
-    console.log("[provenance] updateHighQTransforms")
-    console.log(qualityTransforms);
+    // console.log("[provenance] updateHighQTransforms")
+    // console.log(qualityTransforms);
     this.highQualityTransforms = new Set(qualityTransforms);
   }
 
@@ -197,8 +198,7 @@ export class TxTransformProvenanceModule extends LitModule {
       
     const rows = [];
 
-    console.log("trigger regeneration of table...");
-    console.log(this.commonTransforms);
+    
     if (this.commonTransforms) {
 
       var dataSlices = this.filterBySimilarDataService.dataSliceOfTransformType;
@@ -206,7 +206,8 @@ export class TxTransformProvenanceModule extends LitModule {
       var that = this;
       this.commonTransforms.forEach(function(commonTransform) {
 
-        const previewSliceData = dataSlices.get(commonTransform).slice(0, 3);
+        const previewSliceData = dataSlices.get(commonTransform)
+        .slice(0, 3);
 
         // wrap it in html
         const previewSlice = 
@@ -228,23 +229,25 @@ export class TxTransformProvenanceModule extends LitModule {
         var isSelected = that.highQualityTransforms.has(commonTransform);
         const row = {
           'transform_raw': that.transformNames(commonTransform),
-          'transform': html`<div style="height:100%"> 
-          <div style="margin-top:50%; height:100%">
-          ${that.transformNames(commonTransform)}
+          'transform': html` 
+          <div style="margin-top:0%; height:100%; vertical-align: middle;">
+          <span>${that.transformNames(commonTransform)}</span>
           </div> 
-          </div>` ,
-          'enable': html`<div
-                        style="margin-top:50%; width: 50%; text-align: center; border: 1px solid"
-                        @click=${() => that.onSelectEnable(commonTransform, isSelected)}
-                      >
-                        <span style="visibility: ${isSelected ? "visible" : "hidden"};">
-                          👍
-                        </span>
-                      </div>`,
+          ` ,
+          'enable': html`
+          
+            <div style="margin-top:0%; width: 50%; text-align: center; border: 1px solid;"
+                @click=${() => that.onSelectEnable(commonTransform, isSelected)}
+              >
+                <span style="visibility: ${isSelected ? "visible" : "hidden"};">
+                  👍
+                </span>
+            </div>
+          `,
           'data': html`${unsafeHTML(previewSlice)}`
         }
         rows.push(row);
-        console.log(row);
+        // console.log(row);
       });
     }
 

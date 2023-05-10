@@ -5,7 +5,6 @@ import {formatForDisplay, IndexedInput, ModelInfoMap, Spec} from '../lib/types';
 import {LitService} from "./lit_service";
 import {AppState} from "./state_service";
 
-// HJ notes: stop using this service. Now deprecated
 export class FilterBySimilarDataService extends LitService {
 
   @observable
@@ -29,7 +28,7 @@ export class FilterBySimilarDataService extends LitService {
 
   @computed
   get commonTransformTypes() {
-    console.log("commonTransformTypes");
+    // console.log("commonTransformTypes");
     return new Set(this.commonTransforms);
   }
 
@@ -48,10 +47,21 @@ export class FilterBySimilarDataService extends LitService {
     return this.featuresToData;
   }
 
+  @computed 
+  get datapointsWithTransforms() {
+    return this.transformsToData;
+  }
+
+  @computed 
+  get datapointsWithFeatures() {
+    return this.featuresToData;
+  }
+
   get markedIndices(): Set<number> {
-    // return new Set(this.selectedIndices)
     return new Set();
   }
+
+
 
   @action
   selectDatapoint(index: number) {

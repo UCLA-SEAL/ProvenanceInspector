@@ -82,4 +82,13 @@ export class QualityMarkService extends LitService {
   unmarkHighQualityFeatures(feature: number) {
     this.highQualityFeaturesSet.delete(feature);
   }
+
+  @action
+  clearAllData() {
+    this.highQualityFeaturesSet.clear();
+    this.highQualityTransformsSet.clear();
+    this.highQualityIndicesSet.clear();
+    this.lowQualityIndicesSet.clear();
+  }
+
 }

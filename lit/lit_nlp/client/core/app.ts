@@ -152,16 +152,17 @@ export class LitApp {
     const selectionService = new SelectionService(appState);
     const pinnedSelectionService = new SelectionService(appState);
     const sliceService = new SliceService(selectionService, appState);
+    const qualityMarkService = new QualityMarkService(appState);
+    const filterBySimilarDataService = new FilterBySimilarDataService(appState);
     const settingsService =
-        new SettingsService(appState, modulesService, selectionService);
+        new SettingsService(appState, modulesService, selectionService, qualityMarkService, filterBySimilarDataService);
     const classificationService = new ClassificationService(appState);
     const dataService = new DataService(
         appState, classificationService, apiService, settingsService);
     const groupService = new GroupService(appState, dataService);
     const colorService = new ColorService(groupService, dataService);
     const focusService = new FocusService(selectionService);
-    const qualityMarkService = new QualityMarkService(appState);
-    const filterBySimilarDataService = new FilterBySimilarDataService(appState);
+    
     
     // Populate the internal services map for dependency injection
     this.services.set(ApiService, apiService);

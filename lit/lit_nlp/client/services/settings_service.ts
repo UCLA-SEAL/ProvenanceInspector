@@ -21,7 +21,7 @@ import {action, computed, reaction} from 'mobx';
 import {arrayContainsSame} from '../lib/utils';
 
 import {LitService} from './lit_service';
-import {AppState, ModulesService, SelectionService} from './services';
+import {AppState, FilterBySimilarDataService, ModulesService, QualityMarkService, SelectionService} from './services';
 
 /**
  * Parameters used to update the global settings, and compute if a rerender
@@ -40,7 +40,9 @@ export class SettingsService extends LitService {
   constructor(
       private readonly appState: AppState,
       private readonly modulesService: ModulesService,
-      private readonly selectionService: SelectionService) {
+      private readonly selectionService: SelectionService,
+      private qualityMarkService : QualityMarkService, 
+      private filterBySimilarDataService: FilterBySimilarDataService) {
     super();
     // If compare examples changes, update layout using the 'quick' path.
     reaction(() => appState.compareExamplesEnabled, compareExamplesEnabled => {
@@ -102,6 +104,9 @@ export class SettingsService extends LitService {
       this.appState.setCurrentDataset(
           nextDataset, /** load data */
           true);
+
+      this.qualityMarkService.clearAllData();
+      this.filterBySimilarDataService.clearAllData();
     }
 
     // If the entire layout has changed, reinitialize the layout.

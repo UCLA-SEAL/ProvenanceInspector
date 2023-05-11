@@ -7,6 +7,7 @@ import {AppState} from "./state_service";
 
 export class FilterBySimilarDataService extends LitService {
 
+
   @observable
   private selectedIndices = new Set<number>()
 
@@ -155,6 +156,13 @@ export class FilterBySimilarDataService extends LitService {
           }) ;
         });
     });
+  }
+
+  clearAllData() {
+    this.commonTransforms.clear();
+    this.commonFeatures.clear();
+    this.transformsToData.clear();
+    this.featuresToData.clear();
   }
 
 

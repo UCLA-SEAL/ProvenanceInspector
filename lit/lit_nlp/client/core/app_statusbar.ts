@@ -57,7 +57,7 @@ export class StatusbarComponent extends MobxLitElement {
 
     // clang-format off
     return html`
-      <div id="at-bottom">
+      <div id="at-bottom" style="display:none">
         <div class="toolbar">
           <div class="text-line">
             <div class="status-info">

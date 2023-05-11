@@ -124,10 +124,11 @@ def main(argv: Sequence[str]) -> Optional[dev_server.LitServerType]:
 
   ##
   # Load datasets for each task that we have a model for
-  if "sst2" in tasks_to_load:
-    logging.info("Loading data for SST-2 task.")
-    # datasets["sst_dev"] = glue.SST2Data("validation")
-    datasets["sst_dev"] = glue.RankedSST2Data("")
+  # if "sst2" in tasks_to_load:
+  #   logging.info("Loading data for SST-2 task.")
+  #   # datasets["sst_dev"] = glue.SST2Data("validation")
+  datasets["sst_dev"] = glue.RankedSST2Data("dev")
+  datasets["sst_train"] = glue.RankedSST2Data("train")
     
 
   if "stsb" in tasks_to_load:

@@ -86,22 +86,24 @@ class RankedSST2Data(lit_dataset.Dataset):
   def __init__(self, split: str):
     self._examples = []
     # for ex in load_tfds('glue/sst2', split=split):
-    with open('aug_dataset.csv', 'r') as f:
+
+    filename = 'aug_dataset.csv' if split == 'train' else 'validation_aug_dataset.csv'
+    with open(filename, 'r') as f:
       reader = csv.DictReader(f)
       
       for row in reader: 
         self._examples.append({
             'idx': int(row['idx']),
-            'sentence': row['text'],
-            'label': self.LABELS[int(row['label'])],
+            'Sentence': row['text'],
+            'Original label': self.LABELS[int(row['label'])],
             'LLM label': self.LLM_LABELS[int(row['llm_label'])],
             'LLM explanation': row['llm_explanation'],
-            'LLM inconsistent': self.CONSISTENCY[int(row['different_label'])],
+            'Original label-LLM label consistency': self.CONSISTENCY[int(row['different_label'])],
             'features': row['features'],
             'transforms': row['transforms'],
-            'alignment_score': row['alignment_score'],
-            'fluency_score': row['fluency_score'],
-            'grammar_score': row['grammar_score'],
+            'Alignment': max(0, min(1, round(float(row['alignment_score']), 2))),
+            'Fluency': max(0, min(1, round(float(row['fluency_score']), 2))),
+            'Grammaticality': max(0, min(1, round(float(row['grammar_score']), 2))),
             'old_sentence': row['old_text'],
             'diff': row['diff_html']
         })
@@ -111,16 +113,16 @@ class RankedSST2Data(lit_dataset.Dataset):
 
   def spec(self):
     return {
-        'sentence': lit_types.TextSegment(),
+        'Sentence': lit_types.TextSegment(),
         # 'old_sentence': lit_types.TextSegment(),
-        'alignment_score': lit_types.Scalar(),
-        'fluency_score': lit_types.Scalar(),
-        'grammar_score': lit_types.Scalar(),
+        'Alignment': lit_types.Scalar(),
+        'Fluency': lit_types.Scalar(),
+        'Grammaticality': lit_types.Scalar(),
         'LLM label': lit_types.CategoryLabel(vocab=self.LLM_LABELS),
         'LLM explanation': lit_types.TextSegment(),
-        'LLM inconsistent': lit_types.CategoryLabel(vocab=self.CONSISTENCY),
+        'Original label-LLM label consistency': lit_types.CategoryLabel(vocab=self.CONSISTENCY),
 
-        'label': lit_types.CategoryLabel(vocab=self.LABELS)
+        'Original label': lit_types.CategoryLabel(vocab=self.LABELS)
     }
 
 class MRPCData(lit_dataset.Dataset):

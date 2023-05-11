@@ -260,7 +260,7 @@ export class TxFeatureProvenanceModule extends LitModule {
       `
     }
 
-    const columns: ColumnHeader[] = ['feature', 'enable', 'data'].map(
+    const columns: ColumnHeader[] = ['Feature', 'Enable', 'Original text'].map(
       field => ({
         name: field,
         centerAlign: true,
@@ -338,12 +338,12 @@ export class TxFeatureProvenanceModule extends LitModule {
         var isSelected = that.highQualityFeatures.has(commonFeature);
         const row = {
           'feature_raw': that.featuresNamesRaw(commonFeature),
-          'feature': 
+          'Feature': 
             html`
             <div style="margin-top:0%; height:100%">
             ${that.featuresNames(commonFeature)}
             </div> `,
-          'enable': html`
+          'Enable': html`
           
             <div style="margin-top:0%; width: 50%; text-align: center; border: 1px solid"
               @click=${() => that.onSelectEnable(commonFeature, isSelected)}
@@ -352,7 +352,7 @@ export class TxFeatureProvenanceModule extends LitModule {
                 👍
               </span>
             </div>`,
-          'data': html`${unsafeHTML(previewSlice)}`
+          'Original text': html`${unsafeHTML(previewSlice)}`
         }
         rows.push(row);
         // console.log(row);

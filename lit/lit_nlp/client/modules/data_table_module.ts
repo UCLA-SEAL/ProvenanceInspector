@@ -185,7 +185,7 @@ export class DataTableModule extends LitModule {
     .map(index => dataIndexToData[index])
     .forEach(function (element) {
       // element['transforms'].split(' ')
-      console.log(element.data['transforms']);
+      // console.log(element.data['transforms']);  
       element.data['transforms'].substr(1, element.data['transforms'].length -1).split(' ').map(strElement => parseInt(strElement))
         .map((element, index) => {
           if (element === 1) {
@@ -678,7 +678,7 @@ export class DataTableModule extends LitModule {
 
     // clang-format off
     return html`
-      ${this.renderColumnDropdown()}
+      <div style="display:none">${this.renderColumnDropdown()}</div>
       <div class="toggles-row">
         <div class="number-of-interactions">
 

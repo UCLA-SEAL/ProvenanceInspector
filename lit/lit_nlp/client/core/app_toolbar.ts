@@ -108,7 +108,7 @@ export class ToolbarComponent extends MobxLitElement {
     };
     // clang-format off
     return html`
-      <div id="title-group">
+      <div id="title-group" style="display:none">
         <a href="https://github.com/PAIR-code/lit/issues/new" target="_blank">
           ${renderFavicon()}
         </a>
@@ -173,7 +173,7 @@ export class ToolbarComponent extends MobxLitElement {
       const buttonText = this.appState.currentModels.join(', ');
       // clang-format off
       return html`
-        <button class='headline-button' title="Select model(s)"
+        <button class='headline-button' style="display:none" title="Select model(s)"
           @click=${() => { this.jumpToSettingsTab("Models"); }}>
           <span class='material-icon-outlined'>smart_toy</span>
           &nbsp;
@@ -262,7 +262,7 @@ export class ToolbarComponent extends MobxLitElement {
       <div class='vertical-separator'></div>
       ${this.renderLayoutInfo()}
       <div class='vertical-separator'></div>
-      <div title="Configure models, dataset, and UI." id="config">
+      <div title="Configure models, dataset, and UI." id="config" style="display:none;">
         <mwc-icon class="icon-button large-icon white-icon icon-margin"
           @click=${this.toggleGlobalSettings}>
           settings
@@ -278,16 +278,17 @@ export class ToolbarComponent extends MobxLitElement {
 
   renderRightCorner() {
     // clang-format off
-    const docButton = this.appState.metadata != null ?
-        html`
-          <mwc-icon class="icon-button large-icon white-icon icon-margin"
-            title="Documentation"
-            @click=${this.toggleDocumentation}>
-            help_outline
-          </mwc-icon>` : null;
+    // const docButton = this.appState.metadata != null ?
+    //     html`
+    //       <mwc-icon class="icon-button large-icon white-icon icon-margin"
+    //         title="Documentation"
+    //         @click=${this.toggleDocumentation}>
+    //         help_outline
+    //       </mwc-icon>` : null;
+    const docButton = null;
     return html`
       ${docButton}
-      <button class='headline-button unbordered' title="Copy link to this page"
+      <button class='headline-button unbordered' title="Copy link to this page" style="display:none"
         @click=${this.onClickCopyLink}>
         <span class='material-icon'>link</span>
         &nbsp;Copy Link

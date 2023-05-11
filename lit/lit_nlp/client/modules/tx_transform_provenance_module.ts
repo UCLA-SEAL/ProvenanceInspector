@@ -151,7 +151,7 @@ export class TxTransformProvenanceModule extends LitModule {
       `
     }
 
-    const columns: ColumnHeader[] = ['transform', 'enable', 'data'].map(
+    const columns: ColumnHeader[] = ['Transform', 'Enable', 'Transformed texts'].map(
       field => ({
         name: field,
         centerAlign: true,
@@ -229,12 +229,12 @@ export class TxTransformProvenanceModule extends LitModule {
         var isSelected = that.highQualityTransforms.has(commonTransform);
         const row = {
           'transform_raw': that.transformNames(commonTransform),
-          'transform': html` 
+          'Transform': html` 
           <div style="margin-top:0%; height:100%; vertical-align: middle;">
           <span>${that.transformNames(commonTransform)}</span>
           </div> 
           ` ,
-          'enable': html`
+          'Enable': html`
           
             <div style="margin-top:0%; width: 50%; text-align: center; border: 1px solid;"
                 @click=${() => that.onSelectEnable(commonTransform, isSelected)}
@@ -244,7 +244,7 @@ export class TxTransformProvenanceModule extends LitModule {
                 </span>
             </div>
           `,
-          'data': html`${unsafeHTML(previewSlice)}`
+          'Transformed texts': html`${unsafeHTML(previewSlice)}`
         }
         rows.push(row);
         // console.log(row);

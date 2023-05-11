@@ -28,7 +28,6 @@ export class FilterBySimilarDataService extends LitService {
 
   @computed
   get commonTransformTypes() {
-    // console.log("commonTransformTypes");
     return new Set(this.commonTransforms);
   }
 
@@ -76,26 +75,23 @@ export class FilterBySimilarDataService extends LitService {
   @action
   setCommonTransforms(transformIndexes: Array<number>) {
 
-    console.log('set common transforms');
     var that = this;
     that.commonTransforms.clear();
     transformIndexes.forEach(function(transformIndex) {
       that.commonTransforms.add(transformIndex);
-      console.log('common transforms is now ' + that.commonTransforms);
+      
     });
   }
 
   @action
   setCommonFeatures(featureIndexes: Array<number>) {
    
-
-    console.log('set common features');
     var that = this;
 
     that.commonFeatures.clear();
     featureIndexes.forEach(function(featureIndex) {
       that.commonFeatures.add(featureIndex);
-      console.log('common features is now ' + that.commonFeatures);
+
     });
   }
 
@@ -108,8 +104,7 @@ export class FilterBySimilarDataService extends LitService {
     var that = this;
     // var transformsToData = new Map<number, Array<string>>();
     data.forEach(function (item) {
-      // console.log('[initializeTransformsToDataIfNotExist]');
-      // console.log(item.data['transforms'].substr(1, item.data['transforms'].length -1));
+      
       item.data['transforms'].substr(1, item.data['transforms'].length -1).split(' ')
         .map(strElement => parseInt(strElement))
         .map((element, index) => {
@@ -123,8 +118,6 @@ export class FilterBySimilarDataService extends LitService {
             that.transformsToData.set(element, new Array());  
           } 
 
-          // console.log('[initializeTransformsToDataIfNotExist] adding ' + element + "  <- " + item.id);
-          // console.log(item);
           that.transformsToData.get(element).push({
             'text': item.data['diff'],
             "label": item.data['label']

@@ -129,6 +129,8 @@ def main(argv: Sequence[str]) -> Optional[dev_server.LitServerType]:
   #   # datasets["sst_dev"] = glue.SST2Data("validation")
   datasets["sst_dev"] = glue.RankedSST2Data("dev")
   datasets["sst_train"] = glue.RankedSST2Data("train")
+
+  datasets['hate_dev'] = glue.RankedHateSpeechData()
     
 
   if "stsb" in tasks_to_load:

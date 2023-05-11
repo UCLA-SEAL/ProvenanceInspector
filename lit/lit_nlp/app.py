@@ -664,15 +664,15 @@ class LitApp(object):
     # Validate datasets and models if specified.
     self._validate(validate, report_all)
 
-    def compute_TxTextFetch():
-      print("COMPUTING TxTextFetch")
-      global TxTextFetch
-      TxTextFetch = textdiversity.search.TextFetch(
-        [entry['sentence'] for entry in self._datasets['sst_dev'].examples]
-      )
-      TxTextFetch.compute_features()
-      print("DONE COMPUTING TxTextFetch")
-    Thread(target=compute_TxTextFetch).start()
+    # def compute_TxTextFetch():
+    #   print("COMPUTING TxTextFetch")
+    #   global TxTextFetch
+    #   TxTextFetch = textdiversity.search.TextFetch(
+    #     [entry['sentence'] for entry in self._datasets['sst_dev'].examples]
+    #   )
+    #   TxTextFetch.compute_features()
+    #   print("DONE COMPUTING TxTextFetch")
+    # Thread(target=compute_TxTextFetch).start()
 
     # Optionally, run models to pre-populate cache.
     if warm_projections:

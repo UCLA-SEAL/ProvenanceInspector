@@ -120,6 +120,7 @@ export class FilterBySimilarDataService extends LitService {
           } 
 
           that.transformsToData.get(element).push({
+            'idx': item.data['idx'],
             'text': item.data['diff'],
             "label": item.data['label']
           }) ;
@@ -151,6 +152,7 @@ export class FilterBySimilarDataService extends LitService {
           } 
 
           that.featuresToData.get(element).push({
+            'idx': item.data['idx'],
             'text': item.data['old_sentence'],
             "label": item.data['label']
           }) ;

@@ -409,7 +409,7 @@ export class DataTable extends ReactiveElement {
           <div style="margin-left:0.4em;">
             <span>👍</span>
             <br>
-            high_Q
+            high quality
           </div>
         `
       })

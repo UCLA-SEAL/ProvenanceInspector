@@ -155,6 +155,11 @@ tbody tr:hover {
   background: var(--lit-mage-200);
   cursor: pointer;
 }
+
+tbody tr:odd {
+  background: var(--lit-mage-200);
+}
+
 tbody tr.filler:hover {
   background: none;
   cursor: default;

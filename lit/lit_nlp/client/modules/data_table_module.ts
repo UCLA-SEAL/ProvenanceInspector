@@ -364,20 +364,39 @@ export class DataTableModule extends LitModule {
 
   @computed
   get numberOfHighQualityLabels(): number {
+    var highQualityInstances = new Set();
+
+    this.qualityMarkService.highQualityIndices.forEach(highQualityIndex => highQualityInstances.add(highQualityIndex));
+
+    console.log('highQualityInstances');
+    console.log(highQualityInstances);
     var totalDatapointsMatchingTransforms = 0;
     this.qualityMarkService.highQualityTransforms.forEach(transformIndex => {
       var matchingDatapoints = this.filterBySimilarDataService.datapointsWithTransforms.get(transformIndex);
 
       totalDatapointsMatchingTransforms += matchingDatapoints.length;
+      matchingDatapoints.forEach(matchingDatapoint => 
+        highQualityInstances.add(matchingDatapoint['idx'])
+      )
+      
     });
+
+    console.log(highQualityInstances);
 
     var totalDatapointsMatchingFeatures = 0;
     this.qualityMarkService.highQualityFeatures.forEach(featureIndex => {
-      var matchingDatapoints = this.filterBySimilarDataService.dataSliceOfTransformType.get(featureIndex);
+      var matchingDatapoints = this.filterBySimilarDataService.dataSliceOfFeatureType.get(featureIndex);
 
       totalDatapointsMatchingFeatures += matchingDatapoints.length;
+      matchingDatapoints.forEach(matchingDatapoint => 
+        highQualityInstances.add(matchingDatapoint['idx'])
+      )
     });
-    return this.qualityMarkService.highQualityIndices.size + totalDatapointsMatchingTransforms + totalDatapointsMatchingFeatures;
+
+    console.log(highQualityInstances);
+    // return this.qualityMarkService.highQualityIndices.size + totalDatapointsMatchingTransforms + totalDatapointsMatchingFeatures;
+
+    return highQualityInstances.size;
   }
 
   // TODO(lit-dev): figure out why this updates so many times;

@@ -102,6 +102,14 @@ export class TxTransformProvenanceModule extends LitModule {
       return mapping[transformIndex]
   }
 
+  private numMatchingInstances(featureIndex : number) {
+    var matchingDatapoints = this.filterBySimilarDataService.dataSliceOfTransformType.get(featureIndex);
+    if (!matchingDatapoints) {
+      return 0;
+    }
+    return matchingDatapoints.length;
+  }
+
 
   private async onSelectEnable(commonTransform : number, isAlreadySelected: boolean) {
     // this.selectedInputData = selectedInputData.map(
@@ -232,6 +240,8 @@ export class TxTransformProvenanceModule extends LitModule {
           'Transform': html` 
           <div style="margin-top:0%; height:100%; vertical-align: middle;">
           <span>${that.transformNames(commonTransform)}</span>
+
+          <div style="padding-top:8px; color:grey;">(${that.numMatchingInstances(commonTransform)} matching instances)</div>
           </div> 
           ` ,
           'Enable': html`
@@ -267,7 +277,7 @@ export class TxTransformProvenanceModule extends LitModule {
             
       <tr>
         <td>
-          <div class="footer">
+          <div class="footer"  style="margin-bottom:12px">
                   <popup-container class='download-popup'>
                   <mwc-icon class='icon-button' slot='toggle-anchor'
                     title="Download CSV">

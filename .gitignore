@@ -167,3 +167,5 @@ after/datasets/cluster_selector/state.json
 after/datasets/diversity_selector/dataset_info.json
 after/datasets/diversity_selector/state.json
 cache*.arrow
+
+user_study/outputs/

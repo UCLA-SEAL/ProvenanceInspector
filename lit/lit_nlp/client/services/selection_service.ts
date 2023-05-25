@@ -43,6 +43,10 @@ export class SelectionService extends LitService implements
   }
 
   @observable private readonly selectedIdsSet = new Set<string>();
+
+
+
+
   @observable private primarySelectedIdInternal: string|null = null;
 
   // Track the last user, so components can avoid resetting on selections they
@@ -70,6 +74,9 @@ export class SelectionService extends LitService implements
         (a, b) =>
             this.appState.getIndexById(a) - this.appState.getIndexById(b));
   }
+
+  
+
 
   @computed
   get selectedInputData(): IndexedInput[] {
@@ -106,14 +113,21 @@ export class SelectionService extends LitService implements
 
   @action
   setPrimarySelection(id: string|null, user?: ServiceUser) {
-    if (id == null || this.selectedIdsSet.has(id)) {
-      // Primary id is within the selected set, or we're clearing selection.
-      this.primarySelectedIdInternal = id;
-      this.setLastUser(user);
+    // if (id == null || this.selectedIdsSet.has(id)) {
+    //   // Primary id is within the selected set, or we're clearing selection.
+
+    if (this.selectedIdsSet.has(id)) {
+      this.primarySelectedIdInternal = null;
     } else {
-      // Not in main selection, so update that.
-      this.selectIds([id], user);
+      this.primarySelectedIdInternal = id;
     }
+    //   this.setLastUser(user);
+    //   this.selectIds([id], user);
+    // } else {
+    //   // Not in main selection, so update that.
+    //   this.selectIds([id], user);
+    // }
+    // this.selectIds([id], user);
   }
 
   @action
@@ -125,19 +139,21 @@ export class SelectionService extends LitService implements
   @action
   selectIds(ids: string[], user?: ServiceUser) {
     this.selectedIdsSet.clear();
+    console.log('select ids');
+    console.log(this.selectedIdsSet.size);
     ids.forEach(id => {
-      this.selectedIdsSet.add(id);
+        this.selectedIdsSet.add(id);
     });
-    if (this.primarySelectedId !== null &&
-        this.selectedIdsSet.has(this.primarySelectedId)) {
-      // Don't change primary selected id.
-    } else if (this.selectedIdsSet.size === 0) {
-      // Clear primary if selection is empty.
-      this.primarySelectedIdInternal = null;
-    } else {
-      // Default to first point.
-      this.primarySelectedIdInternal = ids[0];
-    }
+    // if (this.primarySelectedId !== null &&
+    //     this.selectedIdsSet.has(this.primarySelectedId)) {
+    //   // Don't change primary selected id.
+    // } else if (this.selectedIdsSet.size === 0) {
+    //   // Clear primary if selection is empty.
+    //   this.primarySelectedIdInternal = null;
+    // } else {
+    //   // Default to first point.
+    //   this.primarySelectedIdInternal = ids[0];
+    // }
     this.setLastUser(user);
 
     if (ids.length === 1) {

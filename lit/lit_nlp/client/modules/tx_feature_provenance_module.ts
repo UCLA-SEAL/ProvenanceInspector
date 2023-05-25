@@ -268,7 +268,7 @@ export class TxFeatureProvenanceModule extends LitModule {
       `
     }
 
-    const columns: ColumnHeader[] = ['Feature', 'Enable', 'Original text'].map(
+    const columns: ColumnHeader[] = ['Feature', 'Mark all as high quality', 'Original text'].map(
       field => ({
         name: field,
         centerAlign: true,
@@ -352,7 +352,7 @@ export class TxFeatureProvenanceModule extends LitModule {
             ${that.featuresNames(commonFeature)}
             <div style="padding-top:8px; color:grey;">(${that.numMatchingInstances(commonFeature)} matching instances)</div>
             </div> `,
-          'Enable': html`
+          'Mark all as high quality': html`
           
             <div style="margin-top:0%; width: 50%; text-align: center; border: 1px solid"
               @click=${() => that.onSelectEnable(commonFeature, isSelected)}

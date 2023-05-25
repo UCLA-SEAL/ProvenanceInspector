@@ -45,14 +45,14 @@ import {styles} from './data_table_module.css';
  * A LIT module showing a table containing the InputData examples. Allows the
  * user to sort, filter, and select examples.
  */
-@customElement('data-table-module')
-export class DataTableModule extends LitModule {
-  static override title = 'Data Table';
+@customElement('data-inspection-table-module')
+export class DataInspectionTableModule extends LitModule {
+  static override title = 'Data Inpsection Table';
   static override template =
       (model: string, selectionServiceIndex: number, shouldReact: number) => html`
-      <data-table-module model=${model} .shouldReact=${shouldReact}
+      <data-inspection-table-module model=${model} .shouldReact=${shouldReact}
         selectionServiceIndex=${selectionServiceIndex}>
-      </data-table-module>`;
+      </data-inspection-table-module>`;
   static override numCols = 4;
   static override get styles() {
     return [sharedStyles, styles];
@@ -73,7 +73,7 @@ export class DataTableModule extends LitModule {
   @observable columnVisibility = new Map<string, boolean>();
   @observable searchText = '';
 
-  @property({type: String}) downloadFilename: string = 'data_dpml.csv';
+  @property({type: String}) downloadFilename: string = 'data_inspector.csv';
 
   // Module options / configuration state
   @observable private onlyShowGenerated: boolean = false;
@@ -91,30 +91,9 @@ export class DataTableModule extends LitModule {
   // Column names from the current data for the data table.
   @computed
   get keys(): ColumnHeader[] {
-    function createColumnHeader(name: string, type: LitType) {
-      const header = {name, vocab: (type as LitTypeWithVocab).vocab};
-      if (type instanceof BooleanLitType) {
-        header.vocab = ['✔', ' '];
-      }
-      return header;
-    }
 
-    // Use currentInputData to get keys / column names because filteredData
-    // might have 0 length;
-    const keyNames = this.appState.currentInputDataKeys;
-    const keys =
-        keyNames.map(key => createColumnHeader(key, this.dataSpec[key]));
+    return [{name: 'index'}, {name: 'Sentence'}, {name: 'Original label'}]
 
-    const dataKeys = this.dataService.cols.map(
-        col => createColumnHeader(col.name, col.dataType));
-
-    // const labelledCols = [{'name': 'high_Q', 'vocab': ['0', '1']}, 
-    //   {'name': 'low_Q', 'vocab': ['0', '1']}];
-
-
-    const provenanceCols = [{'name': 'features', 'vocab': undefined},
-    {'name': 'transforms', 'vocab': undefined}];
-    return keys.concat(dataKeys); //.concat(labelledCols);
   }
 
   // Filtered keys that hide ones tagged as not to be shown by default in the
@@ -134,7 +113,7 @@ export class DataTableModule extends LitModule {
   // All columns to be available by default in the data table.
   @computed
   get defaultColumns(): ColumnHeader[] {
-    return [{name: 'index'}, ...this.keys];
+    return [{name: 'index'}, {name: 'Sentence'}, {name: 'Original label'}];
   }
 
   @computed
@@ -151,28 +130,7 @@ export class DataTableModule extends LitModule {
       // this.onlyShowSelected ?
         // this.selectionService.selectedInputData :
         this.appState.currentInputData;
-    if (2 + 2 ==5) {
-      var { transformIndices, featureIndices } = this.extractProvenance(data);
-
-      // find similar data (sharing at least one transform or feature)
-
-      // enumerate over data
-      const filteredData = data.filter(function(datapoint) {
-        return datapoint.data['transforms']
-        .substr(1, datapoint.data['transforms'].length -1)
-        .split(' ')
-        .map(strElement => parseInt(strElement))
-        .map((element, index) => {
-          if (element === 1) {
-            return index;
-          }
-        })
-        .filter(element => element !== undefined)
-        .some(index => featureIndices.includes(index))
-      });
-
-      return filteredData;
-    }
+ 
     
     return data;
   }
@@ -186,9 +144,8 @@ export class DataTableModule extends LitModule {
         return map;
       }, {});
 
-    // Array.from(this.qualityMarkService.highQualityIndices)
-    Array.from(this.selectionService.selectedInputData)
-    // .map(index => dataIndexToData[index])
+    Array.from(this.qualityMarkService.highQualityIndices)
+    .map(index => dataIndexToData[index])
     .forEach(function (element) {
       // element['transforms'].split(' ')
       // console.log(element.data['transforms']);  
@@ -283,7 +240,8 @@ export class DataTableModule extends LitModule {
       if (index == null) return [];
 
       const dataEntries =
-          this.keys.filter(k => this.columnVisibility.get(k.name))
+          this.keys
+          // .filter(k => this.columnVisibility.get(k.name))
               .map(
                   k => formatForDisplay(
                       this.dataService.getVal(d.id, k.name),
@@ -507,7 +465,7 @@ export class DataTableModule extends LitModule {
     const updateColsChange = () =>
         [this.appState.currentModels, this.appState.currentDataset, this.keys];
     this.reactImmediately(updateColsChange, () => {
-      this.updateColumns();
+      // this.updateColumns();
     });
   }
 
@@ -542,39 +500,6 @@ export class DataTableModule extends LitModule {
     const ids = tableDataIndices.map(i => this.getIdFromTableIndex(i))
                     .filter(id => id != null);
     this.selectionService.selectIds(ids, this);
-
-
-    const data = this.appState.currentInputData;
-
-    // reset the high quality transforms and features
-    var highQTransformsToUnmark = [];
-    this.qualityMarkService.highQualityTransforms.forEach(transform => {
-      if (!transformIndices.includes(transform)) {
-        highQTransformsToUnmark.push(transform);
-      }
-    });
-    highQTransformsToUnmark.forEach(transform => {
-      this.qualityMarkService.unmarkHighQualityTransforms(transform);
-    });
-
-    var highQFeaturesToUnmark = [];
-    this.qualityMarkService.highQualityFeatures.forEach(feature => {
-      if (!featureIndices.includes(feature)) {
-        highQFeaturesToUnmark.push(feature);
-      }
-    });
-    highQFeaturesToUnmark.forEach(feature => {
-      this.qualityMarkService.unmarkHighQualityFeatures(feature);
-    });
-
-    // initiailize the data, if required
-    this.filterBySimilarDataService.initializeTransformsToDataIfNotExist(data);
-    this.filterBySimilarDataService.initializeFeaturesToDataIfNotExist(data);
-
-    var { transformIndices, featureIndices } = this.extractProvenance(data);
-
-    this.filterBySimilarDataService.setCommonTransforms(transformIndices);
-    this.filterBySimilarDataService.setCommonFeatures(featureIndices);  
   }
 
   onPrimarySelect(tableIndex: number) {
@@ -603,12 +528,41 @@ export class DataTableModule extends LitModule {
     if (status) {
       this.qualityMarkService.markHighQuality(dataIndex);
 
+      this.filterBySimilarDataService.initializeTransformsToDataIfNotExist(data);
+      this.filterBySimilarDataService.initializeFeaturesToDataIfNotExist(data);
 
+      var { transformIndices, featureIndices } = this.extractProvenance(data);
+      this.filterBySimilarDataService.setCommonTransforms(transformIndices);
+      this.filterBySimilarDataService.setCommonFeatures(featureIndices);
+ 
       
     } else {
       this.qualityMarkService.unmarkHighQuality(dataIndex);
 
-      
+      var { transformIndices, featureIndices } = this.extractProvenance(data);
+      this.filterBySimilarDataService.setCommonTransforms(transformIndices);
+      this.filterBySimilarDataService.setCommonFeatures(featureIndices);
+
+      // reset the high quality transforms and features as well
+      var highQTransformsToUnmark = [];
+      this.qualityMarkService.highQualityTransforms.forEach(transform => {
+        if (!transformIndices.includes(transform)) {
+          highQTransformsToUnmark.push(transform);
+        }
+      });
+      highQTransformsToUnmark.forEach(transform => {
+        this.qualityMarkService.unmarkHighQualityTransforms(transform);
+      });
+
+      var highQFeaturesToUnmark = [];
+      this.qualityMarkService.highQualityFeatures.forEach(feature => {
+        if (!featureIndices.includes(feature)) {
+          highQFeaturesToUnmark.push(feature);
+        }
+      });
+      highQFeaturesToUnmark.forEach(feature => {
+        this.qualityMarkService.unmarkHighQualityFeatures(feature);
+      });
       
 
     }
@@ -684,7 +638,7 @@ export class DataTableModule extends LitModule {
       const blob = new Blob([csvContent], {type: 'text/csv'});
       const a = window.document.createElement('a');
       a.href = window.URL.createObjectURL(blob);
-      a.download = "labels.csv";
+      a.download = "data_inspector_labels.csv";
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
@@ -721,17 +675,17 @@ export class DataTableModule extends LitModule {
       </div>
       <div id="toolbar-buttons">
         
-        <button class='hairline-button' @click=${onClickFilterSimilar}>
-          ${!this.showSimilar ? "Rank by similarity to selected" : "Stop ranking by similarity to selected"}
-        </button>
+ 
       </div>
     `;
     // clang-format on
   }
 
   renderTable() {
-    const columnNames =
-        this.defaultColumns.filter(col => this.columnVisibility.get(col.name));
+    // const columnNames =
+    //     this.defaultColumns.filter(col => this.columnVisibility.get(col.name));
+    //   console.log(columnNames);
+    const columnNames = this.defaultColumns;
 
     const shiftSelectStartRowIndex = this.datasetIndexToRowIndex(
         this.selectionService.shiftSelectionStartIndex);
@@ -877,17 +831,11 @@ export class DataTableModule extends LitModule {
 /**
  * Simplified version of the above; omits toolbar controls.
  */
-@customElement('simple-data-table-module')
-export class SimpleDataTableModule extends DataTableModule {
-  protected override showControls = false;
-  static override template = () => {
-    return html`<simple-data-table-module></simple-data-table-module>`;
-  };
-}
+
 
 declare global {
   interface HTMLElementTagNameMap {
-    'data-table-module': DataTableModule;
-    'simple-data-table-module': SimpleDataTableModule;
+    'data-inspection-table-module': DataInspectionTableModule;
+    
   }
 }

@@ -76,7 +76,7 @@ export class TxTransformProvenanceModule extends LitModule {
     
   }
 
-  private transformNames(transformIndex : number) {
+  private transformNamesRaw(transformIndex : number) {
     var mapping = [
       "AddNeutralEmoji",
       "ChangeHypernym",
@@ -98,6 +98,32 @@ export class TxTransformProvenanceModule extends LitModule {
       "RandomSwapQwerty",
       "RemoveNeutralEmoji",
       "WordDeletion"]
+
+      return mapping[transformIndex]
+  }
+
+  private transformNames(transformIndex : number) {
+    var mapping = [
+      "AddNeutralEmoji (adds a non-emotional emoji)",
+      "ChangeHypernym (replace words with words of a broader meaning)",
+      "ChangeHyponym (replace words with words of more specific meaning)",
+      "ChangeLocation (change locations in the sentence)",
+      "ChangeName (change names in the sentence)",
+      "ChangeNumber (change numbers in the sentence)",
+      "ChangeSynonym (replace words with other words with the same meaning)",
+      "ContractContractions (contracts the contractions in the sentence)",
+      "ExpandContractions (expands the contractions in the sentence)",
+      "HomoglyphSwap (replaces words with visually similar words)",
+      "InsertPunctuationMarks (Inserts random punctuation marks to random spots)",
+      "RandomCharDel (remove a randomly selected character in the sentence)",
+      "RandomCharInsert (inserts a randomly selected character in the sentence)",
+      "RandomCharSubst (replace a randomly selected character in the sentence with another character)",
+      "RandomCharSwap (swap random consecutive character in the sentence)",
+      "RandomInsertion (inserts random words in the sentence)",
+      "RandomSwap (replaces a randomly selected word in the sentence with another",
+      "RandomSwapQwerty (substitues random characters with adjacent keys on a keyboard)",
+      "RemoveNeutralEmoji (removes a non-emotional emoji)",
+      "WordDeletion (removes words from the sentence)"]
 
       return mapping[transformIndex]
   }
@@ -159,7 +185,7 @@ export class TxTransformProvenanceModule extends LitModule {
       `
     }
 
-    const columns: ColumnHeader[] = ['Transform', 'Enable', 'Transformed texts'].map(
+    const columns: ColumnHeader[] = ['Transform', 'Mark all as high quality', 'Transformed texts'].map(
       field => ({
         name: field,
         centerAlign: true,
@@ -174,7 +200,7 @@ export class TxTransformProvenanceModule extends LitModule {
     const getSelectedTransforms = () => {
       const selectedTransforms = [];
       for (const transform of this.highQualityTransforms) {
-        selectedTransforms.push([this.transformNames(transform), "1"]);
+        selectedTransforms.push([this.transformNamesRaw(transform), "1"]);
       }
       return selectedTransforms;
     }
@@ -236,7 +262,7 @@ export class TxTransformProvenanceModule extends LitModule {
 
         var isSelected = that.highQualityTransforms.has(commonTransform);
         const row = {
-          'transform_raw': that.transformNames(commonTransform),
+          'transform_raw': that.transformNamesRaw(commonTransform),
           'Transform': html` 
           <div style="margin-top:0%; height:100%; vertical-align: middle;">
           <span>${that.transformNames(commonTransform)}</span>
@@ -244,7 +270,7 @@ export class TxTransformProvenanceModule extends LitModule {
           <div style="padding-top:8px; color:grey;">(${that.numMatchingInstances(commonTransform)} matching instances)</div>
           </div> 
           ` ,
-          'Enable': html`
+          'Mark all as high quality': html`
           
             <div style="margin-top:0%; width: 50%; text-align: center; border: 1px solid;"
                 @click=${() => that.onSelectEnable(commonTransform, isSelected)}

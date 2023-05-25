@@ -1,0 +1,29 @@
+.module-toolbar {
+  justify-content: space-between;
+}
+
+#toolbar-buttons{
+  display: flex;
+  flex-direction: row;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.toggles-row {
+  display: flex;
+  flex-direction: row;
+  column-gap: 16px;
+}
+
+popup-container.column-dropdown-container {
+  --popup-top: 4px;
+}
+
+.column-dropdown-container > .hairline-button {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+lit-checkbox.column-select {
+  --lit-checkbox-label-white-space: nowrap;
+}

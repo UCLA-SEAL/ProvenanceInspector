@@ -39,6 +39,7 @@ class LitModuleName(dtypes.EnumSerializableAsValues, enum.Enum):
   CounterfactualExplainerModule = 'counterfactual-explainer-module'
   CurvesModule = 'curves-module'
   DataTableModule = 'data-table-module'
+  DataInspectionTableModule = 'data-inspection-table-module'
   SimpleDataTableModule = 'simple-data-table-module'
   DatapointEditorModule = 'datapoint-editor-module'
   SimpleDatapointEditorModule = 'simple-datapoint-editor-module'

@@ -99,7 +99,7 @@ class RankedSST2Data(lit_dataset.Dataset):
             'label': self.LABELS[int(row['label'])],
             'LLM label': self.LLM_LABELS[int(row['llm_label'])],
             'LLM explanation': row['llm_explanation'],
-            'Original label-LLM label consistency': self.CONSISTENCY[int(row['different_label'])],
+            'label-LLM label consistency': self.CONSISTENCY[int(row['different_label'])],
             'features': row['features'],
             'transforms': row['transforms'],
             'Alignment': max(0, min(1, round(float(row['alignment_score']), 2))),
@@ -121,9 +121,9 @@ class RankedSST2Data(lit_dataset.Dataset):
         'Grammaticality': lit_types.Scalar(),
         'LLM label': lit_types.CategoryLabel(vocab=self.LLM_LABELS),
         'LLM explanation': lit_types.TextSegment(),
-        'Original label-LLM label consistency': lit_types.CategoryLabel(vocab=self.CONSISTENCY),
+        'label-LLM label consistency': lit_types.CategoryLabel(vocab=self.CONSISTENCY),
 
-        'Original label': lit_types.CategoryLabel(vocab=self.LABELS)
+        'label': lit_types.CategoryLabel(vocab=self.LABELS)
     }
 
 class RankedHateSpeechData(lit_dataset.Dataset):
@@ -152,7 +152,7 @@ class RankedHateSpeechData(lit_dataset.Dataset):
             'label': self.LABELS[int(row['label'])],
             'LLM label': self.LLM_LABELS[int(row['llm_label'])],
             'LLM explanation': row['llm_explanation'],
-            'Original label-LLM label consistency': self.CONSISTENCY[int(row['different_label'])],
+            'label-LLM label consistency': self.CONSISTENCY[int(row['different_label'])],
             'features': row['features'],
             'transforms': row['transforms'],
             'Alignment': max(0, min(1, round(float(row['alignment_score']), 2))),
@@ -174,9 +174,9 @@ class RankedHateSpeechData(lit_dataset.Dataset):
         'Grammaticality': lit_types.Scalar(),
         'LLM label': lit_types.CategoryLabel(vocab=self.LLM_LABELS),
         'LLM explanation': lit_types.TextSegment(),
-        'Original label-LLM label consistency': lit_types.CategoryLabel(vocab=self.CONSISTENCY),
+        'label-LLM label consistency': lit_types.CategoryLabel(vocab=self.CONSISTENCY),
 
-        'Original label': lit_types.CategoryLabel(vocab=self.LABELS)
+        'label': lit_types.CategoryLabel(vocab=self.LABELS)
     }
 
 class MRPCData(lit_dataset.Dataset):

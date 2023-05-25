@@ -77,7 +77,23 @@ DPML_LAYOUT = layout.LitCanonicalLayout(
     },
     description="Layout for DPML",
 )
-CUSTOM_LAYOUTS = {"dpml": DPML_LAYOUT}
+
+ONLY_INSPECTOR_LAYOUT = layout.LitCanonicalLayout(
+    layoutSettings= {'hideToolbar': True, 'mainHeight': 180, 'centerPage': False},
+    upper={
+        "Main": [
+            modules.DataInspectionTableModule,
+            # modules.TxTransformProvenanceModule,
+            # modules.TxFeatureProvenanceModule,
+            # modules.TxProvenanceModule,
+            # modules.TxDebugModule,
+            # modules.TxTextFetchModule,
+            # modules.TxAmrVizModule
+        ]
+    },
+    description="Layout for Data Inspector",
+)
+CUSTOM_LAYOUTS = {"dpml": DPML_LAYOUT, "data_inspector": ONLY_INSPECTOR_LAYOUT}
 
 FLAGS.set_default("default_layout", "dpml")
 

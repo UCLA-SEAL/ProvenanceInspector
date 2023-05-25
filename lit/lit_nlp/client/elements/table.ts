@@ -639,20 +639,13 @@ export class DataTable extends ReactiveElement {
     }
     // Otherwise, simply select/deselect the index.
     else {
-      if (selectedIndices.has(dataIndex) && selectedIndices.size === 1) {
-        selectedIndices = new Set<number>();
-        this.setPrimarySelectedIndex(-1);
-      } else if (
-          selectedIndices.has(dataIndex) &&
-          dataIndex !== this.primarySelectedIndex) {
-        // If selecting a different primary selected index inside of
-        // a previously-created selection, then change the primary selection
-        // but do not update the overall list of selected points.
-        this.setPrimarySelectedIndex(rowIndex);
-        doChangeSelectedSet = false;
+      if (selectedIndices.has(dataIndex) ) {
+
+        // remove dataIndex
+        selectedIndices.delete(dataIndex);
       } else {
-        selectedIndices = new Set<number>([dataIndex]);
-        this.setPrimarySelectedIndex(rowIndex);
+        selectedIndices.add(dataIndex);
+        // this.setPrimarySelectedIndex(rowIndex);
       }
       this.setShiftSelectionSpan(rowIndex, rowIndex);
     }

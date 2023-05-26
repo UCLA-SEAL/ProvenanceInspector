@@ -1,0 +1,4 @@
+# sst2 
+python -m train      dataset.builder_name=glue dataset.config_name=sst2 train.dataset_matcher="./datasets/dataset_name*"  
+python -m robustness dataset.builder_name=glue dataset.config_name=sst2 robustness.model_matcher="./pretrained_models/model_names*" 
+python -m quality    dataset.builder_name=glue dataset.config_name=sst2 quality.dataset_path="./datasets/dataset_name.csv"

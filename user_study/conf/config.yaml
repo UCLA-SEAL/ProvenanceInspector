@@ -1,0 +1,68 @@
+defaults:
+    - _self_
+
+working_dir: "./user_study"
+dataset_dir: "./${working_dir}/datasets"
+results_dir: "./${working_dir}/results"
+
+amr_extractor:
+    amr_dir: "${working_dir}/amrs"
+    amr_save_path: "${amr_extractor.amr_dir}/${dataset.builder_name}.${dataset.config_name}.pkl"
+    max_sent_len: 64
+    batch_size: 8
+
+alignment_extractor:
+    model_id: "distilbert-base-uncased-finetuned-sst-2-english"
+
+dataset:
+    builder_name: "glue"
+    config_name: "sst2"
+    text_key: "text"
+    task_name: "sentiment"
+    num_per_class: "infer" # 10, 200, 2500, "min", "infer"
+    max_size: 100000
+
+
+augment:
+    technique: "all" # uniform, fada, fada-sweep, all
+    num_transforms_to_apply: 1
+    num_augmentations_per_record: 1
+    batch_size: 8
+    keep_originals: True
+    force: False
+
+train:
+    num_runs: 1
+    dataset_matcher: "${dataset.builder_name}.${dataset.config_name}.*"
+    base_models: 
+        - "bert-base-uncased"
+    visible_cuda_devices: "0,1"
+    num_epochs: 10
+    logging_steps_per_epoch: 10
+    early_stopping_patience: 10
+    gradient_accumulation_steps: 1
+    train_batch_size: 2
+    eval_batch_size: 16
+    learning_rate: 2e-5
+    weight_decay: 0.01
+    max_val_size: 10000
+    logging_dir: "${working_dir}/training_logs"
+    trained_models_dir: "${working_dir}/pretrained"
+    save_path: "${results_dir}/${dataset.builder_name}.${dataset.config_name}.training.csv"
+
+robustness:
+    num_runs: 1
+    model_matcher: "${train.trained_models_dir}/*${dataset.builder_name}.${dataset.config_name}.*"
+    num_advs: 100
+    visible_cuda_devices: "0,1"
+    attacks: 
+        # - textattack.attack_recipes.BERTAttackLi2020 # 120 min / 100 examples
+        - textattack.attack_recipes.CheckList2020 # 15 min / 100 examples
+        - textattack.attack_recipes.DeepWordBugGao2018 # 15 min / 100 examples
+        - textattack.attack_recipes.TextBuggerLi2018 # 15 min / 100 examples
+        - textattack.attack_recipes.TextFoolerJin2019 # 15 min / 100 examples
+    save_path: "${results_dir}/${dataset.builder_name}.${dataset.config_name}.robustness.csv"
+
+quality:
+    dataset_path: "${dataset_dir}/{dataset.builder_name}.${dataset.config_name}.csv"
+    model_id: "${alignment_extractor.model_id}"

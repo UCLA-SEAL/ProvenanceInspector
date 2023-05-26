@@ -15,7 +15,13 @@ export class QualityMarkService extends LitService {
   private highQualityTransformsSet = new Set<number>();
 
   @observable
+  private lowQualityTransformsSet = new Set<number>();
+
+  @observable
   private highQualityFeaturesSet = new Set<number>();
+
+  @observable
+  private lowQualityFeaturesSet = new Set<number>();
 
   constructor(private readonly appState: AppState) {
     super()
@@ -41,10 +47,20 @@ export class QualityMarkService extends LitService {
     return new Set(this.highQualityFeaturesSet)
   }
 
+  @computed
+  get lowQualityTransforms(): Set<number> {
+    return new Set(this.lowQualityTransformsSet)
+  }
+
+  @computed
+  get lowQualityFeatures(): Set<number> {
+    return new Set(this.lowQualityFeaturesSet)
+  }
+
   @action
   markHighQuality(index: number) {
     this.highQualityIndicesSet.add(index)
-    this.unmarkLowQuality(index)
+    this.markLowQuality(index)
   }
 
   @action
@@ -55,7 +71,6 @@ export class QualityMarkService extends LitService {
   @action
   markLowQuality(index: number) {
     this.lowQualityIndicesSet.add(index)
-    this.unmarkHighQuality(index)
   }
 
   @action
@@ -69,8 +84,18 @@ export class QualityMarkService extends LitService {
   }
 
   @action
+  markLowQualityTransforms(transform: number) {
+    this.lowQualityTransformsSet.add(transform);
+  }
+
+  @action
   unmarkHighQualityTransforms(transform: number) {
     this.highQualityTransformsSet.delete(transform);
+  }
+
+  @action
+  unmarkLowQualityTransforms(transform: number) {
+    this.lowQualityTransformsSet.delete(transform);
   }
 
   @action
@@ -79,14 +104,26 @@ export class QualityMarkService extends LitService {
   }
 
   @action
+  markLowQualityFeatures(feature: number) {
+    this.lowQualityFeaturesSet.add(feature);
+  }
+
+  @action
   unmarkHighQualityFeatures(feature: number) {
     this.highQualityFeaturesSet.delete(feature);
   }
 
   @action
+  unmarkLowQualityFeatures(feature: number) {
+    this.lowQualityFeaturesSet.delete(feature);
+  }
+
+  @action
   clearAllData() {
     this.highQualityFeaturesSet.clear();
+    this.lowQualityFeaturesSet.clear();
     this.highQualityTransformsSet.clear();
+    this.lowQualityTransformsSet.clear();
     this.highQualityIndicesSet.clear();
     this.lowQualityIndicesSet.clear();
   }

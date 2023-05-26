@@ -136,6 +136,26 @@ export class TxTransformProvenanceModule extends LitModule {
     return matchingDatapoints.length;
   }
 
+  private numMatchingHighQInstances(featureIndex : number) {
+    var matchingDatapoints = this.filterBySimilarDataService.dataSliceOfTransformType.get(featureIndex);
+    if (!matchingDatapoints) {
+      return 0;
+    }
+    return matchingDatapoints.filter(datapoint => {
+      return this.qualityMarkService.highQualityIndices.has(datapoint['idx'])
+    }).length;
+  }
+
+  private numMatchingLowQInstances(featureIndex : number) {
+    var matchingDatapoints = this.filterBySimilarDataService.dataSliceOfTransformType.get(featureIndex);
+    if (!matchingDatapoints) {
+      return 0;
+    }
+    return matchingDatapoints.filter(datapoint => {
+      return this.qualityMarkService.lowQualityIndices.has(datapoint['idx'])
+    }).length;
+  }
+
 
   private async onSelectEnable(commonTransform : number, isAlreadySelected: boolean) {
     // this.selectedInputData = selectedInputData.map(
@@ -149,8 +169,29 @@ export class TxTransformProvenanceModule extends LitModule {
 
     if (!isAlreadySelected) {
       this.qualityMarkService.markHighQualityTransforms(commonTransform);
+      this.qualityMarkService.markLowQualityTransforms(commonTransform);
+
+      // propagate label to all data instances with the common transform
+      
+      var matchingDatapoints = this.filterBySimilarDataService.datapointsWithTransforms.get(commonTransform);
+
+      matchingDatapoints.forEach(matchingDatapoint => 
+        this.qualityMarkService.markHighQuality(matchingDatapoint['idx'])
+      )
+        
+      
+
+
     } else {
-      this.qualityMarkService.unmarkHighQualityTransforms(commonTransform);
+        this.qualityMarkService.unmarkHighQualityTransforms(commonTransform);
+
+        // propagate label to all data instances with the common transform
+    
+        var matchingDatapoints = this.filterBySimilarDataService.datapointsWithTransforms.get(commonTransform);
+
+        matchingDatapoints.forEach(matchingDatapoint => 
+          this.qualityMarkService.unmarkHighQuality(matchingDatapoint['idx'])
+        )
     }
     // if (this.highQualityTransforms == undefined) {
     //   this.highQualityTransforms = new Set();
@@ -158,6 +199,30 @@ export class TxTransformProvenanceModule extends LitModule {
     // this.highQualityTransforms.add(commonTransform);
   }
 
+
+  private async onSelectInspected(commonTransform : number, isAlreadySelected: boolean) {
+    if (!isAlreadySelected) {
+      this.qualityMarkService.markLowQualityTransforms(commonTransform);
+
+      // propagate label to all data instances with the common transform
+      
+      var matchingDatapoints = this.filterBySimilarDataService.datapointsWithTransforms.get(commonTransform);
+
+      matchingDatapoints.forEach(matchingDatapoint => 
+        this.qualityMarkService.markLowQuality(matchingDatapoint['idx'])
+      )
+    } else {
+        this.qualityMarkService.unmarkLowQualityTransforms(commonTransform);
+
+        // propagate label to all data instances with the common transform
+    
+        var matchingDatapoints = this.filterBySimilarDataService.datapointsWithTransforms.get(commonTransform);
+
+        matchingDatapoints.forEach(matchingDatapoint => 
+          this.qualityMarkService.unmarkLowQuality(matchingDatapoint['idx'])
+        )
+    }
+  }
 
   private async updateTransforms(incomingTransforms){
     // console.log("[provenance] updateTransforms")
@@ -185,7 +250,7 @@ export class TxTransformProvenanceModule extends LitModule {
       `
     }
 
-    const columns: ColumnHeader[] = ['Transform', 'Mark all as high quality', 'Transformed texts'].map(
+    const columns: ColumnHeader[] = ['Transform', 'Mark all as high quality', 'Mark all as inspected', 'Transformed texts'].map(
       field => ({
         name: field,
         centerAlign: true,
@@ -261,13 +326,15 @@ export class TxTransformProvenanceModule extends LitModule {
           '</div>';
 
         var isSelected = that.highQualityTransforms.has(commonTransform);
+        var isInspected = that.qualityMarkService.lowQualityTransforms.has(commonTransform);
         const row = {
           'transform_raw': that.transformNamesRaw(commonTransform),
           'Transform': html` 
           <div style="margin-top:0%; height:100%; vertical-align: middle;">
           <span>${that.transformNames(commonTransform)}</span>
 
-          <div style="padding-top:8px; color:grey;">(${that.numMatchingInstances(commonTransform)} matching instances)</div>
+          <div style="padding-top:8px; color:grey;">(${that.numMatchingInstances(commonTransform)} matching instances, </div>
+          <div style="padding-top:4px; color:grey;"> ${that.numMatchingLowQInstances(commonTransform)} inspected; ${that.numMatchingHighQInstances(commonTransform)} high quality)
           </div> 
           ` ,
           'Mark all as high quality': html`
@@ -276,6 +343,16 @@ export class TxTransformProvenanceModule extends LitModule {
                 @click=${() => that.onSelectEnable(commonTransform, isSelected)}
               >
                 <span style="visibility: ${isSelected ? "visible" : "hidden"};">
+                  👍
+                </span>
+            </div>
+          `,
+          'Mark all as inspected': html`
+          
+            <div style="margin-top:0%; width: 50%; text-align: center; border: 1px solid;"
+                @click=${() => that.onSelectInspected(commonTransform, isInspected)}
+              >
+                <span style="visibility: ${isInspected ? "visible" : "hidden"};">
                   👍
                 </span>
             </div>

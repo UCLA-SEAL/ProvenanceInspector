@@ -47,7 +47,7 @@ import {styles} from './data_table_module.css';
  */
 @customElement('data-inspection-table-module')
 export class DataInspectionTableModule extends LitModule {
-  static override title = 'Data Inpsection Table';
+  static override title = 'Data Inpsection Table (of augmented data)';
   static override template =
       (model: string, selectionServiceIndex: number, shouldReact: number) => html`
       <data-inspection-table-module model=${model} .shouldReact=${shouldReact}
@@ -92,7 +92,7 @@ export class DataInspectionTableModule extends LitModule {
   @computed
   get keys(): ColumnHeader[] {
 
-    return [{name: 'index'}, {name: 'Sentence'}, {name: 'Original label'}]
+    return [ {name: 'Sentence'}, {name: 'label'}]
 
   }
 
@@ -113,7 +113,7 @@ export class DataInspectionTableModule extends LitModule {
   // All columns to be available by default in the data table.
   @computed
   get defaultColumns(): ColumnHeader[] {
-    return [{name: 'index'}, {name: 'Sentence'}, {name: 'Original label'}];
+    return [{name:'idx'}, {name: 'Sentence'}, {name: 'label'}];
   }
 
   @computed

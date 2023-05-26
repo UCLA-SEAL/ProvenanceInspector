@@ -413,16 +413,16 @@ export class DataTable extends ReactiveElement {
           </div>
         `
       })
-      // computedColumnHeaders.push({
-      //   name: "isLowQuality", sortDisabled: true, searchDisabled: true, centerAlign: true,
-      //   html: html`
-      //     <div style="margin-left:0.4em;">
-      //       <span>👎</span>
-      //       <br>
-      //       low_Q
-      //     </div>
-      //   `
-      // })
+      computedColumnHeaders.push({
+        name: "isInspected", sortDisabled: true, searchDisabled: true, centerAlign: true,
+        html: html`
+          <div style="margin-left:0.4em;">
+            <span>✓</span>
+            <br>
+            Inspected
+          </div>
+        `
+      })
     }
     // if (this.filterBySimilarDataEnabled) {
     //   computedColumnHeaders.push({
@@ -592,6 +592,12 @@ export class DataTable extends ReactiveElement {
       this.onClick(dataIndex);
       return;
     }
+
+    // console.log(e.target.data());
+    // if (e.target.classlist !== this) {
+    //   e.stopPropagation();
+    //   return;
+    // }
 
     // Handle ctrl/cmd-click
     if (e.metaKey || e.ctrlKey) {
@@ -1178,13 +1184,24 @@ export class DataTable extends ReactiveElement {
         rowData.push(html`
           <div
             style="width: 50%; text-align: center; border: 1px solid"
-            @click=${() => this.onToggleHighQuality(originalDataIndex, !isHighQuality)}
+            @click=${(e) => {this.onToggleHighQuality(originalDataIndex, !isHighQuality); e.stopPropagation();}}
           >
             <span style="visibility: ${isHighQuality ? "visible" : "hidden"};">
               👍
             </span>
           </div>
         `)
+
+        rowData.push(html`
+        <div
+          style="width: 50%; text-align: center; border: 1px solid"
+          @click=${(e) => {this.onToggleLowQuality(originalDataIndex, !isLowQuality); e.stopPropagation();}}
+        >
+          <span style="visibility: ${isLowQuality ? "visible" : "hidden"};">
+            ✓
+          </span>
+        </div>
+      `)
       } else {
         console.log("will not be able to mark quality because of incompatbiel first column value: " + (typeof data.rowData[0]))
       }

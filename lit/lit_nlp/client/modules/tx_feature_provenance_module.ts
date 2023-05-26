@@ -222,6 +222,26 @@ export class TxFeatureProvenanceModule extends LitModule {
     return matchingDatapoints.length;
   }
 
+  private numMatchingHighQInstances(featureIndex : number) {
+    var matchingDatapoints = this.filterBySimilarDataService.dataSliceOfFeatureType.get(featureIndex);
+    if (!matchingDatapoints) {
+      return 0;
+    }
+    return matchingDatapoints.filter(datapoint => {
+      return this.qualityMarkService.highQualityIndices.has(datapoint['idx'])
+    }).length;
+  }
+
+  private numMatchingLowQInstances(featureIndex : number) {
+    var matchingDatapoints = this.filterBySimilarDataService.dataSliceOfFeatureType.get(featureIndex);
+    if (!matchingDatapoints) {
+      return 0;
+    }
+    return matchingDatapoints.filter(datapoint => {
+      return this.qualityMarkService.lowQualityIndices.has(datapoint['idx'])
+    }).length;
+  }
+
   private async onSelectEnable(commonFeature : number, isAlreadySelected: boolean) {
     // this.selectedInputData = selectedInputData.map(
     //   input => ({ idx: this.appState.getIndexById(input.id), ...input })
@@ -234,13 +254,51 @@ export class TxFeatureProvenanceModule extends LitModule {
 
     if (!isAlreadySelected) {
       this.qualityMarkService.markHighQualityFeatures(commonFeature);
+      this.qualityMarkService.markLowQualityTransforms(commonFeature);
+           
+      var matchingDatapoints = this.filterBySimilarDataService.datapointsWithFeatures.get(commonFeature);
+
+      matchingDatapoints.forEach(matchingDatapoint => 
+        this.qualityMarkService.markHighQuality(matchingDatapoint['idx'])
+      )
+        
     } else {
       this.qualityMarkService.unmarkHighQualityFeatures(commonFeature);
+
+      var matchingDatapoints = this.filterBySimilarDataService.datapointsWithFeatures.get(commonFeature);
+
+      matchingDatapoints.forEach(matchingDatapoint => 
+        this.qualityMarkService.unmarkHighQuality(matchingDatapoint['idx'])
+      )
     }
     // if (this.highQualityFeatures == undefined) {
     //   this.highQualityFeatures = new Set();
     // }
     // this.highQualityFeatures.add(commonFeature);
+  }
+
+  private async onSelectInspected(commonFeature : number, isAlreadySelected: boolean) {
+    if (!isAlreadySelected) {
+      this.qualityMarkService.markLowQualityFeatures(commonFeature);
+
+      // propagate label to all data instances with the common transform
+      
+      var matchingDatapoints = this.filterBySimilarDataService.datapointsWithFeatures.get(commonFeature);
+
+      matchingDatapoints.forEach(matchingDatapoint => 
+        this.qualityMarkService.markLowQuality(matchingDatapoint['idx'])
+      )
+    } else {
+        this.qualityMarkService.unmarkLowQualityFeatures(commonFeature);
+
+        // propagate label to all data instances with the common transform
+    
+        var matchingDatapoints = this.filterBySimilarDataService.datapointsWithFeatures.get(commonFeature);
+
+        matchingDatapoints.forEach(matchingDatapoint => 
+          this.qualityMarkService.unmarkLowQuality(matchingDatapoint['idx'])
+        )
+    }
   }
 
 
@@ -268,7 +326,7 @@ export class TxFeatureProvenanceModule extends LitModule {
       `
     }
 
-    const columns: ColumnHeader[] = ['Feature', 'Mark all as high quality', 'Original text'].map(
+    const columns: ColumnHeader[] = ['Feature', 'Mark all as high quality', 'Mark all as inspected', 'Original text'].map(
       field => ({
         name: field,
         centerAlign: true,
@@ -344,13 +402,16 @@ export class TxFeatureProvenanceModule extends LitModule {
           '</div>';
 
         var isSelected = that.highQualityFeatures.has(commonFeature);
+        var isInspected = that.qualityMarkService.lowQualityFeatures.has(commonFeature);
         const row = {
           'feature_raw': that.featuresNamesRaw(commonFeature),
           'Feature': 
             html`
             <div style="margin-top:0%; height:100%">
             ${that.featuresNames(commonFeature)}
-            <div style="padding-top:8px; color:grey;">(${that.numMatchingInstances(commonFeature)} matching instances)</div>
+            <div style="padding-top:8px; color:grey;">(${that.numMatchingInstances(commonFeature)} matching instances, </div>
+            <div style="padding-top:4px; color:grey;"> ${that.numMatchingLowQInstances(commonFeature)} inspected; ${that.numMatchingHighQInstances(commonFeature)} high quality)
+            </div> 
             </div> `,
           'Mark all as high quality': html`
           
@@ -361,6 +422,16 @@ export class TxFeatureProvenanceModule extends LitModule {
                 👍
               </span>
             </div>`,
+            'Mark all as inspected': html`
+          
+            <div style="margin-top:0%; width: 50%; text-align: center; border: 1px solid;"
+                @click=${() => that.onSelectInspected(commonFeature, isInspected)}
+              >
+                <span style="visibility: ${isInspected ? "visible" : "hidden"};">
+                  👍
+                </span>
+            </div>
+          `,
           'Original text': html`${unsafeHTML(previewSlice)}`
         }
         rows.push(row);

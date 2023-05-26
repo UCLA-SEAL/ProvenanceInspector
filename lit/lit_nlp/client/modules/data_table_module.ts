@@ -47,7 +47,7 @@ import {styles} from './data_table_module.css';
  */
 @customElement('data-table-module')
 export class DataTableModule extends LitModule {
-  static override title = 'Data Table';
+  static override title = 'Data Table displaying augmented data';
   static override template =
       (model: string, selectionServiceIndex: number, shouldReact: number) => html`
       <data-table-module model=${model} .shouldReact=${shouldReact}
@@ -374,31 +374,36 @@ export class DataTableModule extends LitModule {
 
     this.qualityMarkService.highQualityIndices.forEach(highQualityIndex => highQualityInstances.add(highQualityIndex));
 
-    var totalDatapointsMatchingTransforms = 0;
-    this.qualityMarkService.highQualityTransforms.forEach(transformIndex => {
-      var matchingDatapoints = this.filterBySimilarDataService.datapointsWithTransforms.get(transformIndex);
+    // var totalDatapointsMatchingTransforms = 0;
+    // this.qualityMarkService.highQualityTransforms.forEach(transformIndex => {
+    //   var matchingDatapoints = this.filterBySimilarDataService.datapointsWithTransforms.get(transformIndex);
 
-      totalDatapointsMatchingTransforms += matchingDatapoints.length;
-      matchingDatapoints.forEach(matchingDatapoint => 
-        highQualityInstances.add(matchingDatapoint['idx'])
-      )
+    //   totalDatapointsMatchingTransforms += matchingDatapoints.length;
+    //   matchingDatapoints.forEach(matchingDatapoint => 
+    //     highQualityInstances.add(matchingDatapoint['idx'])
+    //   )
       
-    });
+    // });
 
   
-    var totalDatapointsMatchingFeatures = 0;
-    this.qualityMarkService.highQualityFeatures.forEach(featureIndex => {
-      var matchingDatapoints = this.filterBySimilarDataService.dataSliceOfFeatureType.get(featureIndex);
+    // var totalDatapointsMatchingFeatures = 0;
+    // this.qualityMarkService.highQualityFeatures.forEach(featureIndex => {
+    //   var matchingDatapoints = this.filterBySimilarDataService.dataSliceOfFeatureType.get(featureIndex);
 
-      totalDatapointsMatchingFeatures += matchingDatapoints.length;
-      matchingDatapoints.forEach(matchingDatapoint => 
-        highQualityInstances.add(matchingDatapoint['idx'])
-      )
-    });
+    //   totalDatapointsMatchingFeatures += matchingDatapoints.length;
+    //   matchingDatapoints.forEach(matchingDatapoint => 
+    //     highQualityInstances.add(matchingDatapoint['idx'])
+    //   )
+    // });
 
     // return this.qualityMarkService.highQualityIndices.size + totalDatapointsMatchingTransforms + totalDatapointsMatchingFeatures;
 
     return highQualityInstances.size;
+  }
+
+  @computed
+  get numberOfInspections(): number {
+    return this.qualityMarkService.lowQualityIndices.size;
   }
 
   // TODO(lit-dev): figure out why this updates so many times;
@@ -545,33 +550,34 @@ export class DataTableModule extends LitModule {
 
 
     const data = this.appState.currentInputData;
+    var { transformIndices, featureIndices } = this.extractProvenance(data);
+
 
     // reset the high quality transforms and features
-    var highQTransformsToUnmark = [];
-    this.qualityMarkService.highQualityTransforms.forEach(transform => {
-      if (!transformIndices.includes(transform)) {
-        highQTransformsToUnmark.push(transform);
-      }
-    });
-    highQTransformsToUnmark.forEach(transform => {
-      this.qualityMarkService.unmarkHighQualityTransforms(transform);
-    });
+    // var highQTransformsToUnmark = [];
+    // this.qualityMarkService.highQualityTransforms.forEach(transform => {
+    //   if (!transformIndices.includes(transform)) {
+    //     highQTransformsToUnmark.push(transform);
+    //   }
+    // });
+    // highQTransformsToUnmark.forEach(transform => {
+    //   this.qualityMarkService.unmarkHighQualityTransforms(transform);
+    // });
 
-    var highQFeaturesToUnmark = [];
-    this.qualityMarkService.highQualityFeatures.forEach(feature => {
-      if (!featureIndices.includes(feature)) {
-        highQFeaturesToUnmark.push(feature);
-      }
-    });
-    highQFeaturesToUnmark.forEach(feature => {
-      this.qualityMarkService.unmarkHighQualityFeatures(feature);
-    });
+    // var highQFeaturesToUnmark = [];
+    // this.qualityMarkService.highQualityFeatures.forEach(feature => {
+    //   if (!featureIndices.includes(feature)) {
+    //     highQFeaturesToUnmark.push(feature);
+    //   }
+    // });
+    // highQFeaturesToUnmark.forEach(feature => {
+    //   this.qualityMarkService.unmarkHighQualityFeatures(feature);
+    // });
 
     // initiailize the data, if required
     this.filterBySimilarDataService.initializeTransformsToDataIfNotExist(data);
     this.filterBySimilarDataService.initializeFeaturesToDataIfNotExist(data);
 
-    var { transformIndices, featureIndices } = this.extractProvenance(data);
 
     this.filterBySimilarDataService.setCommonTransforms(transformIndices);
     this.filterBySimilarDataService.setCommonFeatures(featureIndices);  
@@ -614,6 +620,8 @@ export class DataTableModule extends LitModule {
     }
 
     console.log('high quality!');
+
+    // this.
   }
 
   onToggleLowQuality(tableIndex: number, status: boolean) {
@@ -707,7 +715,7 @@ export class DataTableModule extends LitModule {
       <div class="toggles-row">
         <div class="number-of-interactions">
 
-          <p> ${this.numberOfHighQualityLabels} already inspected to be high quality</p>
+          <p> ${this.numberOfInspections} inspected; ${this.numberOfHighQualityLabels} are high quality</p>
           <div class='download-popup-controls'>
             <label style="display:none;" for="filename">Filename</label>
             <input style="display:none;"  type="text" name="filename" >

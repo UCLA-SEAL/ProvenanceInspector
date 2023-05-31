@@ -32,7 +32,7 @@ import {PopupContainer} from '../elements/popup_container';
 import {app} from '../core/app';
 import {LitModule} from '../core/lit_module';
 import {ColumnHeader, DataTable, TableData} from '../elements/table';
-import {BooleanLitType, LitType, LitTypeWithVocab, TextSegment} from '../lib/lit_types';
+import {BooleanLitType, LitType, LitTypeWithVocab, Scalar, TextSegment} from '../lib/lit_types';
 import {styles as sharedStyles} from '../lib/shared_styles.css';
 import {formatForDisplay, IndexedInput, ModelInfoMap, Spec} from '../lib/types';
 import {compareArrays} from '../lib/utils';
@@ -92,9 +92,12 @@ export class DataTableModule extends LitModule {
   @computed
   get keys(): ColumnHeader[] {
     function createColumnHeader(name: string, type: LitType) {
-      const header = {name, vocab: (type as LitTypeWithVocab).vocab};
+      const header = {name, vocab: (type as LitTypeWithVocab).vocab, searchDisabled: false};
       if (type instanceof BooleanLitType) {
         header.vocab = ['✔', ' '];
+      }
+      if (type instanceof Scalar) {
+        header.searchDisabled = true;
       }
       return header;
     }
@@ -402,6 +405,19 @@ export class DataTableModule extends LitModule {
   }
 
   @computed
+  get numberOfSelections(): number {
+    return this.selectionService.selectedIds.length;
+  }
+
+  @computed
+  get numberOfInspectedSelections(): number {
+      const inspectedInstances = this.qualityMarkService.lowQualityIndices;
+      return this.selectedRowIndices.filter(selectedRowIndex => {
+        return (inspectedInstances.has(selectedRowIndex)) 
+      }).length ;
+  }
+
+  @computed
   get numberOfInspections(): number {
     return this.qualityMarkService.lowQualityIndices.size;
   }
@@ -592,6 +608,23 @@ export class DataTableModule extends LitModule {
     this.showSimilar = !this.showSimilar;
   }
 
+  deselectInspected() {
+    const inspectedInstances = this.qualityMarkService.lowQualityIndices;
+
+    const data = this.sortedData;
+    var that = this;
+    this.selectedRowIndices.forEach(selectedRowIndex => {
+      if (inspectedInstances.has(selectedRowIndex)) {
+        that.selectionService.deselect(data[selectedRowIndex].id);
+      }
+    }) 
+
+    const inputData = this.appState.currentInputData;
+    var { transformIndices, featureIndices } = this.extractProvenance(inputData);
+    this.filterBySimilarDataService.setCommonTransforms(transformIndices);
+    this.filterBySimilarDataService.setCommonFeatures(featureIndices);  
+  }
+
   onHover(tableIndex: number|null) {
     if (tableIndex == null) {
       this.focusService.clearFocus();
@@ -709,12 +742,19 @@ export class DataTableModule extends LitModule {
       this.onFilterSimilar();
     };
 
+    const onClickDeselectInspected = () => {
+      this.deselectInspected();
+    }
+
     // clang-format off
     return html`
       <div style="display:none">${this.renderColumnDropdown()}</div>
       <div class="toggles-row">
         <div class="number-of-interactions">
-
+          <p> ${this.numberOfSelections} selected;
+          <button class='hairline-button' @click=${onClickDeselectInspected}>
+          Unselect data (${this.numberOfInspectedSelections} instances) that are already inspected 
+          </button> </p>
           <p> ${this.numberOfInspections} inspected; ${this.numberOfHighQualityLabels} are high quality</p>
           <div class='download-popup-controls'>
             <label style="display:none;" for="filename">Filename</label>

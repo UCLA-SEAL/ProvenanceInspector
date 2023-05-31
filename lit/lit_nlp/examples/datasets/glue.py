@@ -105,7 +105,7 @@ class RankedSST2Data(lit_dataset.Dataset):
             'transforms': row['transforms'],
             'Alignment': max(0, min(1, round(float(row['alignment_score']), 2))),
             'Fluency': max(0, min(1, round(float(row['fluency_score']), 2))),
-            'Grammaticality': max(0, min(1, round(float(row['grammar_score']), 2))),
+            'Grammar': max(0, min(1, round(float(row['grammar_score']), 2))),
             'old_sentence': row['old_text'],
             'diff': row['diff_html']
         })
@@ -119,7 +119,7 @@ class RankedSST2Data(lit_dataset.Dataset):
         # 'old_sentence': lit_types.TextSegment(),
         'Alignment': lit_types.Scalar(),
         'Fluency': lit_types.Scalar(),
-        'Grammaticality': lit_types.Scalar(),
+        'Grammar': lit_types.Scalar(),
         'LLM label': lit_types.CategoryLabel(vocab=self.LLM_LABELS),
         'LLM explanation': lit_types.TextSegment(),
         'label-LLM label consistency': lit_types.CategoryLabel(vocab=self.CONSISTENCY),
@@ -159,7 +159,7 @@ class RankedHateSpeechData(lit_dataset.Dataset):
             'transforms': row['transforms'],
             'Alignment': max(0, min(1, round(float(row['alignment_score']), 2))),
             'Fluency': max(0, min(1, round(float(row['fluency_score']), 2))),
-            'Grammaticality': max(0, min(1, round(float(row['grammar_score']), 2))),
+            'Grammar': max(0, min(1, round(float(row['grammar_score']), 2))),
             'old_sentence': row['old_text'],
             'diff': row['diff_html']
         })
@@ -173,7 +173,7 @@ class RankedHateSpeechData(lit_dataset.Dataset):
         # 'old_sentence': lit_types.TextSegment(),
         'Alignment': lit_types.Scalar(),
         'Fluency': lit_types.Scalar(),
-        'Grammaticality': lit_types.Scalar(),
+        'Grammar': lit_types.Scalar(),
         'LLM label': lit_types.CategoryLabel(vocab=self.LLM_LABELS),
         'LLM explanation': lit_types.TextSegment(),
         'label-LLM label consistency': lit_types.CategoryLabel(vocab=self.CONSISTENCY),

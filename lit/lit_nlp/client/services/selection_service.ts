@@ -163,6 +163,15 @@ export class SelectionService extends LitService implements
   }
 
   @action
+  deselect(id: string) {
+
+    console.log('this.selectedIdsSet')
+    console.log(this.selectedIdsSet)
+      this.selectedIdsSet.delete(id);
+
+  }
+
+  @action
   selectAll(user?: ServiceUser) {
     const ids = this.appState.currentInputData.map(d => d.id);
     this.selectIds(ids, user);

@@ -739,7 +739,7 @@ export class DataInspectionTableModule extends LitModule {
         highQualityInstances.push( {
           'idx': datapoint.data['idx'],
           'text': datapoint.data['Sentence'],
-          'label': datapoint.data['label']
+          'label': datapoint.data['raw_label']
         })
       });
 

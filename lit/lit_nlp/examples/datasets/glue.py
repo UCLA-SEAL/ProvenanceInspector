@@ -94,7 +94,7 @@ class RankedSST2Data(lit_dataset.Dataset):
       for row in reader: 
         self._examples.append({
             'idx': int(row['idx']),
-            'Sentence': row['text'],
+            'sentence': row['text'],
             'Original label': self.LABELS[int(row['label'])],
             'label': self.LABELS[int(row['label'])],
             'raw_label': row['label'],
@@ -103,7 +103,7 @@ class RankedSST2Data(lit_dataset.Dataset):
             'label-LLM label consistency': self.CONSISTENCY[int(row['different_label'])],
             'features': row['features'],
             'transforms': row['transforms'],
-            'Alignment': max(0, min(1, round(float(row['alignment_score']), 2))),
+            'Align': max(0, min(1, round(float(row['alignment_score']), 2))),
             'Fluency': max(0, min(1, round(float(row['fluency_score']), 2))),
             'Grammar': max(0, min(1, round(float(row['grammar_score']), 2))),
             'old_sentence': row['old_text'],
@@ -115,9 +115,9 @@ class RankedSST2Data(lit_dataset.Dataset):
 
   def spec(self):
     return {
-        'Sentence': lit_types.TextSegment(),
+        'sentence': lit_types.TextSegment(),
         # 'old_sentence': lit_types.TextSegment(),
-        'Alignment': lit_types.Scalar(),
+        'Align': lit_types.Scalar(),
         'Fluency': lit_types.Scalar(),
         'Grammar': lit_types.Scalar(),
         'LLM label': lit_types.CategoryLabel(vocab=self.LLM_LABELS),
@@ -148,7 +148,7 @@ class RankedHateSpeechData(lit_dataset.Dataset):
       for row in reader: 
         self._examples.append({
             'idx': int(row['idx']),
-            'Sentence': row['text'],
+            'sentence': row['text'],
             'Original label': self.LABELS[int(row['label'])],
             'label': self.LABELS[int(row['label'])],
             'raw_label': row['label'],
@@ -157,7 +157,7 @@ class RankedHateSpeechData(lit_dataset.Dataset):
             'label-LLM label consistency': self.CONSISTENCY[int(row['different_label'])],
             'features': row['features'],
             'transforms': row['transforms'],
-            'Alignment': max(0, min(1, round(float(row['alignment_score']), 2))),
+            'Align': max(0, min(1, round(float(row['alignment_score']), 2))),
             'Fluency': max(0, min(1, round(float(row['fluency_score']), 2))),
             'Grammar': max(0, min(1, round(float(row['grammar_score']), 2))),
             'old_sentence': row['old_text'],
@@ -169,9 +169,9 @@ class RankedHateSpeechData(lit_dataset.Dataset):
 
   def spec(self):
     return {
-        'Sentence': lit_types.TextSegment(),
+        'sentence': lit_types.TextSegment(),
         # 'old_sentence': lit_types.TextSegment(),
-        'Alignment': lit_types.Scalar(),
+        'Align': lit_types.Scalar(),
         'Fluency': lit_types.Scalar(),
         'Grammar': lit_types.Scalar(),
         'LLM label': lit_types.CategoryLabel(vocab=self.LLM_LABELS),

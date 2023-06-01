@@ -1,7 +1,7 @@
 :host {
   --table-header-height: 24px;
   --table-footer-height: 20px;
-  --table-cell-padding: 2px 8px;
+  --table-cell-padding: 2px 4px;
 }
 
 .holder {

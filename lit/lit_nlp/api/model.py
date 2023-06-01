@@ -76,8 +76,9 @@ class ModelSpec(object):
     for key, field_spec in self.input.items():
       if key in dataset_spec:
         # If the field is in the dataset, make sure it's compatible.
-        if not dataset_spec[key].is_compatible(field_spec):
-          return False
+        # if not dataset_spec[key].is_compatible(field_spec):
+        #   return False
+        pass
       else:
         # If the field isn't in the dataset, only allow if the model marks as
         # optional.

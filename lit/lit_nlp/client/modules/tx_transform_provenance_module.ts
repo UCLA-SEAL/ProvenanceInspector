@@ -136,6 +136,23 @@ export class TxTransformProvenanceModule extends LitModule {
     return matchingDatapoints.length;
   }
 
+  private numSelectedInstances(featureIndex: number) {
+
+    var matchingDatapoints = this.filterBySimilarDataService.dataSliceOfTransformType.get(featureIndex);
+    if (!matchingDatapoints) {
+      return 0;
+    }
+
+    console.log('matchingDatapoints');
+    console.log(matchingDatapoints)
+    console.log('this.selectionService.selectedIds');
+    console.log(this.selectionService.selectedIds);
+    return matchingDatapoints.filter(matchingDatapoint => {
+      return this.selectionService.selectedIds.indexOf(matchingDatapoint['id']) > 0;
+    }).length;
+    
+  }
+
   private numMatchingHighQInstances(featureIndex : number) {
     var matchingDatapoints = this.filterBySimilarDataService.dataSliceOfTransformType.get(featureIndex);
     if (!matchingDatapoints) {
@@ -334,6 +351,7 @@ export class TxTransformProvenanceModule extends LitModule {
           <span>${that.transformNames(commonTransform)}</span>
 
           <div style="padding-top:8px; color:grey;">(${that.numMatchingInstances(commonTransform)} matching instances, </div>
+          <div style="padding-top:8px; color:grey;">(${that.numSelectedInstances(commonTransform)} selected instances, </div>
           <div style="padding-top:4px; color:grey;"> ${that.numMatchingLowQInstances(commonTransform)} inspected; ${that.numMatchingHighQInstances(commonTransform)} high quality)
           </div> 
           ` ,

@@ -32,7 +32,7 @@ import {PopupContainer} from '../elements/popup_container';
 import {app} from '../core/app';
 import {LitModule} from '../core/lit_module';
 import {ColumnHeader, DataTable, TableData} from '../elements/table';
-import {BooleanLitType, LitType, LitTypeWithVocab, Scalar, TextSegment} from '../lib/lit_types';
+import {BooleanLitType, CategoryLabel, LitType, LitTypeWithVocab, Scalar, TextSegment} from '../lib/lit_types';
 import {styles as sharedStyles} from '../lib/shared_styles.css';
 import {formatForDisplay, IndexedInput, ModelInfoMap, Spec} from '../lib/types';
 import {compareArrays} from '../lib/utils';
@@ -78,6 +78,7 @@ export class DataTableModule extends LitModule {
   // Module options / configuration state
   @observable private onlyShowGenerated: boolean = false;
   @observable private onlyShowSelected: boolean = false;
+  @observable private onlyShowInspected: boolean = false;
   @observable private showSimilar: boolean = false;
 
   // Child components
@@ -92,13 +93,17 @@ export class DataTableModule extends LitModule {
   @computed
   get keys(): ColumnHeader[] {
     function createColumnHeader(name: string, type: LitType) {
-      const header = {name, vocab: (type as LitTypeWithVocab).vocab, searchDisabled: false};
+      const header = {name, vocab: (type as LitTypeWithVocab).vocab, searchDisabled: false, sortDisabled: false};
       if (type instanceof BooleanLitType) {
         header.vocab = ['✔', ' '];
       }
       if (type instanceof Scalar) {
         header.searchDisabled = true;
       }
+      if (type instanceof CategoryLabel) {
+        header.sortDisabled = true;
+      }
+
       return header;
     }
 
@@ -150,10 +155,19 @@ export class DataTableModule extends LitModule {
   @computed
   get filteredData(): IndexedInput[] {
     // Baseline data is either the selection, the whole dataset, or filtered to be similar to the `filteredBySimilarData` data marked by the user
-    const data = 
-      // this.onlyShowSelected ?
-        // this.selectionService.selectedInputData :
-        this.appState.currentInputData;
+    var data = this.appState.currentInputData;
+    if (this.onlyShowSelected) {
+      data = this.selectionService.selectedInputData 
+    } 
+    if (this.onlyShowInspected) {
+      const inspectedInstances = this.qualityMarkService.lowQualityIndices;
+
+      data = data.filter(selectedRow => {
+        const selectedRowIndex = selectedRow.data['idx'];
+        return inspectedInstances.has(selectedRowIndex);
+      });
+    }
+      
     if (2 + 2 ==5) {
       var { transformIndices, featureIndices } = this.extractProvenance(data);
 
@@ -491,22 +505,22 @@ export class DataTableModule extends LitModule {
             });
           }
 
-          if (isPrimarySelection || isFocused || isReferenceSelection ||
-              isStarred) {
-            return html`
-              <mwc-icon style="${getActionStyle(isReferenceSelection)}"
-                class="${getActionClass(isReferenceSelection)}"
-                @click=${pinClick}
-                title=${`${isReferenceSelection ? 'Pin' : 'Unpin'} datapoint`}>
-                push_pin
-              </mwc-icon>
-              <mwc-icon style="${getActionStyle(isStarred)}" @click=${starClick}
-                class="${getActionClass(isStarred)}"
-                title=${isStarred ? 'Remove from starred slice' :
-                                    'Add to starred slice'}>
-                ${isStarred ? 'star' : 'star_border'}
-              </mwc-icon>`;
-          }
+          // if (isPrimarySelection || isFocused || isReferenceSelection ||
+          //     isStarred) {
+          //   return html`
+          //     <mwc-icon style="${getActionStyle(isReferenceSelection)}"
+          //       class="${getActionClass(isReferenceSelection)}"
+          //       @click=${pinClick}
+          //       title=${`${isReferenceSelection ? 'Pin' : 'Unpin'} datapoint`}>
+          //       push_pin
+          //     </mwc-icon>
+          //     <mwc-icon style="${getActionStyle(isStarred)}" @click=${starClick}
+          //       class="${getActionClass(isStarred)}"
+          //       title=${isStarred ? 'Remove from starred slice' :
+          //                           'Add to starred slice'}>
+          //       ${isStarred ? 'star' : 'star_border'}
+          //     </mwc-icon>`;
+          // }
           return null;
         }
 
@@ -750,6 +764,17 @@ export class DataTableModule extends LitModule {
     return html`
       <div style="display:none">${this.renderColumnDropdown()}</div>
       <div class="toggles-row">
+        <div class='switch-container'
+            @click=${() => {this.onlyShowSelected = !this.onlyShowSelected;}}>
+          <div>Only show selected</div>
+          <mwc-switch ?selected=${this.onlyShowSelected}></mwc-switch>
+        </div>
+
+        <div class='switch-container'
+            @click=${() => {this.onlyShowInspected = !this.onlyShowInspected;}}>
+          <div>Only show inspected</div>
+          <mwc-switch ?selected=${this.onlyShowInspected}></mwc-switch>
+        </div>
         <div class="number-of-interactions">
           <p> ${this.numberOfSelections} selected;
           <button class='hairline-button' @click=${onClickDeselectInspected}>

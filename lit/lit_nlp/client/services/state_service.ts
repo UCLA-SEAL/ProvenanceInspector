@@ -347,6 +347,7 @@ export class AppState extends LitService implements StateObservedByUrlService {
     // Ensure that the currentDataset is part of the available datasets for
     // the currentModel
     const availableDatasets = new Set<string>();
+    
     for (const model of this.currentModels) {
       const modelDatasets = this.metadata?.models?.[model].datasets || [];
       for (const dataset of modelDatasets) {
@@ -354,6 +355,9 @@ export class AppState extends LitService implements StateObservedByUrlService {
       }
     }
 
+    console.log('available datasets');
+    console.log(availableDatasets);
+    console.log(urlSelectedDataset);
     if (availableDatasets.has(urlSelectedDataset)) {
       // If the url param is set for creating a new dataset from a path, try
       // to do that.

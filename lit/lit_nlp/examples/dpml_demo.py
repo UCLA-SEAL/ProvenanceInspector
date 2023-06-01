@@ -31,10 +31,14 @@ _QUICKSTART = flags.DEFINE_bool(
 
 _MODELS = flags.DEFINE_list(
     "models", [
-        "sst2-tiny:sst2:https://storage.googleapis.com/what-if-tool-resources/lit-models/sst2_tiny.tar.gz",
+        # "sst2-tiny:sst2:https://storage.googleapis.com/what-if-tool-resources/lit-models/sst2_tiny.tar.gz",
         # "sst2-base:sst2:https://storage.googleapis.com/what-if-tool-resources/lit-models/sst2_base.tar.gz",
         # "stsb:stsb:https://storage.googleapis.com/what-if-tool-resources/lit-models/stsb_base.tar.gz",
         # "mnli:mnli:https://storage.googleapis.com/what-if-tool-resources/lit-models/mnli_base.tar.gz",
+        "sst2_dev:sst2:https://storage.googleapis.com/what-if-tool-resources/lit-models/sst2_tiny.tar.gz",
+        "sst2_train:sst2:https://storage.googleapis.com/what-if-tool-resources/lit-models/sst2_tiny.tar.gz",
+        "hate_dev:sst2:https://storage.googleapis.com/what-if-tool-resources/lit-models/sst2_tiny.tar.gz",
+
     ], "List of models to load, as <name>:<task>:<path>. "
     "See MODELS_BY_TASK for available tasks. Path should be the output of "
     "saving a transformers model, e.g. model.save_pretrained(path) and "
@@ -50,6 +54,10 @@ MODELS_BY_TASK = {
     "sst2": glue_models.SST2Model,
     "stsb": glue_models.STSBModel,
     "mnli": glue_models.MNLIModel,
+
+  'sst_dev':  glue_models.SST2Model,
+  'sst_train': glue_models.SST2Model,
+  'hate_dev': glue_models.SST2Model
 }
 
 # Pre-specified set of small models, which will load and run much faster.

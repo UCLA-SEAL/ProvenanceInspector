@@ -256,8 +256,8 @@ export class ToolbarComponent extends MobxLitElement {
 
   renderConfigControls() {
     // clang-format off
+    // ${this.appState.initialized ? this.renderModelInfo() : null}
     return html`
-      ${this.appState.initialized ? this.renderModelInfo() : null}
       ${this.appState.initialized ? this.renderDatasetInfo() : null}
       <div class='vertical-separator'></div>
       ${this.renderLayoutInfo()}

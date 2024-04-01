@@ -1,50 +1,20 @@
-# dpml
-Data Provenance for Machine Learning
+# Inspector
 
-## about
-A part of this project is a software engineering tool with a web-app interface,
-targeted at debugging and interpretability of NLP transformations, models, labeling, etc.
+Human-in-the-Loop Synthetic Text Data Inspection
+with Provenance Tracking
 
-Main functionalities include :
-  * **inspecting** transformation provenance and lineage
-  * **analyzing** stats on transformation effect, quality
-  * **exploring** feature-similar texts
-  * **debugging** via feature visualization
-
-
-## software components
-
-### **lineage**
-```
-- python package
-- used by lit web-app interface for lineage / provenance information
-```
+## About
+Inspector extends and builds on the Learning Interpretability Tool: https://github.com/PAIR-code/lit
+It provides an interface for human inspection of synthetically generated texts produced by data augmentation techniques. 
+Inspector allows users to group related texts by their transformation provenance, i.e., the transformations
+applied to the original text, or feature provenance, the linguistic features of the original
+text. 
+For assistive labeling, INSPECTOR computes metrics that approximate data quality, and
+allows users to compare the corresponding label of each text against the predictions of a large language model.
 
 
-### **textdiversity**
-```
-- python package
-- used by lit web-app interface for fetching "similar" texts and feature visualization (e.g AMR)
-```
 
-
-### **Web-app Interface (powered by _Google LIT_: https://github.com/PAIR-code/lit)**
-```
-- backend
-  - python based
-  - barebones WSGI implementation
-  - web api handlers can be easily interfaced with dpml packages
-    - lineage
-    - textdiversity
-
-- frontend
-  - single page typescript application
-  - powered by Google's https://lit.dev web framework
-  - uses https://mobx.js.org library for state management
-```
-
- 
-## setup instructions
+## Setup
 
 ### environment
 ```
@@ -53,11 +23,8 @@ Main functionalities include :
 
   - check with `conda info`
 
-- clone this repo
-  - git clone git@github.com:fabriceyhc/dpml.git
-
 - create a conda environmenmt
-  - conda env create -f dpml/lit/environment.yml
+  - conda env create -f lit/environment.yml
   - check with `conda env list`
 
 - always ensure this environment is activated
@@ -90,17 +57,14 @@ Main functionalities include :
 
 - lit backend
   
-  - cd into dpml/after/dpml
+  - cd into ProvenanceInspector/after/dpml
   - run `pip install -e .`
   - install additional packages
     - pip install nltk
     - pip install spacy SQLAlchemy SQLAlchemy-Utils transformers-interpret==0.8.1
     - python -m spacy download en_core_web_sm
 
-  - check with `python -c "import lineage"`
-  - also, check within `pip freeze | less`
-      # Editable install with no version control (lineage==0.0)
-      -e ....../dpml/after/dpml
+      python3 -m pip install -e <path to ProvenanceInspector>/after/dpml  
 
   - optional
     - conda install cudnn cupti  # optional, for GPU support
@@ -108,13 +72,13 @@ Main functionalities include :
 
 
 - lit fronted
-  - cd into dpml/lit/lit_nlp/
+  - cd into ProvenanceInspector/lit/lit_nlp/
   - run `yarn && yarn build`
   - alternatively run `yarn && yarn watch`
 ```
 
 
-## run
+## Run
 ```
 - cd into dpml/lit
 - run `python -m lit_nlp.examples.dpml_demo --port=5432`

@@ -11,20 +11,20 @@ from lit_nlp.api import types as lit_types
 
 from absl import logging
 
-import tensorflow_datasets as tfds
+# import tensorflow_datasets as tfds
 import csv
 
 
-def load_tfds(*args, do_sort=True, **kw):
-  """Load from TFDS, with optional sorting."""
-  # Materialize to NumPy arrays.
-  # This also ensures compatibility with TF1.x non-eager mode, which doesn't
-  # support direct iteration over a tf.data.Dataset.
-  ret = list(tfds.as_numpy(tfds.load(*args, download=True, try_gcs=True, **kw)))
-  if do_sort:
-    # Recover original order, as if you loaded from a TSV file.
-    ret.sort(key=lambda ex: ex['idx'])
-  return ret
+# def load_tfds(*args, do_sort=True, **kw):
+#   """Load from TFDS, with optional sorting."""
+#   # Materialize to NumPy arrays.
+#   # This also ensures compatibility with TF1.x non-eager mode, which doesn't
+#   # support direct iteration over a tf.data.Dataset.
+#   ret = list(tfds.as_numpy(tfds.load(*args, download=True, try_gcs=True, **kw)))
+#   if do_sort:
+#     # Recover original order, as if you loaded from a TSV file.
+#     ret.sort(key=lambda ex: ex['idx'])
+#   return ret
 
 
 class CoLAData(lit_dataset.Dataset):
@@ -38,11 +38,11 @@ class CoLAData(lit_dataset.Dataset):
 
   def __init__(self, split: str):
     self._examples = []
-    for ex in load_tfds('glue/cola', split=split):
-      self._examples.append({
-          'sentence': ex['sentence'].decode('utf-8'),
-          'label': self.LABELS[ex['label']],
-      })
+    # for ex in load_tfds('glue/cola', split=split):
+    #   self._examples.append({
+    #       'sentence': ex['sentence'].decode('utf-8'),
+    #       'label': self.LABELS[ex['label']],
+    #   })
 
   def spec(self):
     return {
@@ -61,11 +61,11 @@ class SST2Data(lit_dataset.Dataset):
 
   def __init__(self, split: str):
     self._examples = []
-    for ex in load_tfds('glue/sst2', split=split):
-      self._examples.append({
-          'sentence': ex['sentence'].decode('utf-8'),
-          'label': self.LABELS[ex['label']],
-      })
+    # for ex in load_tfds('glue/sst2', split=split):
+    #   self._examples.append({
+    #       'sentence': ex['sentence'].decode('utf-8'),
+    #       'label': self.LABELS[ex['label']],
+    #   })
 
   def spec(self):
     return {
@@ -191,12 +191,12 @@ class MRPCData(lit_dataset.Dataset):
 
   def __init__(self, split: str):
     self._examples = []
-    for ex in load_tfds('glue/mrpc', split=split):
-      self._examples.append({
-          'sentence1': ex['sentence1'].decode('utf-8'),
-          'sentence2': ex['sentence2'].decode('utf-8'),
-          'label': self.LABELS[ex['label']],
-      })
+    # for ex in load_tfds('glue/mrpc', split=split):
+    #   self._examples.append({
+    #       'sentence1': ex['sentence1'].decode('utf-8'),
+    #       'sentence2': ex['sentence2'].decode('utf-8'),
+    #       'label': self.LABELS[ex['label']],
+    #   })
 
   def spec(self):
     return {
@@ -216,12 +216,12 @@ class QQPData(lit_dataset.Dataset):
 
   def __init__(self, split: str):
     self._examples = []
-    for ex in load_tfds('glue/qqp', split=split):
-      self._examples.append({
-          'question1': ex['question1'].decode('utf-8'),
-          'question2': ex['question2'].decode('utf-8'),
-          'label': self.LABELS[ex['label']],
-      })
+    # for ex in load_tfds('glue/qqp', split=split):
+    #   self._examples.append({
+    #       'question1': ex['question1'].decode('utf-8'),
+    #       'question2': ex['question2'].decode('utf-8'),
+    #       'label': self.LABELS[ex['label']],
+    #   })
 
   def spec(self):
     return {
@@ -241,12 +241,12 @@ class STSBData(lit_dataset.Dataset):
 
   def __init__(self, split: str):
     self._examples = []
-    for ex in load_tfds('glue/stsb', split=split):
-      self._examples.append({
-          'sentence1': ex['sentence1'].decode('utf-8'),
-          'sentence2': ex['sentence2'].decode('utf-8'),
-          'label': ex['label'],
-      })
+    # for ex in load_tfds('glue/stsb', split=split):
+    #   self._examples.append({
+    #       'sentence1': ex['sentence1'].decode('utf-8'),
+    #       'sentence2': ex['sentence2'].decode('utf-8'),
+    #       'label': ex['label'],
+    #   })
 
   def spec(self):
     return {
@@ -266,12 +266,12 @@ class MNLIData(lit_dataset.Dataset):
 
   def __init__(self, split: str):
     self._examples = []
-    for ex in load_tfds('glue/mnli', split=split):
-      self._examples.append({
-          'premise': ex['premise'].decode('utf-8'),
-          'hypothesis': ex['hypothesis'].decode('utf-8'),
-          'label': self.LABELS[ex['label']],
-      })
+    # for ex in load_tfds('glue/mnli', split=split):
+    #   self._examples.append({
+    #       'premise': ex['premise'].decode('utf-8'),
+    #       'hypothesis': ex['hypothesis'].decode('utf-8'),
+    #       'label': self.LABELS[ex['label']],
+    #   })
 
   def spec(self):
     return {
@@ -291,12 +291,12 @@ class QNLIData(lit_dataset.Dataset):
 
   def __init__(self, split: str):
     self._examples = []
-    for ex in load_tfds('glue/qnli', split=split):
-      self._examples.append({
-          'question': ex['question'].decode('utf-8'),
-          'sentence': ex['sentence'].decode('utf-8'),
-          'label': self.LABELS[ex['label']],
-      })
+    # for ex in load_tfds('glue/qnli', split=split):
+    #   self._examples.append({
+    #       'question': ex['question'].decode('utf-8'),
+    #       'sentence': ex['sentence'].decode('utf-8'),
+    #       'label': self.LABELS[ex['label']],
+    #   })
 
   def spec(self):
     return {
@@ -316,12 +316,12 @@ class RTEData(lit_dataset.Dataset):
 
   def __init__(self, split: str):
     self._examples = []
-    for ex in load_tfds('glue/rte', split=split):
-      self._examples.append({
-          'sentence1': ex['sentence1'].decode('utf-8'),
-          'sentence2': ex['sentence2'].decode('utf-8'),
-          'label': self.LABELS[ex['label']],
-      })
+    # for ex in load_tfds('glue/rte', split=split):
+    #   self._examples.append({
+    #       'sentence1': ex['sentence1'].decode('utf-8'),
+    #       'sentence2': ex['sentence2'].decode('utf-8'),
+    #       'label': self.LABELS[ex['label']],
+    #   })
 
   def spec(self):
     return {

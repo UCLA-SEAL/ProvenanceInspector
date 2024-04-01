@@ -327,7 +327,12 @@ class GlueModel(lit_model.Model):
     return self.config.inference_batch_size
 
   def get_embedding_table(self):
-    return self.vocab, self.model.bert.embeddings.word_embeddings.numpy()
+    # TODO(b/236276775): Unify on the TFBertEmbeddings.weight API after
+    # transformers is updated to v4.25.1 (or newer).
+    if hasattr(self.model.bert.embeddings, "word_embeddings"):
+      return self.vocab, self.model.bert.embeddings.word_embeddings.numpy()
+    else:
+      return self.vocab, self.model.bert.embeddings.weight.numpy()
 
   def predict_minibatch(self, inputs: Iterable[JsonDict]):
     # Use watch_accessed_variables to save memory by having the tape do nothing

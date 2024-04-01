@@ -42,7 +42,7 @@ import tqdm
 
 from threading import Thread
 import lineage
-import textdiversity
+# import textdiversity
 
 JsonDict = types.JsonDict
 Input = types.Input

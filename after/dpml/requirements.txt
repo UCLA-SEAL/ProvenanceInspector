@@ -2,3 +2,5 @@ hydra-core>=1.2.0
 textdiversity>=0.0.22
 seaborn>=0.12.0
 datasets>=2.6.1
+tensorflow-datasets==4.8.0
+transformers==4.21.0

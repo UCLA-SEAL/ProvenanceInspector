@@ -1,7 +1,6 @@
 # Inspector
 
-Human-in-the-Loop Synthetic Text Data Inspection
-with Provenance Tracking
+[Human-in-the-Loop Synthetic Text Data Inspection with Provenance Tracking](https://arxiv.org/abs/2404.18881)
 
 ## About
 Inspector extends and builds on the Learning Interpretability Tool: https://github.com/PAIR-code/lit
@@ -83,4 +82,17 @@ allows users to compare the corresponding label of each text against the predict
 - cd into dpml/lit
 - run `python -m lit_nlp.examples.dpml_demo --port=5432`
 - parallelly, run `ngrok http 5432` to expose localhost:5432 to a public url
+```
+
+## Cite
+
+```
+@misc{kang2024humanintheloop,
+      title={Human-in-the-Loop Synthetic Text Data Inspection with Provenance Tracking}, 
+      author={Hong Jin Kang and Fabrice Harel-Canada and Muhammad Ali Gulzar and Violet Peng and Miryung Kim},
+      year={2024},
+      eprint={2404.18881},
+      archivePrefix={arXiv},
+      primaryClass={id='cs.HC' full_name='Human-Computer Interaction' is_active=True alt_name=None in_archive='cs' is_general=False description='Covers human factors, user interfaces, and collaborative computing. Roughly includes material in ACM Subject Classes H.1.2 and all of H.5, except for H.5.1, which is more likely to have Multimedia as the primary subject area.'}
+}
 ```

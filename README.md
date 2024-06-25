@@ -87,12 +87,23 @@ allows users to compare the corresponding label of each text against the predict
 ## Cite
 
 ```
-@misc{kang2024humanintheloop,
-      title={Human-in-the-Loop Synthetic Text Data Inspection with Provenance Tracking}, 
-      author={Hong Jin Kang and Fabrice Harel-Canada and Muhammad Ali Gulzar and Violet Peng and Miryung Kim},
-      year={2024},
-      eprint={2404.18881},
-      archivePrefix={arXiv},
-      primaryClass={id='cs.HC' full_name='Human-Computer Interaction' is_active=True alt_name=None in_archive='cs' is_general=False description='Covers human factors, user interfaces, and collaborative computing. Roughly includes material in ACM Subject Classes H.1.2 and all of H.5, except for H.5.1, which is more likely to have Multimedia as the primary subject area.'}
+@inproceedings{kang-etal-2024-human,
+    title = "Human-in-the-Loop Synthetic Text Data Inspection with Provenance Tracking",
+    author = "Kang, Hong Jin  and
+      Harel-Canada, Fabrice  and
+      Gulzar, Muhammad Ali  and
+      Peng, Nanyun  and
+      Kim, Miryung",
+    editor = "Duh, Kevin  and
+      Gomez, Helena  and
+      Bethard, Steven",
+    booktitle = "Findings of the Association for Computational Linguistics: NAACL 2024",
+    month = jun,
+    year = "2024",
+    address = "Mexico City, Mexico",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2024.findings-naacl.197",
+    pages = "3118--3129",
+    abstract = "Data augmentation techniques apply transformations to existing texts to generate additional data. The transformations may produce low-quality texts, where the meaning of the text is changed and the text may even be mangled beyond human comprehension. Analyzing the synthetically generated texts and their corresponding labels is slow and demanding. To winnow out texts with incorrect labels, we develop INSPECTOR, a human-in-the-loop data inspection technique. INSPECTOR combines the strengths of provenance tracking techniques with assistive labeling. INSPECTOR allows users to group related texts by their $\textit{transformation provenance}$, i.e., the transformations applied to the original text, or $\textit{feature provenance}$, the linguistic features of the original text. For assistive labeling, INSPECTOR computes metrics that approximate data quality, and allows users to compare the corresponding label of each text against the predictions of a large language model. In a user study, INSPECTOR increases the number of texts with correct labels identified by $3\times$ on a sentiment analysis task and by $4\times$ on a hate speech detection task. The participants found grouping the synthetically generated texts by their common transformation to be the most useful technique. Surprisingly, grouping texts by common linguistic features was perceived to be unhelpful. Contrary to prior work, our study finds that no single technique obviates the need for human inspection effort. This validates the design of INSPECTOR which combines both analysis of data provenance and assistive labeling to reduce human inspection effort.",
 }
 ```

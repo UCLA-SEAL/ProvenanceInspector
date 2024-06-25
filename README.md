@@ -1,6 +1,6 @@
 # Inspector
 
-[Human-in-the-Loop Synthetic Text Data Inspection with Provenance Tracking](https://arxiv.org/abs/2404.18881)
+[Human-in-the-Loop Synthetic Text Data Inspection with Provenance Tracking](https://aclanthology.org/2024.findings-naacl.197)
 
 ## About
 Inspector extends and builds on the Learning Interpretability Tool: https://github.com/PAIR-code/lit
